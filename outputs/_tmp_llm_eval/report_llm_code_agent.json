@@ -1,0 +1,257 @@
+{
+  "mode": "llm_code_agent",
+  "canonical_mode": "llm_code_agent",
+  "access_mode": "public",
+  "bench_root": "outputs\\hdrbench_full150_v1",
+  "num_records": 1,
+  "asr_by_setting": {
+    "l0.full": 0.0
+  },
+  "pass_rate_by_setting": {
+    "l0.full": 1.0
+  },
+  "pass_count_by_setting": {
+    "l0.full": {
+      "passed": 1,
+      "total": 1
+    }
+  },
+  "attribution_by_setting": {
+    "l0.full": {
+      "PASS": 1
+    }
+  },
+  "asr_by_split": {
+    "l0": 0.0
+  },
+  "pass_rate_by_split": {
+    "l0": 1.0
+  },
+  "asr_by_view": {},
+  "pass_rate_by_view": {},
+  "pass_count_by_view": {},
+  "attribution_by_view": {},
+  "records": [
+    {
+      "seed_id": "spider__aircraft__04821",
+      "variant": "A",
+      "split": "l0",
+      "view": "full",
+      "pass": true,
+      "score": 1.0,
+      "stage": null,
+      "attribution": "PASS",
+      "meta": {
+        "success": true,
+        "files_touched": [
+          "aircraft.sqlite",
+          "gold.csv"
+        ],
+        "error": null,
+        "workspace_summary": {
+          "workspace_name": "universe_l0",
+          "files": [
+            {
+              "file": "aircraft.sqlite",
+              "type": "sqlite",
+              "tables": [
+                {
+                  "name": "MATCH",
+                  "columns": [
+                    "Round",
+                    "Location",
+                    "Country",
+                    "Date",
+                    "Fastest_Qualifying",
+                    "Winning_Pilot",
+                    "Winning_Aircraft"
+                  ],
+                  "sample_rows": [
+                    {
+                      "Round": 1.0,
+                      "Location": "Mina' Zayid , Abu Dhabi",
+                      "Country": "United Arab Emirates",
+                      "Date": "March 26–27",
+                      "Fastest_Qualifying": "Hannes Arch",
+                      "Winning_Pilot": "1",
+                      "Winning_Aircraft": "1"
+                    },
+                    {
+                      "Round": 2.0,
+                      "Location": "Swan River , Perth",
+                      "Country": "Australia",
+                      "Date": "April 17–18",
+                      "Fastest_Qualifying": "Paul Bonhomme",
+                      "Winning_Pilot": "4",
+                      "Winning_Aircraft": "1"
+                    },
+                    {
+                      "Round": 3.0,
+                      "Location": "Flamengo Beach , Rio de Janeiro",
+                      "Country": "Brazil",
+                      "Date": "May 8–9",
+                      "Fastest_Qualifying": "Hannes Arch",
+                      "Winning_Pilot": "6",
+                      "Winning_Aircraft": "2"
+                    }
+                  ]
+                },
+                {
+                  "name": "aircraft",
+                  "columns": [
+                    "Aircraft_ID",
+                    "Aircraft",
+                    "Description",
+                    "Max_Gross_Weight",
+                    "Total_disk_area",
+                    "Max_disk_Loading"
+                  ],
+                  "sample_rows": [
+                    {
+                      "Aircraft_ID": 1,
+                      "Aircraft": "Robinson R-22",
+                      "Description": "Light utility helicopter",
+                      "Max_Gross_Weight": "1,370 lb (635 kg)",
+                      "Total_disk_area": "497 ft² (46.2 m²)",
+                      "Max_disk_Loading": "2.6 lb/ft² (14 kg/m²)"
+                    },
+                    {
+                      "Aircraft_ID": 2,
+                      "Aircraft": "Bell 206B3 JetRanger",
+                      "Description": "Turboshaft utility helicopter",
+                      "Max_Gross_Weight": "3,200 lb (1,451 kg)",
+                      "Total_disk_area": "872 ft² (81.1 m²)",
+                      "Max_disk_Loading": "3.7 lb/ft² (18 kg/m²)"
+                    },
+                    {
+                      "Aircraft_ID": 3,
+                      "Aircraft": "CH-47D Chinook",
+                      "Description": "Tandem rotor helicopter",
+                      "Max_Gross_Weight": "50,000 lb (22,680 kg)",
+                      "Total_disk_area": "5,655 ft² (526 m²)",
+                      "Max_disk_Loading": "8.8 lb/ft² (43 kg/m²)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "gold.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "gold",
+                  "columns": [
+                    "Location",
+                    "Aircraft"
+                  ],
+                  "sample_rows": [
+                    {
+                      "Location": "Mina' Zayid , Abu Dhabi",
+                      "Aircraft": "Robinson R-22"
+                    },
+                    {
+                      "Location": "Swan River , Perth",
+                      "Aircraft": "Robinson R-22"
+                    },
+                    {
+                      "Location": "Flamengo Beach , Rio de Janeiro",
+                      "Aircraft": "Bell 206B3 JetRanger"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "gold.sql",
+              "type": "sql",
+              "tables": []
+            },
+            {
+              "file": "manifest_l0.json",
+              "type": "json",
+              "tables": []
+            }
+          ]
+        },
+        "planner_output": {
+          "relevant_files": [
+            "aircraft.sqlite",
+            "gold.csv"
+          ],
+          "reasoning": "heuristic_planner_fallback",
+          "candidate_joins": [
+            {
+              "left_table": "MATCH",
+              "right_table": "aircraft",
+              "left_key": "Winning_Aircraft",
+              "right_key": "Aircraft_ID",
+              "left_norm": "identity",
+              "right_norm": "identity"
+            }
+          ],
+          "expected_output_columns": [
+            "Location",
+            "Aircraft"
+          ],
+          "backend": "duckdb",
+          "output_mappings": [
+            {
+              "output_column": "Location",
+              "source_file": "aircraft.sqlite",
+              "source_table": "MATCH",
+              "source_column": "Location",
+              "score": 50.0
+            },
+            {
+              "output_column": "Aircraft",
+              "source_file": "aircraft.sqlite",
+              "source_table": "aircraft",
+              "source_column": "Aircraft",
+              "score": 59.87163120567376
+            }
+          ],
+          "duckdb_sql": "SELECT t1.\"Location\" AS \"Location\", t2.\"Aircraft\" AS \"Aircraft\" FROM \"MATCH\" AS t1 JOIN \"aircraft\" AS t2 ON t1.\"Winning_Aircraft\" = t2.\"Aircraft_ID\"",
+          "plan_score": 136.62163120567376
+        },
+        "final_sql": "SELECT t1.\"Location\" AS \"Location\", t2.\"Aircraft\" AS \"Aircraft\" FROM \"MATCH\" AS t1 JOIN \"aircraft\" AS t2 ON t1.\"Winning_Aircraft\" = t2.\"Aircraft_ID\"",
+        "generated_code_round1": "",
+        "generated_code_round2": "",
+        "execution_round1": {
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "time_seconds": 0.0628,
+          "output_exists": true,
+          "files_touched": [
+            "aircraft.sqlite",
+            "gold.csv"
+          ]
+        },
+        "execution_round2": null,
+        "execution_summary": {
+          "planner_sql_execution": {
+            "returncode": 0,
+            "stdout": "",
+            "stderr": "",
+            "time_seconds": 0.0628,
+            "output_exists": true,
+            "files_touched": [
+              "aircraft.sqlite",
+              "gold.csv"
+            ]
+          },
+          "code_round1": null,
+          "code_round2": null
+        },
+        "agent_impl": "llm_code_agent",
+        "wall_clock_time": 13.2035,
+        "llm_calls_used": 1,
+        "llm_calls_budget": 4,
+        "split": "l0",
+        "view": "full",
+        "requested_mode": "llm_code_agent"
+      }
+    }
+  ]
+}

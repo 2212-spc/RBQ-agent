@@ -1,0 +1,810 @@
+{
+  "mode": "contrastive_agent",
+  "canonical_mode": "support_plan_agent",
+  "access_mode": "public",
+  "bench_root": "outputs\\hdrbench_full150_v1",
+  "num_records": 1,
+  "asr_by_setting": {
+    "l0.full": 0.0
+  },
+  "pass_rate_by_setting": {
+    "l0.full": 0.0
+  },
+  "pass_count_by_setting": {
+    "l0.full": {
+      "passed": 0,
+      "total": 1
+    }
+  },
+  "attribution_by_setting": {
+    "l0.full": {
+      "QUERY_FAIL": 1
+    }
+  },
+  "asr_by_split": {
+    "l0": 0.0
+  },
+  "pass_rate_by_split": {
+    "l0": 0.0
+  },
+  "asr_by_view": {},
+  "pass_rate_by_view": {},
+  "pass_count_by_view": {},
+  "attribution_by_view": {},
+  "records": [
+    {
+      "seed_id": "spider__aircraft__04821",
+      "variant": "A",
+      "split": "l0",
+      "view": "full",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "attribution": "QUERY_FAIL",
+      "meta": {
+        "success": true,
+        "files_touched": [
+          "aircraft.sqlite"
+        ],
+        "error": null,
+        "workspace_summary": {
+          "workspace_name": "universe_l0",
+          "files": [
+            {
+              "file": "aircraft.sqlite",
+              "type": "sqlite",
+              "tables": [
+                {
+                  "name": "MATCH",
+                  "columns": [
+                    "Round",
+                    "Location",
+                    "Country",
+                    "Date",
+                    "Fastest_Qualifying",
+                    "Winning_Pilot",
+                    "Winning_Aircraft"
+                  ],
+                  "sample_rows": [
+                    {
+                      "Round": 1.0,
+                      "Location": "Mina' Zayid , Abu Dhabi",
+                      "Country": "United Arab Emirates",
+                      "Date": "March 26–27",
+                      "Fastest_Qualifying": "Hannes Arch",
+                      "Winning_Pilot": "1",
+                      "Winning_Aircraft": "1"
+                    },
+                    {
+                      "Round": 2.0,
+                      "Location": "Swan River , Perth",
+                      "Country": "Australia",
+                      "Date": "April 17–18",
+                      "Fastest_Qualifying": "Paul Bonhomme",
+                      "Winning_Pilot": "4",
+                      "Winning_Aircraft": "1"
+                    },
+                    {
+                      "Round": 3.0,
+                      "Location": "Flamengo Beach , Rio de Janeiro",
+                      "Country": "Brazil",
+                      "Date": "May 8–9",
+                      "Fastest_Qualifying": "Hannes Arch",
+                      "Winning_Pilot": "6",
+                      "Winning_Aircraft": "2"
+                    }
+                  ]
+                },
+                {
+                  "name": "aircraft",
+                  "columns": [
+                    "Aircraft_ID",
+                    "Aircraft",
+                    "Description",
+                    "Max_Gross_Weight",
+                    "Total_disk_area",
+                    "Max_disk_Loading"
+                  ],
+                  "sample_rows": [
+                    {
+                      "Aircraft_ID": 1,
+                      "Aircraft": "Robinson R-22",
+                      "Description": "Light utility helicopter",
+                      "Max_Gross_Weight": "1,370 lb (635 kg)",
+                      "Total_disk_area": "497 ft² (46.2 m²)",
+                      "Max_disk_Loading": "2.6 lb/ft² (14 kg/m²)"
+                    },
+                    {
+                      "Aircraft_ID": 2,
+                      "Aircraft": "Bell 206B3 JetRanger",
+                      "Description": "Turboshaft utility helicopter",
+                      "Max_Gross_Weight": "3,200 lb (1,451 kg)",
+                      "Total_disk_area": "872 ft² (81.1 m²)",
+                      "Max_disk_Loading": "3.7 lb/ft² (18 kg/m²)"
+                    },
+                    {
+                      "Aircraft_ID": 3,
+                      "Aircraft": "CH-47D Chinook",
+                      "Description": "Tandem rotor helicopter",
+                      "Max_Gross_Weight": "50,000 lb (22,680 kg)",
+                      "Total_disk_area": "5,655 ft² (526 m²)",
+                      "Max_disk_Loading": "8.8 lb/ft² (43 kg/m²)"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "gold.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "gold",
+                  "columns": [
+                    "Location",
+                    "Aircraft"
+                  ],
+                  "sample_rows": [
+                    {
+                      "Location": "Mina' Zayid , Abu Dhabi",
+                      "Aircraft": "Robinson R-22"
+                    },
+                    {
+                      "Location": "Swan River , Perth",
+                      "Aircraft": "Robinson R-22"
+                    },
+                    {
+                      "Location": "Flamengo Beach , Rio de Janeiro",
+                      "Aircraft": "Bell 206B3 JetRanger"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "gold.sql",
+              "type": "sql",
+              "tables": []
+            },
+            {
+              "file": "manifest_l0.json",
+              "type": "json",
+              "tables": []
+            }
+          ]
+        },
+        "observable_sketch": {
+          "output_slots": [
+            {
+              "label": "Location",
+              "role": "entity",
+              "metadata": {}
+            },
+            {
+              "label": "Aircraft",
+              "role": "entity",
+              "metadata": {}
+            }
+          ],
+          "filter_hints": [],
+          "time_hints": {
+            "years": [],
+            "months": []
+          },
+          "measure_hints": [],
+          "grouping_hints": [],
+          "operator_hints": [],
+          "order_hint": {},
+          "raw_response": {
+            "output_slots": [
+              {
+                "label": "Location",
+                "role": "dimension"
+              },
+              {
+                "label": "Aircraft",
+                "role": "dimension"
+              }
+            ],
+            "filter_hints": [],
+            "time_hints": {
+              "years": [],
+              "months": []
+            },
+            "measure_hints": [],
+            "grouping_hints": [],
+            "operator_hints": [],
+            "order_hint": null
+          }
+        },
+        "obligation_sketch": {
+          "obligations": [
+            {
+              "name": "support_relation",
+              "probability": 0.9,
+              "reason": "The question asks for 'location and the winning aircraft name', implying a relationship between location and aircraft, likely from an event or competition where an aircraft wins at a specific location."
+            },
+            {
+              "name": "filter_transfer",
+              "probability": 0.25,
+              "reason": "The term 'winning' suggests a filter condition based on a victory or competition outcome, which may need to be transferred to the data query to identify relevant aircraft."
+            },
+            {
+              "name": "multihop",
+              "probability": 0.6,
+              "reason": "To link aircraft to location via winning events, multiple steps or joins might be required, such as connecting aircraft to competitions and then to locations."
+            },
+            {
+              "name": "value_alignment",
+              "probability": 0.5,
+              "reason": "The output slots 'Location' and 'Aircraft' need to align with the specific values for winning aircraft names and their corresponding locations, ensuring accuracy in the results."
+            },
+            {
+              "name": "aggregation_support",
+              "probability": 0.2,
+              "reason": "Aggregation is less likely as the question requests a list without explicit summary functions, but might involve grouping if multiple wins per location exist."
+            }
+          ],
+          "role_priors": [
+            {
+              "role": "entity",
+              "target": "Location",
+              "probability": 0.9,
+              "reason": "Location is specified as an output slot with role 'entity', indicating it is a key dimension to retrieve in the query."
+            },
+            {
+              "role": "entity",
+              "target": "Aircraft",
+              "probability": 0.9,
+              "reason": "Aircraft is specified as an output slot with role 'entity', indicating it is a key dimension to retrieve in the query."
+            },
+            {
+              "role": "filter",
+              "target": "winning",
+              "probability": 0.8,
+              "reason": "The term 'winning' implies a filter condition on aircraft or events, likely based on competition outcomes or victory status."
+            },
+            {
+              "role": "relation",
+              "target": "event or competition",
+              "probability": 0.7,
+              "reason": "To link aircraft and location, a relation such as an event or competition where aircraft win may be necessary in the data model."
+            }
+          ],
+          "family_labels": [
+            {
+              "label": "entity_retrieval_with_filter",
+              "probability": 0.8,
+              "reason": "The query involves retrieving entities (location and aircraft) with a filter condition based on 'winning' to narrow down results."
+            },
+            {
+              "label": "relational_join",
+              "probability": 0.7,
+              "reason": "Likely requires joining tables or data sources to connect aircraft, events, and locations for a coherent answer."
+            }
+          ],
+          "raw_response": {
+            "atomic_obligations": [
+              {
+                "name": "support_relation",
+                "probability": 0.9,
+                "reason": "The question asks for 'location and the winning aircraft name', implying a relationship between location and aircraft, likely from an event or competition where an aircraft wins at a specific location."
+              },
+              {
+                "name": "filter_transfer",
+                "probability": 0.7,
+                "reason": "The term 'winning' suggests a filter condition based on a victory or competition outcome, which may need to be transferred to the data query to identify relevant aircraft."
+              },
+              {
+                "name": "multihop",
+                "probability": 0.6,
+                "reason": "To link aircraft to location via winning events, multiple steps or joins might be required, such as connecting aircraft to competitions and then to locations."
+              },
+              {
+                "name": "value_alignment",
+                "probability": 0.5,
+                "reason": "The output slots 'Location' and 'Aircraft' need to align with the specific values for winning aircraft names and their corresponding locations, ensuring accuracy in the results."
+              },
+              {
+                "name": "aggregation_support",
+                "probability": 0.3,
+                "reason": "Aggregation is less likely as the question requests a list without explicit summary functions, but might involve grouping if multiple wins per location exist."
+              }
+            ],
+            "role_priors": [
+              {
+                "role": "entity",
+                "target": "Location",
+                "probability": 0.9,
+                "reason": "Location is specified as an output slot with role 'entity', indicating it is a key dimension to retrieve in the query."
+              },
+              {
+                "role": "entity",
+                "target": "Aircraft",
+                "probability": 0.9,
+                "reason": "Aircraft is specified as an output slot with role 'entity', indicating it is a key dimension to retrieve in the query."
+              },
+              {
+                "role": "filter",
+                "target": "winning",
+                "probability": 0.8,
+                "reason": "The term 'winning' implies a filter condition on aircraft or events, likely based on competition outcomes or victory status."
+              },
+              {
+                "role": "relation",
+                "target": "event or competition",
+                "probability": 0.7,
+                "reason": "To link aircraft and location, a relation such as an event or competition where aircraft win may be necessary in the data model."
+              }
+            ],
+            "family_labels": [
+              {
+                "label": "entity_retrieval_with_filter",
+                "probability": 0.8,
+                "reason": "The query involves retrieving entities (location and aircraft) with a filter condition based on 'winning' to narrow down results."
+              },
+              {
+                "label": "relational_join",
+                "probability": 0.7,
+                "reason": "Likely requires joining tables or data sources to connect aircraft, events, and locations for a coherent answer."
+              }
+            ]
+          }
+        },
+        "search_summary": {
+          "candidates_considered": 10,
+          "search_log": [
+            {
+              "kind": "support_candidate",
+              "output_sources": [
+                "aircraft.sqlite::aircraft",
+                "aircraft.sqlite::aircraft"
+              ],
+              "support_source": "aircraft.sqlite::MATCH",
+              "anchor_score": 0.0
+            },
+            {
+              "kind": "support_candidate",
+              "output_sources": [
+                "aircraft.sqlite::aircraft",
+                "aircraft.sqlite::aircraft"
+              ],
+              "support_source": "aircraft.sqlite::aircraft",
+              "anchor_score": 1.0
+            },
+            {
+              "kind": "support_candidate",
+              "output_sources": [
+                "aircraft.sqlite::aircraft",
+                "aircraft.sqlite::aircraft"
+              ],
+              "support_source": "aircraft.sqlite::MATCH",
+              "anchor_score": 0.0
+            },
+            {
+              "kind": "support_candidate",
+              "output_sources": [
+                "aircraft.sqlite::aircraft",
+                "aircraft.sqlite::aircraft"
+              ],
+              "support_source": "aircraft.sqlite::aircraft",
+              "anchor_score": 1.0
+            },
+            {
+              "kind": "support_candidate",
+              "output_sources": [
+                "aircraft.sqlite::MATCH",
+                "aircraft.sqlite::MATCH"
+              ],
+              "support_source": "aircraft.sqlite::MATCH",
+              "anchor_score": 1.0
+            },
+            {
+              "kind": "support_candidate",
+              "output_sources": [
+                "aircraft.sqlite::MATCH",
+                "aircraft.sqlite::MATCH"
+              ],
+              "support_source": "aircraft.sqlite::aircraft",
+              "anchor_score": 0.0
+            },
+            {
+              "kind": "support_candidate",
+              "output_sources": [
+                "aircraft.sqlite::aircraft",
+                "aircraft.sqlite::aircraft"
+              ],
+              "support_source": "aircraft.sqlite::MATCH",
+              "anchor_score": 0.0
+            },
+            {
+              "kind": "support_candidate",
+              "output_sources": [
+                "aircraft.sqlite::aircraft",
+                "aircraft.sqlite::aircraft"
+              ],
+              "support_source": "aircraft.sqlite::aircraft",
+              "anchor_score": 1.0
+            },
+            {
+              "kind": "support_candidate",
+              "output_sources": [
+                "aircraft.sqlite::aircraft",
+                "aircraft.sqlite::aircraft"
+              ],
+              "support_source": "aircraft.sqlite::MATCH",
+              "anchor_score": 0.0
+            },
+            {
+              "kind": "support_candidate",
+              "output_sources": [
+                "aircraft.sqlite::aircraft",
+                "aircraft.sqlite::aircraft"
+              ],
+              "support_source": "aircraft.sqlite::aircraft",
+              "anchor_score": 1.0
+            }
+          ]
+        },
+        "support_plan": {
+          "output_bindings": [
+            {
+              "source_id": "aircraft.sqlite::MATCH",
+              "file_name": "aircraft.sqlite",
+              "view_name": "aircraft_match",
+              "column_name": "Location",
+              "role": "entity",
+              "score": 24.818181818181817,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible"
+              ],
+              "metadata": {
+                "slot_label": "Location"
+              }
+            },
+            {
+              "source_id": "aircraft.sqlite::MATCH",
+              "file_name": "aircraft.sqlite",
+              "view_name": "aircraft_match",
+              "column_name": "Winning_Aircraft",
+              "role": "entity",
+              "score": 5.818181818181818,
+              "reasons": [
+                "label_substring_match"
+              ],
+              "metadata": {
+                "slot_label": "Aircraft"
+              }
+            }
+          ],
+          "output_join_paths": [],
+          "support_binding": {
+            "source_id": "aircraft.sqlite::MATCH",
+            "file_name": "aircraft.sqlite",
+            "view_name": "aircraft_match",
+            "column_name": "Round",
+            "role": "support",
+            "score": 4.090909090909091,
+            "reasons": [
+              "fact_source_bonus",
+              "same_source_penalty"
+            ],
+            "metadata": {}
+          },
+          "anchor_binding": {
+            "path_source_ids": [
+              "aircraft.sqlite::MATCH"
+            ],
+            "edges": [],
+            "score": 1.0,
+            "notes": [
+              "same_source"
+            ]
+          },
+          "evidence_bindings": [],
+          "measure_binding": null,
+          "filter_bindings": [],
+          "operator_plan": {
+            "aggregation": null,
+            "direction": null,
+            "limit": null,
+            "group_by": false,
+            "exists": false
+          },
+          "satisfied_obligations": [
+            "support_relation",
+            "multihop",
+            "value_alignment"
+          ],
+          "unmet_obligations": [],
+          "confidence": 73.65467272727273,
+          "source_trace": [
+            "aircraft.sqlite::MATCH"
+          ],
+          "notes": [
+            "support_relation_plan"
+          ]
+        },
+        "support_ir": {
+          "kind": "aggregation_support",
+          "compile_ready": true,
+          "steps": [
+            {
+              "op": "SCAN",
+              "args": {
+                "source_id": "aircraft.sqlite::MATCH",
+                "view_name": "aircraft_match",
+                "role": "output"
+              }
+            },
+            {
+              "op": "SCAN",
+              "args": {
+                "source_id": "aircraft.sqlite::MATCH",
+                "view_name": "aircraft_match",
+                "role": "support"
+              }
+            },
+            {
+              "op": "PROJECT",
+              "args": {
+                "columns": [
+                  {
+                    "source_id": "aircraft.sqlite::MATCH",
+                    "file_name": "aircraft.sqlite",
+                    "view_name": "aircraft_match",
+                    "column_name": "Location",
+                    "role": "entity",
+                    "score": 24.818181818181817,
+                    "reasons": [
+                      "exact_column_match",
+                      "label_substring_match",
+                      "text_compatible"
+                    ],
+                    "metadata": {
+                      "slot_label": "Location"
+                    }
+                  },
+                  {
+                    "source_id": "aircraft.sqlite::MATCH",
+                    "file_name": "aircraft.sqlite",
+                    "view_name": "aircraft_match",
+                    "column_name": "Winning_Aircraft",
+                    "role": "entity",
+                    "score": 5.818181818181818,
+                    "reasons": [
+                      "label_substring_match"
+                    ],
+                    "metadata": {
+                      "slot_label": "Aircraft"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "metadata": {
+            "primary_output_source_id": "aircraft.sqlite::MATCH",
+            "support_source_id": "aircraft.sqlite::MATCH",
+            "required_columns": [
+              "Location",
+              "Aircraft"
+            ],
+            "aggregation": null,
+            "direction": null,
+            "limit": null
+          },
+          "compile_reason": null
+        },
+        "verifier_trace": [
+          {
+            "check": "output_binding",
+            "score": 15.3182,
+            "passed": true,
+            "evidence": [
+              {
+                "source_id": "aircraft.sqlite::MATCH",
+                "file_name": "aircraft.sqlite",
+                "view_name": "aircraft_match",
+                "column_name": "Location",
+                "role": "entity",
+                "score": 24.818181818181817,
+                "reasons": [
+                  "exact_column_match",
+                  "label_substring_match",
+                  "text_compatible"
+                ],
+                "metadata": {
+                  "slot_label": "Location"
+                }
+              },
+              {
+                "source_id": "aircraft.sqlite::MATCH",
+                "file_name": "aircraft.sqlite",
+                "view_name": "aircraft_match",
+                "column_name": "Winning_Aircraft",
+                "role": "entity",
+                "score": 5.818181818181818,
+                "reasons": [
+                  "label_substring_match"
+                ],
+                "metadata": {
+                  "slot_label": "Aircraft"
+                }
+              }
+            ]
+          },
+          {
+            "check": "support_relation",
+            "score": 2.5455,
+            "passed": true,
+            "evidence": {
+              "support_binding": {
+                "source_id": "aircraft.sqlite::MATCH",
+                "file_name": "aircraft.sqlite",
+                "view_name": "aircraft_match",
+                "column_name": "Round",
+                "role": "support",
+                "score": 4.090909090909091,
+                "reasons": [
+                  "fact_source_bonus",
+                  "same_source_penalty"
+                ],
+                "metadata": {}
+              },
+              "anchor_binding": {
+                "path_source_ids": [
+                  "aircraft.sqlite::MATCH"
+                ],
+                "edges": [],
+                "score": 1.0,
+                "notes": [
+                  "same_source"
+                ]
+              }
+            }
+          },
+          {
+            "check": "value_alignment",
+            "score": 1.0,
+            "passed": true,
+            "evidence": {
+              "path_source_ids": [
+                "aircraft.sqlite::MATCH"
+              ],
+              "edges": [],
+              "score": 1.0,
+              "notes": [
+                "same_source"
+              ]
+            }
+          },
+          {
+            "check": "role_consistency",
+            "score": 0.6,
+            "passed": true,
+            "evidence": {
+              "support_source": "aircraft.sqlite::MATCH",
+              "output_source": "aircraft.sqlite::MATCH"
+            }
+          }
+        ],
+        "planner_output": {
+          "relevant_files": [
+            "aircraft.sqlite"
+          ],
+          "output_bindings": [
+            {
+              "source_id": "aircraft.sqlite::MATCH",
+              "file_name": "aircraft.sqlite",
+              "view_name": "aircraft_match",
+              "column_name": "Location",
+              "role": "entity",
+              "score": 24.818181818181817,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible"
+              ],
+              "metadata": {
+                "slot_label": "Location"
+              }
+            },
+            {
+              "source_id": "aircraft.sqlite::MATCH",
+              "file_name": "aircraft.sqlite",
+              "view_name": "aircraft_match",
+              "column_name": "Winning_Aircraft",
+              "role": "entity",
+              "score": 5.818181818181818,
+              "reasons": [
+                "label_substring_match"
+              ],
+              "metadata": {
+                "slot_label": "Aircraft"
+              }
+            }
+          ],
+          "output_mappings": [
+            {
+              "slot_id": "Location",
+              "source_file": "aircraft.sqlite",
+              "source_id": "aircraft.sqlite::MATCH",
+              "source_column": "Location"
+            },
+            {
+              "slot_id": "Aircraft",
+              "source_file": "aircraft.sqlite",
+              "source_id": "aircraft.sqlite::MATCH",
+              "source_column": "Winning_Aircraft"
+            }
+          ],
+          "support_bindings": [
+            {
+              "source_id": "aircraft.sqlite::MATCH",
+              "file_name": "aircraft.sqlite",
+              "view_name": "aircraft_match",
+              "column_name": "Round",
+              "role": "support",
+              "score": 4.090909090909091,
+              "reasons": [
+                "fact_source_bonus",
+                "same_source_penalty"
+              ],
+              "metadata": {}
+            }
+          ],
+          "anchor_bindings": [
+            {
+              "path_source_ids": [
+                "aircraft.sqlite::MATCH"
+              ],
+              "edges": [],
+              "score": 1.0,
+              "notes": [
+                "same_source"
+              ]
+            }
+          ]
+        },
+        "final_sql": "WITH support_cte AS (SELECT t0.\"Location\" AS output_anchor_key, COUNT(*) AS support_value FROM \"aircraft_match\" AS t0 GROUP BY t0.\"Location\") SELECT o0.\"Location\" AS \"Location\", o0.\"Winning_Aircraft\" AS \"Aircraft\" FROM \"aircraft_match\" AS o0  JOIN support_cte AS s ON o0.\"Location\" = s.output_anchor_key",
+        "execution_summary": {
+          "success": true,
+          "row_count": 7,
+          "columns": [
+            "Location",
+            "Aircraft"
+          ],
+          "preview": [
+            {
+              "Location": "Mina' Zayid , Abu Dhabi",
+              "Aircraft": "1"
+            },
+            {
+              "Location": "Swan River , Perth",
+              "Aircraft": "1"
+            },
+            {
+              "Location": "Flamengo Beach , Rio de Janeiro",
+              "Aircraft": "2"
+            }
+          ],
+          "files_touched": [
+            "aircraft.sqlite"
+          ]
+        },
+        "critique": null,
+        "agent_impl": "support_plan_agent",
+        "wall_clock_time": 0.1601,
+        "llm_calls_used": 2,
+        "llm_calls_budget": 4,
+        "split": "l0",
+        "view": "full",
+        "requested_mode": "contrastive_agent",
+        "deprecated_alias": true
+      }
+    }
+  ]
+}

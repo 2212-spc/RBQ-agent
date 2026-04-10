@@ -1,0 +1,141 @@
+{
+  "counts": {
+    "A_path_gap": 5,
+    "C_calibration_overreach": 19,
+    "B_world_not_found": 5
+  },
+  "examples": {
+    "A_path_gap": [
+      {
+        "seed_id": "spider__aircraft__04821",
+        "variant": "A",
+        "split": "l2",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": [
+          "output_binding_not_supported_by_calibrated_prior"
+        ]
+      },
+      {
+        "seed_id": "spider__assets_maintenance__03144",
+        "variant": "A",
+        "split": "l2",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": [
+          "direct_aggregation_without_measure_output"
+        ]
+      },
+      {
+        "seed_id": "spider__college_3__04695",
+        "variant": "A",
+        "split": "l2",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": []
+      },
+      {
+        "seed_id": "spider__customer_complaints__05794",
+        "variant": "A",
+        "split": "l2",
+        "hard_invalid_reasons": [
+          "filter_binding_type_conflict"
+        ],
+        "semantic_complete_reasons": [
+          "low_confidence_filter_binding",
+          "filter_binding_type_conflict"
+        ]
+      },
+      {
+        "seed_id": "spider__musical__00254",
+        "variant": "A",
+        "split": "l2",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": []
+      }
+    ],
+    "C_calibration_overreach": [
+      {
+        "seed_id": "spider__apartment_rentals__01244",
+        "variant": "A",
+        "split": "l2",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": [
+          "low_confidence_filter_binding"
+        ]
+      },
+      {
+        "seed_id": "spider__body_builder__01162",
+        "variant": "A",
+        "split": "l2",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": [
+          "output_binding_not_supported_by_calibrated_prior"
+        ]
+      },
+      {
+        "seed_id": "spider__chinook_1__00826",
+        "variant": "A",
+        "split": "l2",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": [
+          "low_confidence_order_binding"
+        ]
+      },
+      {
+        "seed_id": "spider__customers_and_invoices__01561",
+        "variant": "A",
+        "split": "l2",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": [
+          "low_confidence_output_binding"
+        ]
+      },
+      {
+        "seed_id": "spider__customers_card_transactions__00687",
+        "variant": "A",
+        "split": "l2",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": [
+          "low_confidence_output_binding"
+        ]
+      }
+    ],
+    "B_world_not_found": [
+      {
+        "seed_id": "spider__bike_1__00139",
+        "variant": "A",
+        "split": "l2",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": [
+          "order_path_via_output_projection"
+        ]
+      },
+      {
+        "seed_id": "spider__body_builder__01156",
+        "variant": "A",
+        "split": "l2",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": []
+      },
+      {
+        "seed_id": "spider__local_govt_in_alabama__02149",
+        "variant": "A",
+        "split": "l2",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": []
+      },
+      {
+        "seed_id": "spider__perpetrator__02311",
+        "variant": "A",
+        "split": "l2",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": []
+      },
+      {
+        "seed_id": "spider__tracking_share_transactions__05871",
+        "variant": "A",
+        "split": "l2",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": []
+      }
+    ]
+  }
+}

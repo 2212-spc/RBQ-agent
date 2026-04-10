@@ -1,0 +1,92 @@
+{
+  "bench_root": "outputs\\hdrbench_full150_v1",
+  "split": "l0",
+  "variant": "A",
+  "report_support": "outputs\\full150_support_v3_l0_ABC\\report_support_plan_agent.json",
+  "report_llm": "outputs\\full150_llm_l0_ABC\\report_llm_code_agent.json",
+  "criteria": "llm_pass_and_support_fail",
+  "output_candidate_top_k": 4,
+  "sample_size_requested": 3,
+  "sampled_seed_count": 3,
+  "seed_ids": [
+    "spider__climbing__01130",
+    "spider__climbing__01131",
+    "spider__county_public_safety__02552"
+  ],
+  "counts": {
+    "recall": 0,
+    "rerank": 2,
+    "compiler": 1,
+    "gold_parse_skip": 0,
+    "unexpected_pass": 0,
+    "error": 0
+  },
+  "rows": [
+    {
+      "category": "rerank",
+      "reason": "best_plan_output_mismatch",
+      "best_output": [
+        [
+          "climbing.sqlite::mountain",
+          "Name"
+        ],
+        [
+          "climbing.sqlite::mountain",
+          "Height"
+        ]
+      ],
+      "gold_output": [
+        [
+          "climbing.sqlite::climber",
+          "Name"
+        ],
+        [
+          "climbing.sqlite::mountain",
+          "Height"
+        ]
+      ],
+      "seed_id": "spider__climbing__01130",
+      "sketch_mode_used": "live"
+    },
+    {
+      "category": "rerank",
+      "reason": "best_plan_output_mismatch",
+      "best_output": [
+        [
+          "climbing.sqlite::mountain",
+          "Name"
+        ],
+        [
+          "climbing.sqlite::mountain",
+          "Height"
+        ]
+      ],
+      "gold_output": [
+        [
+          "climbing.sqlite::climber",
+          "Name"
+        ],
+        [
+          "climbing.sqlite::mountain",
+          "Height"
+        ]
+      ],
+      "seed_id": "spider__climbing__01131",
+      "sketch_mode_used": "live"
+    },
+    {
+      "category": "compiler",
+      "reason": "output_matches_gold_but_eval_fail",
+      "compile_meta": {
+        "compiled": true,
+        "executed": true,
+        "reason": null
+      },
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "final_sql": "WITH support_cte AS (SELECT t0.\"White\" AS output_anchor_key, COUNT(*) AS support_value FROM \"county_public_safety_city\" AS t0 JOIN \"county_public_safety_county_public_safety\" AS t1 ON CAST(t0.\"County_ID\" AS VARCHAR) = CAST(t1.\"County_ID\" AS VARCHAR) GROUP BY t0.\"White\") SELECT s.support_value AS \"White\", s.support_value AS \"Crime_rate\" FROM \"county_public_safety_city\" AS o0 JOIN \"county_public_safety_county_public_safety\" AS o1 ON CAST(o0.\"County_ID\" AS VARCHAR) = CAST(o1.\"County_ID\" AS VARCHAR) JOIN support_cte AS s ON o0.\"White\" = s.output_anchor_key",
+      "seed_id": "spider__county_public_safety__02552",
+      "sketch_mode_used": "live"
+    }
+  ]
+}

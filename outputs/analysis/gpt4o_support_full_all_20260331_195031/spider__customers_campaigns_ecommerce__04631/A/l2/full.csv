@@ -1,0 +1,16 @@
+premises_type,address_type_code
+Warehouse,Shipping
+Warehouse,Billing
+Residence,Billing
+Residence,Shipping
+Office,Shipping
+Residence,Billing
+Warehouse,Billing
+Office,Billing
+Office,Billing
+Office,Billing
+Office,Billing
+Residence,Shipping
+Warehouse,Shipping
+Office,Shipping
+Office,Shipping

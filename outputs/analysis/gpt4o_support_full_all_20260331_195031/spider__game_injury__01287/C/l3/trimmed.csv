@@ -1,0 +1,1 @@
+count(DISTINCT T1.injury)

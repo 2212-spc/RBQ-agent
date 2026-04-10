@@ -1,0 +1,10 @@
+random_seed: 13
+rename_ratio: 0.7
+join_key_rename_ratio: 1.0
+dummy_cols_min: 1
+dummy_cols_max: 3
+distractors_min: 5
+distractors_max: 12
+trimmed_k: 3
+case_timeout_seconds: 60
+row_limit_for_logs: 2000

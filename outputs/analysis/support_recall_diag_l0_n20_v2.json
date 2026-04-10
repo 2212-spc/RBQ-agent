@@ -1,0 +1,328 @@
+{
+  "bench_root": "outputs\\hdrbench_full150_v1",
+  "split": "l0",
+  "variant": "A",
+  "report_support": "outputs\\full150_support_v3_l0_ABC\\report_support_plan_agent.json",
+  "report_llm": "outputs\\full150_llm_l0_ABC\\report_llm_code_agent.json",
+  "criteria": "llm_pass_and_support_fail",
+  "output_candidate_top_k": 4,
+  "sample_size_requested": 20,
+  "matching_pool_size": 17,
+  "sampled_seed_count": 17,
+  "seed_ids": [
+    "spider__climbing__01130",
+    "spider__climbing__01131",
+    "spider__county_public_safety__02552",
+    "spider__county_public_safety__02553",
+    "spider__match_season__01072",
+    "spider__match_season__01073",
+    "spider__match_season__01082",
+    "spider__party_host__02678",
+    "spider__party_host__02679",
+    "spider__pilot_record__02092",
+    "spider__pilot_record__02093",
+    "spider__riding_club__01728",
+    "spider__soccer_2__04994",
+    "spider__soccer_2__04995",
+    "spider__tracking_share_transactions__05871",
+    "spider__tracking_share_transactions__05872",
+    "spider__workshop_paper__05834"
+  ],
+  "counts": {
+    "recall": 0,
+    "rerank": 7,
+    "compiler": 1,
+    "gold_parse_skip": 2,
+    "unexpected_pass": 7,
+    "error": 0
+  },
+  "rows": [
+    {
+      "category": "rerank",
+      "reason": "best_plan_output_mismatch",
+      "best_output": [
+        [
+          "climbing.sqlite::mountain",
+          "Name"
+        ],
+        [
+          "climbing.sqlite::mountain",
+          "Height"
+        ]
+      ],
+      "gold_output": [
+        [
+          "climbing.sqlite::climber",
+          "Name"
+        ],
+        [
+          "climbing.sqlite::mountain",
+          "Height"
+        ]
+      ],
+      "seed_id": "spider__climbing__01130",
+      "sketch_mode_used": "live"
+    },
+    {
+      "category": "rerank",
+      "reason": "best_plan_output_mismatch",
+      "best_output": [
+        [
+          "climbing.sqlite::mountain",
+          "Name"
+        ],
+        [
+          "climbing.sqlite::mountain",
+          "Height"
+        ]
+      ],
+      "gold_output": [
+        [
+          "climbing.sqlite::climber",
+          "Name"
+        ],
+        [
+          "climbing.sqlite::mountain",
+          "Height"
+        ]
+      ],
+      "seed_id": "spider__climbing__01131",
+      "sketch_mode_used": "live"
+    },
+    {
+      "category": "unexpected_pass",
+      "reason": "top1_matches_gold_and_passes",
+      "score": 1.0,
+      "seed_id": "spider__county_public_safety__02552",
+      "sketch_mode_used": "live"
+    },
+    {
+      "category": "unexpected_pass",
+      "reason": "top1_matches_gold_and_passes",
+      "score": 1.0,
+      "seed_id": "spider__county_public_safety__02553",
+      "sketch_mode_used": "live"
+    },
+    {
+      "category": "rerank",
+      "reason": "best_plan_output_mismatch",
+      "best_output": [
+        [
+          "match_season.sqlite::country",
+          "Country_name"
+        ],
+        [
+          "match_season.sqlite::match_season",
+          "Player"
+        ],
+        [
+          "match_season.sqlite::country",
+          "Country_name"
+        ]
+      ],
+      "gold_output": [
+        [
+          "match_season.sqlite::match_season",
+          "Season"
+        ],
+        [
+          "match_season.sqlite::match_season",
+          "Player"
+        ],
+        [
+          "match_season.sqlite::country",
+          "Country_name"
+        ]
+      ],
+      "seed_id": "spider__match_season__01072",
+      "sketch_mode_used": "live"
+    },
+    {
+      "category": "rerank",
+      "reason": "best_plan_output_mismatch",
+      "best_output": [
+        [
+          "match_season.sqlite::country",
+          "Country_name"
+        ],
+        [
+          "match_season.sqlite::match_season",
+          "Player"
+        ],
+        [
+          "match_season.sqlite::country",
+          "Country_name"
+        ]
+      ],
+      "gold_output": [
+        [
+          "match_season.sqlite::match_season",
+          "Season"
+        ],
+        [
+          "match_season.sqlite::match_season",
+          "Player"
+        ],
+        [
+          "match_season.sqlite::country",
+          "Country_name"
+        ]
+      ],
+      "seed_id": "spider__match_season__01073",
+      "sketch_mode_used": "live"
+    },
+    {
+      "category": "rerank",
+      "reason": "best_plan_output_mismatch",
+      "best_output": [
+        [
+          "match_season.sqlite::team",
+          "Name"
+        ],
+        [
+          "match_season.sqlite::match_season",
+          "Player"
+        ],
+        [
+          "match_season.sqlite::team",
+          "Name"
+        ]
+      ],
+      "gold_output": [
+        [
+          "match_season.sqlite::match_season",
+          "Season"
+        ],
+        [
+          "match_season.sqlite::match_season",
+          "Player"
+        ],
+        [
+          "match_season.sqlite::team",
+          "Name"
+        ]
+      ],
+      "seed_id": "spider__match_season__01082",
+      "sketch_mode_used": "live"
+    },
+    {
+      "category": "unexpected_pass",
+      "reason": "top1_matches_gold_and_passes",
+      "score": 1.0,
+      "seed_id": "spider__party_host__02678",
+      "sketch_mode_used": "live"
+    },
+    {
+      "category": "unexpected_pass",
+      "reason": "top1_matches_gold_and_passes",
+      "score": 1.0,
+      "seed_id": "spider__party_host__02679",
+      "sketch_mode_used": "live"
+    },
+    {
+      "category": "unexpected_pass",
+      "reason": "top1_matches_gold_and_passes",
+      "score": 1.0,
+      "seed_id": "spider__pilot_record__02092",
+      "sketch_mode_used": "live"
+    },
+    {
+      "category": "unexpected_pass",
+      "reason": "top1_matches_gold_and_passes",
+      "score": 1.0,
+      "seed_id": "spider__pilot_record__02093",
+      "sketch_mode_used": "live"
+    },
+    {
+      "category": "unexpected_pass",
+      "reason": "top1_matches_gold_and_passes",
+      "score": 1.0,
+      "seed_id": "spider__riding_club__01728",
+      "sketch_mode_used": "live"
+    },
+    {
+      "category": "gold_parse_skip",
+      "reason": "no_resolvable_gold_output_bindings",
+      "gold_pairs_count": 0,
+      "seed_id": "spider__soccer_2__04994",
+      "sketch_mode_used": "live"
+    },
+    {
+      "category": "gold_parse_skip",
+      "reason": "no_resolvable_gold_output_bindings",
+      "gold_pairs_count": 0,
+      "seed_id": "spider__soccer_2__04995",
+      "sketch_mode_used": "live"
+    },
+    {
+      "category": "rerank",
+      "reason": "best_plan_output_mismatch",
+      "best_output": [
+        [
+          "tracking_share_transactions.sqlite::Transactions_Lots",
+          "lot_id"
+        ],
+        [
+          "tracking_share_transactions.sqlite::TRANSACTIONS",
+          "amount_of_transaction"
+        ]
+      ],
+      "gold_output": [
+        [
+          "tracking_share_transactions.sqlite::Transactions_Lots",
+          "lot_id"
+        ]
+      ],
+      "seed_id": "spider__tracking_share_transactions__05871",
+      "sketch_mode_used": "live"
+    },
+    {
+      "category": "rerank",
+      "reason": "best_plan_output_mismatch",
+      "best_output": [
+        [
+          "tracking_share_transactions.sqlite::Transactions_Lots",
+          "lot_id"
+        ],
+        [
+          "tracking_share_transactions.sqlite::TRANSACTIONS",
+          "amount_of_transaction"
+        ]
+      ],
+      "gold_output": [
+        [
+          "tracking_share_transactions.sqlite::Transactions_Lots",
+          "lot_id"
+        ]
+      ],
+      "seed_id": "spider__tracking_share_transactions__05872",
+      "sketch_mode_used": "live"
+    },
+    {
+      "category": "compiler",
+      "compiler_failure_kind": "ir_or_obligation_blocked",
+      "reason": "output_matches_gold_but_eval_fail",
+      "compile_meta": {
+        "compiled": false,
+        "executed": false,
+        "reason": "unmet_obligations:aggregation_support,value_alignment"
+      },
+      "score": 0.0,
+      "stage": "DELIVERY_FAIL",
+      "final_sql": null,
+      "seed_id": "spider__workshop_paper__05834",
+      "sketch_mode_used": "live"
+    }
+  ],
+  "summary": {
+    "bottleneck_guess": "rerank / combo selection (joint_rerank, obligation, sketch roles)",
+    "compiler_failure_kind_counts": {
+      "ir_or_obligation_blocked": 1
+    },
+    "note": "Among classifiable cases only (excludes gold_parse_skip/error). recall = gold output not in per-slot top_k; rerank = in pool but best_plan mismatch; compiler = top1 output matches gold but score still fails.",
+    "classifiable": 15,
+    "recall_share": 0.0,
+    "rerank_share": 0.4667,
+    "compiler_share": 0.0667
+  }
+}

@@ -1,0 +1,957 @@
+{
+  "seed_id": "spider__book_2__00224",
+  "variant": "A",
+  "split": "l1",
+  "view": "full",
+  "sketch_mode": "fallback",
+  "instruction": "Show the titles of books in descending order of publication price.",
+  "gold_targets": {
+    "output_bindings_by_label": {
+      "Title": [
+        {
+          "table_name": "book",
+          "canonical_column": "Title",
+          "source_id": "data_ly44.sqlite::book",
+          "dirty_column": "Title",
+          "file_name": "data_ly44.sqlite",
+          "kind": "output"
+        }
+      ]
+    },
+    "filter_bindings": [],
+    "measure_bindings": [],
+    "evidence_bindings": [],
+    "join_pairs": [
+      {
+        "left_table": "book",
+        "left_col": "Book_ID",
+        "right_table": "publication",
+        "right_col": "Book_ID"
+      }
+    ],
+    "output_tables": [
+      "book"
+    ],
+    "evidence_tables": [],
+    "filter_kind_tags": [
+      "ordering/superlative"
+    ],
+    "primary_filter_kind": "ordering/superlative",
+    "ambiguous_count_star": false,
+    "has_aggregation": false,
+    "has_order": true,
+    "has_limit": false
+  },
+  "observable_sketch": {
+    "output_slots": [
+      {
+        "label": "Title",
+        "role": "entity",
+        "metadata": {}
+      }
+    ],
+    "filter_hints": [],
+    "time_hints": {
+      "years": [],
+      "months": []
+    },
+    "measure_hints": [],
+    "grouping_hints": [],
+    "operator_hints": [
+      "top_desc"
+    ],
+    "order_hint": {
+      "direction": "desc",
+      "target": "publication price"
+    },
+    "raw_response": {
+      "fallback": true
+    }
+  },
+  "obligation_sketch": {
+    "obligations": [
+      {
+        "name": "support_relation",
+        "probability": 0.2,
+        "reason": "aggregation over output-like entity usually needs latent support relation"
+      },
+      {
+        "name": "aggregation_support",
+        "probability": 0.1,
+        "reason": "query requests aggregated evidence"
+      },
+      {
+        "name": "filter_transfer",
+        "probability": 0.05,
+        "reason": "filters/time hints may live on support side rather than output side"
+      },
+      {
+        "name": "multihop",
+        "probability": 0.15,
+        "reason": "likely needs traversal beyond a single output source"
+      },
+      {
+        "name": "value_alignment",
+        "probability": 0.1,
+        "reason": "join may require non-identity normalization"
+      }
+    ],
+    "role_priors": [
+      {
+        "role": "output_role",
+        "target": "mixed",
+        "probability": 0.45,
+        "reason": "text-like output columns usually live on dimension side"
+      },
+      {
+        "role": "support_role",
+        "target": "mixed",
+        "probability": 0.45,
+        "reason": "aggregated evidence usually comes from event/fact-like relation"
+      },
+      {
+        "role": "evidence_role",
+        "target": "fact_or_event",
+        "probability": 0.4,
+        "reason": "filters and measures often attach to evidence-bearing rows"
+      }
+    ],
+    "family_labels": [
+      {
+        "label": "DirectJoin",
+        "probability": 0.6,
+        "reason": "no strong latent support evidence"
+      }
+    ],
+    "raw_response": {
+      "fallback": true
+    }
+  },
+  "candidates_considered": 20,
+  "top_candidates": [
+    {
+      "rank": 1,
+      "global_rank": 1,
+      "family_rank": 1,
+      "plan_kind": "direct_join",
+      "confidence": 80.10006666666666,
+      "plan_score": {
+        "family_name": "direct_join",
+        "base_retrieval_score": 28.2667,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 3.5,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -2.5,
+        "semantic_complete": true,
+        "semantic_gap_count": 0,
+        "semantic_complete_reasons": [],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 80.1001
+      },
+      "ordering_consistency": 3.5,
+      "semantic_complete": true,
+      "semantic_gap_count": 0,
+      "semantic_complete_reasons": [],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": true,
+      "score": 1.0,
+      "stage": null,
+      "result_rows": 7,
+      "gold_rows": 7,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "order_source_id": "export_ym76.csv::export_ym76",
+      "order_column": "Price",
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "data_ly44.sqlite::book"
+      ],
+      "output_columns": [
+        "Title"
+      ],
+      "anchor_score": 0.0,
+      "anchor_path_source_ids": [],
+      "anchor_semantics": null,
+      "order_join_path_source_ids": [
+        "data_ly44.sqlite::book",
+        "export_ym76.csv::export_ym76"
+      ],
+      "order_join_path_semantics": "key_path",
+      "output_join_scores": [],
+      "output_join_path_source_ids": [],
+      "output_join_semantics": [],
+      "satisfied_obligations": [],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "family": "direct_join",
+        "ranking_target_kind": "order_binding",
+        "semantic_complete": "True",
+        "semantic_gap_count": 0.0,
+        "hard_invalid": "False",
+        "joint_rerank_total": 2.5,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 3.5,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -2.5
+      },
+      "notes": [
+        "direct_join",
+        "family=direct_join",
+        "ranking_target_kind=order_binding",
+        "semantic_complete=True",
+        "semantic_gap_count=0",
+        "hard_invalid=False",
+        "joint_rerank_total=2.5000",
+        "output_consistency=1.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=0.0000",
+        "ordering_consistency=3.5000",
+        "obligation_consistency=0.0000",
+        "shape_sanity=-2.5000"
+      ],
+      "final_sql": "SELECT t0.\"Title\" AS \"Title\" FROM \"data_ly44_book\" AS t0 JOIN \"export_ym76_export_ym76\" AS t1 ON CAST(t0.\"Book_ID\" AS VARCHAR) = CAST(t1.\"Book_ID\" AS VARCHAR) ORDER BY t1.\"Price\" DESC",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": true,
+        "executed": true,
+        "required_columns_ok": true,
+        "row_count": 7,
+        "reason": null,
+        "final_sql": "SELECT t0.\"Title\" AS \"Title\" FROM \"data_ly44_book\" AS t0 JOIN \"export_ym76_export_ym76\" AS t1 ON CAST(t0.\"Book_ID\" AS VARCHAR) = CAST(t1.\"Book_ID\" AS VARCHAR) ORDER BY t1.\"Price\" DESC",
+        "execution_summary": {
+          "success": true,
+          "row_count": 7,
+          "columns": [
+            "Title"
+          ],
+          "preview": [
+            {
+              "Title": "The Black Lamb"
+            },
+            {
+              "Title": "Bloody Mary : Lady Liberty"
+            },
+            {
+              "Title": "BrainBanx"
+            }
+          ],
+          "files_touched": [
+            "data_k6ap.csv",
+            "data_ly44.sqlite",
+            "dump_5v32.csv",
+            "export_ym76.csv",
+            "tmp_88w8.parquet"
+          ]
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 24.1667,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "data_ly44.sqlite::book",
+              "file_name": "data_ly44.sqlite",
+              "view_name": "data_ly44_book",
+              "column_name": "Title",
+              "role": "entity",
+              "score": 24.166666666666668,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Title"
+              }
+            }
+          ]
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "data_ly44.sqlite::book"
+          }
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "global_rank": 2,
+      "family_rank": null,
+      "plan_kind": "direct_join",
+      "confidence": 78.60006666666666,
+      "plan_score": {
+        "family_name": "direct_join",
+        "base_retrieval_score": 26.7667,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 3.5,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -2.5,
+        "semantic_complete": true,
+        "semantic_gap_count": 0,
+        "semantic_complete_reasons": [],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 78.6001
+      },
+      "ordering_consistency": 3.5,
+      "semantic_complete": true,
+      "semantic_gap_count": 0,
+      "semantic_complete_reasons": [],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": true,
+      "score": 1.0,
+      "stage": null,
+      "result_rows": 7,
+      "gold_rows": 7,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "order_source_id": "export_ym76.csv::export_ym76",
+      "order_column": "Publication_ID",
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "data_ly44.sqlite::book"
+      ],
+      "output_columns": [
+        "Title"
+      ],
+      "anchor_score": 0.0,
+      "anchor_path_source_ids": [],
+      "anchor_semantics": null,
+      "order_join_path_source_ids": [
+        "data_ly44.sqlite::book",
+        "export_ym76.csv::export_ym76"
+      ],
+      "order_join_path_semantics": "key_path",
+      "output_join_scores": [],
+      "output_join_path_source_ids": [],
+      "output_join_semantics": [],
+      "satisfied_obligations": [],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "family": "direct_join",
+        "ranking_target_kind": "order_binding",
+        "semantic_complete": "True",
+        "semantic_gap_count": 0.0,
+        "hard_invalid": "False",
+        "joint_rerank_total": 2.5,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 3.5,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -2.5
+      },
+      "notes": [
+        "direct_join",
+        "family=direct_join",
+        "ranking_target_kind=order_binding",
+        "semantic_complete=True",
+        "semantic_gap_count=0",
+        "hard_invalid=False",
+        "joint_rerank_total=2.5000",
+        "output_consistency=1.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=0.0000",
+        "ordering_consistency=3.5000",
+        "obligation_consistency=0.0000",
+        "shape_sanity=-2.5000"
+      ],
+      "final_sql": "SELECT t0.\"Title\" AS \"Title\" FROM \"data_ly44_book\" AS t0 JOIN \"export_ym76_export_ym76\" AS t1 ON CAST(t0.\"Book_ID\" AS VARCHAR) = CAST(t1.\"Book_ID\" AS VARCHAR) ORDER BY t1.\"Publication_ID\" DESC",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": true,
+        "executed": true,
+        "required_columns_ok": true,
+        "row_count": 7,
+        "reason": null,
+        "final_sql": "SELECT t0.\"Title\" AS \"Title\" FROM \"data_ly44_book\" AS t0 JOIN \"export_ym76_export_ym76\" AS t1 ON CAST(t0.\"Book_ID\" AS VARCHAR) = CAST(t1.\"Book_ID\" AS VARCHAR) ORDER BY t1.\"Publication_ID\" DESC",
+        "execution_summary": {
+          "success": true,
+          "row_count": 7,
+          "columns": [
+            "Title"
+          ],
+          "preview": [
+            {
+              "Title": "Sheva's War"
+            },
+            {
+              "Title": "Michael Moorcock's Multiverse"
+            },
+            {
+              "Title": "The Dome: Ground Zero"
+            }
+          ],
+          "files_touched": [
+            "data_k6ap.csv",
+            "data_ly44.sqlite",
+            "dump_5v32.csv",
+            "export_ym76.csv",
+            "tmp_88w8.parquet"
+          ]
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 24.1667,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "data_ly44.sqlite::book",
+              "file_name": "data_ly44.sqlite",
+              "view_name": "data_ly44_book",
+              "column_name": "Title",
+              "role": "entity",
+              "score": 24.166666666666668,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Title"
+              }
+            }
+          ]
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "data_ly44.sqlite::book"
+          }
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "global_rank": 3,
+      "family_rank": null,
+      "plan_kind": "direct_join",
+      "confidence": 77.40006666666666,
+      "plan_score": {
+        "family_name": "direct_join",
+        "base_retrieval_score": 25.5667,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 3.5,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -2.5,
+        "semantic_complete": true,
+        "semantic_gap_count": 0,
+        "semantic_complete_reasons": [],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 77.4001
+      },
+      "ordering_consistency": 3.5,
+      "semantic_complete": true,
+      "semantic_gap_count": 0,
+      "semantic_complete_reasons": [],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": true,
+      "score": 1.0,
+      "stage": null,
+      "result_rows": 7,
+      "gold_rows": 7,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "order_source_id": "export_ym76.csv::export_ym76",
+      "order_column": "Book_ID",
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "data_ly44.sqlite::book"
+      ],
+      "output_columns": [
+        "Title"
+      ],
+      "anchor_score": 0.0,
+      "anchor_path_source_ids": [],
+      "anchor_semantics": null,
+      "order_join_path_source_ids": [
+        "data_ly44.sqlite::book",
+        "export_ym76.csv::export_ym76"
+      ],
+      "order_join_path_semantics": "key_path",
+      "output_join_scores": [],
+      "output_join_path_source_ids": [],
+      "output_join_semantics": [],
+      "satisfied_obligations": [],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "family": "direct_join",
+        "ranking_target_kind": "order_binding",
+        "semantic_complete": "True",
+        "semantic_gap_count": 0.0,
+        "hard_invalid": "False",
+        "joint_rerank_total": 2.5,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 3.5,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -2.5
+      },
+      "notes": [
+        "direct_join",
+        "family=direct_join",
+        "ranking_target_kind=order_binding",
+        "semantic_complete=True",
+        "semantic_gap_count=0",
+        "hard_invalid=False",
+        "joint_rerank_total=2.5000",
+        "output_consistency=1.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=0.0000",
+        "ordering_consistency=3.5000",
+        "obligation_consistency=0.0000",
+        "shape_sanity=-2.5000"
+      ],
+      "final_sql": "SELECT t0.\"Title\" AS \"Title\" FROM \"data_ly44_book\" AS t0 JOIN \"export_ym76_export_ym76\" AS t1 ON CAST(t0.\"Book_ID\" AS VARCHAR) = CAST(t1.\"Book_ID\" AS VARCHAR) ORDER BY t1.\"Book_ID\" DESC",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": true,
+        "executed": true,
+        "required_columns_ok": true,
+        "row_count": 7,
+        "reason": null,
+        "final_sql": "SELECT t0.\"Title\" AS \"Title\" FROM \"data_ly44_book\" AS t0 JOIN \"export_ym76_export_ym76\" AS t1 ON CAST(t0.\"Book_ID\" AS VARCHAR) = CAST(t1.\"Book_ID\" AS VARCHAR) ORDER BY t1.\"Book_ID\" DESC",
+        "execution_summary": {
+          "success": true,
+          "row_count": 7,
+          "columns": [
+            "Title"
+          ],
+          "preview": [
+            {
+              "Title": "Sheva's War"
+            },
+            {
+              "Title": "Michael Moorcock's Multiverse"
+            },
+            {
+              "Title": "The Dome: Ground Zero"
+            }
+          ],
+          "files_touched": [
+            "data_k6ap.csv",
+            "data_ly44.sqlite",
+            "dump_5v32.csv",
+            "export_ym76.csv",
+            "tmp_88w8.parquet"
+          ]
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 24.1667,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "data_ly44.sqlite::book",
+              "file_name": "data_ly44.sqlite",
+              "view_name": "data_ly44_book",
+              "column_name": "Title",
+              "role": "entity",
+              "score": 24.166666666666668,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Title"
+              }
+            }
+          ]
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "data_ly44.sqlite::book"
+          }
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "global_rank": 4,
+      "family_rank": null,
+      "plan_kind": "direct_join",
+      "confidence": 77.0834,
+      "plan_score": {
+        "family_name": "direct_join",
+        "base_retrieval_score": 26.25,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 3.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -3.0,
+        "semantic_complete": true,
+        "semantic_gap_count": 0,
+        "semantic_complete_reasons": [],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 77.0834
+      },
+      "ordering_consistency": 3.0,
+      "semantic_complete": true,
+      "semantic_gap_count": 0,
+      "semantic_complete_reasons": [],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": false,
+      "score": 0.8235294117647058,
+      "stage": "QUERY_FAIL",
+      "result_rows": 10,
+      "gold_rows": 7,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "order_source_id": "data_k6ap.csv::data_k6ap",
+      "order_column": "Issues",
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "data_k6ap.csv::data_k6ap"
+      ],
+      "output_columns": [
+        "Title"
+      ],
+      "anchor_score": 0.0,
+      "anchor_path_source_ids": [],
+      "anchor_semantics": null,
+      "order_join_path_source_ids": [],
+      "order_join_path_semantics": null,
+      "output_join_scores": [],
+      "output_join_path_source_ids": [],
+      "output_join_semantics": [],
+      "satisfied_obligations": [],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "family": "direct_join",
+        "ranking_target_kind": "order_binding",
+        "semantic_complete": "True",
+        "semantic_gap_count": 0.0,
+        "hard_invalid": "False",
+        "joint_rerank_total": 1.5,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 3.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -3.0
+      },
+      "notes": [
+        "direct_join",
+        "family=direct_join",
+        "ranking_target_kind=order_binding",
+        "semantic_complete=True",
+        "semantic_gap_count=0",
+        "hard_invalid=False",
+        "joint_rerank_total=1.5000",
+        "output_consistency=1.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=0.0000",
+        "ordering_consistency=3.0000",
+        "obligation_consistency=0.0000",
+        "shape_sanity=-3.0000"
+      ],
+      "final_sql": "SELECT t0.\"Title\" AS \"Title\" FROM \"data_k6ap_data_k6ap\" AS t0 ORDER BY t0.\"Issues\" DESC",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": true,
+        "executed": true,
+        "required_columns_ok": true,
+        "row_count": 10,
+        "reason": null,
+        "final_sql": "SELECT t0.\"Title\" AS \"Title\" FROM \"data_k6ap_data_k6ap\" AS t0 ORDER BY t0.\"Issues\" DESC",
+        "execution_summary": {
+          "success": true,
+          "row_count": 10,
+          "columns": [
+            "Title"
+          ],
+          "preview": [
+            {
+              "Title": "Michael Moorcock's Multiverse"
+            },
+            {
+              "Title": "Cyberella"
+            },
+            {
+              "Title": "Gemini Blood"
+            }
+          ],
+          "files_touched": [
+            "data_k6ap.csv",
+            "data_ly44.sqlite",
+            "dump_5v32.csv",
+            "export_ym76.csv",
+            "tmp_88w8.parquet"
+          ]
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 24.1667,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "data_k6ap.csv::data_k6ap",
+              "file_name": "data_k6ap.csv",
+              "view_name": "data_k6ap_data_k6ap",
+              "column_name": "Title",
+              "role": "entity",
+              "score": 24.166666666666668,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Title"
+              }
+            }
+          ]
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "data_k6ap.csv::data_k6ap"
+          }
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "global_rank": 5,
+      "family_rank": null,
+      "plan_kind": "direct_join",
+      "confidence": 77.0834,
+      "plan_score": {
+        "family_name": "direct_join",
+        "base_retrieval_score": 26.25,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 3.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -3.0,
+        "semantic_complete": true,
+        "semantic_gap_count": 0,
+        "semantic_complete_reasons": [],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 77.0834
+      },
+      "ordering_consistency": 3.0,
+      "semantic_complete": true,
+      "semantic_gap_count": 0,
+      "semantic_complete_reasons": [],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": false,
+      "score": 0.8235294117647058,
+      "stage": "QUERY_FAIL",
+      "result_rows": 10,
+      "gold_rows": 7,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "order_source_id": "data_ly44.sqlite::book",
+      "order_column": "Issues",
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "data_ly44.sqlite::book"
+      ],
+      "output_columns": [
+        "Title"
+      ],
+      "anchor_score": 0.0,
+      "anchor_path_source_ids": [],
+      "anchor_semantics": null,
+      "order_join_path_source_ids": [],
+      "order_join_path_semantics": null,
+      "output_join_scores": [],
+      "output_join_path_source_ids": [],
+      "output_join_semantics": [],
+      "satisfied_obligations": [],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "family": "direct_join",
+        "ranking_target_kind": "order_binding",
+        "semantic_complete": "True",
+        "semantic_gap_count": 0.0,
+        "hard_invalid": "False",
+        "joint_rerank_total": 1.5,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 3.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -3.0
+      },
+      "notes": [
+        "direct_join",
+        "family=direct_join",
+        "ranking_target_kind=order_binding",
+        "semantic_complete=True",
+        "semantic_gap_count=0",
+        "hard_invalid=False",
+        "joint_rerank_total=1.5000",
+        "output_consistency=1.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=0.0000",
+        "ordering_consistency=3.0000",
+        "obligation_consistency=0.0000",
+        "shape_sanity=-3.0000"
+      ],
+      "final_sql": "SELECT t0.\"Title\" AS \"Title\" FROM \"data_ly44_book\" AS t0 ORDER BY t0.\"Issues\" DESC",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": true,
+        "executed": true,
+        "required_columns_ok": true,
+        "row_count": 10,
+        "reason": null,
+        "final_sql": "SELECT t0.\"Title\" AS \"Title\" FROM \"data_ly44_book\" AS t0 ORDER BY t0.\"Issues\" DESC",
+        "execution_summary": {
+          "success": true,
+          "row_count": 10,
+          "columns": [
+            "Title"
+          ],
+          "preview": [
+            {
+              "Title": "Cyberella"
+            },
+            {
+              "Title": "Michael Moorcock's Multiverse"
+            },
+            {
+              "Title": "Gemini Blood"
+            }
+          ],
+          "files_touched": [
+            "data_k6ap.csv",
+            "data_ly44.sqlite",
+            "dump_5v32.csv",
+            "export_ym76.csv",
+            "tmp_88w8.parquet"
+          ]
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 24.1667,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "data_ly44.sqlite::book",
+              "file_name": "data_ly44.sqlite",
+              "view_name": "data_ly44_book",
+              "column_name": "Title",
+              "role": "entity",
+              "score": 24.166666666666668,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Title"
+              }
+            }
+          ]
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "data_ly44.sqlite::book"
+          }
+        }
+      ]
+    }
+  ]
+}

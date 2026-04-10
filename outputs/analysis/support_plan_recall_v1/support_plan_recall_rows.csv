@@ -1,0 +1,502 @@
+seed_id,variant,split,view,sketch_mode,motif,filter_kind,filter_kind_tags,output_slot_total,filter_total,evidence_total,join_path_total,ambiguous_count_star,output_column_recall_at_1,output_case_recall_at_1,output_column_recall_at_3,output_case_recall_at_3,output_column_recall_at_6,output_case_recall_at_6,filter_column_recall_at_1,filter_column_recall_at_3,evidence_table_recall_at_1,evidence_table_recall_at_4,gold_join_path_reachable_at_2,evidence_path_reachable_at_2,gold_join_path_reachable_at_3,evidence_path_reachable_at_3
+spider__aircraft__04821,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__aircraft__04821,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+spider__aircraft__04821,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__apartment_rentals__01238,A,l0,full,fallback,FilterJoin,numeric,['numeric'],1,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__apartment_rentals__01238,A,l1,full,fallback,FilterJoin,numeric,['numeric'],1,1,1,1,False,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__apartment_rentals__01238,A,l2,full,fallback,FilterJoin,numeric,['numeric'],1,1,1,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__apartment_rentals__01239,A,l0,full,fallback,FilterJoin,numeric,['numeric'],1,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__apartment_rentals__01239,A,l1,full,fallback,FilterJoin,numeric,['numeric'],1,1,1,1,False,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__apartment_rentals__01239,A,l2,full,fallback,FilterJoin,numeric,['numeric'],1,1,1,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__apartment_rentals__01244,A,l0,full,fallback,FilterJoin,numeric,['numeric'],1,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__apartment_rentals__01244,A,l1,full,fallback,FilterJoin,numeric,['numeric'],1,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__apartment_rentals__01244,A,l2,full,fallback,FilterJoin,numeric,['numeric'],1,1,1,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__assets_maintenance__03134,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__assets_maintenance__03134,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__assets_maintenance__03134,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__assets_maintenance__03136,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__assets_maintenance__03136,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__assets_maintenance__03136,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__assets_maintenance__03144,A,l0,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__assets_maintenance__03144,A,l1,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__assets_maintenance__03144,A,l2,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__baseball_1__03665,A,l0,full,fallback,AggregationJoin,text,['text'],0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__baseball_1__03665,A,l1,full,fallback,AggregationJoin,text,['text'],0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__baseball_1__03665,A,l2,full,fallback,AggregationJoin,text,['text'],0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__baseball_1__03666,A,l0,full,fallback,AggregationJoin,text,['text'],0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__baseball_1__03666,A,l1,full,fallback,AggregationJoin,text,['text'],0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__baseball_1__03666,A,l2,full,fallback,AggregationJoin,text,['text'],0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__baseball_1__03677,A,l0,full,fallback,AggregationJoin,time,"['time', 'numeric', 'text']",0,2,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.5,0.0,0.0,1.0,0.0,1.0,0.0
+spider__baseball_1__03677,A,l1,full,fallback,AggregationJoin,time,"['time', 'numeric', 'text']",0,2,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.5,0.0,0.0,1.0,0.0,1.0,0.0
+spider__baseball_1__03677,A,l2,full,fallback,AggregationJoin,time,"['time', 'numeric', 'text']",0,2,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__bike_1__00131,A,l0,full,fallback,FilterJoin,numeric,"['numeric', 'text']",1,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__bike_1__00131,A,l1,full,fallback,FilterJoin,numeric,"['numeric', 'text']",1,1,1,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__bike_1__00131,A,l2,full,fallback,FilterJoin,numeric,"['numeric', 'text']",1,1,1,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__bike_1__00132,A,l0,full,fallback,FilterJoin,numeric,"['numeric', 'text']",1,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__bike_1__00132,A,l1,full,fallback,FilterJoin,numeric,"['numeric', 'text']",1,1,1,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__bike_1__00132,A,l2,full,fallback,FilterJoin,numeric,"['numeric', 'text']",1,1,1,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__bike_1__00139,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],3,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__bike_1__00139,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],3,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__bike_1__00139,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],3,0,0,1,False,0.0,0.0,0.0,0.0,0.3333333333333333,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__bike_1__00140,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],3,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__bike_1__00140,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],3,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__bike_1__00140,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],3,0,0,1,False,0.3333333333333333,0.0,0.3333333333333333,0.0,0.3333333333333333,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__bike_1__00163,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__bike_1__00163,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__bike_1__00163,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__body_builder__01156,A,l0,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__body_builder__01156,A,l1,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__body_builder__01156,A,l2,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__body_builder__01158,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__body_builder__01158,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__body_builder__01158,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__body_builder__01159,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__body_builder__01159,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__body_builder__01159,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,0.0,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__body_builder__01162,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__body_builder__01162,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__body_builder__01162,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__book_2__00222,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__book_2__00222,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__book_2__00222,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__book_2__00224,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__book_2__00224,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__book_2__00224,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__browser_web__01839,A,l0,full,fallback,SimpleJoin,none,['none'],0,0,0,4,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__browser_web__01839,A,l1,full,fallback,SimpleJoin,none,['none'],0,0,0,4,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__browser_web__01839,A,l2,full,fallback,SimpleJoin,none,['none'],0,0,0,4,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__browser_web__01840,A,l0,full,fallback,SimpleJoin,none,['none'],0,0,0,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__browser_web__01840,A,l1,full,fallback,SimpleJoin,none,['none'],0,0,0,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__browser_web__01840,A,l2,full,fallback,SimpleJoin,none,['none'],0,0,0,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__chinook_1__00825,A,l0,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__chinook_1__00825,A,l1,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__chinook_1__00825,A,l2,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__chinook_1__00826,A,l0,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__chinook_1__00826,A,l1,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__chinook_1__00826,A,l2,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__climbing__01130,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__climbing__01130,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__climbing__01130,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__climbing__01131,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__climbing__01131,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__climbing__01131,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__climbing__01132,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__climbing__01132,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__climbing__01132,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__climbing__01133,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__climbing__01133,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__climbing__01133,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__college_3__04694,A,l0,full,fallback,FilterJoin,numeric,"['numeric', 'text']",2,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__college_3__04694,A,l1,full,fallback,FilterJoin,numeric,"['numeric', 'text']",2,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__college_3__04694,A,l2,full,fallback,FilterJoin,numeric,"['numeric', 'text']",2,1,1,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__college_3__04695,A,l0,full,fallback,FilterJoin,numeric,"['numeric', 'text']",2,1,1,1,False,0.5,0.0,0.5,0.0,0.5,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__college_3__04695,A,l1,full,fallback,FilterJoin,numeric,"['numeric', 'text']",2,1,1,1,False,0.5,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__college_3__04695,A,l2,full,fallback,FilterJoin,numeric,"['numeric', 'text']",2,1,1,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__county_public_safety__02552,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__county_public_safety__02552,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__county_public_safety__02552,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,0.5,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__county_public_safety__02553,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__county_public_safety__02553,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__county_public_safety__02553,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__cre_Drama_Workshop_Groups__05132,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__cre_Drama_Workshop_Groups__05132,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__cre_Drama_Workshop_Groups__05132,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__cre_Drama_Workshop_Groups__05133,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__cre_Drama_Workshop_Groups__05133,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__cre_Drama_Workshop_Groups__05133,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__culture_company__06996,A,l0,full,fallback,FilterJoin,text,['text'],2,1,1,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__culture_company__06996,A,l1,full,fallback,FilterJoin,text,['text'],2,1,1,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__culture_company__06996,A,l2,full,fallback,FilterJoin,text,['text'],2,1,1,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__customer_complaints__05794,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customer_complaints__05794,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,2,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customer_complaints__05794,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customer_complaints__05795,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customer_complaints__05795,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customer_complaints__05795,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customer_deliveries__02848,A,l0,full,fallback,SimpleJoin,none,['none'],0,0,0,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customer_deliveries__02848,A,l1,full,fallback,SimpleJoin,none,['none'],0,0,0,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customer_deliveries__02848,A,l2,full,fallback,SimpleJoin,none,['none'],0,0,0,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_and_addresses__06086,A,l0,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,2,2,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.5,1.0,1.0,1.0,1.0,1.0
+spider__customers_and_addresses__06086,A,l1,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,2,2,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__customers_and_addresses__06086,A,l2,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,2,2,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__customers_and_invoices__01553,A,l0,full,fallback,FilterJoin,text,['text'],4,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__customers_and_invoices__01553,A,l1,full,fallback,FilterJoin,text,['text'],4,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__customers_and_invoices__01553,A,l2,full,fallback,FilterJoin,text,['text'],4,1,1,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__customers_and_invoices__01554,A,l0,full,fallback,FilterJoin,time,"['time', 'text']",4,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__customers_and_invoices__01554,A,l1,full,fallback,FilterJoin,time,"['time', 'text']",4,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__customers_and_invoices__01554,A,l2,full,fallback,FilterJoin,time,"['time', 'text']",4,1,1,1,False,0.0,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__customers_and_invoices__01561,A,l0,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_and_invoices__01561,A,l1,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_and_invoices__01561,A,l2,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_and_invoices__01562,A,l0,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_and_invoices__01562,A,l1,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_and_invoices__01562,A,l2,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,0.3333333333333333,0.0,0.3333333333333333,0.0,0.3333333333333333,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_and_products_contacts__05659,A,l0,full,fallback,SimpleJoin,none,['none'],0,0,0,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_and_products_contacts__05659,A,l1,full,fallback,SimpleJoin,none,['none'],0,0,0,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_and_products_contacts__05659,A,l2,full,fallback,SimpleJoin,none,['none'],0,0,0,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_and_products_contacts__05664,A,l0,full,fallback,SimpleJoin,none,['none'],4,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_and_products_contacts__05664,A,l1,full,fallback,SimpleJoin,none,['none'],4,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_and_products_contacts__05664,A,l2,full,fallback,SimpleJoin,none,['none'],4,0,0,2,False,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_campaigns_ecommerce__04626,A,l0,full,fallback,FilterJoin,text,['text'],2,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__customers_campaigns_ecommerce__04626,A,l1,full,fallback,FilterJoin,text,['text'],2,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__customers_campaigns_ecommerce__04626,A,l2,full,fallback,FilterJoin,text,['text'],2,1,1,1,False,0.0,0.0,0.5,0.0,0.5,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__customers_campaigns_ecommerce__04631,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_campaigns_ecommerce__04631,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_campaigns_ecommerce__04631,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_card_transactions__00687,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_card_transactions__00687,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_card_transactions__00687,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_card_transactions__00688,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_card_transactions__00688,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__customers_card_transactions__00688,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__debate__01501,A,l0,full,fallback,SimpleJoin,none,['none'],3,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__debate__01501,A,l1,full,fallback,SimpleJoin,none,['none'],3,0,0,2,False,0.6666666666666666,0.0,0.6666666666666666,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__debate__01501,A,l2,full,fallback,SimpleJoin,none,['none'],3,0,0,2,False,0.0,0.0,0.3333333333333333,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__debate__01502,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],3,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__debate__01502,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],3,0,0,2,False,0.6666666666666666,0.0,0.6666666666666666,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__debate__01502,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],3,0,0,2,False,0.0,0.0,0.3333333333333333,0.0,0.6666666666666666,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__debate__01503,A,l0,full,fallback,FilterJoin,numeric,['numeric'],1,1,1,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__debate__01503,A,l1,full,fallback,FilterJoin,numeric,['numeric'],1,1,1,2,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__debate__01503,A,l2,full,fallback,FilterJoin,numeric,['numeric'],1,1,1,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__decoration_competition__04493,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__decoration_competition__04493,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,0.5,0.0,0.5,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__decoration_competition__04493,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__decoration_competition__04495,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__decoration_competition__04495,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,0.5,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__decoration_competition__04495,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__decoration_competition__04497,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__decoration_competition__04497,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__decoration_competition__04497,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__department_store__04729,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__department_store__04729,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__department_store__04729,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,0.0,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__department_store__04730,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__department_store__04730,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__department_store__04730,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__device__05068,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__device__05068,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__device__05068,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.0,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__driving_school__06657,A,l0,full,fallback,AggregationJoin,numeric,['numeric'],1,0,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__driving_school__06657,A,l1,full,fallback,AggregationJoin,numeric,['numeric'],1,0,1,1,True,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__driving_school__06657,A,l2,full,fallback,AggregationJoin,numeric,['numeric'],1,0,1,1,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__e_government__06324,A,l0,full,fallback,AggregationJoin,ordering/superlative,"['ordering/superlative', 'text']",1,1,1,2,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__e_government__06324,A,l1,full,fallback,AggregationJoin,ordering/superlative,"['ordering/superlative', 'text']",1,1,1,2,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__e_government__06324,A,l2,full,fallback,AggregationJoin,ordering/superlative,"['ordering/superlative', 'text']",1,1,1,2,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__e_government__06325,A,l0,full,fallback,AggregationJoin,ordering/superlative,"['ordering/superlative', 'text']",1,1,1,2,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__e_government__06325,A,l1,full,fallback,AggregationJoin,ordering/superlative,"['ordering/superlative', 'text']",1,1,1,2,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__e_government__06325,A,l2,full,fallback,AggregationJoin,ordering/superlative,"['ordering/superlative', 'text']",1,1,1,2,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0
+spider__e_learning__03820,A,l0,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__e_learning__03820,A,l1,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__e_learning__03820,A,l2,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__e_learning__03821,A,l0,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__e_learning__03821,A,l1,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__e_learning__03821,A,l2,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__election__02766,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__election__02766,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__election__02766,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__election__02767,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__election__02767,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__election__02767,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__election_representative__01181,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__election_representative__01181,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__election_representative__01181,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__election_representative__01183,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__election_representative__01183,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__election_representative__01183,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__election_representative__01184,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__election_representative__01184,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__election_representative__01184,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__entertainment_awards__04607,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__entertainment_awards__04607,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__entertainment_awards__04607,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__entertainment_awards__04609,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__entertainment_awards__04609,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__entertainment_awards__04609,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,2,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__entrepreneur__02273,A,l0,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__entrepreneur__02273,A,l1,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__entrepreneur__02273,A,l2,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__entrepreneur__02274,A,l0,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__entrepreneur__02274,A,l1,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__entrepreneur__02274,A,l2,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__entrepreneur__02279,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__entrepreneur__02279,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__entrepreneur__02279,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__entrepreneur__02280,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__entrepreneur__02280,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__entrepreneur__02280,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__epinions_1__01700,A,l0,full,fallback,AggregationJoin,numeric,['numeric'],1,1,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__epinions_1__01700,A,l1,full,fallback,AggregationJoin,numeric,['numeric'],1,1,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__epinions_1__01700,A,l2,full,fallback,AggregationJoin,numeric,['numeric'],1,1,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__epinions_1__01711,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__epinions_1__01711,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__epinions_1__01711,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__epinions_1__01714,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__epinions_1__01714,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__epinions_1__01714,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__farm__00034,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__farm__00034,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__farm__00034,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.5,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__farm__00035,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__farm__00035,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__farm__00035,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__film_rank__04130,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__film_rank__04130,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__film_rank__04130,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__film_rank__04131,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__film_rank__04131,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__film_rank__04131,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__flight_4__06883,A,l0,full,fallback,AggregationJoin,ordering/superlative,"['ordering/superlative', 'text']",1,1,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
+spider__flight_4__06883,A,l1,full,fallback,AggregationJoin,ordering/superlative,"['ordering/superlative', 'text']",1,1,1,1,True,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
+spider__flight_4__06883,A,l2,full,fallback,AggregationJoin,ordering/superlative,"['ordering/superlative', 'text']",1,1,1,1,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
+spider__flight_4__06884,A,l0,full,fallback,AggregationJoin,ordering/superlative,"['ordering/superlative', 'text']",1,1,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
+spider__flight_4__06884,A,l1,full,fallback,AggregationJoin,ordering/superlative,"['ordering/superlative', 'text']",1,1,1,1,True,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
+spider__flight_4__06884,A,l2,full,fallback,AggregationJoin,ordering/superlative,"['ordering/superlative', 'text']",1,1,1,1,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
+spider__flight_company__06376,A,l0,full,fallback,FilterJoin,text,['text'],1,2,1,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__flight_company__06376,A,l1,full,fallback,FilterJoin,text,['text'],1,2,1,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__flight_company__06376,A,l2,full,fallback,FilterJoin,text,['text'],1,2,1,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__game_injury__01280,A,l0,full,fallback,FilterJoin,text,['text'],1,1,1,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__game_injury__01280,A,l1,full,fallback,FilterJoin,text,['text'],1,1,1,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__game_injury__01280,A,l2,full,fallback,FilterJoin,text,['text'],1,1,1,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__game_injury__01287,A,l0,full,fallback,AggregationJoin,numeric,['numeric'],0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__game_injury__01287,A,l1,full,fallback,AggregationJoin,numeric,['numeric'],0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__game_injury__01287,A,l2,full,fallback,AggregationJoin,numeric,['numeric'],0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__gymnast__01746,A,l0,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__gymnast__01746,A,l1,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__gymnast__01746,A,l2,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__gymnast__01747,A,l0,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__gymnast__01747,A,l1,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__gymnast__01747,A,l2,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__gymnast__01754,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__gymnast__01754,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__gymnast__01754,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__hospital_1__03910,A,l0,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+spider__hospital_1__03910,A,l1,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+spider__hospital_1__03910,A,l2,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__inn_1__02600,A,l0,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+spider__inn_1__02600,A,l1,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+spider__inn_1__02600,A,l2,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__inn_1__02601,A,l0,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+spider__inn_1__02601,A,l1,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+spider__inn_1__02601,A,l2,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__inn_1__02644,A,l0,full,fallback,FilterJoin,text,['text'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+spider__inn_1__02644,A,l1,full,fallback,FilterJoin,text,['text'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+spider__inn_1__02644,A,l2,full,fallback,FilterJoin,text,['text'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__journal_committee__00658,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__journal_committee__00658,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__journal_committee__00658,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.0,0.0,0.5,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__journal_committee__00659,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__journal_committee__00659,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__journal_committee__00659,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__journal_committee__00660,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],3,0,0,2,False,0.6666666666666666,0.0,0.6666666666666666,0.0,0.6666666666666666,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__journal_committee__00660,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],3,0,0,2,False,0.0,0.0,0.6666666666666666,0.0,0.6666666666666666,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__journal_committee__00660,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],3,0,0,2,False,0.0,0.0,0.0,0.0,0.3333333333333333,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__local_govt_and_lot__04847,A,l0,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,0.6666666666666666,0.0,0.6666666666666666,0.0,0.6666666666666666,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__local_govt_and_lot__04847,A,l1,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,0.0,0.0,0.6666666666666666,0.0,0.6666666666666666,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__local_govt_and_lot__04847,A,l2,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,0.0,0.0,0.3333333333333333,0.0,0.3333333333333333,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__local_govt_and_lot__04849,A,l0,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__local_govt_and_lot__04849,A,l1,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__local_govt_and_lot__04849,A,l2,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,0.0,0.0,0.3333333333333333,0.0,0.6666666666666666,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__local_govt_in_alabama__02149,A,l0,full,fallback,SimpleJoin,none,['none'],0,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__local_govt_in_alabama__02149,A,l1,full,fallback,SimpleJoin,none,['none'],0,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__local_govt_in_alabama__02149,A,l2,full,fallback,SimpleJoin,none,['none'],0,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__local_govt_mdm__02646,A,l0,full,fallback,FilterJoin,text,['text'],1,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__local_govt_mdm__02646,A,l1,full,fallback,FilterJoin,text,['text'],1,1,1,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__local_govt_mdm__02646,A,l2,full,fallback,FilterJoin,text,['text'],1,1,1,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__local_govt_mdm__02649,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__local_govt_mdm__02649,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__local_govt_mdm__02649,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__local_govt_mdm__02650,A,l0,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__local_govt_mdm__02650,A,l1,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,0.6666666666666666,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__local_govt_mdm__02650,A,l2,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__manufacturer__03402,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__manufacturer__03402,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__manufacturer__03402,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__match_season__01072,A,l0,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__match_season__01072,A,l1,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,0.6666666666666666,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__match_season__01072,A,l2,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,0.3333333333333333,0.0,0.6666666666666666,0.0,0.6666666666666666,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__match_season__01073,A,l0,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__match_season__01073,A,l1,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__match_season__01073,A,l2,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,0.0,0.0,0.3333333333333333,0.0,0.3333333333333333,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__match_season__01082,A,l0,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__match_season__01082,A,l1,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__match_season__01082,A,l2,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,0.0,0.0,0.0,0.0,0.3333333333333333,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__mountain_photos__03717,A,l0,full,fallback,FilterJoin,numeric,['numeric'],2,1,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__mountain_photos__03717,A,l1,full,fallback,FilterJoin,numeric,['numeric'],2,1,0,1,False,0.0,0.0,0.5,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__mountain_photos__03717,A,l2,full,fallback,FilterJoin,numeric,['numeric'],2,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__mountain_photos__03720,A,l0,full,fallback,FilterJoin,text,['text'],1,2,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__mountain_photos__03720,A,l1,full,fallback,FilterJoin,text,['text'],1,2,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__mountain_photos__03720,A,l2,full,fallback,FilterJoin,text,['text'],1,2,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__mountain_photos__03723,A,l0,full,fallback,AggregationJoin,text,['text'],0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__mountain_photos__03723,A,l1,full,fallback,AggregationJoin,text,['text'],0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__mountain_photos__03723,A,l2,full,fallback,AggregationJoin,text,['text'],0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__movie_1__02452,A,l0,full,fallback,FilterJoin,time,"['time', 'numeric', 'ordering/superlative']",0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__movie_1__02452,A,l1,full,fallback,FilterJoin,time,"['time', 'numeric', 'ordering/superlative']",0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__movie_1__02452,A,l2,full,fallback,FilterJoin,time,"['time', 'numeric', 'ordering/superlative']",0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__movie_1__02453,A,l0,full,fallback,FilterJoin,time,"['time', 'numeric', 'ordering/superlative']",0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__movie_1__02453,A,l1,full,fallback,FilterJoin,time,"['time', 'numeric', 'ordering/superlative']",0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__movie_1__02453,A,l2,full,fallback,FilterJoin,time,"['time', 'numeric', 'ordering/superlative']",0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__music_4__06171,A,l0,full,fallback,FilterJoin,numeric,['numeric'],1,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__music_4__06171,A,l1,full,fallback,FilterJoin,numeric,['numeric'],1,1,1,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__music_4__06171,A,l2,full,fallback,FilterJoin,numeric,['numeric'],1,1,1,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__music_4__06172,A,l0,full,fallback,FilterJoin,time,"['time', 'numeric', 'ordering/superlative']",1,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__music_4__06172,A,l1,full,fallback,FilterJoin,time,"['time', 'numeric', 'ordering/superlative']",1,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__music_4__06172,A,l2,full,fallback,FilterJoin,time,"['time', 'numeric', 'ordering/superlative']",1,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__musical__00254,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__musical__00254,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__musical__00254,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__musical__00255,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__musical__00255,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__musical__00255,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__network_2__04398,A,l0,full,fallback,AggregationJoin,text,['text'],0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+spider__network_2__04398,A,l1,full,fallback,AggregationJoin,text,['text'],0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+spider__network_2__04398,A,l2,full,fallback,AggregationJoin,text,['text'],0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__network_2__04399,A,l0,full,fallback,AggregationJoin,text,['text'],0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+spider__network_2__04399,A,l1,full,fallback,AggregationJoin,text,['text'],0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+spider__network_2__04399,A,l2,full,fallback,AggregationJoin,text,['text'],0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__news_report__02812,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__news_report__02812,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.0,0.0,0.5,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__news_report__02812,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__party_host__02678,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__party_host__02678,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__party_host__02678,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.0,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__party_host__02679,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__party_host__02679,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__party_host__02679,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__party_host__02680,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__party_host__02680,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,2,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__party_host__02680,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,2,False,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__perpetrator__02309,A,l0,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__perpetrator__02309,A,l1,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__perpetrator__02309,A,l2,full,fallback,SimpleJoin,none,['none'],1,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__perpetrator__02311,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__perpetrator__02311,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__perpetrator__02311,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__perpetrator__02314,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__perpetrator__02314,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__perpetrator__02314,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__phone_market__01987,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__phone_market__01987,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__phone_market__01987,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__phone_market__01988,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__phone_market__01988,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,2,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__phone_market__01988,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,2,False,0.0,0.0,0.5,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__phone_market__01990,A,l0,full,fallback,AggregationJoin,none,['none'],1,0,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__phone_market__01990,A,l1,full,fallback,AggregationJoin,none,['none'],1,0,1,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__phone_market__01990,A,l2,full,fallback,AggregationJoin,none,['none'],1,0,1,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__pilot_record__02092,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__pilot_record__02092,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__pilot_record__02092,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.0,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__pilot_record__02093,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__pilot_record__02093,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,2,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__pilot_record__02093,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,2,False,0.0,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__pilot_record__02094,A,l0,full,fallback,FilterJoin,numeric,['numeric'],1,1,1,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__pilot_record__02094,A,l1,full,fallback,FilterJoin,numeric,['numeric'],1,1,1,2,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__pilot_record__02094,A,l2,full,fallback,FilterJoin,numeric,['numeric'],1,1,1,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__products_for_hire__01967,A,l0,full,fallback,FilterJoin,numeric,"['numeric', 'text']",1,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__products_for_hire__01967,A,l1,full,fallback,FilterJoin,numeric,"['numeric', 'text']",1,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__products_for_hire__01967,A,l2,full,fallback,FilterJoin,numeric,"['numeric', 'text']",1,1,1,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__products_gen_characteristics__05542,A,l0,full,fallback,FilterJoin,text,['text'],1,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__products_gen_characteristics__05542,A,l1,full,fallback,FilterJoin,text,['text'],1,1,1,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__products_gen_characteristics__05542,A,l2,full,fallback,FilterJoin,text,['text'],1,1,1,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__protein_institute__01921,A,l0,full,fallback,SimpleJoin,none,['none'],0,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__protein_institute__01921,A,l1,full,fallback,SimpleJoin,none,['none'],0,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__protein_institute__01921,A,l2,full,fallback,SimpleJoin,none,['none'],0,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__railway__05640,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__railway__05640,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__railway__05640,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__riding_club__01728,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.5,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__riding_club__01728,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.5,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__riding_club__01728,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__riding_club__01730,A,l0,full,fallback,FilterJoin,time,"['time', 'numeric']",2,1,1,2,False,0.5,0.0,0.5,0.0,0.5,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__riding_club__01730,A,l1,full,fallback,FilterJoin,time,"['time', 'numeric']",2,1,1,2,False,0.0,0.0,0.5,0.0,0.5,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__riding_club__01730,A,l2,full,fallback,FilterJoin,time,"['time', 'numeric']",2,1,1,2,False,0.0,0.0,0.5,0.0,0.5,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__roller_coaster__06216,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,0.5,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__roller_coaster__06216,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,0.0,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__roller_coaster__06216,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__school_player__04884,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__school_player__04884,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__school_player__04884,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__school_player__04885,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__school_player__04885,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,0.5,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__school_player__04885,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__ship_mission__04018,A,l0,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__ship_mission__04018,A,l1,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__ship_mission__04018,A,l2,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,0.0,0.0,0.3333333333333333,0.0,0.3333333333333333,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__ship_mission__04019,A,l0,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__ship_mission__04019,A,l1,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,0.6666666666666666,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__ship_mission__04019,A,l2,full,fallback,SimpleJoin,none,['none'],3,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__ship_mission__04020,A,l0,full,fallback,FilterJoin,time,"['time', 'numeric']",1,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__ship_mission__04020,A,l1,full,fallback,FilterJoin,time,"['time', 'numeric']",1,1,1,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__ship_mission__04020,A,l2,full,fallback,FilterJoin,time,"['time', 'numeric']",1,1,1,1,False,0.0,0.0,0.0,0.0,1.0,1.0,0.0,1.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__soccer_1__01298,A,l0,full,fallback,AggregationJoin,text,['text'],1,1,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__soccer_1__01298,A,l1,full,fallback,AggregationJoin,text,['text'],1,1,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__soccer_1__01298,A,l2,full,fallback,AggregationJoin,text,['text'],1,1,1,1,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__soccer_2__04994,A,l0,full,fallback,SimpleJoin,none,['none'],0,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+spider__soccer_2__04994,A,l1,full,fallback,SimpleJoin,none,['none'],0,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+spider__soccer_2__04994,A,l2,full,fallback,SimpleJoin,none,['none'],0,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__soccer_2__04995,A,l0,full,fallback,SimpleJoin,none,['none'],0,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+spider__soccer_2__04995,A,l1,full,fallback,SimpleJoin,none,['none'],0,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0
+spider__soccer_2__04995,A,l2,full,fallback,SimpleJoin,none,['none'],0,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__soccer_2__04996,A,l0,full,fallback,FilterJoin,text,['text'],1,1,1,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,0.0,0.0,0.0,0.0
+spider__soccer_2__04996,A,l1,full,fallback,FilterJoin,text,['text'],1,1,1,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,0.0,0.0,0.0,0.0
+spider__soccer_2__04996,A,l2,full,fallback,FilterJoin,text,['text'],1,1,1,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__solvency_ii__04595,A,l0,full,fallback,AggregationJoin,numeric,"['numeric', 'ordering/superlative']",1,0,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__solvency_ii__04595,A,l1,full,fallback,AggregationJoin,numeric,"['numeric', 'ordering/superlative']",1,0,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__solvency_ii__04595,A,l2,full,fallback,AggregationJoin,numeric,"['numeric', 'ordering/superlative']",1,0,1,1,True,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__sports_competition__03355,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__sports_competition__03355,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__sports_competition__03355,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__sports_competition__03356,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__sports_competition__03356,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__sports_competition__03356,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__store_1__00544,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__store_1__00544,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__store_1__00544,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__student_assessment__00060,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__student_assessment__00060,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__student_assessment__00060,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__student_assessment__00061,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__student_assessment__00061,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__student_assessment__00061,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.5,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__student_assessment__00066,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__student_assessment__00066,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__student_assessment__00066,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,0.5,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__tracking_grants_for_research__04322,A,l0,full,fallback,SimpleJoin,none,['none'],0,0,0,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__tracking_grants_for_research__04322,A,l1,full,fallback,SimpleJoin,none,['none'],0,0,0,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__tracking_grants_for_research__04322,A,l2,full,fallback,SimpleJoin,none,['none'],0,0,0,2,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__tracking_orders__06899,A,l0,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__tracking_orders__06899,A,l1,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,0.0,0.0,0.0,0.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__tracking_orders__06899,A,l2,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__tracking_share_transactions__05871,A,l0,full,fallback,AggregationJoin,none,['none'],1,0,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__tracking_share_transactions__05871,A,l1,full,fallback,AggregationJoin,none,['none'],1,0,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__tracking_share_transactions__05871,A,l2,full,fallback,AggregationJoin,none,['none'],1,0,1,1,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__tracking_share_transactions__05872,A,l0,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__tracking_share_transactions__05872,A,l1,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__tracking_share_transactions__05872,A,l2,full,fallback,AggregationJoin,ordering/superlative,['ordering/superlative'],1,0,1,1,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__tracking_share_transactions__05880,A,l0,full,fallback,AggregationJoin,numeric,"['numeric', 'ordering/superlative']",1,0,1,1,True,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__tracking_share_transactions__05880,A,l1,full,fallback,AggregationJoin,numeric,"['numeric', 'ordering/superlative']",1,0,1,1,True,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__tracking_share_transactions__05880,A,l2,full,fallback,AggregationJoin,numeric,"['numeric', 'ordering/superlative']",1,0,1,1,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0
+spider__tracking_software_problems__05361,A,l0,full,fallback,FilterJoin,numeric,"['numeric', 'text']",0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__tracking_software_problems__05361,A,l1,full,fallback,FilterJoin,numeric,"['numeric', 'text']",0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__tracking_software_problems__05361,A,l2,full,fallback,FilterJoin,numeric,"['numeric', 'text']",0,1,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__wine_1__06597,A,l0,full,fallback,AggregationJoin,numeric,"['numeric', 'ordering/superlative']",1,1,1,1,True,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__wine_1__06597,A,l1,full,fallback,AggregationJoin,numeric,"['numeric', 'ordering/superlative']",1,1,1,1,True,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__wine_1__06597,A,l2,full,fallback,AggregationJoin,numeric,"['numeric', 'ordering/superlative']",1,1,1,1,True,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,1.0,1.0,1.0
+spider__workshop_paper__05832,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__workshop_paper__05832,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__workshop_paper__05832,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__workshop_paper__05833,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__workshop_paper__05833,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__workshop_paper__05833,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.5,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__workshop_paper__05834,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__workshop_paper__05834,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__workshop_paper__05834,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],1,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__wrestler__01856,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__wrestler__01856,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__wrestler__01856,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__wrestler__01857,A,l0,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__wrestler__01857,A,l1,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.5,0.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__wrestler__01857,A,l2,full,fallback,SimpleJoin,none,['none'],2,0,0,1,False,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__wrestler__01858,A,l0,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,1.0,1.0,1.0,1.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__wrestler__01858,A,l1,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,0.0,0.0,0.5,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0
+spider__wrestler__01858,A,l2,full,fallback,SimpleJoin,ordering/superlative,['ordering/superlative'],2,0,0,1,False,0.0,0.0,0.5,0.0,1.0,1.0,0.0,0.0,0.0,0.0,1.0,0.0,1.0,0.0

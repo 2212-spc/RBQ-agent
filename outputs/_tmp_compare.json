@@ -1,0 +1,47 @@
+{
+  "baseline": {
+    "mode": "llm_code_agent",
+    "canonical_mode": "llm_code_agent",
+    "asr_by_split": {
+      "l0": 0.0
+    },
+    "pass_rate_by_split": {
+      "l0": 1.0
+    },
+    "asr_by_view": {},
+    "pass_rate_by_view": {},
+    "attribution_by_setting": {
+      "l0.full": {
+        "PASS": 1
+      }
+    }
+  },
+  "candidate": {
+    "mode": "support_plan_agent",
+    "canonical_mode": "support_plan_agent",
+    "asr_by_split": {
+      "l0": 0.0
+    },
+    "pass_rate_by_split": {
+      "l0": 0.0
+    },
+    "asr_by_view": {},
+    "pass_rate_by_view": {},
+    "attribution_by_setting": {
+      "l0.full": {
+        "QUERY_FAIL": 1
+      }
+    }
+  },
+  "baseline_failures": [],
+  "candidate_failures": [
+    {
+      "seed_id": "spider__aircraft__04821",
+      "variant": "A",
+      "split": "l0",
+      "view": "full",
+      "attribution": "QUERY_FAIL",
+      "error": null
+    }
+  ]
+}

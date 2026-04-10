@@ -1,0 +1,27 @@
+[
+  {
+    "split": "l2",
+    "sample_n": 17,
+    "baseline": {
+      "n": 17,
+      "pass": 2,
+      "rate": 0.1176,
+      "stages": {
+        "QUERY_FAIL": 15,
+        "OK": 2
+      }
+    },
+    "current": {
+      "n": 17,
+      "pass": 1,
+      "rate": 0.0588,
+      "stages": {
+        "QUERY_FAIL": 16,
+        "OK": 1
+      }
+    },
+    "delta_pass": -1,
+    "fixed_fail_to_pass": 0,
+    "regressed_pass_to_fail": 1
+  }
+]

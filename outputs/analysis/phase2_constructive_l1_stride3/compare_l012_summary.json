@@ -1,0 +1,29 @@
+[
+  {
+    "split": "l1",
+    "sample_n": 56,
+    "baseline": {
+      "n": 56,
+      "pass": 21,
+      "rate": 0.375,
+      "stages": {
+        "QUERY_FAIL": 33,
+        "OK": 21,
+        "INSTANCE_FAIL": 2
+      }
+    },
+    "current": {
+      "n": 56,
+      "pass": 22,
+      "rate": 0.3929,
+      "stages": {
+        "QUERY_FAIL": 32,
+        "OK": 22,
+        "INSTANCE_FAIL": 2
+      }
+    },
+    "delta_pass": 1,
+    "fixed_fail_to_pass": 11,
+    "regressed_pass_to_fail": 10
+  }
+]

@@ -1,0 +1,1194 @@
+{
+  "mode": "support_plan_agent",
+  "canonical_mode": "support_plan_agent",
+  "agent_variant": "default",
+  "access_mode": "dev",
+  "bench_root": "outputs\\hdrbench_full150_v1",
+  "num_records": 1,
+  "asr_by_setting": {
+    "l1.full": 0.0
+  },
+  "pass_rate_by_setting": {
+    "l1.full": 1.0
+  },
+  "pass_count_by_setting": {
+    "l1.full": {
+      "passed": 1,
+      "total": 1
+    }
+  },
+  "attribution_by_setting": {
+    "l1.full": {
+      "PASS": 1
+    }
+  },
+  "asr_by_split": {
+    "l1": 0.0
+  },
+  "pass_rate_by_split": {
+    "l1": 1.0
+  },
+  "asr_by_view": {},
+  "pass_rate_by_view": {},
+  "pass_count_by_view": {},
+  "attribution_by_view": {},
+  "records": [
+    {
+      "seed_id": "spider__wrestler__01857",
+      "variant": "A",
+      "split": "l1",
+      "view": "full",
+      "pass": true,
+      "score": 1.0,
+      "stage": null,
+      "attribution": "PASS",
+      "meta": {
+        "success": true,
+        "files_touched": [
+          "data_a3xh.parquet",
+          "data_ckjm.csv",
+          "dump_fv1w.csv",
+          "dump_li56.csv",
+          "export_8aas.csv",
+          "export_t1cj.sqlite",
+          "tmp_ljsr.parquet"
+        ],
+        "error": null,
+        "workspace_summary": {
+          "workspace_name": "l1",
+          "files": [
+            {
+              "file": "data_a3xh.parquet",
+              "type": "parquet",
+              "tables": [
+                {
+                  "name": "data_a3xh",
+                  "columns": [
+                    "id",
+                    "name",
+                    "date",
+                    "value"
+                  ],
+                  "sample_rows": [
+                    {
+                      "id": 93900,
+                      "name": "name_0",
+                      "date": "2024-01-01",
+                      "value": 68.425
+                    },
+                    {
+                      "id": 85127,
+                      "name": "name_1",
+                      "date": "2024-01-02",
+                      "value": 31.314
+                    },
+                    {
+                      "id": 28443,
+                      "name": "name_2",
+                      "date": "2024-01-03",
+                      "value": 48.082
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "data_ckjm.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "data_ckjm",
+                  "columns": [
+                    "Elimination_ID",
+                    "Wrestler_ID",
+                    "Team",
+                    "Eliminated_By",
+                    "Elimination_Move",
+                    "Time"
+                  ],
+                  "sample_rows": [
+                    {
+                      "Elimination_ID": 1,
+                      "Wrestler_ID": 1,
+                      "Team": "Team Orton",
+                      "Eliminated_By": "Punk",
+                      "Elimination_Move": "Go To Sleep",
+                      "Time": "00:11"
+                    },
+                    {
+                      "Elimination_ID": 2,
+                      "Wrestler_ID": 2,
+                      "Team": "Team Batista",
+                      "Eliminated_By": "Benjamin",
+                      "Elimination_Move": "Paydirt",
+                      "Time": "07:38"
+                    },
+                    {
+                      "Elimination_ID": 3,
+                      "Wrestler_ID": 4,
+                      "Team": "Team Batista",
+                      "Eliminated_By": "Orton",
+                      "Elimination_Move": "Rope hung DDT",
+                      "Time": "10:45"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "dump_fv1w.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "dump_fv1w",
+                  "columns": [
+                    "Elimination_ID",
+                    "Wrestler_ID",
+                    "Team",
+                    "Eliminated_By",
+                    "Elimination_Move",
+                    "Time"
+                  ],
+                  "sample_rows": [
+                    {
+                      "Elimination_ID": 3,
+                      "Wrestler_ID": 13209,
+                      "Team": "Team Batista",
+                      "Eliminated_By": "Orton",
+                      "Elimination_Move": "Rope hung DDT",
+                      "Time": "10:45"
+                    },
+                    {
+                      "Elimination_ID": 1,
+                      "Wrestler_ID": 13206,
+                      "Team": "Team Orton",
+                      "Eliminated_By": "Punk",
+                      "Elimination_Move": "Go To Sleep",
+                      "Time": "00:11"
+                    },
+                    {
+                      "Elimination_ID": 6,
+                      "Wrestler_ID": 13214,
+                      "Team": "Team Orton",
+                      "Eliminated_By": "Batista",
+                      "Elimination_Move": "Spear",
+                      "Time": "14:32"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "dump_li56.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "dump_li56",
+                  "columns": [
+                    "Elimination_ID",
+                    "Wrestler_ID",
+                    "Team",
+                    "Eliminated_By",
+                    "Elimination_Move",
+                    "Time"
+                  ],
+                  "sample_rows": [
+                    {
+                      "Elimination_ID": 1,
+                      "Wrestler_ID": 14026,
+                      "Team": "Team Orton",
+                      "Eliminated_By": "Punk",
+                      "Elimination_Move": "Go To Sleep",
+                      "Time": "00:11"
+                    },
+                    {
+                      "Elimination_ID": 4,
+                      "Wrestler_ID": 14030,
+                      "Team": "Team Batista",
+                      "Eliminated_By": "Rhodes",
+                      "Elimination_Move": "Silver Spoon DDT",
+                      "Time": "13:06"
+                    },
+                    {
+                      "Elimination_ID": 3,
+                      "Wrestler_ID": 14029,
+                      "Team": "Team Batista",
+                      "Eliminated_By": "Orton",
+                      "Elimination_Move": "Rope hung DDT",
+                      "Time": "10:45"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "export_8aas.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "export_8aas",
+                  "columns": [
+                    "id",
+                    "name",
+                    "date",
+                    "value"
+                  ],
+                  "sample_rows": [
+                    {
+                      "id": 2784,
+                      "name": "name_0",
+                      "date": "2024-01-01",
+                      "value": 42.056
+                    },
+                    {
+                      "id": 71984,
+                      "name": "name_1",
+                      "date": "2024-01-02",
+                      "value": 60.381
+                    },
+                    {
+                      "id": 55910,
+                      "name": "name_2",
+                      "date": "2024-01-03",
+                      "value": 66.259
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "export_t1cj.sqlite",
+              "type": "sqlite",
+              "tables": [
+                {
+                  "name": "wrestler",
+                  "columns": [
+                    "Wrestler_ID",
+                    "Name",
+                    "Reign",
+                    "Days_held",
+                    "Location",
+                    "Event"
+                  ],
+                  "sample_rows": [
+                    {
+                      "Wrestler_ID": 1,
+                      "Name": "Rey Misterio Sr.",
+                      "Reign": "1",
+                      "Days_held": "344",
+                      "Location": "Tijuana , Mexico",
+                      "Event": "Live event"
+                    },
+                    {
+                      "Wrestler_ID": 2,
+                      "Name": "Fishman",
+                      "Reign": "1",
+                      "Days_held": "113",
+                      "Location": "Tijuana , Mexico",
+                      "Event": "Live event"
+                    },
+                    {
+                      "Wrestler_ID": 3,
+                      "Name": "Villaño IV",
+                      "Reign": "1",
+                      "Days_held": "1285",
+                      "Location": "Tijuana , Mexico",
+                      "Event": "Live event"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "tmp_ljsr.parquet",
+              "type": "parquet",
+              "tables": [
+                {
+                  "name": "tmp_ljsr",
+                  "columns": [
+                    "Wrestler_ID",
+                    "Name",
+                    "Reign",
+                    "Days_held",
+                    "Location",
+                    "Event"
+                  ],
+                  "sample_rows": [
+                    {
+                      "Wrestler_ID": 15721,
+                      "Name": "El Samurai",
+                      "Reign": "1",
+                      "Days_held": "1",
+                      "Location": "Tokyo , Japan",
+                      "Event": "Live event"
+                    },
+                    {
+                      "Wrestler_ID": 15726,
+                      "Name": "Shinjiro Otani §",
+                      "Reign": "1",
+                      "Days_held": "56",
+                      "Location": "Nagoya , Japan",
+                      "Event": "Live event"
+                    },
+                    {
+                      "Wrestler_ID": 15722,
+                      "Name": "The Great Sasuke §",
+                      "Reign": "1",
+                      "Days_held": "99",
+                      "Location": "Tokyo , Japan",
+                      "Event": "Live event"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "observable_sketch": {
+          "output_slots": [
+            {
+              "label": "Name",
+              "role": "entity",
+              "metadata": {}
+            },
+            {
+              "label": "Elimination_Move",
+              "role": "attribute",
+              "metadata": {}
+            }
+          ],
+          "filter_hints": [],
+          "time_hints": {
+            "years": [],
+            "months": []
+          },
+          "measure_hints": [],
+          "grouping_hints": [],
+          "operator_hints": [],
+          "order_hint": {
+            "target": null,
+            "direction": null,
+            "limit": null
+          },
+          "raw_response": {
+            "output_slots": [
+              {
+                "label": "Name",
+                "role": "entity"
+              },
+              {
+                "label": "Elimination_Move",
+                "role": "attribute"
+              }
+            ],
+            "filter_hints": [],
+            "time_hints": {
+              "years": [],
+              "months": []
+            },
+            "measure_hints": [],
+            "grouping_hints": [],
+            "operator_hints": [],
+            "order_hint": {
+              "target": null,
+              "direction": null,
+              "limit": null
+            }
+          }
+        },
+        "obligation_sketch": {
+          "obligations": [
+            {
+              "name": "support_relation",
+              "probability": 0.44,
+              "reason": "The output requires wrestler names and elimination moves, which likely reside in different tables (e.g., wrestler names in 'export_t1cj.sqlite::wrestler' or similar, and elimination moves in 'data_ckjm.csv::data_ckjm' or its duplicates). A join is needed to combine these attributes, indicating a support relation between fact and dimension tables."
+            },
+            {
+              "name": "aggregation_support",
+              "probability": 0.1,
+              "reason": "The question asks for names and elimination moves without explicit aggregation (like count or sum). However, if multiple elimination moves per wrestler exist, some aggregation might be needed to list them, but this is not clearly required. Probability is low based on the question phrasing."
+            },
+            {
+              "name": "filter_transfer",
+              "probability": 0.2,
+              "reason": "No explicit filters are mentioned in the question or observable sketch (filter_hints is empty). Thus, filter transfer is unlikely unless implicit constraints exist, but none are evident."
+            },
+            {
+              "name": "multihop",
+              "probability": 0.3,
+              "reason": "Join edges show direct connections between relevant tables (e.g., data_ckjm.Wrestler_ID to export_t1cj.sqlite::wrestler.Wrestler_ID), suggesting a single hop may suffice. However, if wrestler names are in multiple sources, additional hops might be needed, but probability is moderate."
+            },
+            {
+              "name": "value_alignment",
+              "probability": 0.44,
+              "reason": "The output slots 'Name' and 'Elimination_Move' must align with specific columns in the data sources (e.g., 'Name' in wrestler table and 'Elimination_Move' in elimination tables). Ensuring correct column mapping and data consistency is crucial."
+            }
+          ],
+          "role_priors": [
+            {
+              "role": "entity",
+              "target": "export_t1cj.sqlite::wrestler",
+              "probability": 0.9,
+              "reason": "The 'Name' output slot is likely sourced from the wrestler table, which has a 'Name' column and a key 'Wrestler_ID' that joins with elimination tables."
+            },
+            {
+              "role": "attribute",
+              "target": "data_ckjm.csv::data_ckjm",
+              "probability": 0.8,
+              "reason": "The 'Elimination_Move' output slot matches the 'Elimination_Move' column in data_ckjm and its duplicate tables, making it a probable source for the attribute."
+            },
+            {
+              "role": "dimension",
+              "target": "data_ckjm.csv::data_ckjm",
+              "probability": 0.7,
+              "reason": "The elimination tables (data_ckjm, dump_fv1w, dump_li56) contain descriptive attributes like 'Elimination_Move' and serve as dimension tables supporting the fact table (wrestler)."
+            },
+            {
+              "role": "fact",
+              "target": "export_t1cj.sqlite::wrestler",
+              "probability": 0.6,
+              "reason": "The wrestler table has measures like 'Reign' and keys, suggesting it could be a fact table, but its role might be interchangeable with dimension here. Probability is moderate."
+            }
+          ],
+          "family_labels": [
+            {
+              "label": "join_based_retrieval",
+              "probability": 0.9,
+              "reason": "The query requires combining wrestler names from one source with elimination moves from another, necessitating joins across tables, as indicated by the support_relation obligation and join edges."
+            },
+            {
+              "label": "simple_projection",
+              "probability": 0.7,
+              "reason": "The core task is to project specific columns (Name and Elimination_Move) without complex filters or aggregations, aligning with a straightforward select query."
+            },
+            {
+              "label": "data_integration",
+              "probability": 0.8,
+              "reason": "Multiple data sources (e.g., wrestler and elimination tables) must be integrated via joins to answer the question, highlighting the need for data integration across the workspace."
+            }
+          ],
+          "raw_response": {
+            "atomic_obligations": [
+              {
+                "name": "support_relation",
+                "probability": 0.9,
+                "reason": "The output requires wrestler names and elimination moves, which likely reside in different tables (e.g., wrestler names in 'export_t1cj.sqlite::wrestler' or similar, and elimination moves in 'data_ckjm.csv::data_ckjm' or its duplicates). A join is needed to combine these attributes, indicating a support relation between fact and dimension tables."
+              },
+              {
+                "name": "aggregation_support",
+                "probability": 0.1,
+                "reason": "The question asks for names and elimination moves without explicit aggregation (like count or sum). However, if multiple elimination moves per wrestler exist, some aggregation might be needed to list them, but this is not clearly required. Probability is low based on the question phrasing."
+              },
+              {
+                "name": "filter_transfer",
+                "probability": 0.2,
+                "reason": "No explicit filters are mentioned in the question or observable sketch (filter_hints is empty). Thus, filter transfer is unlikely unless implicit constraints exist, but none are evident."
+              },
+              {
+                "name": "multihop",
+                "probability": 0.3,
+                "reason": "Join edges show direct connections between relevant tables (e.g., data_ckjm.Wrestler_ID to export_t1cj.sqlite::wrestler.Wrestler_ID), suggesting a single hop may suffice. However, if wrestler names are in multiple sources, additional hops might be needed, but probability is moderate."
+              },
+              {
+                "name": "value_alignment",
+                "probability": 0.8,
+                "reason": "The output slots 'Name' and 'Elimination_Move' must align with specific columns in the data sources (e.g., 'Name' in wrestler table and 'Elimination_Move' in elimination tables). Ensuring correct column mapping and data consistency is crucial."
+              }
+            ],
+            "role_priors": [
+              {
+                "role": "entity",
+                "target": "export_t1cj.sqlite::wrestler",
+                "probability": 0.9,
+                "reason": "The 'Name' output slot is likely sourced from the wrestler table, which has a 'Name' column and a key 'Wrestler_ID' that joins with elimination tables."
+              },
+              {
+                "role": "attribute",
+                "target": "data_ckjm.csv::data_ckjm",
+                "probability": 0.8,
+                "reason": "The 'Elimination_Move' output slot matches the 'Elimination_Move' column in data_ckjm and its duplicate tables, making it a probable source for the attribute."
+              },
+              {
+                "role": "dimension",
+                "target": "data_ckjm.csv::data_ckjm",
+                "probability": 0.7,
+                "reason": "The elimination tables (data_ckjm, dump_fv1w, dump_li56) contain descriptive attributes like 'Elimination_Move' and serve as dimension tables supporting the fact table (wrestler)."
+              },
+              {
+                "role": "fact",
+                "target": "export_t1cj.sqlite::wrestler",
+                "probability": 0.6,
+                "reason": "The wrestler table has measures like 'Reign' and keys, suggesting it could be a fact table, but its role might be interchangeable with dimension here. Probability is moderate."
+              }
+            ],
+            "family_labels": [
+              {
+                "label": "join_based_retrieval",
+                "probability": 0.9,
+                "reason": "The query requires combining wrestler names from one source with elimination moves from another, necessitating joins across tables, as indicated by the support_relation obligation and join edges."
+              },
+              {
+                "label": "simple_projection",
+                "probability": 0.7,
+                "reason": "The core task is to project specific columns (Name and Elimination_Move) without complex filters or aggregations, aligning with a straightforward select query."
+              },
+              {
+                "label": "data_integration",
+                "probability": 0.8,
+                "reason": "Multiple data sources (e.g., wrestler and elimination tables) must be integrated via joins to answer the question, highlighting the need for data integration across the workspace."
+              }
+            ]
+          }
+        },
+        "obligation_mode": "full",
+        "llm_grounding": {
+          "output_bindings": [
+            {
+              "slot_label": "Name",
+              "source_id": "export_t1cj.sqlite::wrestler",
+              "column_name": "Name",
+              "confidence": 0.95,
+              "reason": ""
+            },
+            {
+              "slot_label": "Elimination_Move",
+              "source_id": "data_ckjm.csv::data_ckjm",
+              "column_name": "Elimination_Move",
+              "confidence": 0.95,
+              "reason": ""
+            }
+          ],
+          "filter_bindings": [],
+          "suggested_joins": [
+            {
+              "left_source": "export_t1cj.sqlite::wrestler",
+              "left_column": "Wrestler_ID",
+              "right_source": "data_ckjm.csv::data_ckjm",
+              "right_column": "Wrestler_ID",
+              "confidence": 0.9
+            }
+          ],
+          "query_family": "direct_join",
+          "reasoning": "The question asks for wrestler names and their elimination moves. The 'Name' column in 'export_t1cj.sqlite::wrestler' contains actual wrestler names (e.g., 'Rey Misterio Sr.', 'Fishman'), making it the best match. The 'Elimination_Move' column in 'data_ckjm.csv::data_ckjm' contains specific move names (e.g., 'Go To Sleep', 'Paydirt'), which directly matches the required output. These two sources can be joined via the 'Wrestler_ID' column, which is a known join edge with high overlap (1.0). Other sources with 'Elimination_Move' (dump_fv1w.csv, dump_li56.csv) are likely duplicates or variations of the same data, but data_ckjm.csv has a direct join to the wrestler table. No filters are required, so the query involves a simple join to combine wrestler names with their moves."
+        },
+        "search_summary": {
+          "candidates_considered": 12,
+          "search_log": [
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "export_t1cj.sqlite::wrestler",
+                "data_ckjm.csv::data_ckjm"
+              ],
+              "filter_sources": [],
+              "filter_path_count": 0,
+              "order_source": null,
+              "order_path_count": 0,
+              "joint_rerank_total": -1.5,
+              "family": "direct_join",
+              "aggregation_mode": null,
+              "semantic_complete": true,
+              "semantic_gap_count": 0,
+              "semantic_complete_reasons": [],
+              "hard_invalid": false,
+              "hard_invalid_reasons": []
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "export_t1cj.sqlite::wrestler",
+                "dump_fv1w.csv::dump_fv1w"
+              ],
+              "filter_sources": [],
+              "filter_path_count": 0,
+              "order_source": null,
+              "order_path_count": 0,
+              "joint_rerank_total": -1.5,
+              "family": "direct_join",
+              "aggregation_mode": null,
+              "semantic_complete": true,
+              "semantic_gap_count": 0,
+              "semantic_complete_reasons": [],
+              "hard_invalid": false,
+              "hard_invalid_reasons": []
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "export_t1cj.sqlite::wrestler",
+                "dump_li56.csv::dump_li56"
+              ],
+              "filter_sources": [],
+              "filter_path_count": 0,
+              "order_source": null,
+              "order_path_count": 0,
+              "joint_rerank_total": -1.5,
+              "family": "direct_join",
+              "aggregation_mode": null,
+              "semantic_complete": true,
+              "semantic_gap_count": 0,
+              "semantic_complete_reasons": [],
+              "hard_invalid": false,
+              "hard_invalid_reasons": []
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "tmp_ljsr.parquet::tmp_ljsr",
+                "data_ckjm.csv::data_ckjm"
+              ],
+              "filter_sources": [],
+              "filter_path_count": 0,
+              "order_source": null,
+              "order_path_count": 0,
+              "joint_rerank_total": -1.5,
+              "family": "direct_join",
+              "aggregation_mode": null,
+              "semantic_complete": true,
+              "semantic_gap_count": 0,
+              "semantic_complete_reasons": [],
+              "hard_invalid": false,
+              "hard_invalid_reasons": []
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "data_a3xh.parquet::data_a3xh",
+                "data_ckjm.csv::data_ckjm"
+              ],
+              "filter_sources": [],
+              "filter_path_count": 0,
+              "order_source": null,
+              "order_path_count": 0,
+              "joint_rerank_total": 4.5,
+              "family": "direct_join",
+              "aggregation_mode": null,
+              "semantic_complete": true,
+              "semantic_gap_count": 0,
+              "semantic_complete_reasons": [],
+              "hard_invalid": false,
+              "hard_invalid_reasons": []
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "export_8aas.csv::export_8aas",
+                "data_ckjm.csv::data_ckjm"
+              ],
+              "filter_sources": [],
+              "filter_path_count": 0,
+              "order_source": null,
+              "order_path_count": 0,
+              "joint_rerank_total": 4.5,
+              "family": "direct_join",
+              "aggregation_mode": null,
+              "semantic_complete": true,
+              "semantic_gap_count": 0,
+              "semantic_complete_reasons": [],
+              "hard_invalid": false,
+              "hard_invalid_reasons": []
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "data_a3xh.parquet::data_a3xh",
+                "dump_fv1w.csv::dump_fv1w"
+              ],
+              "filter_sources": [],
+              "filter_path_count": 0,
+              "order_source": null,
+              "order_path_count": 0,
+              "joint_rerank_total": 4.5,
+              "family": "direct_join",
+              "aggregation_mode": null,
+              "semantic_complete": true,
+              "semantic_gap_count": 0,
+              "semantic_complete_reasons": [],
+              "hard_invalid": false,
+              "hard_invalid_reasons": []
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "data_a3xh.parquet::data_a3xh",
+                "dump_li56.csv::dump_li56"
+              ],
+              "filter_sources": [],
+              "filter_path_count": 0,
+              "order_source": null,
+              "order_path_count": 0,
+              "joint_rerank_total": 4.5,
+              "family": "direct_join",
+              "aggregation_mode": null,
+              "semantic_complete": true,
+              "semantic_gap_count": 0,
+              "semantic_complete_reasons": [],
+              "hard_invalid": false,
+              "hard_invalid_reasons": []
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "export_8aas.csv::export_8aas",
+                "dump_fv1w.csv::dump_fv1w"
+              ],
+              "filter_sources": [],
+              "filter_path_count": 0,
+              "order_source": null,
+              "order_path_count": 0,
+              "joint_rerank_total": 4.5,
+              "family": "direct_join",
+              "aggregation_mode": null,
+              "semantic_complete": true,
+              "semantic_gap_count": 0,
+              "semantic_complete_reasons": [],
+              "hard_invalid": false,
+              "hard_invalid_reasons": []
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "export_8aas.csv::export_8aas",
+                "dump_li56.csv::dump_li56"
+              ],
+              "filter_sources": [],
+              "filter_path_count": 0,
+              "order_source": null,
+              "order_path_count": 0,
+              "joint_rerank_total": 4.5,
+              "family": "direct_join",
+              "aggregation_mode": null,
+              "semantic_complete": true,
+              "semantic_gap_count": 0,
+              "semantic_complete_reasons": [],
+              "hard_invalid": false,
+              "hard_invalid_reasons": []
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "tmp_ljsr.parquet::tmp_ljsr",
+                "dump_fv1w.csv::dump_fv1w"
+              ],
+              "filter_sources": [],
+              "filter_path_count": 0,
+              "order_source": null,
+              "order_path_count": 0,
+              "joint_rerank_total": -1.5,
+              "family": "direct_join",
+              "aggregation_mode": null,
+              "semantic_complete": true,
+              "semantic_gap_count": 0,
+              "semantic_complete_reasons": [],
+              "hard_invalid": false,
+              "hard_invalid_reasons": []
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "tmp_ljsr.parquet::tmp_ljsr",
+                "dump_li56.csv::dump_li56"
+              ],
+              "filter_sources": [],
+              "filter_path_count": 0,
+              "order_source": null,
+              "order_path_count": 0,
+              "joint_rerank_total": -1.5,
+              "family": "direct_join",
+              "aggregation_mode": null,
+              "semantic_complete": true,
+              "semantic_gap_count": 0,
+              "semantic_complete_reasons": [],
+              "hard_invalid": false,
+              "hard_invalid_reasons": []
+            }
+          ],
+          "execution_candidates_tried": 1
+        },
+        "support_plan": {
+          "output_bindings": [
+            {
+              "source_id": "export_t1cj.sqlite::wrestler",
+              "file_name": "export_t1cj.sqlite",
+              "view_name": "export_t1cj_wrestler",
+              "column_name": "Name",
+              "role": "entity",
+              "score": 39.0,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "llm_grounding_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Name"
+              }
+            },
+            {
+              "source_id": "data_ckjm.csv::data_ckjm",
+              "file_name": "data_ckjm.csv",
+              "view_name": "data_ckjm_data_ckjm",
+              "column_name": "Elimination_Move",
+              "role": "attribute",
+              "score": 42.81818181818182,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "llm_grounding_match",
+                "text_compatible",
+                "dimension_source_bonus",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Elimination_Move"
+              }
+            }
+          ],
+          "plan_kind": "direct_join",
+          "output_join_paths": [
+            {
+              "path_source_ids": [
+                "export_t1cj.sqlite::wrestler",
+                "data_ckjm.csv::data_ckjm"
+              ],
+              "edges": [
+                {
+                  "edge_id": "data_ckjm_csv_data_ckjm__export_t1cj_sqlite_wrestler__wrestler_id__wrestler_id",
+                  "left_source_id": "data_ckjm.csv::data_ckjm",
+                  "right_source_id": "export_t1cj.sqlite::wrestler",
+                  "left_column": "Wrestler_ID",
+                  "right_column": "Wrestler_ID",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 1.0
+                }
+              ],
+              "score": 1.0,
+              "notes": [
+                "output_join_path"
+              ]
+            }
+          ],
+          "filter_join_paths": [],
+          "order_join_path": null,
+          "support_binding": null,
+          "anchor_binding": null,
+          "evidence_bindings": [],
+          "measure_binding": null,
+          "order_binding": null,
+          "filter_bindings": [],
+          "operator_plan": {
+            "aggregation": null,
+            "direction": null,
+            "limit": null,
+            "target": null,
+            "group_by": false,
+            "exists": false
+          },
+          "satisfied_obligations": [],
+          "unmet_obligations": [],
+          "confidence": 169.1363818181818,
+          "source_trace": [
+            "data_ckjm.csv::data_ckjm",
+            "export_t1cj.sqlite::wrestler"
+          ],
+          "notes": [
+            "direct_join",
+            "family=direct_join",
+            "semantic_complete=True",
+            "semantic_gap_count=0",
+            "hard_invalid=False",
+            "joint_rerank_total=-1.5000",
+            "output_consistency=1.5000",
+            "filter_consistency=0.0000",
+            "aggregation_consistency=0.0000",
+            "ordering_consistency=0.0000",
+            "obligation_consistency=0.0000",
+            "shape_sanity=-3.0000"
+          ],
+          "evidence_source_ids": [],
+          "aggregation_unit_kind": null,
+          "aggregation_anchor_source_id": null,
+          "aggregation_mode": null,
+          "ranking_target_kind": null,
+          "plan_score": {
+            "family_name": "direct_join",
+            "base_retrieval_score": 87.8182,
+            "output_consistency": 1.5,
+            "filter_consistency": 0.0,
+            "aggregation_consistency": 0.0,
+            "ordering_consistency": 0.0,
+            "obligation_consistency": 0.0,
+            "shape_sanity": -3.0,
+            "semantic_complete": true,
+            "semantic_gap_count": 0,
+            "semantic_complete_reasons": [],
+            "hard_invalid": false,
+            "hard_invalid_reasons": [],
+            "total": 169.1364
+          }
+        },
+        "support_ir": {
+          "kind": "direct_join",
+          "compile_ready": true,
+          "steps": [
+            {
+              "op": "SCAN",
+              "args": {
+                "source_id": "export_t1cj.sqlite::wrestler",
+                "view_name": "export_t1cj_wrestler",
+                "role": "output"
+              }
+            },
+            {
+              "op": "JOIN",
+              "args": {
+                "edge": {
+                  "edge_id": "data_ckjm_csv_data_ckjm__export_t1cj_sqlite_wrestler__wrestler_id__wrestler_id",
+                  "left_source_id": "data_ckjm.csv::data_ckjm",
+                  "right_source_id": "export_t1cj.sqlite::wrestler",
+                  "left_column": "Wrestler_ID",
+                  "right_column": "Wrestler_ID",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 1.0
+                },
+                "kind": "output_join"
+              }
+            },
+            {
+              "op": "PROJECT",
+              "args": {
+                "columns": [
+                  {
+                    "source_id": "export_t1cj.sqlite::wrestler",
+                    "file_name": "export_t1cj.sqlite",
+                    "view_name": "export_t1cj_wrestler",
+                    "column_name": "Name",
+                    "role": "entity",
+                    "score": 39.0,
+                    "reasons": [
+                      "exact_column_match",
+                      "label_substring_match",
+                      "llm_grounding_match",
+                      "text_compatible",
+                      "fact_source_penalty",
+                      "distinctive_text_values"
+                    ],
+                    "metadata": {
+                      "slot_label": "Name"
+                    }
+                  },
+                  {
+                    "source_id": "data_ckjm.csv::data_ckjm",
+                    "file_name": "data_ckjm.csv",
+                    "view_name": "data_ckjm_data_ckjm",
+                    "column_name": "Elimination_Move",
+                    "role": "attribute",
+                    "score": 42.81818181818182,
+                    "reasons": [
+                      "exact_column_match",
+                      "label_substring_match",
+                      "llm_grounding_match",
+                      "text_compatible",
+                      "dimension_source_bonus",
+                      "distinctive_text_values"
+                    ],
+                    "metadata": {
+                      "slot_label": "Elimination_Move"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "metadata": {
+            "primary_output_source_id": "export_t1cj.sqlite::wrestler",
+            "support_source_id": null,
+            "filter_path_count": 0,
+            "required_columns": [
+              "Name",
+              "Elimination_Move"
+            ],
+            "aggregation": null,
+            "direction": null,
+            "limit": null
+          },
+          "compile_reason": null
+        },
+        "verifier_trace": [
+          {
+            "check": "output_binding",
+            "score": 40.9091,
+            "passed": true,
+            "evidence": [
+              {
+                "source_id": "export_t1cj.sqlite::wrestler",
+                "file_name": "export_t1cj.sqlite",
+                "view_name": "export_t1cj_wrestler",
+                "column_name": "Name",
+                "role": "entity",
+                "score": 39.0,
+                "reasons": [
+                  "exact_column_match",
+                  "label_substring_match",
+                  "llm_grounding_match",
+                  "text_compatible",
+                  "fact_source_penalty",
+                  "distinctive_text_values"
+                ],
+                "metadata": {
+                  "slot_label": "Name"
+                }
+              },
+              {
+                "source_id": "data_ckjm.csv::data_ckjm",
+                "file_name": "data_ckjm.csv",
+                "view_name": "data_ckjm_data_ckjm",
+                "column_name": "Elimination_Move",
+                "role": "attribute",
+                "score": 42.81818181818182,
+                "reasons": [
+                  "exact_column_match",
+                  "label_substring_match",
+                  "llm_grounding_match",
+                  "text_compatible",
+                  "dimension_source_bonus",
+                  "distinctive_text_values"
+                ],
+                "metadata": {
+                  "slot_label": "Elimination_Move"
+                }
+              }
+            ]
+          },
+          {
+            "check": "role_consistency",
+            "score": 0.5,
+            "passed": true,
+            "evidence": {
+              "support_source": null,
+              "output_source": "export_t1cj.sqlite::wrestler"
+            }
+          }
+        ],
+        "planner_output": {
+          "relevant_files": [
+            "data_ckjm.csv",
+            "export_t1cj.sqlite"
+          ],
+          "output_bindings": [
+            {
+              "source_id": "export_t1cj.sqlite::wrestler",
+              "file_name": "export_t1cj.sqlite",
+              "view_name": "export_t1cj_wrestler",
+              "column_name": "Name",
+              "role": "entity",
+              "score": 39.0,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "llm_grounding_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Name"
+              }
+            },
+            {
+              "source_id": "data_ckjm.csv::data_ckjm",
+              "file_name": "data_ckjm.csv",
+              "view_name": "data_ckjm_data_ckjm",
+              "column_name": "Elimination_Move",
+              "role": "attribute",
+              "score": 42.81818181818182,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "llm_grounding_match",
+                "text_compatible",
+                "dimension_source_bonus",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Elimination_Move"
+              }
+            }
+          ],
+          "output_mappings": [
+            {
+              "slot_id": "Name",
+              "source_file": "export_t1cj.sqlite",
+              "source_id": "export_t1cj.sqlite::wrestler",
+              "source_column": "Name"
+            },
+            {
+              "slot_id": "Elimination_Move",
+              "source_file": "data_ckjm.csv",
+              "source_id": "data_ckjm.csv::data_ckjm",
+              "source_column": "Elimination_Move"
+            }
+          ],
+          "support_bindings": [],
+          "anchor_bindings": []
+        },
+        "final_sql": "SELECT t0.\"Name\" AS \"Name\", t1.\"Elimination_Move\" AS \"Elimination_Move\" FROM \"export_t1cj_wrestler\" AS t0 JOIN \"data_ckjm_data_ckjm\" AS t1 ON CAST(t1.\"Wrestler_ID\" AS VARCHAR) = CAST(t0.\"Wrestler_ID\" AS VARCHAR)",
+        "execution_summary": {
+          "success": true,
+          "row_count": 6,
+          "columns": [
+            "Name",
+            "Elimination_Move"
+          ],
+          "preview": [
+            {
+              "Name": "Rey Misterio Sr.",
+              "Elimination_Move": "Go To Sleep"
+            },
+            {
+              "Name": "Fishman",
+              "Elimination_Move": "Paydirt"
+            },
+            {
+              "Name": "Gran Hamada",
+              "Elimination_Move": "Rope hung DDT"
+            }
+          ],
+          "files_touched": [
+            "data_a3xh.parquet",
+            "data_ckjm.csv",
+            "dump_fv1w.csv",
+            "dump_li56.csv",
+            "export_8aas.csv",
+            "export_t1cj.sqlite",
+            "tmp_ljsr.parquet"
+          ]
+        },
+        "critique": null,
+        "agent_impl": "support_plan_agent",
+        "wall_clock_time": 60.5375,
+        "llm_calls_used": 3,
+        "llm_calls_budget": 4,
+        "split": "l1",
+        "view": "full",
+        "requested_mode": "support_plan_agent"
+      }
+    }
+  ]
+}

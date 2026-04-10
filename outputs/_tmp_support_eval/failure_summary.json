@@ -1,0 +1,20 @@
+{
+  "report": "outputs\\_tmp_support_eval\\report_support_plan_agent.json",
+  "mode": "support_plan_agent",
+  "canonical_mode": "support_plan_agent",
+  "counts": {
+    "execution_fail": 1
+  },
+  "examples": {
+    "execution_fail": [
+      {
+        "seed_id": "spider__aircraft__04821",
+        "variant": "A",
+        "split": "l0",
+        "view": "full",
+        "error": null,
+        "unmet_obligations": []
+      }
+    ]
+  }
+}

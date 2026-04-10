@@ -1,0 +1,5390 @@
+{
+  "mode": "support_plan_agent",
+  "canonical_mode": "support_plan_agent",
+  "agent_variant": "default",
+  "access_mode": "public",
+  "bench_root": "outputs\\hdrbench_full150_v1",
+  "num_records": 4,
+  "asr_by_setting": {
+    "l1.full": 0.0
+  },
+  "pass_rate_by_setting": {
+    "l1.full": 0.0
+  },
+  "pass_count_by_setting": {
+    "l1.full": {
+      "passed": 0,
+      "total": 4
+    }
+  },
+  "attribution_by_setting": {
+    "l1.full": {
+      "DISCOVERY_FAIL": 2,
+      "INSTANCE_FAIL": 2
+    }
+  },
+  "asr_by_split": {
+    "l1": 0.0
+  },
+  "pass_rate_by_split": {
+    "l1": 0.0
+  },
+  "asr_by_view": {},
+  "pass_rate_by_view": {},
+  "pass_count_by_view": {},
+  "attribution_by_view": {},
+  "records": [
+    {
+      "seed_id": "spider__apartment_rentals__01238",
+      "variant": "A",
+      "split": "l1",
+      "view": "full",
+      "pass": false,
+      "score": 0.7499999999999999,
+      "stage": "QUERY_FAIL",
+      "attribution": "DISCOVERY_FAIL",
+      "meta": {
+        "success": true,
+        "files_touched": [
+          "data_l65h.sqlite",
+          "data_s97x.csv",
+          "dump_6d4r.csv",
+          "export_3peb.csv",
+          "export_joay.parquet",
+          "tmp_b5n7.csv",
+          "tmp_q16x.csv"
+        ],
+        "error": null,
+        "workspace_summary": {
+          "workspace_name": "l1",
+          "files": [
+            {
+              "file": "data_l65h.sqlite",
+              "type": "sqlite",
+              "tables": [
+                {
+                  "name": "Apartments",
+                  "columns": [
+                    "apt_id",
+                    "building_id",
+                    "apt_type_code",
+                    "apt_number",
+                    "bathroom_count",
+                    "bedroom_count",
+                    "room_count"
+                  ],
+                  "sample_rows": [
+                    {
+                      "apt_id": 1,
+                      "building_id": 808,
+                      "apt_type_code": "Flat",
+                      "apt_number": "Suite 645",
+                      "bathroom_count": 1,
+                      "bedroom_count": 3,
+                      "room_count": "7"
+                    },
+                    {
+                      "apt_id": 2,
+                      "building_id": 624,
+                      "apt_type_code": "Flat",
+                      "apt_number": "Apt. 585",
+                      "bathroom_count": 2,
+                      "bedroom_count": 4,
+                      "room_count": "5"
+                    },
+                    {
+                      "apt_id": 3,
+                      "building_id": 225,
+                      "apt_type_code": "Studio",
+                      "apt_number": "Apt. 908",
+                      "bathroom_count": 1,
+                      "bedroom_count": 6,
+                      "room_count": "7"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "data_s97x.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "data_s97x",
+                  "columns": [
+                    "apt_id",
+                    "facility_code"
+                  ],
+                  "sample_rows": [
+                    {
+                      "apt_id": 14398,
+                      "facility_code": "Gym"
+                    },
+                    {
+                      "apt_id": 14400,
+                      "facility_code": "Swimming Pool"
+                    },
+                    {
+                      "apt_id": 14404,
+                      "facility_code": "Boardband"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "dump_6d4r.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "dump_6d4r",
+                  "columns": [
+                    "apt_id",
+                    "facility_code"
+                  ],
+                  "sample_rows": [
+                    {
+                      "apt_id": 19009,
+                      "facility_code": "Swimming Pool"
+                    },
+                    {
+                      "apt_id": 19010,
+                      "facility_code": "Cable TV"
+                    },
+                    {
+                      "apt_id": 19006,
+                      "facility_code": "Boardband"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "export_3peb.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "export_3peb",
+                  "columns": [
+                    "id",
+                    "name",
+                    "date",
+                    "value"
+                  ],
+                  "sample_rows": [
+                    {
+                      "id": 64058,
+                      "name": "name_0",
+                      "date": "2024-01-01",
+                      "value": 47.72
+                    },
+                    {
+                      "id": 59680,
+                      "name": "name_1",
+                      "date": "2024-01-02",
+                      "value": 50.74
+                    },
+                    {
+                      "id": 8203,
+                      "name": "name_2",
+                      "date": "2024-01-03",
+                      "value": 55.953
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "export_joay.parquet",
+              "type": "parquet",
+              "tables": [
+                {
+                  "name": "export_joay",
+                  "columns": [
+                    "apt_id",
+                    "building_id",
+                    "apt_type_code",
+                    "apt_number",
+                    "bathroom_count",
+                    "bedroom_count",
+                    "room_count"
+                  ],
+                  "sample_rows": [
+                    {
+                      "apt_id": 17900,
+                      "building_id": 225,
+                      "apt_type_code": "Duplex",
+                      "apt_number": "Suite 749",
+                      "bathroom_count": 1,
+                      "bedroom_count": 15466,
+                      "room_count": "8"
+                    },
+                    {
+                      "apt_id": 17905,
+                      "building_id": 624,
+                      "apt_type_code": "Studio",
+                      "apt_number": "Apt. 940",
+                      "bathroom_count": 1,
+                      "bedroom_count": 15465,
+                      "room_count": "8"
+                    },
+                    {
+                      "apt_id": 17909,
+                      "building_id": 744,
+                      "apt_type_code": "Duplex",
+                      "apt_number": "Apt. 411",
+                      "bathroom_count": 2,
+                      "bedroom_count": 15466,
+                      "room_count": "9"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "tmp_b5n7.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "tmp_b5n7",
+                  "columns": [
+                    "apt_id",
+                    "facility_code"
+                  ],
+                  "sample_rows": [
+                    {
+                      "apt_id": 1,
+                      "facility_code": "Boardband"
+                    },
+                    {
+                      "apt_id": 2,
+                      "facility_code": "Boardband"
+                    },
+                    {
+                      "apt_id": 3,
+                      "facility_code": "Gym"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "tmp_q16x.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "tmp_q16x",
+                  "columns": [
+                    "id",
+                    "name",
+                    "date",
+                    "value"
+                  ],
+                  "sample_rows": [
+                    {
+                      "id": 45677,
+                      "name": "name_0",
+                      "date": "2024-01-01",
+                      "value": 63.211
+                    },
+                    {
+                      "id": 86739,
+                      "name": "name_1",
+                      "date": "2024-01-02",
+                      "value": 45.468
+                    },
+                    {
+                      "id": 3660,
+                      "name": "name_2",
+                      "date": "2024-01-03",
+                      "value": 60.019
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "observable_sketch": {
+          "output_slots": [
+            {
+              "label": "facility_code",
+              "role": "identifier",
+              "metadata": {}
+            }
+          ],
+          "filter_hints": [
+            {
+              "attribute": "bedrooms",
+              "operator": ">",
+              "value": 4,
+              "value_text": "more than 4"
+            }
+          ],
+          "time_hints": {
+            "years": [],
+            "months": []
+          },
+          "measure_hints": [],
+          "grouping_hints": [],
+          "operator_hints": [],
+          "order_hint": {},
+          "raw_response": {
+            "output_slots": [
+              {
+                "label": "facility_code",
+                "role": "identifier"
+              }
+            ],
+            "filter_hints": [
+              {
+                "attribute": "bedrooms",
+                "operator": ">",
+                "value": 4,
+                "value_text": "more than 4"
+              }
+            ],
+            "time_hints": {
+              "years": [],
+              "months": []
+            },
+            "measure_hints": [],
+            "grouping_hints": [],
+            "operator_hints": [],
+            "order_hint": null
+          }
+        },
+        "obligation_sketch": {
+          "obligations": [
+            {
+              "name": "support_relation",
+              "probability": 0.44,
+              "reason": "The query requires linking 'facility_code' to 'apartments' and 'bedrooms', implying a support relation between these entities in the underlying data schema."
+            },
+            {
+              "name": "filter_transfer",
+              "probability": 1.0,
+              "reason": "A filter condition 'bedrooms > 4' is explicitly stated in the question and observable sketch, necessitating its correct application to the data."
+            },
+            {
+              "name": "aggregation_support",
+              "probability": 0.1,
+              "reason": "No aggregation (e.g., count, sum) is mentioned in the question or sketch; it simply selects facility codes based on a filter."
+            },
+            {
+              "name": "multihop",
+              "probability": 0.3,
+              "reason": "While the query involves multiple concepts (facility, apartment, bedrooms), the sketch suggests a direct filter on an attribute, making complex joins less likely but possible if data is normalized."
+            },
+            {
+              "name": "value_alignment",
+              "probability": 0.2,
+              "reason": "The value 'more than 4' is straightforward, but minor alignment may be needed if 'bedrooms' is stored differently (e.g., as text)."
+            }
+          ],
+          "role_priors": [
+            {
+              "role": "identifier",
+              "target": "facility_code",
+              "probability": 1.0,
+              "reason": "The sketch explicitly assigns 'identifier' role to 'facility_code' as the output to be shown."
+            },
+            {
+              "role": "filter_attribute",
+              "target": "bedrooms",
+              "probability": 1.0,
+              "reason": "The sketch includes 'bedrooms' in filter_hints with operator '>', indicating it serves as a filter attribute."
+            },
+            {
+              "role": "entity",
+              "target": "apartments",
+              "probability": 0.9,
+              "reason": "The question mentions 'apartments', likely representing the main entity or table, though not explicitly in the sketch's output slots."
+            }
+          ],
+          "family_labels": [
+            {
+              "label": "simple_filter_query",
+              "probability": 0.9,
+              "reason": "The query primarily involves selecting identifiers with a single filter condition, without aggregation, grouping, or complex joins."
+            },
+            {
+              "label": "attribute_based_selection",
+              "probability": 0.8,
+              "reason": "Focus is on retrieving codes based on an attribute value (bedrooms count), typical for filtering tasks."
+            }
+          ],
+          "raw_response": {
+            "atomic_obligations": [
+              {
+                "name": "support_relation",
+                "probability": 1.0,
+                "reason": "The query requires linking 'facility_code' to 'apartments' and 'bedrooms', implying a support relation between these entities in the underlying data schema."
+              },
+              {
+                "name": "filter_transfer",
+                "probability": 1.0,
+                "reason": "A filter condition 'bedrooms > 4' is explicitly stated in the question and observable sketch, necessitating its correct application to the data."
+              },
+              {
+                "name": "aggregation_support",
+                "probability": 0.1,
+                "reason": "No aggregation (e.g., count, sum) is mentioned in the question or sketch; it simply selects facility codes based on a filter."
+              },
+              {
+                "name": "multihop",
+                "probability": 0.3,
+                "reason": "While the query involves multiple concepts (facility, apartment, bedrooms), the sketch suggests a direct filter on an attribute, making complex joins less likely but possible if data is normalized."
+              },
+              {
+                "name": "value_alignment",
+                "probability": 0.2,
+                "reason": "The value 'more than 4' is straightforward, but minor alignment may be needed if 'bedrooms' is stored differently (e.g., as text)."
+              }
+            ],
+            "role_priors": [
+              {
+                "role": "identifier",
+                "target": "facility_code",
+                "probability": 1.0,
+                "reason": "The sketch explicitly assigns 'identifier' role to 'facility_code' as the output to be shown."
+              },
+              {
+                "role": "filter_attribute",
+                "target": "bedrooms",
+                "probability": 1.0,
+                "reason": "The sketch includes 'bedrooms' in filter_hints with operator '>', indicating it serves as a filter attribute."
+              },
+              {
+                "role": "entity",
+                "target": "apartments",
+                "probability": 0.9,
+                "reason": "The question mentions 'apartments', likely representing the main entity or table, though not explicitly in the sketch's output slots."
+              }
+            ],
+            "family_labels": [
+              {
+                "label": "simple_filter_query",
+                "probability": 0.9,
+                "reason": "The query primarily involves selecting identifiers with a single filter condition, without aggregation, grouping, or complex joins."
+              },
+              {
+                "label": "attribute_based_selection",
+                "probability": 0.8,
+                "reason": "Focus is on retrieving codes based on an attribute value (bedrooms count), typical for filtering tasks."
+              }
+            ]
+          }
+        },
+        "obligation_mode": "full",
+        "search_summary": {
+          "candidates_considered": 12,
+          "search_log": [
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "data_s97x.csv::data_s97x"
+              ],
+              "filter_sources": [
+                "data_l65h.sqlite::Apartments"
+              ],
+              "filter_path_count": 1,
+              "joint_rerank_total": 7.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "data_s97x.csv::data_s97x"
+              ],
+              "filter_sources": [
+                "export_joay.parquet::export_joay"
+              ],
+              "filter_path_count": 1,
+              "joint_rerank_total": 7.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "data_s97x.csv::data_s97x"
+              ],
+              "filter_sources": [
+                "data_s97x.csv::data_s97x"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 6.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_6d4r.csv::dump_6d4r"
+              ],
+              "filter_sources": [
+                "data_l65h.sqlite::Apartments"
+              ],
+              "filter_path_count": 1,
+              "joint_rerank_total": 7.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_6d4r.csv::dump_6d4r"
+              ],
+              "filter_sources": [
+                "export_joay.parquet::export_joay"
+              ],
+              "filter_path_count": 1,
+              "joint_rerank_total": 7.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_6d4r.csv::dump_6d4r"
+              ],
+              "filter_sources": [
+                "dump_6d4r.csv::dump_6d4r"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 6.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "tmp_b5n7.csv::tmp_b5n7"
+              ],
+              "filter_sources": [
+                "data_l65h.sqlite::Apartments"
+              ],
+              "filter_path_count": 1,
+              "joint_rerank_total": 7.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "tmp_b5n7.csv::tmp_b5n7"
+              ],
+              "filter_sources": [
+                "export_joay.parquet::export_joay"
+              ],
+              "filter_path_count": 1,
+              "joint_rerank_total": 7.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "tmp_b5n7.csv::tmp_b5n7"
+              ],
+              "filter_sources": [
+                "tmp_b5n7.csv::tmp_b5n7"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 6.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "data_l65h.sqlite::Apartments"
+              ],
+              "filter_sources": [
+                "data_l65h.sqlite::Apartments"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -1.25,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "data_l65h.sqlite::Apartments"
+              ],
+              "filter_sources": [
+                "export_joay.parquet::export_joay"
+              ],
+              "filter_path_count": 1,
+              "joint_rerank_total": -0.25,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "data_l65h.sqlite::Apartments"
+              ],
+              "filter_sources": [
+                "data_l65h.sqlite::Apartments"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -1.25,
+              "family": "filter_join",
+              "aggregation_mode": null
+            }
+          ]
+        },
+        "support_plan": {
+          "output_bindings": [
+            {
+              "source_id": "data_s97x.csv::data_s97x",
+              "file_name": "data_s97x.csv",
+              "view_name": "data_s97x_data_s97x",
+              "column_name": "facility_code",
+              "role": "identifier",
+              "score": 21.857142857142858,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match"
+              ],
+              "metadata": {
+                "slot_label": "facility_code"
+              }
+            }
+          ],
+          "plan_kind": "filter_join",
+          "output_join_paths": [],
+          "filter_join_paths": [
+            {
+              "path_source_ids": [
+                "data_s97x.csv::data_s97x",
+                "data_l65h.sqlite::Apartments"
+              ],
+              "edges": [
+                {
+                  "edge_id": "data_s97x_csv_data_s97x__tmp_b5n7_csv_tmp_b5n7__facility_code__facility_code",
+                  "left_source_id": "data_s97x.csv::data_s97x",
+                  "right_source_id": "tmp_b5n7.csv::tmp_b5n7",
+                  "left_column": "facility_code",
+                  "right_column": "facility_code",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 1.0
+                },
+                {
+                  "edge_id": "data_l65h_sqlite_apartments__tmp_b5n7_csv_tmp_b5n7__apt_id__apt_id",
+                  "left_source_id": "data_l65h.sqlite::Apartments",
+                  "right_source_id": "tmp_b5n7.csv::tmp_b5n7",
+                  "left_column": "apt_id",
+                  "right_column": "apt_id",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 0.85
+                }
+              ],
+              "score": 1.85,
+              "notes": [
+                "filter_join_path"
+              ]
+            }
+          ],
+          "support_binding": null,
+          "anchor_binding": null,
+          "evidence_bindings": [],
+          "measure_binding": null,
+          "filter_bindings": [
+            {
+              "source_id": "data_l65h.sqlite::Apartments",
+              "file_name": "data_l65h.sqlite",
+              "view_name": "data_l65h_apartments",
+              "column_name": "bedroom_count",
+              "role": "filter",
+              "score": 9.533333333333333,
+              "reasons": [
+                "numeric_filter_compatible",
+                "fact_filter_bonus"
+              ],
+              "metadata": {
+                "attribute": "bedrooms",
+                "operator": ">",
+                "value": 4,
+                "value_text": "more than 4"
+              }
+            }
+          ],
+          "operator_plan": {
+            "aggregation": null,
+            "direction": null,
+            "limit": null,
+            "group_by": false,
+            "exists": false
+          },
+          "satisfied_obligations": [
+            "filter_transfer"
+          ],
+          "unmet_obligations": [],
+          "confidence": 96.24794285714286,
+          "source_trace": [
+            "data_s97x.csv::data_s97x"
+          ],
+          "notes": [
+            "filter_join",
+            "family=filter_join",
+            "evidence_source_ids=['data_l65h.sqlite::Apartments']",
+            "joint_rerank_total=7.7500",
+            "output_consistency=5.5000",
+            "filter_consistency=3.5000",
+            "aggregation_consistency=0.0000",
+            "obligation_consistency=-1.2500",
+            "shape_sanity=0.0000"
+          ],
+          "evidence_source_ids": [
+            "data_l65h.sqlite::Apartments"
+          ],
+          "aggregation_unit_kind": null,
+          "aggregation_anchor_source_id": null,
+          "aggregation_mode": null,
+          "ranking_target_kind": null
+        },
+        "support_ir": {
+          "kind": "filter_join",
+          "compile_ready": true,
+          "steps": [
+            {
+              "op": "SCAN",
+              "args": {
+                "source_id": "data_s97x.csv::data_s97x",
+                "view_name": "data_s97x_data_s97x",
+                "role": "output"
+              }
+            },
+            {
+              "op": "JOIN",
+              "args": {
+                "edge": {
+                  "edge_id": "data_s97x_csv_data_s97x__tmp_b5n7_csv_tmp_b5n7__facility_code__facility_code",
+                  "left_source_id": "data_s97x.csv::data_s97x",
+                  "right_source_id": "tmp_b5n7.csv::tmp_b5n7",
+                  "left_column": "facility_code",
+                  "right_column": "facility_code",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 1.0
+                },
+                "kind": "filter_path"
+              }
+            },
+            {
+              "op": "JOIN",
+              "args": {
+                "edge": {
+                  "edge_id": "data_l65h_sqlite_apartments__tmp_b5n7_csv_tmp_b5n7__apt_id__apt_id",
+                  "left_source_id": "data_l65h.sqlite::Apartments",
+                  "right_source_id": "tmp_b5n7.csv::tmp_b5n7",
+                  "left_column": "apt_id",
+                  "right_column": "apt_id",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 0.85
+                },
+                "kind": "filter_path"
+              }
+            },
+            {
+              "op": "FILTER",
+              "args": {
+                "source_id": "data_l65h.sqlite::Apartments",
+                "file_name": "data_l65h.sqlite",
+                "view_name": "data_l65h_apartments",
+                "column_name": "bedroom_count",
+                "role": "filter",
+                "score": 9.533333333333333,
+                "reasons": [
+                  "numeric_filter_compatible",
+                  "fact_filter_bonus"
+                ],
+                "metadata": {
+                  "attribute": "bedrooms",
+                  "operator": ">",
+                  "value": 4,
+                  "value_text": "more than 4"
+                }
+              }
+            },
+            {
+              "op": "PROJECT",
+              "args": {
+                "columns": [
+                  {
+                    "source_id": "data_s97x.csv::data_s97x",
+                    "file_name": "data_s97x.csv",
+                    "view_name": "data_s97x_data_s97x",
+                    "column_name": "facility_code",
+                    "role": "identifier",
+                    "score": 21.857142857142858,
+                    "reasons": [
+                      "exact_column_match",
+                      "label_substring_match"
+                    ],
+                    "metadata": {
+                      "slot_label": "facility_code"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "metadata": {
+            "primary_output_source_id": "data_s97x.csv::data_s97x",
+            "support_source_id": null,
+            "filter_path_count": 1,
+            "required_columns": [
+              "facility_code"
+            ],
+            "aggregation": null,
+            "direction": null,
+            "limit": null
+          },
+          "compile_reason": null
+        },
+        "verifier_trace": [
+          {
+            "check": "output_binding",
+            "score": 21.8571,
+            "passed": true,
+            "evidence": [
+              {
+                "source_id": "data_s97x.csv::data_s97x",
+                "file_name": "data_s97x.csv",
+                "view_name": "data_s97x_data_s97x",
+                "column_name": "facility_code",
+                "role": "identifier",
+                "score": 21.857142857142858,
+                "reasons": [
+                  "exact_column_match",
+                  "label_substring_match"
+                ],
+                "metadata": {
+                  "slot_label": "facility_code"
+                }
+              }
+            ]
+          },
+          {
+            "check": "filter_transfer",
+            "score": 9.5333,
+            "passed": true,
+            "evidence": [
+              {
+                "source_id": "data_l65h.sqlite::Apartments",
+                "file_name": "data_l65h.sqlite",
+                "view_name": "data_l65h_apartments",
+                "column_name": "bedroom_count",
+                "role": "filter",
+                "score": 9.533333333333333,
+                "reasons": [
+                  "numeric_filter_compatible",
+                  "fact_filter_bonus"
+                ],
+                "metadata": {
+                  "attribute": "bedrooms",
+                  "operator": ">",
+                  "value": 4,
+                  "value_text": "more than 4"
+                }
+              }
+            ]
+          },
+          {
+            "check": "role_consistency",
+            "score": 0.5,
+            "passed": true,
+            "evidence": {
+              "support_source": null,
+              "output_source": "data_s97x.csv::data_s97x"
+            }
+          }
+        ],
+        "planner_output": {
+          "relevant_files": [
+            "data_l65h.sqlite",
+            "data_s97x.csv"
+          ],
+          "output_bindings": [
+            {
+              "source_id": "data_s97x.csv::data_s97x",
+              "file_name": "data_s97x.csv",
+              "view_name": "data_s97x_data_s97x",
+              "column_name": "facility_code",
+              "role": "identifier",
+              "score": 21.857142857142858,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match"
+              ],
+              "metadata": {
+                "slot_label": "facility_code"
+              }
+            }
+          ],
+          "output_mappings": [
+            {
+              "slot_id": "facility_code",
+              "source_file": "data_s97x.csv",
+              "source_id": "data_s97x.csv::data_s97x",
+              "source_column": "facility_code"
+            }
+          ],
+          "support_bindings": [],
+          "anchor_bindings": []
+        },
+        "final_sql": "SELECT t0.\"facility_code\" AS \"facility_code\" FROM \"data_s97x_data_s97x\" AS t0 JOIN \"tmp_b5n7_tmp_b5n7\" AS t1 ON CAST(t0.\"facility_code\" AS VARCHAR) = CAST(t1.\"facility_code\" AS VARCHAR) JOIN \"data_l65h_apartments\" AS t2 ON CAST(t2.\"apt_id\" AS VARCHAR) = CAST(t1.\"apt_id\" AS VARCHAR) WHERE CAST(t2.\"bedroom_count\" AS DOUBLE) > 4",
+        "execution_summary": {
+          "success": true,
+          "row_count": 5,
+          "columns": [
+            "facility_code"
+          ],
+          "preview": [
+            {
+              "facility_code": "Gym"
+            },
+            {
+              "facility_code": "Gym"
+            },
+            {
+              "facility_code": "Cable TV"
+            }
+          ],
+          "files_touched": [
+            "data_l65h.sqlite",
+            "data_s97x.csv",
+            "dump_6d4r.csv",
+            "export_3peb.csv",
+            "export_joay.parquet",
+            "tmp_b5n7.csv",
+            "tmp_q16x.csv"
+          ]
+        },
+        "critique": null,
+        "agent_impl": "support_plan_agent",
+        "wall_clock_time": 3.4691,
+        "llm_calls_used": 2,
+        "llm_calls_budget": 4,
+        "split": "l1",
+        "view": "full",
+        "requested_mode": "support_plan_agent"
+      }
+    },
+    {
+      "seed_id": "spider__baseball_1__03665",
+      "variant": "A",
+      "split": "l1",
+      "view": "full",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "attribution": "INSTANCE_FAIL",
+      "meta": {
+        "success": false,
+        "files_touched": [
+          "data_9yjs.csv",
+          "data_mpao.sqlite",
+          "dump_cwuu.csv",
+          "export_d27i.parquet",
+          "tmp_5vch.csv"
+        ],
+        "error": null,
+        "workspace_summary": {
+          "workspace_name": "l1",
+          "files": [
+            {
+              "file": "data_9yjs.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "data_9yjs",
+                  "columns": [
+                    "year",
+                    "round",
+                    "team_id_winner",
+                    "league_id_winner",
+                    "team_id_loser",
+                    "league_id_loser",
+                    "wins",
+                    "losses",
+                    "ties"
+                  ],
+                  "sample_rows": [
+                    {
+                      "year": 1954,
+                      "round": "WS",
+                      "team_id_winner": "ZZ_NY1",
+                      "league_id_winner": "NL",
+                      "team_id_loser": "CLE",
+                      "league_id_loser": "AL",
+                      "wins": 4,
+                      "losses": 0,
+                      "ties": 0
+                    },
+                    {
+                      "year": 1997,
+                      "round": "ALDS1",
+                      "team_id_winner": "ZZ_CLE",
+                      "league_id_winner": "AL",
+                      "team_id_loser": "NYA",
+                      "league_id_loser": "AL",
+                      "wins": 3,
+                      "losses": 2,
+                      "ties": 0
+                    },
+                    {
+                      "year": 2014,
+                      "round": "ALCS",
+                      "team_id_winner": "ZZ_KCA",
+                      "league_id_winner": "AL",
+                      "team_id_loser": "BAL",
+                      "league_id_loser": "AL",
+                      "wins": 4,
+                      "losses": 0,
+                      "ties": 0
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "data_mpao.sqlite",
+              "type": "sqlite",
+              "tables": [
+                {
+                  "name": "team",
+                  "columns": [
+                    "year",
+                    "league_id",
+                    "team_id",
+                    "franchise_id",
+                    "div_id",
+                    "rank",
+                    "g",
+                    "ghome",
+                    "w",
+                    "l",
+                    "div_win",
+                    "wc_win",
+                    "lg_win",
+                    "ws_win",
+                    "r",
+                    "ab",
+                    "h",
+                    "double",
+                    "triple",
+                    "hr",
+                    "bb",
+                    "so",
+                    "sb",
+                    "cs",
+                    "hbp",
+                    "sf",
+                    "ra",
+                    "er",
+                    "era",
+                    "cg",
+                    "sho",
+                    "sv",
+                    "ipouts",
+                    "ha",
+                    "hra",
+                    "bba",
+                    "soa",
+                    "e",
+                    "dp",
+                    "fp",
+                    "name",
+                    "park",
+                    "attendance",
+                    "bpf",
+                    "ppf",
+                    "team_id_br",
+                    "team_id_lahman45",
+                    "team_id_retro"
+                  ],
+                  "sample_rows": [
+                    {
+                      "year": 1871,
+                      "league_id": "",
+                      "team_id": "BS1",
+                      "franchise_id": "BNA",
+                      "div_id": "",
+                      "rank": 3,
+                      "g": 31,
+                      "ghome": "",
+                      "w": 20,
+                      "l": 10,
+                      "div_win": "",
+                      "wc_win": "",
+                      "lg_win": "N",
+                      "ws_win": "",
+                      "r": 401,
+                      "ab": 1372,
+                      "h": 426,
+                      "double": 70,
+                      "triple": 37,
+                      "hr": 3,
+                      "bb": 60,
+                      "so": "19",
+                      "sb": "73",
+                      "cs": "",
+                      "hbp": "",
+                      "sf": "",
+                      "ra": 303,
+                      "er": 109,
+                      "era": 3.55,
+                      "cg": 22,
+                      "sho": 1,
+                      "sv": 3,
+                      "ipouts": 828,
+                      "ha": 367,
+                      "hra": 2,
+                      "bba": 42,
+                      "soa": 23,
+                      "e": 225,
+                      "dp": "",
+                      "fp": 0.83,
+                      "name": "Boston Red Stockings",
+                      "park": "South End Grounds I",
+                      "attendance": "",
+                      "bpf": 103,
+                      "ppf": 98,
+                      "team_id_br": "BOS",
+                      "team_id_lahman45": "BS1",
+                      "team_id_retro": "BS1"
+                    },
+                    {
+                      "year": 1871,
+                      "league_id": "",
+                      "team_id": "CH1",
+                      "franchise_id": "CNA",
+                      "div_id": "",
+                      "rank": 2,
+                      "g": 28,
+                      "ghome": "",
+                      "w": 19,
+                      "l": 9,
+                      "div_win": "",
+                      "wc_win": "",
+                      "lg_win": "N",
+                      "ws_win": "",
+                      "r": 302,
+                      "ab": 1196,
+                      "h": 323,
+                      "double": 52,
+                      "triple": 21,
+                      "hr": 10,
+                      "bb": 60,
+                      "so": "22",
+                      "sb": "69",
+                      "cs": "",
+                      "hbp": "",
+                      "sf": "",
+                      "ra": 241,
+                      "er": 77,
+                      "era": 2.76,
+                      "cg": 25,
+                      "sho": 0,
+                      "sv": 1,
+                      "ipouts": 753,
+                      "ha": 308,
+                      "hra": 6,
+                      "bba": 28,
+                      "soa": 22,
+                      "e": 218,
+                      "dp": "",
+                      "fp": 0.82,
+                      "name": "Chicago White Stockings",
+                      "park": "Union Base-Ball Grounds",
+                      "attendance": "",
+                      "bpf": 104,
+                      "ppf": 102,
+                      "team_id_br": "CHI",
+                      "team_id_lahman45": "CH1",
+                      "team_id_retro": "CH1"
+                    },
+                    {
+                      "year": 1871,
+                      "league_id": "",
+                      "team_id": "CL1",
+                      "franchise_id": "CFC",
+                      "div_id": "",
+                      "rank": 8,
+                      "g": 29,
+                      "ghome": "",
+                      "w": 10,
+                      "l": 19,
+                      "div_win": "",
+                      "wc_win": "",
+                      "lg_win": "N",
+                      "ws_win": "",
+                      "r": 249,
+                      "ab": 1186,
+                      "h": 328,
+                      "double": 35,
+                      "triple": 40,
+                      "hr": 7,
+                      "bb": 26,
+                      "so": "25",
+                      "sb": "18",
+                      "cs": "",
+                      "hbp": "",
+                      "sf": "",
+                      "ra": 341,
+                      "er": 116,
+                      "era": 4.11,
+                      "cg": 23,
+                      "sho": 0,
+                      "sv": 0,
+                      "ipouts": 762,
+                      "ha": 346,
+                      "hra": 13,
+                      "bba": 53,
+                      "soa": 34,
+                      "e": 223,
+                      "dp": "",
+                      "fp": 0.81,
+                      "name": "Cleveland Forest Citys",
+                      "park": "National Association Grounds",
+                      "attendance": "",
+                      "bpf": 96,
+                      "ppf": 100,
+                      "team_id_br": "CLE",
+                      "team_id_lahman45": "CL1",
+                      "team_id_retro": "CL1"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "dump_cwuu.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "dump_cwuu",
+                  "columns": [
+                    "year",
+                    "round",
+                    "team_id_winner",
+                    "league_id_winner",
+                    "team_id_loser",
+                    "league_id_loser",
+                    "wins",
+                    "losses",
+                    "ties"
+                  ],
+                  "sample_rows": [
+                    {
+                      "year": 2014,
+                      "round": "WS",
+                      "team_id_winner": "ZZ_SFN",
+                      "league_id_winner": "NL",
+                      "team_id_loser": "KCA",
+                      "league_id_loser": "AL",
+                      "wins": 4,
+                      "losses": 3,
+                      "ties": 0
+                    },
+                    {
+                      "year": 2005,
+                      "round": "ALDS1",
+                      "team_id_winner": "ZZ_CHA",
+                      "league_id_winner": "AL",
+                      "team_id_loser": "BOS",
+                      "league_id_loser": "AL",
+                      "wins": 3,
+                      "losses": 0,
+                      "ties": 0
+                    },
+                    {
+                      "year": 2011,
+                      "round": "ALCS",
+                      "team_id_winner": "ZZ_TEX",
+                      "league_id_winner": "AL",
+                      "team_id_loser": "DET",
+                      "league_id_loser": "AL",
+                      "wins": 4,
+                      "losses": 2,
+                      "ties": 0
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "export_d27i.parquet",
+              "type": "parquet",
+              "tables": [
+                {
+                  "name": "export_d27i",
+                  "columns": [
+                    "id",
+                    "name",
+                    "date",
+                    "value"
+                  ],
+                  "sample_rows": [
+                    {
+                      "id": 65009,
+                      "name": "name_0",
+                      "date": "2024-01-01",
+                      "value": 23.664
+                    },
+                    {
+                      "id": 15262,
+                      "name": "name_1",
+                      "date": "2024-01-02",
+                      "value": 49.669
+                    },
+                    {
+                      "id": 38425,
+                      "name": "name_2",
+                      "date": "2024-01-03",
+                      "value": 36.84
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "tmp_5vch.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "tmp_5vch",
+                  "columns": [
+                    "year",
+                    "round",
+                    "team_id_winner",
+                    "league_id_winner",
+                    "team_id_loser",
+                    "league_id_loser",
+                    "wins",
+                    "losses",
+                    "ties"
+                  ],
+                  "sample_rows": [
+                    {
+                      "year": 1884,
+                      "round": "WS",
+                      "team_id_winner": "PRO",
+                      "league_id_winner": "NL",
+                      "team_id_loser": "NYP",
+                      "league_id_loser": "AA",
+                      "wins": 3,
+                      "losses": 0,
+                      "ties": 0
+                    },
+                    {
+                      "year": 1885,
+                      "round": "WS",
+                      "team_id_winner": "CHC",
+                      "league_id_winner": "NL",
+                      "team_id_loser": "STL",
+                      "league_id_loser": "AA",
+                      "wins": 3,
+                      "losses": 3,
+                      "ties": 1
+                    },
+                    {
+                      "year": 1886,
+                      "round": "WS",
+                      "team_id_winner": "STL",
+                      "league_id_winner": "AA",
+                      "team_id_loser": "CHC",
+                      "league_id_loser": "NL",
+                      "wins": 4,
+                      "losses": 2,
+                      "ties": 0
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "observable_sketch": {
+          "output_slots": [
+            {
+              "label": "max(T1.wins)",
+              "role": "measure",
+              "metadata": {}
+            }
+          ],
+          "filter_hints": [
+            {
+              "attribute": "team",
+              "operator": "=",
+              "value": "Boston Red Stockings",
+              "value_text": "Boston Red Stockings"
+            },
+            {
+              "attribute": "postseason",
+              "operator": "=",
+              "value": "won",
+              "value_text": "won"
+            }
+          ],
+          "time_hints": {
+            "years": [],
+            "months": []
+          },
+          "measure_hints": [
+            "max(T1.wins)"
+          ],
+          "grouping_hints": [],
+          "operator_hints": [
+            "max"
+          ],
+          "order_hint": {
+            "direction": "desc",
+            "limit": 1
+          },
+          "raw_response": {
+            "output_slots": [
+              {
+                "label": "max(T1.wins)",
+                "role": "measure"
+              }
+            ],
+            "filter_hints": [
+              {
+                "attribute": "team",
+                "operator": "=",
+                "value": "Boston Red Stockings",
+                "value_text": "Boston Red Stockings"
+              },
+              {
+                "attribute": "postseason",
+                "operator": "=",
+                "value": "won",
+                "value_text": "won"
+              }
+            ],
+            "time_hints": {
+              "years": [],
+              "months": []
+            },
+            "measure_hints": [
+              "max(T1.wins)"
+            ],
+            "grouping_hints": [],
+            "operator_hints": [
+              "max"
+            ],
+            "order_hint": null
+          }
+        },
+        "obligation_sketch": {
+          "obligations": [
+            {
+              "name": "support_relation",
+              "probability": 0.44,
+              "reason": "The question requires linking team 'Boston Red Stockings' to its scores (wins) in postseason games, implying a support relation between team and game outcomes."
+            },
+            {
+              "name": "aggregation_support",
+              "probability": 0.95,
+              "reason": "The sketch explicitly includes 'max(T1.wins)' as a measure, indicating aggregation over wins to find the maximum score."
+            },
+            {
+              "name": "filter_transfer",
+              "probability": 0.85,
+              "reason": "Filters on team ('Boston Red Stockings') and postseason outcome ('won') are present in the sketch, suggesting these conditions must be correctly applied to the data."
+            },
+            {
+              "name": "multihop",
+              "probability": 0.44,
+              "reason": "The question involves multiple steps: identifying games for the team, filtering by postseason wins, and then computing the maximum score, though the sketch may simplify this."
+            },
+            {
+              "name": "value_alignment",
+              "probability": 0.44,
+              "reason": "The term 'score' in the question aligns with 'wins' in the sketch, requiring semantic alignment between user intent and data representation."
+            }
+          ],
+          "role_priors": [
+            {
+              "role": "measure",
+              "target": "max(T1.wins)",
+              "probability": 0.95,
+              "reason": "The sketch designates 'max(T1.wins)' as a measure, directly corresponding to the requested maximum score."
+            },
+            {
+              "role": "filter",
+              "target": "team = Boston Red Stockings",
+              "probability": 0.9,
+              "reason": "The filter on team is explicitly listed in the sketch, indicating it is a key constraint for the query."
+            },
+            {
+              "role": "filter",
+              "target": "postseason = won",
+              "probability": 0.9,
+              "reason": "The filter on postseason outcome is explicitly listed, necessary to restrict results to winning games."
+            },
+            {
+              "role": "order",
+              "target": "desc limit 1",
+              "probability": 0.7,
+              "reason": "The sketch includes an order hint for descending with limit 1, which aligns with finding the maximum value, though not strictly required if aggregation is used."
+            }
+          ],
+          "family_labels": [
+            {
+              "label": "aggregated_filtered_query",
+              "probability": 0.9,
+              "reason": "The query involves aggregation (max) over data filtered by specific conditions (team and postseason), fitting a common pattern for analytical questions."
+            }
+          ],
+          "raw_response": {
+            "atomic_obligations": [
+              {
+                "name": "support_relation",
+                "probability": 0.9,
+                "reason": "The question requires linking team 'Boston Red Stockings' to its scores (wins) in postseason games, implying a support relation between team and game outcomes."
+              },
+              {
+                "name": "aggregation_support",
+                "probability": 0.95,
+                "reason": "The sketch explicitly includes 'max(T1.wins)' as a measure, indicating aggregation over wins to find the maximum score."
+              },
+              {
+                "name": "filter_transfer",
+                "probability": 0.85,
+                "reason": "Filters on team ('Boston Red Stockings') and postseason outcome ('won') are present in the sketch, suggesting these conditions must be correctly applied to the data."
+              },
+              {
+                "name": "multihop",
+                "probability": 0.6,
+                "reason": "The question involves multiple steps: identifying games for the team, filtering by postseason wins, and then computing the maximum score, though the sketch may simplify this."
+              },
+              {
+                "name": "value_alignment",
+                "probability": 0.8,
+                "reason": "The term 'score' in the question aligns with 'wins' in the sketch, requiring semantic alignment between user intent and data representation."
+              }
+            ],
+            "role_priors": [
+              {
+                "role": "measure",
+                "target": "max(T1.wins)",
+                "probability": 0.95,
+                "reason": "The sketch designates 'max(T1.wins)' as a measure, directly corresponding to the requested maximum score."
+              },
+              {
+                "role": "filter",
+                "target": "team = Boston Red Stockings",
+                "probability": 0.9,
+                "reason": "The filter on team is explicitly listed in the sketch, indicating it is a key constraint for the query."
+              },
+              {
+                "role": "filter",
+                "target": "postseason = won",
+                "probability": 0.9,
+                "reason": "The filter on postseason outcome is explicitly listed, necessary to restrict results to winning games."
+              },
+              {
+                "role": "order",
+                "target": "desc limit 1",
+                "probability": 0.7,
+                "reason": "The sketch includes an order hint for descending with limit 1, which aligns with finding the maximum value, though not strictly required if aggregation is used."
+              }
+            ],
+            "family_labels": [
+              {
+                "label": "aggregated_filtered_query",
+                "probability": 0.9,
+                "reason": "The query involves aggregation (max) over data filtered by specific conditions (team and postseason), fitting a common pattern for analytical questions."
+              }
+            ]
+          }
+        },
+        "obligation_mode": "full",
+        "search_summary": {
+          "candidates_considered": 144,
+          "search_log": [
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_sources": [
+                "data_mpao.sqlite::team",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 1,
+              "joint_rerank_total": 7.0,
+              "family": "direct_aggregation",
+              "aggregation_mode": "explicit_measure_direct"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_sources": [
+                "data_mpao.sqlite::team",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 1,
+              "joint_rerank_total": 7.0,
+              "family": "direct_aggregation",
+              "aggregation_mode": "explicit_measure_direct"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_sources": [
+                "data_mpao.sqlite::team",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 1,
+              "joint_rerank_total": 7.0,
+              "family": "direct_aggregation",
+              "aggregation_mode": "explicit_measure_direct"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_sources": [
+                "dump_cwuu.csv::dump_cwuu",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 6.0,
+              "family": "direct_aggregation",
+              "aggregation_mode": "explicit_measure_direct"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_sources": [
+                "dump_cwuu.csv::dump_cwuu",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 6.0,
+              "family": "direct_aggregation",
+              "aggregation_mode": "explicit_measure_direct"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_sources": [
+                "dump_cwuu.csv::dump_cwuu",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 6.0,
+              "family": "direct_aggregation",
+              "aggregation_mode": "explicit_measure_direct"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "support_source": "data_mpao.sqlite::team",
+              "anchor_score": 1.5,
+              "filter_sources": [
+                "data_mpao.sqlite::team",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 24.5,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "support_source": "data_mpao.sqlite::team",
+              "anchor_score": 1.5,
+              "filter_sources": [
+                "data_mpao.sqlite::team",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 24.5,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "support_source": "data_mpao.sqlite::team",
+              "anchor_score": 1.5,
+              "filter_sources": [
+                "data_mpao.sqlite::team",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 24.5,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "support_source": "data_mpao.sqlite::team",
+              "anchor_score": 1.5,
+              "filter_sources": [
+                "dump_cwuu.csv::dump_cwuu",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 21.5,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "support_source": "data_mpao.sqlite::team",
+              "anchor_score": 1.5,
+              "filter_sources": [
+                "dump_cwuu.csv::dump_cwuu",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 21.5,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "support_source": "data_mpao.sqlite::team",
+              "anchor_score": 1.5,
+              "filter_sources": [
+                "dump_cwuu.csv::dump_cwuu",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 21.5,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "support_source": "tmp_5vch.csv::tmp_5vch",
+              "anchor_score": 1.0,
+              "filter_sources": [
+                "data_mpao.sqlite::team",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 1,
+              "joint_rerank_total": 24.0,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "support_source": "tmp_5vch.csv::tmp_5vch",
+              "anchor_score": 1.0,
+              "filter_sources": [
+                "data_mpao.sqlite::team",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 1,
+              "joint_rerank_total": 24.0,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "support_source": "tmp_5vch.csv::tmp_5vch",
+              "anchor_score": 1.0,
+              "filter_sources": [
+                "data_mpao.sqlite::team",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 1,
+              "joint_rerank_total": 24.0,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "support_source": "tmp_5vch.csv::tmp_5vch",
+              "anchor_score": 1.0,
+              "filter_sources": [
+                "dump_cwuu.csv::dump_cwuu",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 21.5,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "support_source": "tmp_5vch.csv::tmp_5vch",
+              "anchor_score": 1.0,
+              "filter_sources": [
+                "dump_cwuu.csv::dump_cwuu",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 21.5,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "support_source": "tmp_5vch.csv::tmp_5vch",
+              "anchor_score": 1.0,
+              "filter_sources": [
+                "dump_cwuu.csv::dump_cwuu",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 21.5,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "support_source": "data_9yjs.csv::data_9yjs",
+              "anchor_score": 1.0,
+              "filter_sources": [
+                "data_mpao.sqlite::team",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 1,
+              "joint_rerank_total": 24.0,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "support_source": "data_9yjs.csv::data_9yjs",
+              "anchor_score": 1.0,
+              "filter_sources": [
+                "data_mpao.sqlite::team",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 1,
+              "joint_rerank_total": 24.0,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "support_source": "data_9yjs.csv::data_9yjs",
+              "anchor_score": 1.0,
+              "filter_sources": [
+                "data_mpao.sqlite::team",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 1,
+              "joint_rerank_total": 24.0,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "support_source": "data_9yjs.csv::data_9yjs",
+              "anchor_score": 1.0,
+              "filter_sources": [
+                "dump_cwuu.csv::dump_cwuu",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 21.5,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "support_source": "data_9yjs.csv::data_9yjs",
+              "anchor_score": 1.0,
+              "filter_sources": [
+                "dump_cwuu.csv::dump_cwuu",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 21.5,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "support_source": "data_9yjs.csv::data_9yjs",
+              "anchor_score": 1.0,
+              "filter_sources": [
+                "dump_cwuu.csv::dump_cwuu",
+                "dump_cwuu.csv::dump_cwuu"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 21.5,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            }
+          ]
+        },
+        "support_plan": {
+          "output_bindings": [
+            {
+              "source_id": "tmp_5vch.csv::tmp_5vch",
+              "file_name": "tmp_5vch.csv",
+              "view_name": "tmp_5vch_tmp_5vch",
+              "column_name": "wins",
+              "role": "measure",
+              "score": 9.1875,
+              "reasons": [
+                "measure_compatible"
+              ],
+              "metadata": {
+                "slot_label": "max(T1.wins)"
+              }
+            }
+          ],
+          "plan_kind": "aggregation_join",
+          "output_join_paths": [],
+          "filter_join_paths": [
+            {
+              "path_source_ids": [
+                "dump_cwuu.csv::dump_cwuu",
+                "data_mpao.sqlite::team"
+              ],
+              "edges": [
+                {
+                  "edge_id": "data_9yjs_csv_data_9yjs__dump_cwuu_csv_dump_cwuu__league_id_winner__league_id_winner",
+                  "left_source_id": "data_9yjs.csv::data_9yjs",
+                  "right_source_id": "dump_cwuu.csv::dump_cwuu",
+                  "left_column": "league_id_winner",
+                  "right_column": "league_id_winner",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 1.0
+                },
+                {
+                  "edge_id": "data_9yjs_csv_data_9yjs__data_mpao_sqlite_team__league_id_winner__league_id",
+                  "left_source_id": "data_9yjs.csv::data_9yjs",
+                  "right_source_id": "data_mpao.sqlite::team",
+                  "left_column": "league_id_winner",
+                  "right_column": "league_id",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 0.5
+                }
+              ],
+              "score": 1.5,
+              "notes": [
+                "filter_join_path"
+              ]
+            }
+          ],
+          "support_binding": {
+            "source_id": "dump_cwuu.csv::dump_cwuu",
+            "file_name": "dump_cwuu.csv",
+            "view_name": "dump_cwuu_dump_cwuu",
+            "column_name": "team_id_winner",
+            "role": "support",
+            "score": 14.75,
+            "reasons": [
+              "fact_source_bonus",
+              "can_host_filters",
+              "anchor_path_found"
+            ],
+            "metadata": {}
+          },
+          "anchor_binding": {
+            "path_source_ids": [
+              "dump_cwuu.csv::dump_cwuu",
+              "tmp_5vch.csv::tmp_5vch"
+            ],
+            "edges": [
+              {
+                "edge_id": "dump_cwuu_csv_dump_cwuu__tmp_5vch_csv_tmp_5vch__league_id_winner__league_id_winner",
+                "left_source_id": "dump_cwuu.csv::dump_cwuu",
+                "right_source_id": "tmp_5vch.csv::tmp_5vch",
+                "left_column": "league_id_winner",
+                "right_column": "league_id_winner",
+                "left_transform": "identity",
+                "right_transform": "identity",
+                "overlap": 1.0
+              }
+            ],
+            "score": 1.0,
+            "notes": []
+          },
+          "evidence_bindings": [],
+          "measure_binding": {
+            "source_id": "dump_cwuu.csv::dump_cwuu",
+            "file_name": "dump_cwuu.csv",
+            "view_name": "dump_cwuu_dump_cwuu",
+            "column_name": "wins",
+            "role": "measure",
+            "score": 9.0,
+            "reasons": [
+              "numeric_measure"
+            ],
+            "metadata": {
+              "aggregation": "max"
+            }
+          },
+          "filter_bindings": [
+            {
+              "source_id": "data_mpao.sqlite::team",
+              "file_name": "data_mpao.sqlite",
+              "view_name": "data_mpao_team",
+              "column_name": "team_id",
+              "role": "filter",
+              "score": 13.537735849056604,
+              "reasons": [
+                "attribute_substring_match",
+                "text_filter_compatible",
+                "fact_filter_bonus"
+              ],
+              "metadata": {
+                "attribute": "team",
+                "operator": "=",
+                "value": "Boston Red Stockings",
+                "value_text": "Boston Red Stockings"
+              }
+            },
+            {
+              "source_id": "dump_cwuu.csv::dump_cwuu",
+              "file_name": "dump_cwuu.csv",
+              "view_name": "dump_cwuu_dump_cwuu",
+              "column_name": "round",
+              "role": "filter",
+              "score": 4.125,
+              "reasons": [
+                "text_filter_compatible",
+                "fact_filter_bonus",
+                "preferred_source_bonus"
+              ],
+              "metadata": {
+                "attribute": "postseason",
+                "operator": "=",
+                "value": "won",
+                "value_text": "won"
+              }
+            }
+          ],
+          "operator_plan": {
+            "aggregation": "max",
+            "direction": "desc",
+            "limit": 1,
+            "group_by": false,
+            "exists": false
+          },
+          "satisfied_obligations": [
+            "aggregation_support",
+            "filter_transfer"
+          ],
+          "unmet_obligations": [],
+          "confidence": 118.47412075471698,
+          "source_trace": [
+            "dump_cwuu.csv::dump_cwuu",
+            "tmp_5vch.csv::tmp_5vch"
+          ],
+          "notes": [
+            "aggregation_join",
+            "family=aggregation_join",
+            "evidence_source_ids=['data_mpao.sqlite::team', 'dump_cwuu.csv::dump_cwuu']",
+            "aggregation_mode=explicit_measure_support",
+            "aggregation_unit_kind=measure_column",
+            "aggregation_anchor_source_id=tmp_5vch.csv::tmp_5vch",
+            "ranking_target_kind=aggregation_value",
+            "joint_rerank_total=32.0000",
+            "output_consistency=5.5000",
+            "filter_consistency=6.5000",
+            "aggregation_consistency=11.0000",
+            "obligation_consistency=6.5000",
+            "shape_sanity=2.5000"
+          ],
+          "evidence_source_ids": [
+            "data_mpao.sqlite::team",
+            "dump_cwuu.csv::dump_cwuu"
+          ],
+          "aggregation_unit_kind": "measure_column",
+          "aggregation_anchor_source_id": "tmp_5vch.csv::tmp_5vch",
+          "aggregation_mode": "explicit_measure_support",
+          "ranking_target_kind": "aggregation_value"
+        },
+        "support_ir": {
+          "kind": "aggregation_join",
+          "compile_ready": true,
+          "steps": [
+            {
+              "op": "SCAN",
+              "args": {
+                "source_id": "tmp_5vch.csv::tmp_5vch",
+                "view_name": "tmp_5vch_tmp_5vch",
+                "role": "output"
+              }
+            },
+            {
+              "op": "JOIN",
+              "args": {
+                "edge": {
+                  "edge_id": "data_9yjs_csv_data_9yjs__dump_cwuu_csv_dump_cwuu__league_id_winner__league_id_winner",
+                  "left_source_id": "data_9yjs.csv::data_9yjs",
+                  "right_source_id": "dump_cwuu.csv::dump_cwuu",
+                  "left_column": "league_id_winner",
+                  "right_column": "league_id_winner",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 1.0
+                },
+                "kind": "filter_path"
+              }
+            },
+            {
+              "op": "JOIN",
+              "args": {
+                "edge": {
+                  "edge_id": "data_9yjs_csv_data_9yjs__data_mpao_sqlite_team__league_id_winner__league_id",
+                  "left_source_id": "data_9yjs.csv::data_9yjs",
+                  "right_source_id": "data_mpao.sqlite::team",
+                  "left_column": "league_id_winner",
+                  "right_column": "league_id",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 0.5
+                },
+                "kind": "filter_path"
+              }
+            },
+            {
+              "op": "SCAN",
+              "args": {
+                "source_id": "dump_cwuu.csv::dump_cwuu",
+                "view_name": "dump_cwuu_dump_cwuu",
+                "role": "support"
+              }
+            },
+            {
+              "op": "JOIN",
+              "args": {
+                "edge": {
+                  "edge_id": "dump_cwuu_csv_dump_cwuu__tmp_5vch_csv_tmp_5vch__league_id_winner__league_id_winner",
+                  "left_source_id": "dump_cwuu.csv::dump_cwuu",
+                  "right_source_id": "tmp_5vch.csv::tmp_5vch",
+                  "left_column": "league_id_winner",
+                  "right_column": "league_id_winner",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 1.0
+                },
+                "kind": "support_path"
+              }
+            },
+            {
+              "op": "FILTER",
+              "args": {
+                "source_id": "data_mpao.sqlite::team",
+                "file_name": "data_mpao.sqlite",
+                "view_name": "data_mpao_team",
+                "column_name": "team_id",
+                "role": "filter",
+                "score": 13.537735849056604,
+                "reasons": [
+                  "attribute_substring_match",
+                  "text_filter_compatible",
+                  "fact_filter_bonus"
+                ],
+                "metadata": {
+                  "attribute": "team",
+                  "operator": "=",
+                  "value": "Boston Red Stockings",
+                  "value_text": "Boston Red Stockings"
+                }
+              }
+            },
+            {
+              "op": "FILTER",
+              "args": {
+                "source_id": "dump_cwuu.csv::dump_cwuu",
+                "file_name": "dump_cwuu.csv",
+                "view_name": "dump_cwuu_dump_cwuu",
+                "column_name": "round",
+                "role": "filter",
+                "score": 4.125,
+                "reasons": [
+                  "text_filter_compatible",
+                  "fact_filter_bonus",
+                  "preferred_source_bonus"
+                ],
+                "metadata": {
+                  "attribute": "postseason",
+                  "operator": "=",
+                  "value": "won",
+                  "value_text": "won"
+                }
+              }
+            },
+            {
+              "op": "AGG",
+              "args": {
+                "aggregation": "max",
+                "measure_binding": {
+                  "source_id": "dump_cwuu.csv::dump_cwuu",
+                  "file_name": "dump_cwuu.csv",
+                  "view_name": "dump_cwuu_dump_cwuu",
+                  "column_name": "wins",
+                  "role": "measure",
+                  "score": 9.0,
+                  "reasons": [
+                    "numeric_measure"
+                  ],
+                  "metadata": {
+                    "aggregation": "max"
+                  }
+                }
+              }
+            },
+            {
+              "op": "RANK",
+              "args": {
+                "direction": "desc",
+                "limit": 1
+              }
+            },
+            {
+              "op": "PROJECT",
+              "args": {
+                "columns": [
+                  {
+                    "source_id": "tmp_5vch.csv::tmp_5vch",
+                    "file_name": "tmp_5vch.csv",
+                    "view_name": "tmp_5vch_tmp_5vch",
+                    "column_name": "wins",
+                    "role": "measure",
+                    "score": 9.1875,
+                    "reasons": [
+                      "measure_compatible"
+                    ],
+                    "metadata": {
+                      "slot_label": "max(T1.wins)"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "metadata": {
+            "primary_output_source_id": "tmp_5vch.csv::tmp_5vch",
+            "support_source_id": "dump_cwuu.csv::dump_cwuu",
+            "filter_path_count": 1,
+            "required_columns": [
+              "max(T1.wins)"
+            ],
+            "aggregation": "max",
+            "direction": "desc",
+            "limit": 1
+          },
+          "compile_reason": null
+        },
+        "verifier_trace": [
+          {
+            "check": "output_binding",
+            "score": 9.1875,
+            "passed": true,
+            "evidence": [
+              {
+                "source_id": "tmp_5vch.csv::tmp_5vch",
+                "file_name": "tmp_5vch.csv",
+                "view_name": "tmp_5vch_tmp_5vch",
+                "column_name": "wins",
+                "role": "measure",
+                "score": 9.1875,
+                "reasons": [
+                  "measure_compatible"
+                ],
+                "metadata": {
+                  "slot_label": "max(T1.wins)"
+                }
+              }
+            ]
+          },
+          {
+            "check": "aggregation_support",
+            "score": 9.0,
+            "passed": true,
+            "evidence": {
+              "aggregation": "max",
+              "measure_binding": {
+                "source_id": "dump_cwuu.csv::dump_cwuu",
+                "file_name": "dump_cwuu.csv",
+                "view_name": "dump_cwuu_dump_cwuu",
+                "column_name": "wins",
+                "role": "measure",
+                "score": 9.0,
+                "reasons": [
+                  "numeric_measure"
+                ],
+                "metadata": {
+                  "aggregation": "max"
+                }
+              }
+            }
+          },
+          {
+            "check": "filter_transfer",
+            "score": 8.8314,
+            "passed": true,
+            "evidence": [
+              {
+                "source_id": "data_mpao.sqlite::team",
+                "file_name": "data_mpao.sqlite",
+                "view_name": "data_mpao_team",
+                "column_name": "team_id",
+                "role": "filter",
+                "score": 13.537735849056604,
+                "reasons": [
+                  "attribute_substring_match",
+                  "text_filter_compatible",
+                  "fact_filter_bonus"
+                ],
+                "metadata": {
+                  "attribute": "team",
+                  "operator": "=",
+                  "value": "Boston Red Stockings",
+                  "value_text": "Boston Red Stockings"
+                }
+              },
+              {
+                "source_id": "dump_cwuu.csv::dump_cwuu",
+                "file_name": "dump_cwuu.csv",
+                "view_name": "dump_cwuu_dump_cwuu",
+                "column_name": "round",
+                "role": "filter",
+                "score": 4.125,
+                "reasons": [
+                  "text_filter_compatible",
+                  "fact_filter_bonus",
+                  "preferred_source_bonus"
+                ],
+                "metadata": {
+                  "attribute": "postseason",
+                  "operator": "=",
+                  "value": "won",
+                  "value_text": "won"
+                }
+              }
+            ]
+          },
+          {
+            "check": "value_alignment",
+            "score": 1.0,
+            "passed": true,
+            "evidence": {
+              "path_source_ids": [
+                "dump_cwuu.csv::dump_cwuu",
+                "tmp_5vch.csv::tmp_5vch"
+              ],
+              "edges": [
+                {
+                  "edge_id": "dump_cwuu_csv_dump_cwuu__tmp_5vch_csv_tmp_5vch__league_id_winner__league_id_winner",
+                  "left_source_id": "dump_cwuu.csv::dump_cwuu",
+                  "right_source_id": "tmp_5vch.csv::tmp_5vch",
+                  "left_column": "league_id_winner",
+                  "right_column": "league_id_winner",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 1.0
+                }
+              ],
+              "score": 1.0,
+              "notes": []
+            }
+          },
+          {
+            "check": "role_consistency",
+            "score": 0.6,
+            "passed": true,
+            "evidence": {
+              "support_source": "dump_cwuu.csv::dump_cwuu",
+              "output_source": "tmp_5vch.csv::tmp_5vch"
+            }
+          }
+        ],
+        "planner_output": {
+          "relevant_files": [
+            "data_mpao.sqlite",
+            "dump_cwuu.csv",
+            "tmp_5vch.csv"
+          ],
+          "output_bindings": [
+            {
+              "source_id": "tmp_5vch.csv::tmp_5vch",
+              "file_name": "tmp_5vch.csv",
+              "view_name": "tmp_5vch_tmp_5vch",
+              "column_name": "wins",
+              "role": "measure",
+              "score": 9.1875,
+              "reasons": [
+                "measure_compatible"
+              ],
+              "metadata": {
+                "slot_label": "max(T1.wins)"
+              }
+            }
+          ],
+          "output_mappings": [
+            {
+              "slot_id": "max(T1.wins)",
+              "source_file": "tmp_5vch.csv",
+              "source_id": "tmp_5vch.csv::tmp_5vch",
+              "source_column": "wins"
+            }
+          ],
+          "support_bindings": [
+            {
+              "source_id": "dump_cwuu.csv::dump_cwuu",
+              "file_name": "dump_cwuu.csv",
+              "view_name": "dump_cwuu_dump_cwuu",
+              "column_name": "team_id_winner",
+              "role": "support",
+              "score": 14.75,
+              "reasons": [
+                "fact_source_bonus",
+                "can_host_filters",
+                "anchor_path_found"
+              ],
+              "metadata": {}
+            }
+          ],
+          "anchor_bindings": [
+            {
+              "path_source_ids": [
+                "dump_cwuu.csv::dump_cwuu",
+                "tmp_5vch.csv::tmp_5vch"
+              ],
+              "edges": [
+                {
+                  "edge_id": "dump_cwuu_csv_dump_cwuu__tmp_5vch_csv_tmp_5vch__league_id_winner__league_id_winner",
+                  "left_source_id": "dump_cwuu.csv::dump_cwuu",
+                  "right_source_id": "tmp_5vch.csv::tmp_5vch",
+                  "left_column": "league_id_winner",
+                  "right_column": "league_id_winner",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 1.0
+                }
+              ],
+              "score": 1.0,
+              "notes": []
+            }
+          ]
+        },
+        "final_sql": "WITH support_cte AS (SELECT CAST(t0.\"league_id_winner\" AS VARCHAR) AS output_anchor_key, MAX(t1.\"wins\") AS support_value FROM \"tmp_5vch_tmp_5vch\" AS t0 JOIN \"dump_cwuu_dump_cwuu\" AS t1 ON CAST(t1.\"league_id_winner\" AS VARCHAR) = CAST(t0.\"league_id_winner\" AS VARCHAR) JOIN \"data_9yjs_data_9yjs\" AS t2 ON CAST(t2.\"league_id_winner\" AS VARCHAR) = CAST(t1.\"league_id_winner\" AS VARCHAR) JOIN \"data_mpao_team\" AS t3 ON CAST(t2.\"league_id_winner\" AS VARCHAR) = CAST(t3.\"league_id\" AS VARCHAR) WHERE CAST(t3.\"team_id\" AS VARCHAR) ILIKE '%Boston Red Stockings%' AND CAST(t1.\"round\" AS VARCHAR) ILIKE '%won%' GROUP BY CAST(t0.\"league_id_winner\" AS VARCHAR)) SELECT s.support_value AS \"max(T1.wins)\" FROM \"tmp_5vch_tmp_5vch\" AS o0  JOIN support_cte AS s ON CAST(o0.\"league_id_winner\" AS VARCHAR) = s.output_anchor_key ORDER BY s.support_value DESC LIMIT 1",
+        "execution_summary": {
+          "success": true,
+          "row_count": 0,
+          "columns": [
+            "max(T1.wins)"
+          ],
+          "preview": [],
+          "files_touched": [
+            "data_9yjs.csv",
+            "data_mpao.sqlite",
+            "dump_cwuu.csv",
+            "export_d27i.parquet",
+            "tmp_5vch.csv"
+          ]
+        },
+        "critique": null,
+        "agent_impl": "support_plan_agent",
+        "wall_clock_time": 3.6756,
+        "llm_calls_used": 2,
+        "llm_calls_budget": 4,
+        "split": "l1",
+        "view": "full",
+        "requested_mode": "support_plan_agent"
+      }
+    },
+    {
+      "seed_id": "spider__college_3__04694",
+      "variant": "A",
+      "split": "l1",
+      "view": "full",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "attribution": "DISCOVERY_FAIL",
+      "meta": {
+        "success": false,
+        "files_touched": [
+          "data_h7tk.csv",
+          "data_ppz0.csv",
+          "dump_fpzm.csv",
+          "export_bdhw.parquet",
+          "export_cp41.parquet",
+          "tmp_6bsl.csv",
+          "tmp_94nw.sqlite"
+        ],
+        "error": null,
+        "workspace_summary": {
+          "workspace_name": "l1",
+          "files": [
+            {
+              "file": "data_h7tk.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "data_h7tk",
+                  "columns": [
+                    "id",
+                    "name",
+                    "date",
+                    "value"
+                  ],
+                  "sample_rows": [
+                    {
+                      "id": 99304,
+                      "name": "name_0",
+                      "date": "2024-01-01",
+                      "value": 66.521
+                    },
+                    {
+                      "id": 20852,
+                      "name": "name_1",
+                      "date": "2024-01-02",
+                      "value": 46.052
+                    },
+                    {
+                      "id": 37571,
+                      "name": "name_2",
+                      "date": "2024-01-03",
+                      "value": 45.64
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "data_ppz0.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "data_ppz0",
+                  "columns": [
+                    "id",
+                    "name",
+                    "date",
+                    "value"
+                  ],
+                  "sample_rows": [
+                    {
+                      "id": 37836,
+                      "name": "name_0",
+                      "date": "2024-01-01",
+                      "value": 50.352
+                    },
+                    {
+                      "id": 96311,
+                      "name": "name_1",
+                      "date": "2024-01-02",
+                      "value": 59.162
+                    },
+                    {
+                      "id": 32004,
+                      "name": "name_2",
+                      "date": "2024-01-03",
+                      "value": 53.422
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "dump_fpzm.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "dump_fpzm",
+                  "columns": [
+                    "FacID",
+                    "Lname",
+                    "Fname",
+                    "Rank",
+                    "Sex",
+                    "Phone",
+                    "Room",
+                    "Building"
+                  ],
+                  "sample_rows": [
+                    {
+                      "FacID": 1082,
+                      "Lname": "Giuliano",
+                      "Fname": "Mark",
+                      "Rank": "Instructor",
+                      "Sex": "M",
+                      "Phone": 2424,
+                      "Room": "224",
+                      "Building": "NEB"
+                    },
+                    {
+                      "FacID": 1121,
+                      "Lname": "Goodrich",
+                      "Fname": "Michael",
+                      "Rank": "Professor",
+                      "Sex": "M",
+                      "Phone": 3593,
+                      "Room": "219",
+                      "Building": "NEB"
+                    },
+                    {
+                      "FacID": 1148,
+                      "Lname": "Masson",
+                      "Fname": "Gerald",
+                      "Rank": "Professor",
+                      "Sex": "M",
+                      "Phone": 3402,
+                      "Room": "224B",
+                      "Building": "NEB"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "export_bdhw.parquet",
+              "type": "parquet",
+              "tables": [
+                {
+                  "name": "export_bdhw",
+                  "columns": [
+                    "FacID",
+                    "DNO",
+                    "Appt_Type"
+                  ],
+                  "sample_rows": [
+                    {
+                      "FacID": 17195,
+                      "DNO": 18360,
+                      "Appt_Type": "Primary"
+                    },
+                    {
+                      "FacID": 23645,
+                      "DNO": 17860,
+                      "Appt_Type": "Secondary"
+                    },
+                    {
+                      "FacID": 20622,
+                      "DNO": 17860,
+                      "Appt_Type": "Primary"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "export_cp41.parquet",
+              "type": "parquet",
+              "tables": [
+                {
+                  "name": "export_cp41",
+                  "columns": [
+                    "FacID",
+                    "Lname",
+                    "Fname",
+                    "Rank",
+                    "Sex",
+                    "Phone",
+                    "Room",
+                    "Building"
+                  ],
+                  "sample_rows": [
+                    {
+                      "FacID": 16007,
+                      "Lname": "Yarowsky",
+                      "Fname": "David",
+                      "Rank": "AsstProf",
+                      "Sex": "M",
+                      "Phone": 6587,
+                      "Room": "324",
+                      "Building": "NEB"
+                    },
+                    {
+                      "FacID": 21538,
+                      "Lname": "Taylor",
+                      "Fname": "Russell",
+                      "Rank": "Professor",
+                      "Sex": "M",
+                      "Phone": 2435,
+                      "Room": "317",
+                      "Building": "NEB"
+                    },
+                    {
+                      "FacID": 20145,
+                      "Lname": "Byrne",
+                      "Fname": "William",
+                      "Rank": "Instructor",
+                      "Sex": "M",
+                      "Phone": 1691,
+                      "Room": "119",
+                      "Building": "Barton"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "tmp_6bsl.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "tmp_6bsl",
+                  "columns": [
+                    "FacID",
+                    "Lname",
+                    "Fname",
+                    "Rank",
+                    "Sex",
+                    "Phone",
+                    "Room",
+                    "Building"
+                  ],
+                  "sample_rows": [
+                    {
+                      "FacID": 24195,
+                      "Lname": "Delcher",
+                      "Fname": "Arthur",
+                      "Rank": "Instructor",
+                      "Sex": "M",
+                      "Phone": 2956,
+                      "Room": 329,
+                      "Building": "NEB"
+                    },
+                    {
+                      "FacID": 23579,
+                      "Lname": "Joseph",
+                      "Fname": "Richard",
+                      "Rank": "Professor",
+                      "Sex": "M",
+                      "Phone": 5996,
+                      "Room": 119,
+                      "Building": "Barton"
+                    },
+                    {
+                      "FacID": 17107,
+                      "Lname": "Fill",
+                      "Fname": "James",
+                      "Rank": "Professor",
+                      "Sex": "M",
+                      "Phone": 8209,
+                      "Room": 288,
+                      "Building": "Krieger"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "tmp_94nw.sqlite",
+              "type": "sqlite",
+              "tables": [
+                {
+                  "name": "MEMBER_OF",
+                  "columns": [
+                    "FacID",
+                    "DNO",
+                    "Appt_Type"
+                  ],
+                  "sample_rows": [
+                    {
+                      "FacID": 7792,
+                      "DNO": 600,
+                      "Appt_Type": "Primary"
+                    },
+                    {
+                      "FacID": 9210,
+                      "DNO": 520,
+                      "Appt_Type": "Primary"
+                    },
+                    {
+                      "FacID": 9811,
+                      "DNO": 550,
+                      "Appt_Type": "Primary"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "observable_sketch": {
+          "output_slots": [
+            {
+              "label": "Fname",
+              "role": "attribute",
+              "metadata": {}
+            },
+            {
+              "label": "Lname",
+              "role": "attribute",
+              "metadata": {}
+            }
+          ],
+          "filter_hints": [
+            {
+              "attribute": "department",
+              "operator": "=",
+              "value": "520",
+              "value_text": "520"
+            }
+          ],
+          "time_hints": {
+            "years": [],
+            "months": []
+          },
+          "measure_hints": [],
+          "grouping_hints": [],
+          "operator_hints": [],
+          "order_hint": {
+            "target": null,
+            "direction": null,
+            "limit": null
+          },
+          "raw_response": {
+            "output_slots": [
+              {
+                "label": "Fname",
+                "role": "attribute"
+              },
+              {
+                "label": "Lname",
+                "role": "attribute"
+              }
+            ],
+            "filter_hints": [
+              {
+                "attribute": "department",
+                "operator": "=",
+                "value": "520",
+                "value_text": "520"
+              }
+            ],
+            "time_hints": {
+              "years": [],
+              "months": []
+            },
+            "measure_hints": [],
+            "grouping_hints": [],
+            "operator_hints": [],
+            "order_hint": {
+              "target": null,
+              "direction": null,
+              "limit": null
+            }
+          }
+        },
+        "obligation_sketch": {
+          "obligations": [
+            {
+              "name": "support_relation",
+              "probability": 0.44,
+              "reason": "The question requires retrieving faculty members associated with a specific department, implying a relationship between faculty and department entities."
+            },
+            {
+              "name": "filter_transfer",
+              "probability": 0.9,
+              "reason": "The observable sketch includes a filter on department = '520', which must be correctly applied to identify relevant faculty members."
+            },
+            {
+              "name": "value_alignment",
+              "probability": 0.44,
+              "reason": "The output expects full names (Fname and Lname), which must align with the requested 'full names' in the question."
+            },
+            {
+              "name": "multihop",
+              "probability": 0.3,
+              "reason": "If faculty and department are in separate tables, a join might be needed, but the sketch does not explicitly show this, so probability is moderate."
+            },
+            {
+              "name": "aggregation_support",
+              "probability": 0.1,
+              "reason": "No aggregation (e.g., count, average) is requested in the question or sketch, making this obligation unlikely."
+            }
+          ],
+          "role_priors": [
+            {
+              "role": "attribute",
+              "target": "Fname",
+              "probability": 0.9,
+              "reason": "Fname is specified as an output slot in the sketch, directly contributing to the full name requirement."
+            },
+            {
+              "role": "attribute",
+              "target": "Lname",
+              "probability": 0.9,
+              "reason": "Lname is specified as an output slot in the sketch, directly contributing to the full name requirement."
+            },
+            {
+              "role": "filter",
+              "target": "department",
+              "probability": 0.95,
+              "reason": "The sketch includes a filter hint on department = '520', which is critical for answering the question."
+            },
+            {
+              "role": "entity",
+              "target": "faculty",
+              "probability": 0.8,
+              "reason": "The question focuses on faculty members, implying faculty is a key entity, though not explicitly labeled in the sketch."
+            },
+            {
+              "role": "entity",
+              "target": "department",
+              "probability": 0.7,
+              "reason": "Department is used in filtering, suggesting it as an entity, but its role might be secondary to faculty."
+            }
+          ],
+          "family_labels": [
+            {
+              "label": "filtered_attribute_retrieval",
+              "probability": 0.9,
+              "reason": "The core task involves retrieving specific attributes (Fname, Lname) with a filter condition (department = '520')."
+            },
+            {
+              "label": "entity_relationship_query",
+              "probability": 0.6,
+              "reason": "The question implies a relationship between faculty and department, potentially requiring joins or support relations."
+            }
+          ],
+          "raw_response": {
+            "atomic_obligations": [
+              {
+                "name": "support_relation",
+                "probability": 0.95,
+                "reason": "The question requires retrieving faculty members associated with a specific department, implying a relationship between faculty and department entities."
+              },
+              {
+                "name": "filter_transfer",
+                "probability": 0.9,
+                "reason": "The observable sketch includes a filter on department = '520', which must be correctly applied to identify relevant faculty members."
+              },
+              {
+                "name": "value_alignment",
+                "probability": 0.85,
+                "reason": "The output expects full names (Fname and Lname), which must align with the requested 'full names' in the question."
+              },
+              {
+                "name": "multihop",
+                "probability": 0.3,
+                "reason": "If faculty and department are in separate tables, a join might be needed, but the sketch does not explicitly show this, so probability is moderate."
+              },
+              {
+                "name": "aggregation_support",
+                "probability": 0.1,
+                "reason": "No aggregation (e.g., count, average) is requested in the question or sketch, making this obligation unlikely."
+              }
+            ],
+            "role_priors": [
+              {
+                "role": "attribute",
+                "target": "Fname",
+                "probability": 0.9,
+                "reason": "Fname is specified as an output slot in the sketch, directly contributing to the full name requirement."
+              },
+              {
+                "role": "attribute",
+                "target": "Lname",
+                "probability": 0.9,
+                "reason": "Lname is specified as an output slot in the sketch, directly contributing to the full name requirement."
+              },
+              {
+                "role": "filter",
+                "target": "department",
+                "probability": 0.95,
+                "reason": "The sketch includes a filter hint on department = '520', which is critical for answering the question."
+              },
+              {
+                "role": "entity",
+                "target": "faculty",
+                "probability": 0.8,
+                "reason": "The question focuses on faculty members, implying faculty is a key entity, though not explicitly labeled in the sketch."
+              },
+              {
+                "role": "entity",
+                "target": "department",
+                "probability": 0.7,
+                "reason": "Department is used in filtering, suggesting it as an entity, but its role might be secondary to faculty."
+              }
+            ],
+            "family_labels": [
+              {
+                "label": "filtered_attribute_retrieval",
+                "probability": 0.9,
+                "reason": "The core task involves retrieving specific attributes (Fname, Lname) with a filter condition (department = '520')."
+              },
+              {
+                "label": "entity_relationship_query",
+                "probability": 0.6,
+                "reason": "The question implies a relationship between faculty and department, potentially requiring joins or support relations."
+              }
+            ]
+          }
+        },
+        "obligation_mode": "full",
+        "search_summary": {
+          "candidates_considered": 29,
+          "search_log": [
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "export_cp41.parquet::export_cp41",
+                "tmp_6bsl.csv::tmp_6bsl"
+              ],
+              "filter_sources": [
+                "export_cp41.parquet::export_cp41"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -5.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "export_cp41.parquet::export_cp41",
+                "tmp_6bsl.csv::tmp_6bsl"
+              ],
+              "filter_sources": [
+                "export_cp41.parquet::export_cp41"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -5.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "export_cp41.parquet::export_cp41",
+                "tmp_6bsl.csv::tmp_6bsl"
+              ],
+              "filter_sources": [
+                "export_cp41.parquet::export_cp41"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -5.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "tmp_6bsl.csv::tmp_6bsl",
+                "export_cp41.parquet::export_cp41"
+              ],
+              "filter_sources": [
+                "export_cp41.parquet::export_cp41"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -9.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "tmp_6bsl.csv::tmp_6bsl",
+                "export_cp41.parquet::export_cp41"
+              ],
+              "filter_sources": [
+                "export_cp41.parquet::export_cp41"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -9.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "tmp_6bsl.csv::tmp_6bsl",
+                "export_cp41.parquet::export_cp41"
+              ],
+              "filter_sources": [
+                "export_cp41.parquet::export_cp41"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -9.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_fpzm.csv::dump_fpzm",
+                "tmp_6bsl.csv::tmp_6bsl"
+              ],
+              "filter_sources": [
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -5.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_fpzm.csv::dump_fpzm",
+                "tmp_6bsl.csv::tmp_6bsl"
+              ],
+              "filter_sources": [
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -5.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_fpzm.csv::dump_fpzm",
+                "tmp_6bsl.csv::tmp_6bsl"
+              ],
+              "filter_sources": [
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -5.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "tmp_6bsl.csv::tmp_6bsl",
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_sources": [
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -9.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "tmp_6bsl.csv::tmp_6bsl",
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_sources": [
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -9.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "tmp_6bsl.csv::tmp_6bsl",
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_sources": [
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -9.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_fpzm.csv::dump_fpzm",
+                "export_cp41.parquet::export_cp41"
+              ],
+              "filter_sources": [
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -5.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_fpzm.csv::dump_fpzm",
+                "export_cp41.parquet::export_cp41"
+              ],
+              "filter_sources": [
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -5.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_fpzm.csv::dump_fpzm",
+                "export_cp41.parquet::export_cp41"
+              ],
+              "filter_sources": [
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -5.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "export_cp41.parquet::export_cp41",
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_sources": [
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -9.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "export_cp41.parquet::export_cp41",
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_sources": [
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -9.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "export_cp41.parquet::export_cp41",
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_sources": [
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -9.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_fpzm.csv::dump_fpzm",
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_sources": [
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -5.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_fpzm.csv::dump_fpzm",
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_sources": [
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -5.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_fpzm.csv::dump_fpzm",
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_sources": [
+                "dump_fpzm.csv::dump_fpzm"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -5.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "export_cp41.parquet::export_cp41",
+                "export_cp41.parquet::export_cp41"
+              ],
+              "filter_sources": [
+                "export_cp41.parquet::export_cp41"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -5.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "export_cp41.parquet::export_cp41",
+                "export_cp41.parquet::export_cp41"
+              ],
+              "filter_sources": [
+                "export_cp41.parquet::export_cp41"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -5.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "export_cp41.parquet::export_cp41",
+                "export_cp41.parquet::export_cp41"
+              ],
+              "filter_sources": [
+                "export_cp41.parquet::export_cp41"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -5.75,
+              "family": "filter_join",
+              "aggregation_mode": null
+            }
+          ]
+        },
+        "support_plan": {
+          "output_bindings": [
+            {
+              "source_id": "export_cp41.parquet::export_cp41",
+              "file_name": "export_cp41.parquet",
+              "view_name": "export_cp41_export_cp41",
+              "column_name": "Fname",
+              "role": "attribute",
+              "score": 22.0,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values",
+                "fact_like_output_risk"
+              ],
+              "metadata": {
+                "slot_label": "Fname"
+              }
+            },
+            {
+              "source_id": "tmp_6bsl.csv::tmp_6bsl",
+              "file_name": "tmp_6bsl.csv",
+              "view_name": "tmp_6bsl_tmp_6bsl",
+              "column_name": "Lname",
+              "role": "attribute",
+              "score": 22.0,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values",
+                "fact_like_output_risk"
+              ],
+              "metadata": {
+                "slot_label": "Lname"
+              }
+            }
+          ],
+          "plan_kind": "filter_join",
+          "output_join_paths": [
+            {
+              "path_source_ids": [
+                "export_cp41.parquet::export_cp41",
+                "tmp_6bsl.csv::tmp_6bsl"
+              ],
+              "edges": [
+                {
+                  "edge_id": "dump_fpzm_csv_dump_fpzm__export_cp41_parquet_export_cp41__phone__phone",
+                  "left_source_id": "dump_fpzm.csv::dump_fpzm",
+                  "right_source_id": "export_cp41.parquet::export_cp41",
+                  "left_column": "Phone",
+                  "right_column": "Phone",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 0.525
+                },
+                {
+                  "edge_id": "dump_fpzm_csv_dump_fpzm__tmp_6bsl_csv_tmp_6bsl__phone__phone",
+                  "left_source_id": "dump_fpzm.csv::dump_fpzm",
+                  "right_source_id": "tmp_6bsl.csv::tmp_6bsl",
+                  "left_column": "Phone",
+                  "right_column": "Phone",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 0.585483870967742
+                }
+              ],
+              "score": 1.110483870967742,
+              "notes": [
+                "output_join_path"
+              ]
+            }
+          ],
+          "filter_join_paths": [],
+          "support_binding": null,
+          "anchor_binding": null,
+          "evidence_bindings": [],
+          "measure_binding": null,
+          "filter_bindings": [
+            {
+              "source_id": "export_cp41.parquet::export_cp41",
+              "file_name": "export_cp41.parquet",
+              "view_name": "export_cp41_export_cp41",
+              "column_name": "FacID",
+              "role": "filter",
+              "score": 6.5,
+              "reasons": [
+                "numeric_filter_compatible",
+                "fact_filter_bonus",
+                "preferred_source_bonus"
+              ],
+              "metadata": {
+                "attribute": "department",
+                "operator": "=",
+                "value": "520",
+                "value_text": "520"
+              }
+            }
+          ],
+          "operator_plan": {
+            "aggregation": null,
+            "direction": null,
+            "limit": null,
+            "group_by": false,
+            "exists": false
+          },
+          "satisfied_obligations": [
+            "filter_transfer"
+          ],
+          "unmet_obligations": [],
+          "confidence": 104.86290322580646,
+          "source_trace": [
+            "export_cp41.parquet::export_cp41",
+            "tmp_6bsl.csv::tmp_6bsl"
+          ],
+          "notes": [
+            "filter_join",
+            "family=filter_join",
+            "evidence_source_ids=['export_cp41.parquet::export_cp41']",
+            "joint_rerank_total=-5.7500",
+            "output_consistency=1.5000",
+            "filter_consistency=-3.0000",
+            "aggregation_consistency=0.0000",
+            "obligation_consistency=-1.2500",
+            "shape_sanity=-3.0000"
+          ],
+          "evidence_source_ids": [
+            "export_cp41.parquet::export_cp41"
+          ],
+          "aggregation_unit_kind": null,
+          "aggregation_anchor_source_id": null,
+          "aggregation_mode": null,
+          "ranking_target_kind": null
+        },
+        "support_ir": {
+          "kind": "filter_join",
+          "compile_ready": true,
+          "steps": [
+            {
+              "op": "SCAN",
+              "args": {
+                "source_id": "export_cp41.parquet::export_cp41",
+                "view_name": "export_cp41_export_cp41",
+                "role": "output"
+              }
+            },
+            {
+              "op": "JOIN",
+              "args": {
+                "edge": {
+                  "edge_id": "dump_fpzm_csv_dump_fpzm__export_cp41_parquet_export_cp41__phone__phone",
+                  "left_source_id": "dump_fpzm.csv::dump_fpzm",
+                  "right_source_id": "export_cp41.parquet::export_cp41",
+                  "left_column": "Phone",
+                  "right_column": "Phone",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 0.525
+                },
+                "kind": "output_join"
+              }
+            },
+            {
+              "op": "JOIN",
+              "args": {
+                "edge": {
+                  "edge_id": "dump_fpzm_csv_dump_fpzm__tmp_6bsl_csv_tmp_6bsl__phone__phone",
+                  "left_source_id": "dump_fpzm.csv::dump_fpzm",
+                  "right_source_id": "tmp_6bsl.csv::tmp_6bsl",
+                  "left_column": "Phone",
+                  "right_column": "Phone",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 0.585483870967742
+                },
+                "kind": "output_join"
+              }
+            },
+            {
+              "op": "FILTER",
+              "args": {
+                "source_id": "export_cp41.parquet::export_cp41",
+                "file_name": "export_cp41.parquet",
+                "view_name": "export_cp41_export_cp41",
+                "column_name": "FacID",
+                "role": "filter",
+                "score": 6.5,
+                "reasons": [
+                  "numeric_filter_compatible",
+                  "fact_filter_bonus",
+                  "preferred_source_bonus"
+                ],
+                "metadata": {
+                  "attribute": "department",
+                  "operator": "=",
+                  "value": "520",
+                  "value_text": "520"
+                }
+              }
+            },
+            {
+              "op": "PROJECT",
+              "args": {
+                "columns": [
+                  {
+                    "source_id": "export_cp41.parquet::export_cp41",
+                    "file_name": "export_cp41.parquet",
+                    "view_name": "export_cp41_export_cp41",
+                    "column_name": "Fname",
+                    "role": "attribute",
+                    "score": 22.0,
+                    "reasons": [
+                      "exact_column_match",
+                      "label_substring_match",
+                      "text_compatible",
+                      "fact_source_penalty",
+                      "distinctive_text_values",
+                      "fact_like_output_risk"
+                    ],
+                    "metadata": {
+                      "slot_label": "Fname"
+                    }
+                  },
+                  {
+                    "source_id": "tmp_6bsl.csv::tmp_6bsl",
+                    "file_name": "tmp_6bsl.csv",
+                    "view_name": "tmp_6bsl_tmp_6bsl",
+                    "column_name": "Lname",
+                    "role": "attribute",
+                    "score": 22.0,
+                    "reasons": [
+                      "exact_column_match",
+                      "label_substring_match",
+                      "text_compatible",
+                      "fact_source_penalty",
+                      "distinctive_text_values",
+                      "fact_like_output_risk"
+                    ],
+                    "metadata": {
+                      "slot_label": "Lname"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "metadata": {
+            "primary_output_source_id": "export_cp41.parquet::export_cp41",
+            "support_source_id": null,
+            "filter_path_count": 0,
+            "required_columns": [
+              "Fname",
+              "Lname"
+            ],
+            "aggregation": null,
+            "direction": null,
+            "limit": null
+          },
+          "compile_reason": null
+        },
+        "verifier_trace": [
+          {
+            "check": "output_binding",
+            "score": 22.0,
+            "passed": true,
+            "evidence": [
+              {
+                "source_id": "export_cp41.parquet::export_cp41",
+                "file_name": "export_cp41.parquet",
+                "view_name": "export_cp41_export_cp41",
+                "column_name": "Fname",
+                "role": "attribute",
+                "score": 22.0,
+                "reasons": [
+                  "exact_column_match",
+                  "label_substring_match",
+                  "text_compatible",
+                  "fact_source_penalty",
+                  "distinctive_text_values",
+                  "fact_like_output_risk"
+                ],
+                "metadata": {
+                  "slot_label": "Fname"
+                }
+              },
+              {
+                "source_id": "tmp_6bsl.csv::tmp_6bsl",
+                "file_name": "tmp_6bsl.csv",
+                "view_name": "tmp_6bsl_tmp_6bsl",
+                "column_name": "Lname",
+                "role": "attribute",
+                "score": 22.0,
+                "reasons": [
+                  "exact_column_match",
+                  "label_substring_match",
+                  "text_compatible",
+                  "fact_source_penalty",
+                  "distinctive_text_values",
+                  "fact_like_output_risk"
+                ],
+                "metadata": {
+                  "slot_label": "Lname"
+                }
+              }
+            ]
+          },
+          {
+            "check": "filter_transfer",
+            "score": 6.5,
+            "passed": true,
+            "evidence": [
+              {
+                "source_id": "export_cp41.parquet::export_cp41",
+                "file_name": "export_cp41.parquet",
+                "view_name": "export_cp41_export_cp41",
+                "column_name": "FacID",
+                "role": "filter",
+                "score": 6.5,
+                "reasons": [
+                  "numeric_filter_compatible",
+                  "fact_filter_bonus",
+                  "preferred_source_bonus"
+                ],
+                "metadata": {
+                  "attribute": "department",
+                  "operator": "=",
+                  "value": "520",
+                  "value_text": "520"
+                }
+              }
+            ]
+          },
+          {
+            "check": "role_consistency",
+            "score": 0.5,
+            "passed": true,
+            "evidence": {
+              "support_source": null,
+              "output_source": "export_cp41.parquet::export_cp41"
+            }
+          }
+        ],
+        "planner_output": {
+          "relevant_files": [
+            "export_cp41.parquet",
+            "tmp_6bsl.csv"
+          ],
+          "output_bindings": [
+            {
+              "source_id": "export_cp41.parquet::export_cp41",
+              "file_name": "export_cp41.parquet",
+              "view_name": "export_cp41_export_cp41",
+              "column_name": "Fname",
+              "role": "attribute",
+              "score": 22.0,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values",
+                "fact_like_output_risk"
+              ],
+              "metadata": {
+                "slot_label": "Fname"
+              }
+            },
+            {
+              "source_id": "tmp_6bsl.csv::tmp_6bsl",
+              "file_name": "tmp_6bsl.csv",
+              "view_name": "tmp_6bsl_tmp_6bsl",
+              "column_name": "Lname",
+              "role": "attribute",
+              "score": 22.0,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values",
+                "fact_like_output_risk"
+              ],
+              "metadata": {
+                "slot_label": "Lname"
+              }
+            }
+          ],
+          "output_mappings": [
+            {
+              "slot_id": "Fname",
+              "source_file": "export_cp41.parquet",
+              "source_id": "export_cp41.parquet::export_cp41",
+              "source_column": "Fname"
+            },
+            {
+              "slot_id": "Lname",
+              "source_file": "tmp_6bsl.csv",
+              "source_id": "tmp_6bsl.csv::tmp_6bsl",
+              "source_column": "Lname"
+            }
+          ],
+          "support_bindings": [],
+          "anchor_bindings": []
+        },
+        "final_sql": "SELECT t0.\"Fname\" AS \"Fname\", t1.\"Lname\" AS \"Lname\" FROM \"export_cp41_export_cp41\" AS t0 JOIN \"dump_fpzm_dump_fpzm\" AS t2 ON CAST(t2.\"Phone\" AS VARCHAR) = CAST(t0.\"Phone\" AS VARCHAR) JOIN \"tmp_6bsl_tmp_6bsl\" AS t1 ON CAST(t2.\"Phone\" AS VARCHAR) = CAST(t1.\"Phone\" AS VARCHAR) WHERE CAST(t0.\"FacID\" AS DOUBLE) = 520",
+        "execution_summary": {
+          "success": true,
+          "row_count": 0,
+          "columns": [
+            "Fname",
+            "Lname"
+          ],
+          "preview": [],
+          "files_touched": [
+            "data_h7tk.csv",
+            "data_ppz0.csv",
+            "dump_fpzm.csv",
+            "export_bdhw.parquet",
+            "export_cp41.parquet",
+            "tmp_6bsl.csv",
+            "tmp_94nw.sqlite"
+          ]
+        },
+        "critique": null,
+        "agent_impl": "support_plan_agent",
+        "wall_clock_time": 2.8496,
+        "llm_calls_used": 2,
+        "llm_calls_budget": 4,
+        "split": "l1",
+        "view": "full",
+        "requested_mode": "support_plan_agent"
+      }
+    },
+    {
+      "seed_id": "spider__e_government__06324",
+      "variant": "A",
+      "split": "l1",
+      "view": "full",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "attribution": "INSTANCE_FAIL",
+      "meta": {
+        "success": false,
+        "files_touched": [
+          "dump_itoh.sqlite",
+          "dump_ppdh.csv",
+          "dump_xzwa.parquet",
+          "export_l68o.parquet",
+          "export_v4vs.parquet",
+          "tmp_n122.parquet",
+          "tmp_p9z9.csv"
+        ],
+        "error": null,
+        "workspace_summary": {
+          "workspace_name": "l1",
+          "files": [
+            {
+              "file": "dump_itoh.sqlite",
+              "type": "sqlite",
+              "tables": [
+                {
+                  "name": "organization_contact_individuals",
+                  "columns": [
+                    "individual_id",
+                    "organization_id",
+                    "date_contact_from",
+                    "date_contact_to"
+                  ],
+                  "sample_rows": [
+                    {
+                      "individual_id": 13,
+                      "organization_id": 1,
+                      "date_contact_from": "2016-08-16 22:09:11",
+                      "date_contact_to": "2018-03-25 10:27:18"
+                    },
+                    {
+                      "individual_id": 11,
+                      "organization_id": 1,
+                      "date_contact_from": "2017-03-02 00:00:16",
+                      "date_contact_to": "2018-03-06 05:39:43"
+                    },
+                    {
+                      "individual_id": 10,
+                      "organization_id": 3,
+                      "date_contact_from": "2016-08-23 03:24:24",
+                      "date_contact_to": "2018-03-12 07:55:28"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "dump_ppdh.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "dump_ppdh",
+                  "columns": [
+                    "organization_id",
+                    "date_formed",
+                    "organization_name",
+                    "uk_vat_number"
+                  ],
+                  "sample_rows": [
+                    {
+                      "organization_id": 1,
+                      "date_formed": "2016-08-24 23:52:48",
+                      "organization_name": "Labour Party",
+                      "uk_vat_number": 2157
+                    },
+                    {
+                      "organization_id": 2,
+                      "date_formed": "2016-10-01 12:42:01",
+                      "organization_name": "Plaid Cymru",
+                      "uk_vat_number": 7459
+                    },
+                    {
+                      "organization_id": 3,
+                      "date_formed": "2016-10-09 07:22:53",
+                      "organization_name": "Conservative",
+                      "uk_vat_number": 1211
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "dump_xzwa.parquet",
+              "type": "parquet",
+              "tables": [
+                {
+                  "name": "dump_xzwa",
+                  "columns": [
+                    "organization_id",
+                    "date_formed",
+                    "organization_name",
+                    "uk_vat_number"
+                  ],
+                  "sample_rows": [
+                    {
+                      "organization_id": 10736,
+                      "date_formed": "2016-07-28 01:45:10",
+                      "organization_name": "Green Party",
+                      "uk_vat_number": 16417
+                    },
+                    {
+                      "organization_id": 10735,
+                      "date_formed": "2017-04-06 23:59:16",
+                      "organization_name": "Liberal Democrats",
+                      "uk_vat_number": 19383
+                    },
+                    {
+                      "organization_id": 10732,
+                      "date_formed": "2016-08-24 23:52:48",
+                      "organization_name": "Labour Party",
+                      "uk_vat_number": 14303
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "export_l68o.parquet",
+              "type": "parquet",
+              "tables": [
+                {
+                  "name": "export_l68o",
+                  "columns": [
+                    "id",
+                    "name",
+                    "date",
+                    "value"
+                  ],
+                  "sample_rows": [
+                    {
+                      "id": 78474,
+                      "name": "name_0",
+                      "date": "2024-01-01",
+                      "value": 37.617
+                    },
+                    {
+                      "id": 59921,
+                      "name": "name_1",
+                      "date": "2024-01-02",
+                      "value": 61.827
+                    },
+                    {
+                      "id": 49372,
+                      "name": "name_2",
+                      "date": "2024-01-03",
+                      "value": 59.759
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "export_v4vs.parquet",
+              "type": "parquet",
+              "tables": [
+                {
+                  "name": "export_v4vs",
+                  "columns": [
+                    "individual_id",
+                    "individual_first_name",
+                    "individual_middle_name",
+                    "inidividual_phone",
+                    "individual_email",
+                    "individual_address",
+                    "individual_last_name"
+                  ],
+                  "sample_rows": [
+                    {
+                      "individual_id": 1,
+                      "individual_first_name": "Oscar",
+                      "individual_middle_name": "Hosea",
+                      "inidividual_phone": "1-925-696-5232",
+                      "individual_email": "amie.okuneva@example.org",
+                      "individual_address": "6956 Lia Plaza",
+                      "individual_last_name": "Maggio"
+                    },
+                    {
+                      "individual_id": 2,
+                      "individual_first_name": "Geovanny",
+                      "individual_middle_name": "Antonia",
+                      "inidividual_phone": "075.012.6775x409",
+                      "individual_email": "jamey.effertz@example.net",
+                      "individual_address": "69578 Baylee Prairie",
+                      "individual_last_name": "Kerluke"
+                    },
+                    {
+                      "individual_id": 3,
+                      "individual_first_name": "Casper",
+                      "individual_middle_name": "Mitchell",
+                      "inidividual_phone": "1-818-062-2837",
+                      "individual_email": "brandon.hermiston@example.com",
+                      "individual_address": "4555 Hane Orchard",
+                      "individual_last_name": "Kutch"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "tmp_n122.parquet",
+              "type": "parquet",
+              "tables": [
+                {
+                  "name": "tmp_n122",
+                  "columns": [
+                    "id",
+                    "name",
+                    "date",
+                    "value"
+                  ],
+                  "sample_rows": [
+                    {
+                      "id": 29398,
+                      "name": "name_0",
+                      "date": "2024-01-01",
+                      "value": 50.933
+                    },
+                    {
+                      "id": 14613,
+                      "name": "name_1",
+                      "date": "2024-01-02",
+                      "value": 54.873
+                    },
+                    {
+                      "id": 72380,
+                      "name": "name_2",
+                      "date": "2024-01-03",
+                      "value": 61.662
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "tmp_p9z9.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "tmp_p9z9",
+                  "columns": [
+                    "individual_id",
+                    "organization_id",
+                    "date_contact_from",
+                    "date_contact_to"
+                  ],
+                  "sample_rows": [
+                    {
+                      "individual_id": 12865,
+                      "organization_id": 19828,
+                      "date_contact_from": "2016-08-16 22:09:11",
+                      "date_contact_to": "2018-03-25 10:27:18"
+                    },
+                    {
+                      "individual_id": 12865,
+                      "organization_id": 19829,
+                      "date_contact_from": "2016-09-16 13:53:24",
+                      "date_contact_to": "2018-03-18 16:33:16"
+                    },
+                    {
+                      "individual_id": 12859,
+                      "organization_id": 19829,
+                      "date_contact_from": "2016-11-24 03:57:30",
+                      "date_contact_to": "2018-03-07 16:40:29"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "observable_sketch": {
+          "output_slots": [
+            {
+              "label": "individual_last_name",
+              "role": "attribute",
+              "metadata": {}
+            }
+          ],
+          "filter_hints": [
+            {
+              "attribute": "country",
+              "operator": "=",
+              "value": "UK",
+              "value_text": "UK"
+            }
+          ],
+          "time_hints": {
+            "years": [],
+            "months": []
+          },
+          "measure_hints": [],
+          "grouping_hints": [],
+          "operator_hints": [
+            "max"
+          ],
+          "order_hint": {
+            "target": "contact_date",
+            "direction": "asc",
+            "limit": 1
+          },
+          "raw_response": {
+            "output_slots": [
+              {
+                "label": "individual_last_name",
+                "role": "attribute"
+              }
+            ],
+            "filter_hints": [
+              {
+                "attribute": "country",
+                "operator": "=",
+                "value": "UK",
+                "value_text": "UK"
+              }
+            ],
+            "time_hints": {
+              "years": [],
+              "months": []
+            },
+            "measure_hints": [],
+            "grouping_hints": [],
+            "operator_hints": [
+              "max"
+            ],
+            "order_hint": {
+              "target": "contact_date",
+              "direction": "asc",
+              "limit": 1
+            }
+          }
+        },
+        "obligation_sketch": {
+          "obligations": [
+            {
+              "name": "support_relation",
+              "probability": 1.0,
+              "reason": "The question requires linking organizations to their contact persons and VAT numbers, implying relationships between entities like organization, contact person, and VAT number."
+            },
+            {
+              "name": "aggregation_support",
+              "probability": 1.0,
+              "reason": "The sketch includes 'max' operator hint and the question asks for 'highest UK Vat number', indicating an aggregation (maximum) over VAT numbers."
+            },
+            {
+              "name": "filter_transfer",
+              "probability": 0.9,
+              "reason": "The filter hint specifies country='UK', which likely applies to VAT numbers, but may need to be transferred to other entities like organizations or contacts."
+            },
+            {
+              "name": "multihop",
+              "probability": 1.0,
+              "reason": "Multiple steps are needed: find organization with highest UK VAT number, then its first contact person, then that person's last name."
+            },
+            {
+              "name": "value_alignment",
+              "probability": 0.8,
+              "reason": "The 'first ever contact person' requires temporal alignment with 'contact_date' ordering, and 'highest UK Vat number' requires numeric alignment for the maximum value."
+            }
+          ],
+          "role_priors": [
+            {
+              "role": "attribute",
+              "target": "individual_last_name",
+              "probability": 1.0,
+              "reason": "Explicitly specified as output slot in the sketch for the final answer."
+            },
+            {
+              "role": "attribute",
+              "target": "contact_date",
+              "probability": 0.9,
+              "reason": "Order hint targets 'contact_date' to determine 'first ever contact person'."
+            },
+            {
+              "role": "attribute",
+              "target": "country",
+              "probability": 0.8,
+              "reason": "Filter hint uses 'country' for UK filtering, likely related to VAT numbers or organizations."
+            },
+            {
+              "role": "measure",
+              "target": "uk_vat_number",
+              "probability": 0.9,
+              "reason": "The 'max' operator hint and question reference 'highest UK Vat number' suggest it is a measurable attribute for aggregation."
+            },
+            {
+              "role": "entity",
+              "target": "organization",
+              "probability": 0.9,
+              "reason": "Implied by 'organization with the highest UK Vat number', requiring entity identification."
+            },
+            {
+              "role": "entity",
+              "target": "contact_person",
+              "probability": 0.9,
+              "reason": "Implied by 'first ever contact person of the organization', requiring entity linking."
+            }
+          ],
+          "family_labels": [
+            {
+              "label": "aggregation_with_temporal_ordering",
+              "probability": 1.0,
+              "reason": "Combines aggregation (max on VAT number) with temporal ordering (first contact by date) to retrieve an attribute."
+            },
+            {
+              "label": "filtered_multihop_lookup",
+              "probability": 0.9,
+              "reason": "Involves filtering (UK), multiple hops (organization → VAT → contact → name), and attribute lookup."
+            }
+          ],
+          "raw_response": {
+            "atomic_obligations": [
+              {
+                "name": "support_relation",
+                "probability": 1.0,
+                "reason": "The question requires linking organizations to their contact persons and VAT numbers, implying relationships between entities like organization, contact person, and VAT number."
+              },
+              {
+                "name": "aggregation_support",
+                "probability": 1.0,
+                "reason": "The sketch includes 'max' operator hint and the question asks for 'highest UK Vat number', indicating an aggregation (maximum) over VAT numbers."
+              },
+              {
+                "name": "filter_transfer",
+                "probability": 0.9,
+                "reason": "The filter hint specifies country='UK', which likely applies to VAT numbers, but may need to be transferred to other entities like organizations or contacts."
+              },
+              {
+                "name": "multihop",
+                "probability": 1.0,
+                "reason": "Multiple steps are needed: find organization with highest UK VAT number, then its first contact person, then that person's last name."
+              },
+              {
+                "name": "value_alignment",
+                "probability": 0.8,
+                "reason": "The 'first ever contact person' requires temporal alignment with 'contact_date' ordering, and 'highest UK Vat number' requires numeric alignment for the maximum value."
+              }
+            ],
+            "role_priors": [
+              {
+                "role": "attribute",
+                "target": "individual_last_name",
+                "probability": 1.0,
+                "reason": "Explicitly specified as output slot in the sketch for the final answer."
+              },
+              {
+                "role": "attribute",
+                "target": "contact_date",
+                "probability": 0.9,
+                "reason": "Order hint targets 'contact_date' to determine 'first ever contact person'."
+              },
+              {
+                "role": "attribute",
+                "target": "country",
+                "probability": 0.8,
+                "reason": "Filter hint uses 'country' for UK filtering, likely related to VAT numbers or organizations."
+              },
+              {
+                "role": "measure",
+                "target": "uk_vat_number",
+                "probability": 0.9,
+                "reason": "The 'max' operator hint and question reference 'highest UK Vat number' suggest it is a measurable attribute for aggregation."
+              },
+              {
+                "role": "entity",
+                "target": "organization",
+                "probability": 0.9,
+                "reason": "Implied by 'organization with the highest UK Vat number', requiring entity identification."
+              },
+              {
+                "role": "entity",
+                "target": "contact_person",
+                "probability": 0.9,
+                "reason": "Implied by 'first ever contact person of the organization', requiring entity linking."
+              }
+            ],
+            "family_labels": [
+              {
+                "label": "aggregation_with_temporal_ordering",
+                "probability": 1.0,
+                "reason": "Combines aggregation (max on VAT number) with temporal ordering (first contact by date) to retrieve an attribute."
+              },
+              {
+                "label": "filtered_multihop_lookup",
+                "probability": 0.9,
+                "reason": "Involves filtering (UK), multiple hops (organization → VAT → contact → name), and attribute lookup."
+              }
+            ]
+          }
+        },
+        "obligation_mode": "full",
+        "search_summary": {
+          "candidates_considered": 84,
+          "search_log": [
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -24.25,
+              "family": "direct_aggregation",
+              "aggregation_mode": "explicit_measure_direct"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -24.25,
+              "family": "direct_aggregation",
+              "aggregation_mode": "explicit_measure_direct"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -24.25,
+              "family": "direct_aggregation",
+              "aggregation_mode": "explicit_measure_direct"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "support_source": "tmp_p9z9.csv::tmp_p9z9",
+              "anchor_score": 2.0,
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 29.25,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "support_source": "tmp_p9z9.csv::tmp_p9z9",
+              "anchor_score": 2.0,
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 29.25,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "support_source": "tmp_p9z9.csv::tmp_p9z9",
+              "anchor_score": 2.0,
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 29.25,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "support_source": "dump_ppdh.csv::dump_ppdh",
+              "anchor_score": 2.0,
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 23.75,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "support_source": "dump_ppdh.csv::dump_ppdh",
+              "anchor_score": 2.0,
+              "filter_sources": [
+                "dump_ppdh.csv::dump_ppdh"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 26.75,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "support_source": "dump_ppdh.csv::dump_ppdh",
+              "anchor_score": 2.0,
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 23.75,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "support_source": "dump_itoh.sqlite::organization_contact_individuals",
+              "anchor_score": 1.0,
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 29.25,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "support_source": "dump_itoh.sqlite::organization_contact_individuals",
+              "anchor_score": 1.0,
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 29.25,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "support_source": "dump_itoh.sqlite::organization_contact_individuals",
+              "anchor_score": 1.0,
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 29.25,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "support_source": "dump_xzwa.parquet::dump_xzwa",
+              "anchor_score": 1.2833333333333332,
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 23.75,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "support_source": "dump_xzwa.parquet::dump_xzwa",
+              "anchor_score": 1.2833333333333332,
+              "filter_sources": [
+                "dump_xzwa.parquet::dump_xzwa"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 26.75,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "support_source": "dump_xzwa.parquet::dump_xzwa",
+              "anchor_score": 1.2833333333333332,
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 23.75,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "support_source": "export_l68o.parquet::export_l68o",
+              "anchor_score": 1.25,
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 24.75,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "support_source": "export_l68o.parquet::export_l68o",
+              "anchor_score": 1.25,
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 24.75,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "support_source": "export_l68o.parquet::export_l68o",
+              "anchor_score": 1.25,
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 24.75,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "support_source": "tmp_n122.parquet::tmp_n122",
+              "anchor_score": 1.25,
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 24.75,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "support_source": "tmp_n122.parquet::tmp_n122",
+              "anchor_score": 1.25,
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 24.75,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "support_or_aggregation",
+              "output_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "support_source": "tmp_n122.parquet::tmp_n122",
+              "anchor_score": 1.25,
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": 24.75,
+              "family": "aggregation_join",
+              "aggregation_mode": "explicit_measure_support"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_ppdh.csv::dump_ppdh"
+              ],
+              "filter_sources": [
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "filter_path_count": 1,
+              "joint_rerank_total": -23.25,
+              "family": "direct_aggregation",
+              "aggregation_mode": "explicit_measure_direct"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_ppdh.csv::dump_ppdh"
+              ],
+              "filter_sources": [
+                "dump_ppdh.csv::dump_ppdh"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -24.25,
+              "family": "direct_aggregation",
+              "aggregation_mode": "explicit_measure_direct"
+            },
+            {
+              "kind": "family_candidate",
+              "family_seed": "direct_or_filter",
+              "output_sources": [
+                "dump_ppdh.csv::dump_ppdh"
+              ],
+              "filter_sources": [
+                "dump_ppdh.csv::dump_ppdh"
+              ],
+              "filter_path_count": 0,
+              "joint_rerank_total": -25.75,
+              "family": "direct_aggregation",
+              "aggregation_mode": "explicit_measure_direct"
+            }
+          ]
+        },
+        "support_plan": {
+          "output_bindings": [
+            {
+              "source_id": "export_v4vs.parquet::export_v4vs",
+              "file_name": "export_v4vs.parquet",
+              "view_name": "export_v4vs_export_v4vs",
+              "column_name": "individual_last_name",
+              "role": "attribute",
+              "score": 28.37609195402299,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "dimension_source_bonus",
+                "distinctive_text_values",
+                "key_like_text_penalty",
+                "fact_neighbor_bonus"
+              ],
+              "metadata": {
+                "slot_label": "individual_last_name"
+              }
+            }
+          ],
+          "plan_kind": "aggregation_join",
+          "output_join_paths": [],
+          "filter_join_paths": [],
+          "support_binding": {
+            "source_id": "tmp_p9z9.csv::tmp_p9z9",
+            "file_name": "tmp_p9z9.csv",
+            "view_name": "tmp_p9z9_tmp_p9z9",
+            "column_name": "individual_id",
+            "role": "support",
+            "score": 23.5,
+            "reasons": [
+              "fact_source_bonus",
+              "can_host_filters",
+              "anchor_path_found"
+            ],
+            "metadata": {}
+          },
+          "anchor_binding": {
+            "path_source_ids": [
+              "tmp_p9z9.csv::tmp_p9z9",
+              "export_v4vs.parquet::export_v4vs"
+            ],
+            "edges": [
+              {
+                "edge_id": "dump_itoh_sqlite_organization_contact_individuals__tmp_p9z9_csv_tmp_p9z9__date_contact_from__date_contact_from",
+                "left_source_id": "dump_itoh.sqlite::organization_contact_individuals",
+                "right_source_id": "tmp_p9z9.csv::tmp_p9z9",
+                "left_column": "date_contact_from",
+                "right_column": "date_contact_from",
+                "left_transform": "identity",
+                "right_transform": "identity",
+                "overlap": 1.0
+              },
+              {
+                "edge_id": "dump_itoh_sqlite_organization_contact_individuals__export_v4vs_parquet_export_v4vs__individual_id__individual_id",
+                "left_source_id": "dump_itoh.sqlite::organization_contact_individuals",
+                "right_source_id": "export_v4vs.parquet::export_v4vs",
+                "left_column": "individual_id",
+                "right_column": "individual_id",
+                "left_transform": "identity",
+                "right_transform": "identity",
+                "overlap": 1.0
+              }
+            ],
+            "score": 2.0,
+            "notes": []
+          },
+          "evidence_bindings": [],
+          "measure_binding": {
+            "source_id": "tmp_p9z9.csv::tmp_p9z9",
+            "file_name": "tmp_p9z9.csv",
+            "view_name": "tmp_p9z9_tmp_p9z9",
+            "column_name": "individual_id",
+            "role": "measure",
+            "score": 0.0,
+            "reasons": [
+              "numeric_measure",
+              "key_like_penalty"
+            ],
+            "metadata": {
+              "aggregation": "max"
+            }
+          },
+          "filter_bindings": [
+            {
+              "source_id": "export_v4vs.parquet::export_v4vs",
+              "file_name": "export_v4vs.parquet",
+              "view_name": "export_v4vs_export_v4vs",
+              "column_name": "individual_last_name",
+              "role": "filter",
+              "score": 7.4,
+              "reasons": [
+                "literal_sample_match",
+                "text_filter_compatible",
+                "preferred_source_bonus"
+              ],
+              "metadata": {
+                "attribute": "country",
+                "operator": "=",
+                "value": "UK",
+                "value_text": "UK"
+              }
+            }
+          ],
+          "operator_plan": {
+            "aggregation": "max",
+            "direction": "desc",
+            "limit": 1,
+            "group_by": false,
+            "exists": false,
+            "target": "contact_date"
+          },
+          "satisfied_obligations": [
+            "support_relation",
+            "aggregation_support",
+            "filter_transfer",
+            "multihop",
+            "value_alignment"
+          ],
+          "unmet_obligations": [],
+          "confidence": 186.398291954023,
+          "source_trace": [
+            "export_v4vs.parquet::export_v4vs",
+            "tmp_p9z9.csv::tmp_p9z9"
+          ],
+          "notes": [
+            "aggregation_join",
+            "family=aggregation_join",
+            "evidence_source_ids=['export_v4vs.parquet::export_v4vs', 'tmp_p9z9.csv::tmp_p9z9']",
+            "aggregation_mode=explicit_measure_support",
+            "aggregation_unit_kind=measure_column",
+            "aggregation_anchor_source_id=export_v4vs.parquet::export_v4vs",
+            "ranking_target_kind=aggregation_value",
+            "joint_rerank_total=29.2500",
+            "output_consistency=7.5000",
+            "filter_consistency=0.0000",
+            "aggregation_consistency=7.0000",
+            "obligation_consistency=12.2500",
+            "shape_sanity=2.5000"
+          ],
+          "evidence_source_ids": [
+            "export_v4vs.parquet::export_v4vs",
+            "tmp_p9z9.csv::tmp_p9z9"
+          ],
+          "aggregation_unit_kind": "measure_column",
+          "aggregation_anchor_source_id": "export_v4vs.parquet::export_v4vs",
+          "aggregation_mode": "explicit_measure_support",
+          "ranking_target_kind": "aggregation_value"
+        },
+        "support_ir": {
+          "kind": "aggregation_join",
+          "compile_ready": true,
+          "steps": [
+            {
+              "op": "SCAN",
+              "args": {
+                "source_id": "export_v4vs.parquet::export_v4vs",
+                "view_name": "export_v4vs_export_v4vs",
+                "role": "output"
+              }
+            },
+            {
+              "op": "SCAN",
+              "args": {
+                "source_id": "tmp_p9z9.csv::tmp_p9z9",
+                "view_name": "tmp_p9z9_tmp_p9z9",
+                "role": "support"
+              }
+            },
+            {
+              "op": "JOIN",
+              "args": {
+                "edge": {
+                  "edge_id": "dump_itoh_sqlite_organization_contact_individuals__tmp_p9z9_csv_tmp_p9z9__date_contact_from__date_contact_from",
+                  "left_source_id": "dump_itoh.sqlite::organization_contact_individuals",
+                  "right_source_id": "tmp_p9z9.csv::tmp_p9z9",
+                  "left_column": "date_contact_from",
+                  "right_column": "date_contact_from",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 1.0
+                },
+                "kind": "support_path"
+              }
+            },
+            {
+              "op": "JOIN",
+              "args": {
+                "edge": {
+                  "edge_id": "dump_itoh_sqlite_organization_contact_individuals__export_v4vs_parquet_export_v4vs__individual_id__individual_id",
+                  "left_source_id": "dump_itoh.sqlite::organization_contact_individuals",
+                  "right_source_id": "export_v4vs.parquet::export_v4vs",
+                  "left_column": "individual_id",
+                  "right_column": "individual_id",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 1.0
+                },
+                "kind": "support_path"
+              }
+            },
+            {
+              "op": "FILTER",
+              "args": {
+                "source_id": "export_v4vs.parquet::export_v4vs",
+                "file_name": "export_v4vs.parquet",
+                "view_name": "export_v4vs_export_v4vs",
+                "column_name": "individual_last_name",
+                "role": "filter",
+                "score": 7.4,
+                "reasons": [
+                  "literal_sample_match",
+                  "text_filter_compatible",
+                  "preferred_source_bonus"
+                ],
+                "metadata": {
+                  "attribute": "country",
+                  "operator": "=",
+                  "value": "UK",
+                  "value_text": "UK"
+                }
+              }
+            },
+            {
+              "op": "AGG",
+              "args": {
+                "aggregation": "max",
+                "measure_binding": {
+                  "source_id": "tmp_p9z9.csv::tmp_p9z9",
+                  "file_name": "tmp_p9z9.csv",
+                  "view_name": "tmp_p9z9_tmp_p9z9",
+                  "column_name": "individual_id",
+                  "role": "measure",
+                  "score": 0.0,
+                  "reasons": [
+                    "numeric_measure",
+                    "key_like_penalty"
+                  ],
+                  "metadata": {
+                    "aggregation": "max"
+                  }
+                }
+              }
+            },
+            {
+              "op": "RANK",
+              "args": {
+                "direction": "desc",
+                "limit": 1
+              }
+            },
+            {
+              "op": "PROJECT",
+              "args": {
+                "columns": [
+                  {
+                    "source_id": "export_v4vs.parquet::export_v4vs",
+                    "file_name": "export_v4vs.parquet",
+                    "view_name": "export_v4vs_export_v4vs",
+                    "column_name": "individual_last_name",
+                    "role": "attribute",
+                    "score": 28.37609195402299,
+                    "reasons": [
+                      "exact_column_match",
+                      "label_substring_match",
+                      "text_compatible",
+                      "dimension_source_bonus",
+                      "distinctive_text_values",
+                      "key_like_text_penalty",
+                      "fact_neighbor_bonus"
+                    ],
+                    "metadata": {
+                      "slot_label": "individual_last_name"
+                    }
+                  }
+                ]
+              }
+            }
+          ],
+          "metadata": {
+            "primary_output_source_id": "export_v4vs.parquet::export_v4vs",
+            "support_source_id": "tmp_p9z9.csv::tmp_p9z9",
+            "filter_path_count": 0,
+            "required_columns": [
+              "individual_last_name"
+            ],
+            "aggregation": "max",
+            "direction": "desc",
+            "limit": 1
+          },
+          "compile_reason": null
+        },
+        "verifier_trace": [
+          {
+            "check": "output_binding",
+            "score": 28.3761,
+            "passed": true,
+            "evidence": [
+              {
+                "source_id": "export_v4vs.parquet::export_v4vs",
+                "file_name": "export_v4vs.parquet",
+                "view_name": "export_v4vs_export_v4vs",
+                "column_name": "individual_last_name",
+                "role": "attribute",
+                "score": 28.37609195402299,
+                "reasons": [
+                  "exact_column_match",
+                  "label_substring_match",
+                  "text_compatible",
+                  "dimension_source_bonus",
+                  "distinctive_text_values",
+                  "key_like_text_penalty",
+                  "fact_neighbor_bonus"
+                ],
+                "metadata": {
+                  "slot_label": "individual_last_name"
+                }
+              }
+            ]
+          },
+          {
+            "check": "support_relation",
+            "score": 12.75,
+            "passed": true,
+            "evidence": {
+              "support_binding": {
+                "source_id": "tmp_p9z9.csv::tmp_p9z9",
+                "file_name": "tmp_p9z9.csv",
+                "view_name": "tmp_p9z9_tmp_p9z9",
+                "column_name": "individual_id",
+                "role": "support",
+                "score": 23.5,
+                "reasons": [
+                  "fact_source_bonus",
+                  "can_host_filters",
+                  "anchor_path_found"
+                ],
+                "metadata": {}
+              },
+              "anchor_binding": {
+                "path_source_ids": [
+                  "tmp_p9z9.csv::tmp_p9z9",
+                  "export_v4vs.parquet::export_v4vs"
+                ],
+                "edges": [
+                  {
+                    "edge_id": "dump_itoh_sqlite_organization_contact_individuals__tmp_p9z9_csv_tmp_p9z9__date_contact_from__date_contact_from",
+                    "left_source_id": "dump_itoh.sqlite::organization_contact_individuals",
+                    "right_source_id": "tmp_p9z9.csv::tmp_p9z9",
+                    "left_column": "date_contact_from",
+                    "right_column": "date_contact_from",
+                    "left_transform": "identity",
+                    "right_transform": "identity",
+                    "overlap": 1.0
+                  },
+                  {
+                    "edge_id": "dump_itoh_sqlite_organization_contact_individuals__export_v4vs_parquet_export_v4vs__individual_id__individual_id",
+                    "left_source_id": "dump_itoh.sqlite::organization_contact_individuals",
+                    "right_source_id": "export_v4vs.parquet::export_v4vs",
+                    "left_column": "individual_id",
+                    "right_column": "individual_id",
+                    "left_transform": "identity",
+                    "right_transform": "identity",
+                    "overlap": 1.0
+                  }
+                ],
+                "score": 2.0,
+                "notes": []
+              }
+            }
+          },
+          {
+            "check": "aggregation_support",
+            "score": 0.0,
+            "passed": true,
+            "evidence": {
+              "aggregation": "max",
+              "measure_binding": {
+                "source_id": "tmp_p9z9.csv::tmp_p9z9",
+                "file_name": "tmp_p9z9.csv",
+                "view_name": "tmp_p9z9_tmp_p9z9",
+                "column_name": "individual_id",
+                "role": "measure",
+                "score": 0.0,
+                "reasons": [
+                  "numeric_measure",
+                  "key_like_penalty"
+                ],
+                "metadata": {
+                  "aggregation": "max"
+                }
+              }
+            }
+          },
+          {
+            "check": "filter_transfer",
+            "score": 7.4,
+            "passed": true,
+            "evidence": [
+              {
+                "source_id": "export_v4vs.parquet::export_v4vs",
+                "file_name": "export_v4vs.parquet",
+                "view_name": "export_v4vs_export_v4vs",
+                "column_name": "individual_last_name",
+                "role": "filter",
+                "score": 7.4,
+                "reasons": [
+                  "literal_sample_match",
+                  "text_filter_compatible",
+                  "preferred_source_bonus"
+                ],
+                "metadata": {
+                  "attribute": "country",
+                  "operator": "=",
+                  "value": "UK",
+                  "value_text": "UK"
+                }
+              }
+            ]
+          },
+          {
+            "check": "value_alignment",
+            "score": 2.0,
+            "passed": true,
+            "evidence": {
+              "path_source_ids": [
+                "tmp_p9z9.csv::tmp_p9z9",
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "edges": [
+                {
+                  "edge_id": "dump_itoh_sqlite_organization_contact_individuals__tmp_p9z9_csv_tmp_p9z9__date_contact_from__date_contact_from",
+                  "left_source_id": "dump_itoh.sqlite::organization_contact_individuals",
+                  "right_source_id": "tmp_p9z9.csv::tmp_p9z9",
+                  "left_column": "date_contact_from",
+                  "right_column": "date_contact_from",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 1.0
+                },
+                {
+                  "edge_id": "dump_itoh_sqlite_organization_contact_individuals__export_v4vs_parquet_export_v4vs__individual_id__individual_id",
+                  "left_source_id": "dump_itoh.sqlite::organization_contact_individuals",
+                  "right_source_id": "export_v4vs.parquet::export_v4vs",
+                  "left_column": "individual_id",
+                  "right_column": "individual_id",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 1.0
+                }
+              ],
+              "score": 2.0,
+              "notes": []
+            }
+          },
+          {
+            "check": "role_consistency",
+            "score": 1.0,
+            "passed": true,
+            "evidence": {
+              "support_source": "tmp_p9z9.csv::tmp_p9z9",
+              "output_source": "export_v4vs.parquet::export_v4vs"
+            }
+          }
+        ],
+        "planner_output": {
+          "relevant_files": [
+            "export_v4vs.parquet",
+            "tmp_p9z9.csv"
+          ],
+          "output_bindings": [
+            {
+              "source_id": "export_v4vs.parquet::export_v4vs",
+              "file_name": "export_v4vs.parquet",
+              "view_name": "export_v4vs_export_v4vs",
+              "column_name": "individual_last_name",
+              "role": "attribute",
+              "score": 28.37609195402299,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "dimension_source_bonus",
+                "distinctive_text_values",
+                "key_like_text_penalty",
+                "fact_neighbor_bonus"
+              ],
+              "metadata": {
+                "slot_label": "individual_last_name"
+              }
+            }
+          ],
+          "output_mappings": [
+            {
+              "slot_id": "individual_last_name",
+              "source_file": "export_v4vs.parquet",
+              "source_id": "export_v4vs.parquet::export_v4vs",
+              "source_column": "individual_last_name"
+            }
+          ],
+          "support_bindings": [
+            {
+              "source_id": "tmp_p9z9.csv::tmp_p9z9",
+              "file_name": "tmp_p9z9.csv",
+              "view_name": "tmp_p9z9_tmp_p9z9",
+              "column_name": "individual_id",
+              "role": "support",
+              "score": 23.5,
+              "reasons": [
+                "fact_source_bonus",
+                "can_host_filters",
+                "anchor_path_found"
+              ],
+              "metadata": {}
+            }
+          ],
+          "anchor_bindings": [
+            {
+              "path_source_ids": [
+                "tmp_p9z9.csv::tmp_p9z9",
+                "export_v4vs.parquet::export_v4vs"
+              ],
+              "edges": [
+                {
+                  "edge_id": "dump_itoh_sqlite_organization_contact_individuals__tmp_p9z9_csv_tmp_p9z9__date_contact_from__date_contact_from",
+                  "left_source_id": "dump_itoh.sqlite::organization_contact_individuals",
+                  "right_source_id": "tmp_p9z9.csv::tmp_p9z9",
+                  "left_column": "date_contact_from",
+                  "right_column": "date_contact_from",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 1.0
+                },
+                {
+                  "edge_id": "dump_itoh_sqlite_organization_contact_individuals__export_v4vs_parquet_export_v4vs__individual_id__individual_id",
+                  "left_source_id": "dump_itoh.sqlite::organization_contact_individuals",
+                  "right_source_id": "export_v4vs.parquet::export_v4vs",
+                  "left_column": "individual_id",
+                  "right_column": "individual_id",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 1.0
+                }
+              ],
+              "score": 2.0,
+              "notes": []
+            }
+          ]
+        },
+        "final_sql": "WITH support_cte AS (SELECT CAST(t0.\"individual_id\" AS VARCHAR) AS output_anchor_key, MAX(t1.\"individual_id\") AS support_value FROM \"export_v4vs_export_v4vs\" AS t0 JOIN \"dump_itoh_organization_contact_individuals\" AS t2 ON CAST(t2.\"individual_id\" AS VARCHAR) = CAST(t0.\"individual_id\" AS VARCHAR) JOIN \"tmp_p9z9_tmp_p9z9\" AS t1 ON CAST(t2.\"date_contact_from\" AS VARCHAR) = CAST(t1.\"date_contact_from\" AS VARCHAR) WHERE CAST(t0.\"individual_last_name\" AS VARCHAR) ILIKE '%UK%' GROUP BY CAST(t0.\"individual_id\" AS VARCHAR)) SELECT o0.\"individual_last_name\" AS \"individual_last_name\" FROM \"export_v4vs_export_v4vs\" AS o0  JOIN support_cte AS s ON CAST(o0.\"individual_id\" AS VARCHAR) = s.output_anchor_key ORDER BY s.support_value DESC LIMIT 1",
+        "execution_summary": {
+          "success": true,
+          "row_count": 0,
+          "columns": [
+            "individual_last_name"
+          ],
+          "preview": [],
+          "files_touched": [
+            "dump_itoh.sqlite",
+            "dump_ppdh.csv",
+            "dump_xzwa.parquet",
+            "export_l68o.parquet",
+            "export_v4vs.parquet",
+            "tmp_n122.parquet",
+            "tmp_p9z9.csv"
+          ]
+        },
+        "critique": null,
+        "agent_impl": "support_plan_agent",
+        "wall_clock_time": 8.0855,
+        "llm_calls_used": 2,
+        "llm_calls_budget": 4,
+        "split": "l1",
+        "view": "full",
+        "requested_mode": "support_plan_agent"
+      }
+    }
+  ]
+}

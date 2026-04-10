@@ -1,0 +1,164 @@
+{
+  "split": "l1",
+  "seed_ids": [
+    "spider__apartment_rentals__01238",
+    "spider__college_3__04694",
+    "spider__baseball_1__03665",
+    "spider__e_government__06324"
+  ],
+  "old": {
+    "case_count": 4,
+    "pass_rate": 0.0,
+    "empty_fail_ratio": 0.75,
+    "nonempty_fail_ratio": 0.25,
+    "by_motif": {
+      "AggregationJoin": {
+        "case_count": 2,
+        "pass_rate": 0.0,
+        "empty_fail_ratio": 1.0,
+        "nonempty_fail_ratio": 0.0
+      },
+      "FilterJoin": {
+        "case_count": 2,
+        "pass_rate": 0.0,
+        "empty_fail_ratio": 0.5,
+        "nonempty_fail_ratio": 0.5
+      }
+    }
+  },
+  "new": {
+    "case_count": 4,
+    "pass_rate": 0.0,
+    "empty_fail_ratio": 0.75,
+    "nonempty_fail_ratio": 0.25,
+    "by_motif": {
+      "AggregationJoin": {
+        "case_count": 2,
+        "pass_rate": 0.0,
+        "empty_fail_ratio": 1.0,
+        "nonempty_fail_ratio": 0.0
+      },
+      "FilterJoin": {
+        "case_count": 2,
+        "pass_rate": 0.0,
+        "empty_fail_ratio": 0.5,
+        "nonempty_fail_ratio": 0.5
+      }
+    }
+  },
+  "head_to_head": {
+    "overall": {
+      "new_only_pass": 0,
+      "old_only_pass": 0,
+      "both_pass": 0,
+      "both_fail": 4
+    },
+    "by_motif": {
+      "FilterJoin": {
+        "new_only_pass": 0,
+        "old_only_pass": 0,
+        "both_pass": 0,
+        "both_fail": 2
+      },
+      "AggregationJoin": {
+        "new_only_pass": 0,
+        "old_only_pass": 0,
+        "both_pass": 0,
+        "both_fail": 2
+      }
+    },
+    "top_score_changes": []
+  },
+  "old_rows": [
+    {
+      "seed_id": "spider__apartment_rentals__01238",
+      "variant": "A",
+      "split": "l1",
+      "pass": false,
+      "score": 0.7499999999999999,
+      "stage": "QUERY_FAIL",
+      "result_rows": 5,
+      "gold_rows": 3,
+      "exists": true
+    },
+    {
+      "seed_id": "spider__college_3__04694",
+      "variant": "A",
+      "split": "l1",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 0,
+      "gold_rows": 21,
+      "exists": true
+    },
+    {
+      "seed_id": "spider__baseball_1__03665",
+      "variant": "A",
+      "split": "l1",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 0,
+      "gold_rows": 1,
+      "exists": true
+    },
+    {
+      "seed_id": "spider__e_government__06324",
+      "variant": "A",
+      "split": "l1",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 0,
+      "gold_rows": 1,
+      "exists": true
+    }
+  ],
+  "new_rows": [
+    {
+      "seed_id": "spider__apartment_rentals__01238",
+      "variant": "A",
+      "split": "l1",
+      "pass": false,
+      "score": 0.7499999999999999,
+      "stage": "QUERY_FAIL",
+      "result_rows": 5,
+      "gold_rows": 3,
+      "exists": true
+    },
+    {
+      "seed_id": "spider__college_3__04694",
+      "variant": "A",
+      "split": "l1",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 0,
+      "gold_rows": 21,
+      "exists": true
+    },
+    {
+      "seed_id": "spider__baseball_1__03665",
+      "variant": "A",
+      "split": "l1",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 0,
+      "gold_rows": 1,
+      "exists": true
+    },
+    {
+      "seed_id": "spider__e_government__06324",
+      "variant": "A",
+      "split": "l1",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 0,
+      "gold_rows": 1,
+      "exists": true
+    }
+  ]
+}

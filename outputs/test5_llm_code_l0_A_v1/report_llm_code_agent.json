@@ -1,0 +1,904 @@
+{
+  "mode": "llm_code_agent",
+  "access_mode": "dev",
+  "bench_root": "outputs\\hdrbench_full150_v1",
+  "num_records": 5,
+  "asr_by_setting": {
+    "l0.full": 0.0
+  },
+  "pass_rate_by_setting": {
+    "l0.full": 0.4
+  },
+  "pass_count_by_setting": {
+    "l0.full": {
+      "passed": 2,
+      "total": 5
+    }
+  },
+  "attribution_by_setting": {
+    "l0.full": {
+      "QUERY_FAIL": 2,
+      "INSTANCE_FAIL": 1,
+      "PASS": 2
+    }
+  },
+  "asr_by_split": {
+    "l0": 0.0
+  },
+  "pass_rate_by_split": {
+    "l0": 0.4
+  },
+  "asr_by_view": {},
+  "pass_rate_by_view": {},
+  "pass_count_by_view": {},
+  "attribution_by_view": {},
+  "records": [
+    {
+      "seed_id": "spider__bike_1__00163",
+      "variant": "A",
+      "split": "l0",
+      "view": "full",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "attribution": "QUERY_FAIL",
+      "meta": {
+        "success": true,
+        "files_touched": [
+          "bike_1.sqlite"
+        ],
+        "error": null,
+        "workspace_summary": {
+          "workspace_name": "universe_l0",
+          "files": [
+            {
+              "file": "bike_1.sqlite",
+              "type": "sqlite",
+              "tables": [
+                {
+                  "name": "station",
+                  "columns": [
+                    "id",
+                    "name",
+                    "lat",
+                    "long",
+                    "dock_count",
+                    "city",
+                    "installation_date"
+                  ],
+                  "sample_rows": [
+                    {
+                      "id": 2,
+                      "name": "San Jose Diridon Caltrain Station",
+                      "lat": 37.329732,
+                      "long": -121.90178200000001,
+                      "dock_count": 27,
+                      "city": "San Jose",
+                      "installation_date": "8/6/2013"
+                    },
+                    {
+                      "id": 3,
+                      "name": "San Jose Civic Center",
+                      "lat": 37.330698,
+                      "long": -121.888979,
+                      "dock_count": 15,
+                      "city": "San Jose",
+                      "installation_date": "8/5/2013"
+                    },
+                    {
+                      "id": 4,
+                      "name": "Santa Clara at Almaden",
+                      "lat": 37.333988,
+                      "long": -121.894902,
+                      "dock_count": 11,
+                      "city": "San Jose",
+                      "installation_date": "8/6/2013"
+                    }
+                  ]
+                },
+                {
+                  "name": "trip",
+                  "columns": [
+                    "id",
+                    "duration",
+                    "start_date",
+                    "start_station_name",
+                    "start_station_id",
+                    "end_date",
+                    "end_station_name",
+                    "end_station_id",
+                    "bike_id",
+                    "subscription_type",
+                    "zip_code"
+                  ],
+                  "sample_rows": [
+                    {
+                      "id": 900504,
+                      "duration": 384,
+                      "start_date": "8/21/2015 17:03",
+                      "start_station_name": "Howard at 2nd",
+                      "start_station_id": 63,
+                      "end_date": "8/21/2015 17:10",
+                      "end_station_name": "San Francisco Caltrain 2 (330 Townsend)",
+                      "end_station_id": 69,
+                      "bike_id": 454,
+                      "subscription_type": "Subscriber",
+                      "zip_code": "94041"
+                    },
+                    {
+                      "id": 900505,
+                      "duration": 588,
+                      "start_date": "8/21/2015 17:03",
+                      "start_station_name": "South Van Ness at Market",
+                      "start_station_id": 66,
+                      "end_date": "8/21/2015 17:13",
+                      "end_station_name": "San Francisco Caltrain 2 (330 Townsend)",
+                      "end_station_id": 69,
+                      "bike_id": 574,
+                      "subscription_type": "Subscriber",
+                      "zip_code": "95119"
+                    },
+                    {
+                      "id": 900506,
+                      "duration": 196,
+                      "start_date": "8/21/2015 17:04",
+                      "start_station_name": "Market at Sansome",
+                      "start_station_id": 77,
+                      "end_date": "8/21/2015 17:07",
+                      "end_station_name": "Harry Bridges Plaza (Ferry Building)",
+                      "end_station_id": 50,
+                      "bike_id": 636,
+                      "subscription_type": "Subscriber",
+                      "zip_code": "94925"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "gold.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "gold",
+                  "columns": [
+                    "id"
+                  ],
+                  "sample_rows": [
+                    {
+                      "id": 900506
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "gold.sql",
+              "type": "sql",
+              "tables": []
+            },
+            {
+              "file": "manifest_l0.json",
+              "type": "json",
+              "tables": []
+            }
+          ]
+        },
+        "planner_output": {
+          "relevant_files": [
+            "bike_1.sqlite"
+          ],
+          "reasoning": "heuristic_planner_fallback",
+          "candidate_joins": [],
+          "expected_output_columns": [
+            "id"
+          ],
+          "backend": "duckdb",
+          "output_mappings": [
+            {
+              "output_column": "id",
+              "source_file": "bike_1.sqlite",
+              "source_table": "station",
+              "source_column": "id",
+              "score": 30.0
+            }
+          ],
+          "duckdb_sql": "SELECT \"id\" AS \"id\" FROM \"station\"",
+          "plan_score": 30.0
+        },
+        "generated_code_round1": "",
+        "generated_code_round2": "",
+        "execution_round1": {
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "time_seconds": 0.0689,
+          "output_exists": true,
+          "files_touched": [
+            "bike_1.sqlite"
+          ]
+        },
+        "execution_round2": null,
+        "wall_clock_time": 4.7765,
+        "split": "l0",
+        "view": "full"
+      }
+    },
+    {
+      "seed_id": "spider__driving_school__06657",
+      "variant": "A",
+      "split": "l0",
+      "view": "full",
+      "pass": false,
+      "score": 0.23529411764705882,
+      "stage": "INSTANCE_FAIL",
+      "attribution": "INSTANCE_FAIL",
+      "meta": {
+        "success": true,
+        "files_touched": [
+          "driving_school.sqlite"
+        ],
+        "error": null,
+        "workspace_summary": {
+          "workspace_name": "universe_l0",
+          "files": [
+            {
+              "file": "driving_school.sqlite",
+              "type": "sqlite",
+              "tables": [
+                {
+                  "name": "Addresses",
+                  "columns": [
+                    "address_id",
+                    "line_1_number_building",
+                    "city",
+                    "zip_postcode",
+                    "state_province_county",
+                    "country"
+                  ],
+                  "sample_rows": [
+                    {
+                      "address_id": 1,
+                      "line_1_number_building": "3904 Stroman Passage",
+                      "city": "Port Melyssa",
+                      "zip_postcode": "14445",
+                      "state_province_county": "Georgia",
+                      "country": "USA"
+                    },
+                    {
+                      "address_id": 2,
+                      "line_1_number_building": "053 Quigley Island",
+                      "city": "Hagenesfurt",
+                      "zip_postcode": "22194",
+                      "state_province_county": "Kentucky",
+                      "country": "USA"
+                    },
+                    {
+                      "address_id": 3,
+                      "line_1_number_building": "00704 Zoe Alley",
+                      "city": "Lake Elaina",
+                      "zip_postcode": "08938",
+                      "state_province_county": "Georgia",
+                      "country": "USA"
+                    }
+                  ]
+                },
+                {
+                  "name": "Staff",
+                  "columns": [
+                    "staff_id",
+                    "staff_address_id",
+                    "nickname",
+                    "first_name",
+                    "middle_name",
+                    "last_name",
+                    "date_of_birth",
+                    "date_joined_staff",
+                    "date_left_staff"
+                  ],
+                  "sample_rows": [
+                    {
+                      "staff_id": 1,
+                      "staff_address_id": 14,
+                      "nickname": "thompson.constantin",
+                      "first_name": "Janessa",
+                      "middle_name": "Amara",
+                      "last_name": "Sawayn",
+                      "date_of_birth": "2010-12-08 16:55:14",
+                      "date_joined_staff": "2017-04-27 03:21:26",
+                      "date_left_staff": "2018-03-23 22:53:12"
+                    },
+                    {
+                      "staff_id": 2,
+                      "staff_address_id": 3,
+                      "nickname": "santos45",
+                      "first_name": "Camylle",
+                      "middle_name": "Icie",
+                      "last_name": "Weissnat",
+                      "date_of_birth": "2015-08-01 13:22:43",
+                      "date_joined_staff": "2016-06-06 08:54:28",
+                      "date_left_staff": "2018-03-10 15:25:00"
+                    },
+                    {
+                      "staff_id": 3,
+                      "staff_address_id": 5,
+                      "nickname": "ynader",
+                      "first_name": "Kaitlin",
+                      "middle_name": "Stephania",
+                      "last_name": "Mertz",
+                      "date_of_birth": "1994-05-17 05:32:11",
+                      "date_joined_staff": "2018-01-02 12:24:24",
+                      "date_left_staff": "2018-03-24 10:11:08"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "gold.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "gold",
+                  "columns": [
+                    "state_province_county"
+                  ],
+                  "sample_rows": [
+                    {
+                      "state_province_county": "Connecticut"
+                    },
+                    {
+                      "state_province_county": "Louisiana"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "gold.sql",
+              "type": "sql",
+              "tables": []
+            },
+            {
+              "file": "manifest_l0.json",
+              "type": "json",
+              "tables": []
+            }
+          ]
+        },
+        "planner_output": {
+          "relevant_files": [
+            "driving_school.sqlite"
+          ],
+          "reasoning": "heuristic_planner_fallback",
+          "candidate_joins": [],
+          "expected_output_columns": [
+            "state_province_county"
+          ],
+          "backend": "duckdb",
+          "output_mappings": [
+            {
+              "output_column": "state_province_county",
+              "source_file": "driving_school.sqlite",
+              "source_table": "Addresses",
+              "source_column": "state_province_county",
+              "score": 30.0
+            }
+          ],
+          "duckdb_sql": "SELECT \"state_province_county\" AS \"state_province_county\" FROM \"Addresses\"",
+          "plan_score": 30.0
+        },
+        "generated_code_round1": "",
+        "generated_code_round2": "",
+        "execution_round1": {
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "time_seconds": 0.0518,
+          "output_exists": true,
+          "files_touched": [
+            "driving_school.sqlite"
+          ]
+        },
+        "execution_round2": null,
+        "wall_clock_time": 5.2047,
+        "split": "l0",
+        "view": "full"
+      }
+    },
+    {
+      "seed_id": "spider__entrepreneur__02273",
+      "variant": "A",
+      "split": "l0",
+      "view": "full",
+      "pass": false,
+      "score": 0.8571428571428571,
+      "stage": "QUERY_FAIL",
+      "attribution": "QUERY_FAIL",
+      "meta": {
+        "success": true,
+        "files_touched": [
+          "entrepreneur.sqlite"
+        ],
+        "error": null,
+        "workspace_summary": {
+          "workspace_name": "universe_l0",
+          "files": [
+            {
+              "file": "entrepreneur.sqlite",
+              "type": "sqlite",
+              "tables": [
+                {
+                  "name": "entrepreneur",
+                  "columns": [
+                    "Entrepreneur_ID",
+                    "People_ID",
+                    "Company",
+                    "Money_Requested",
+                    "Investor"
+                  ],
+                  "sample_rows": [
+                    {
+                      "Entrepreneur_ID": 1,
+                      "People_ID": 1,
+                      "Company": "Umbrolly",
+                      "Money_Requested": 150000.0,
+                      "Investor": "Duncan Bannatyne"
+                    },
+                    {
+                      "Entrepreneur_ID": 2,
+                      "People_ID": 2,
+                      "Company": "Grails Ltd",
+                      "Money_Requested": 120000.0,
+                      "Investor": "Doug Richard"
+                    },
+                    {
+                      "Entrepreneur_ID": 3,
+                      "People_ID": 3,
+                      "Company": "Le Beanock",
+                      "Money_Requested": 54000.0,
+                      "Investor": "Rachel Elnaugh"
+                    }
+                  ]
+                },
+                {
+                  "name": "people",
+                  "columns": [
+                    "People_ID",
+                    "Name",
+                    "Height",
+                    "Weight",
+                    "Date_of_Birth"
+                  ],
+                  "sample_rows": [
+                    {
+                      "People_ID": 1,
+                      "Name": "Francesco Postiglione",
+                      "Height": 1.9,
+                      "Weight": 80.0,
+                      "Date_of_Birth": "1972-04-29"
+                    },
+                    {
+                      "People_ID": 2,
+                      "Name": "Leonardo Binchi",
+                      "Height": 1.86,
+                      "Weight": 57.0,
+                      "Date_of_Birth": "1975-08-27"
+                    },
+                    {
+                      "People_ID": 3,
+                      "Name": "Fabrizio Buonocore",
+                      "Height": 1.83,
+                      "Weight": 45.0,
+                      "Date_of_Birth": "1977-04-28"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "gold.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "gold",
+                  "columns": [
+                    "Name"
+                  ],
+                  "sample_rows": [
+                    {
+                      "Name": "Francesco Postiglione"
+                    },
+                    {
+                      "Name": "Leonardo Binchi"
+                    },
+                    {
+                      "Name": "Fabrizio Buonocore"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "gold.sql",
+              "type": "sql",
+              "tables": []
+            },
+            {
+              "file": "manifest_l0.json",
+              "type": "json",
+              "tables": []
+            }
+          ]
+        },
+        "planner_output": {
+          "relevant_files": [
+            "entrepreneur.sqlite"
+          ],
+          "reasoning": "heuristic_planner_fallback",
+          "candidate_joins": [],
+          "expected_output_columns": [
+            "Name"
+          ],
+          "backend": "duckdb",
+          "output_mappings": [
+            {
+              "output_column": "Name",
+              "source_file": "entrepreneur.sqlite",
+              "source_table": "people",
+              "source_column": "Name",
+              "score": 38.0
+            }
+          ],
+          "duckdb_sql": "SELECT \"Name\" AS \"Name\" FROM \"people\"",
+          "plan_score": 38.0
+        },
+        "generated_code_round1": "",
+        "generated_code_round2": "",
+        "execution_round1": {
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "time_seconds": 0.0529,
+          "output_exists": true,
+          "files_touched": [
+            "entrepreneur.sqlite"
+          ]
+        },
+        "execution_round2": null,
+        "wall_clock_time": 5.0899,
+        "split": "l0",
+        "view": "full"
+      }
+    },
+    {
+      "seed_id": "spider__inn_1__02601",
+      "variant": "A",
+      "split": "l0",
+      "view": "full",
+      "pass": true,
+      "score": 1.0,
+      "stage": null,
+      "attribution": "PASS",
+      "meta": {
+        "success": true,
+        "files_touched": [
+          "gold.csv",
+          "inn_1.sqlite"
+        ],
+        "error": null,
+        "workspace_summary": {
+          "workspace_name": "universe_l0",
+          "files": [
+            {
+              "file": "gold.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "gold",
+                  "columns": [
+                    "decor"
+                  ],
+                  "sample_rows": [
+                    {
+                      "decor": "rustic"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "gold.sql",
+              "type": "sql",
+              "tables": []
+            },
+            {
+              "file": "inn_1.sqlite",
+              "type": "sqlite",
+              "tables": [
+                {
+                  "name": "Reservations",
+                  "columns": [
+                    "Code",
+                    "Room",
+                    "CheckIn",
+                    "CheckOut",
+                    "Rate",
+                    "LastName",
+                    "FirstName",
+                    "Adults",
+                    "Kids"
+                  ],
+                  "sample_rows": [
+                    {
+                      "Code": 10105,
+                      "Room": "HBB",
+                      "CheckIn": "23-OCT-10",
+                      "CheckOut": "25-OCT-10",
+                      "Rate": 100.0,
+                      "LastName": "SELBIG",
+                      "FirstName": "CONRAD",
+                      "Adults": 1,
+                      "Kids": 0
+                    },
+                    {
+                      "Code": 10183,
+                      "Room": "IBD",
+                      "CheckIn": "19-SEP-10",
+                      "CheckOut": "20-SEP-10",
+                      "Rate": 150.0,
+                      "LastName": "GABLER",
+                      "FirstName": "DOLLIE",
+                      "Adults": 2,
+                      "Kids": 0
+                    },
+                    {
+                      "Code": 10449,
+                      "Room": "RND",
+                      "CheckIn": "30-SEP-10",
+                      "CheckOut": "01-OCT-10",
+                      "Rate": 150.0,
+                      "LastName": "KLESS",
+                      "FirstName": "NELSON",
+                      "Adults": 1,
+                      "Kids": 0
+                    }
+                  ]
+                },
+                {
+                  "name": "Rooms",
+                  "columns": [
+                    "RoomId",
+                    "roomName",
+                    "beds",
+                    "bedType",
+                    "maxOccupancy",
+                    "basePrice",
+                    "decor"
+                  ],
+                  "sample_rows": [
+                    {
+                      "RoomId": "RND",
+                      "roomName": "Recluse and defiance",
+                      "beds": 1,
+                      "bedType": "King",
+                      "maxOccupancy": 2,
+                      "basePrice": 150,
+                      "decor": "modern"
+                    },
+                    {
+                      "RoomId": "IBS",
+                      "roomName": "Interim but salutary",
+                      "beds": 1,
+                      "bedType": "King",
+                      "maxOccupancy": 2,
+                      "basePrice": 150,
+                      "decor": "traditional"
+                    },
+                    {
+                      "RoomId": "AOB",
+                      "roomName": "Abscond or bolster",
+                      "beds": 2,
+                      "bedType": "Queen",
+                      "maxOccupancy": 4,
+                      "basePrice": 175,
+                      "decor": "traditional"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "manifest_l0.json",
+              "type": "json",
+              "tables": []
+            }
+          ]
+        },
+        "planner_output": {
+          "relevant_files": [
+            "inn_1.sqlite",
+            "gold.csv"
+          ],
+          "reasoning": "The question asks for least popular decor type. 'inn_1.sqlite' contains Rooms table with decor column and Reservations table for popularity measurement. 'gold.csv' also has decor column but lacks usage data.",
+          "candidate_joins": [
+            "Rooms.decor = gold.decor",
+            "Reservations.Room = Rooms.RoomId"
+          ],
+          "expected_output_columns": [
+            "decor"
+          ],
+          "backend": "duckdb",
+          "duckdb_sql": "WITH decor_counts AS (\n    SELECT \n        r.decor,\n        COUNT(res.Code) as reservation_count\n    FROM \n        Rooms r\n    LEFT JOIN \n        Reservations res ON r.RoomId = res.Room\n    GROUP BY \n        r.decor\n)\nSELECT \n    decor\nFROM \n    decor_counts\nWHERE \n    reservation_count = (SELECT MIN(reservation_count) FROM decor_counts);"
+        },
+        "generated_code_round1": "",
+        "generated_code_round2": "",
+        "execution_round1": {
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "time_seconds": 0.0589,
+          "output_exists": true,
+          "files_touched": [
+            "gold.csv",
+            "inn_1.sqlite"
+          ]
+        },
+        "execution_round2": null,
+        "wall_clock_time": 7.1323,
+        "split": "l0",
+        "view": "full"
+      }
+    },
+    {
+      "seed_id": "spider__workshop_paper__05833",
+      "variant": "A",
+      "split": "l0",
+      "view": "full",
+      "pass": true,
+      "score": 1.0,
+      "stage": null,
+      "attribution": "PASS",
+      "meta": {
+        "success": true,
+        "files_touched": [
+          "workshop_paper.sqlite"
+        ],
+        "error": null,
+        "workspace_summary": {
+          "workspace_name": "universe_l0",
+          "files": [
+            {
+              "file": "gold.csv",
+              "type": "csv",
+              "tables": [
+                {
+                  "name": "gold",
+                  "columns": [
+                    "Author",
+                    "Result"
+                  ],
+                  "sample_rows": [
+                    {
+                      "Author": "Sammy Green",
+                      "Result": "Accepted"
+                    },
+                    {
+                      "Author": "Sammy Green",
+                      "Result": "Rejected"
+                    },
+                    {
+                      "Author": "Sherman Smith",
+                      "Result": "Rejected"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "file": "gold.sql",
+              "type": "sql",
+              "tables": []
+            },
+            {
+              "file": "manifest_l0.json",
+              "type": "json",
+              "tables": []
+            },
+            {
+              "file": "workshop_paper.sqlite",
+              "type": "sqlite",
+              "tables": [
+                {
+                  "name": "acceptance",
+                  "columns": [
+                    "Submission_ID",
+                    "Workshop_ID",
+                    "Result"
+                  ],
+                  "sample_rows": [
+                    {
+                      "Submission_ID": 2,
+                      "Workshop_ID": 5,
+                      "Result": "Accepted"
+                    },
+                    {
+                      "Submission_ID": 2,
+                      "Workshop_ID": 3,
+                      "Result": "Rejected"
+                    },
+                    {
+                      "Submission_ID": 3,
+                      "Workshop_ID": 2,
+                      "Result": "Rejected"
+                    }
+                  ]
+                },
+                {
+                  "name": "submission",
+                  "columns": [
+                    "Submission_ID",
+                    "Scores",
+                    "Author",
+                    "College"
+                  ],
+                  "sample_rows": [
+                    {
+                      "Submission_ID": 1,
+                      "Scores": 72.0,
+                      "Author": "Steve Niehaus",
+                      "College": "Notre Dame"
+                    },
+                    {
+                      "Submission_ID": 2,
+                      "Scores": 79.0,
+                      "Author": "Sammy Green",
+                      "College": "Florida"
+                    },
+                    {
+                      "Submission_ID": 3,
+                      "Scores": 78.0,
+                      "Author": "Sherman Smith",
+                      "College": "Miami (OH)"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        "planner_output": {
+          "relevant_files": [
+            "workshop_paper.sqlite"
+          ],
+          "reasoning": "The submission table contains Author column, acceptance table contains Result column. Both share Submission_ID for joining.",
+          "candidate_joins": [
+            "submission.Submission_ID = acceptance.Submission_ID"
+          ],
+          "expected_output_columns": [
+            "Author",
+            "Result"
+          ],
+          "backend": "duckdb",
+          "duckdb_sql": "SELECT s.Author, a.Result FROM submission s JOIN acceptance a ON s.Submission_ID = a.Submission_ID;"
+        },
+        "generated_code_round1": "",
+        "generated_code_round2": "",
+        "execution_round1": {
+          "returncode": 0,
+          "stdout": "",
+          "stderr": "",
+          "time_seconds": 0.0614,
+          "output_exists": true,
+          "files_touched": [
+            "workshop_paper.sqlite"
+          ]
+        },
+        "execution_round2": null,
+        "wall_clock_time": 4.5108,
+        "split": "l0",
+        "view": "full"
+      }
+    }
+  ]
+}

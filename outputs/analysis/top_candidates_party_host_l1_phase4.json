@@ -1,0 +1,1130 @@
+{
+  "seed_id": "spider__party_host__02679",
+  "variant": "A",
+  "split": "l1",
+  "view": "full",
+  "sketch_mode": "fallback",
+  "instruction": "For each party, return its theme and the name of its host.",
+  "gold_targets": {
+    "output_bindings_by_label": {
+      "Party_Theme": [
+        {
+          "table_name": "party",
+          "canonical_column": "Party_Theme",
+          "source_id": "export_o2h1.parquet::export_o2h1",
+          "dirty_column": "Party_Theme",
+          "file_name": "export_o2h1.parquet",
+          "kind": "output"
+        }
+      ],
+      "Name": [
+        {
+          "table_name": "HOST",
+          "canonical_column": "Name",
+          "source_id": "dump_ptce.sqlite::HOST",
+          "dirty_column": "Name",
+          "file_name": "dump_ptce.sqlite",
+          "kind": "output"
+        }
+      ]
+    },
+    "filter_bindings": [],
+    "measure_bindings": [],
+    "evidence_bindings": [],
+    "join_pairs": [
+      {
+        "left_table": "party_host",
+        "left_col": "Host_ID",
+        "right_table": "HOST",
+        "right_col": "Host_ID"
+      },
+      {
+        "left_table": "party_host",
+        "left_col": "Party_ID",
+        "right_table": "party",
+        "right_col": "Party_ID"
+      }
+    ],
+    "output_tables": [
+      "HOST",
+      "party"
+    ],
+    "evidence_tables": [],
+    "filter_kind_tags": [
+      "none"
+    ],
+    "primary_filter_kind": "none",
+    "ambiguous_count_star": false,
+    "has_aggregation": false,
+    "has_order": false,
+    "has_limit": false
+  },
+  "observable_sketch": {
+    "output_slots": [
+      {
+        "label": "Party_Theme",
+        "role": "attribute",
+        "metadata": {}
+      },
+      {
+        "label": "Name",
+        "role": "entity",
+        "metadata": {}
+      }
+    ],
+    "filter_hints": [],
+    "time_hints": {
+      "years": [],
+      "months": []
+    },
+    "measure_hints": [],
+    "grouping_hints": [],
+    "operator_hints": [],
+    "order_hint": {},
+    "raw_response": {
+      "fallback": true
+    }
+  },
+  "obligation_sketch": {
+    "obligations": [
+      {
+        "name": "support_relation",
+        "probability": 0.2,
+        "reason": "aggregation over output-like entity usually needs latent support relation"
+      },
+      {
+        "name": "aggregation_support",
+        "probability": 0.1,
+        "reason": "query requests aggregated evidence"
+      },
+      {
+        "name": "filter_transfer",
+        "probability": 0.05,
+        "reason": "filters/time hints may live on support side rather than output side"
+      },
+      {
+        "name": "multihop",
+        "probability": 0.15,
+        "reason": "likely needs traversal beyond a single output source"
+      },
+      {
+        "name": "value_alignment",
+        "probability": 0.1,
+        "reason": "join may require non-identity normalization"
+      }
+    ],
+    "role_priors": [
+      {
+        "role": "output_role",
+        "target": "mixed",
+        "probability": 0.45,
+        "reason": "text-like output columns usually live on dimension side"
+      },
+      {
+        "role": "support_role",
+        "target": "mixed",
+        "probability": 0.45,
+        "reason": "aggregated evidence usually comes from event/fact-like relation"
+      },
+      {
+        "role": "evidence_role",
+        "target": "fact_or_event",
+        "probability": 0.4,
+        "reason": "filters and measures often attach to evidence-bearing rows"
+      }
+    ],
+    "family_labels": [
+      {
+        "label": "DirectJoin",
+        "probability": 0.6,
+        "reason": "no strong latent support evidence"
+      }
+    ],
+    "raw_response": {
+      "fallback": true
+    }
+  },
+  "candidates_considered": 12,
+  "top_candidates": [
+    {
+      "rank": 1,
+      "global_rank": 1,
+      "family_rank": 1,
+      "plan_kind": "direct_join",
+      "confidence": 108.3847076923077,
+      "plan_score": {
+        "family_name": "direct_join",
+        "base_retrieval_score": 60.4423,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -3.0,
+        "semantic_complete": true,
+        "semantic_gap_count": 0,
+        "semantic_complete_reasons": [],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 108.3847
+      },
+      "ordering_consistency": 0.0,
+      "semantic_complete": true,
+      "semantic_gap_count": 0,
+      "semantic_complete_reasons": [],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": true,
+      "score": 1.0,
+      "stage": null,
+      "result_rows": 6,
+      "gold_rows": 6,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "order_source_id": null,
+      "order_column": null,
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "export_o2h1.parquet::export_o2h1",
+        "dump_ptce.sqlite::HOST"
+      ],
+      "output_columns": [
+        "Party_Theme",
+        "Name"
+      ],
+      "anchor_score": 0.0,
+      "anchor_path_source_ids": [],
+      "anchor_semantics": null,
+      "order_join_path_source_ids": [],
+      "order_join_path_semantics": null,
+      "output_join_scores": [
+        2.0
+      ],
+      "output_join_path_source_ids": [
+        [
+          "export_o2h1.parquet::export_o2h1",
+          "export_vmta.csv::export_vmta",
+          "dump_ptce.sqlite::HOST"
+        ]
+      ],
+      "output_join_semantics": [
+        "key_path"
+      ],
+      "satisfied_obligations": [],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "family": "direct_join",
+        "semantic_complete": "True",
+        "semantic_gap_count": 0.0,
+        "hard_invalid": "False",
+        "joint_rerank_total": -1.5,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -3.0
+      },
+      "notes": [
+        "direct_join",
+        "family=direct_join",
+        "semantic_complete=True",
+        "semantic_gap_count=0",
+        "hard_invalid=False",
+        "joint_rerank_total=-1.5000",
+        "output_consistency=1.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=0.0000",
+        "ordering_consistency=0.0000",
+        "obligation_consistency=0.0000",
+        "shape_sanity=-3.0000"
+      ],
+      "final_sql": "SELECT t0.\"Party_Theme\" AS \"Party_Theme\", t1.\"Name\" AS \"Name\" FROM \"export_o2h1_export_o2h1\" AS t0 JOIN \"export_vmta_export_vmta\" AS t2 ON CAST(t0.\"Party_ID\" AS VARCHAR) = CAST(t2.\"Party_ID\" AS VARCHAR) JOIN \"dump_ptce_host\" AS t1 ON CAST(t1.\"Host_ID\" AS VARCHAR) = CAST(t2.\"Host_ID\" AS VARCHAR)",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": true,
+        "executed": true,
+        "required_columns_ok": true,
+        "row_count": 6,
+        "reason": null,
+        "final_sql": "SELECT t0.\"Party_Theme\" AS \"Party_Theme\", t1.\"Name\" AS \"Name\" FROM \"export_o2h1_export_o2h1\" AS t0 JOIN \"export_vmta_export_vmta\" AS t2 ON CAST(t0.\"Party_ID\" AS VARCHAR) = CAST(t2.\"Party_ID\" AS VARCHAR) JOIN \"dump_ptce_host\" AS t1 ON CAST(t1.\"Host_ID\" AS VARCHAR) = CAST(t2.\"Host_ID\" AS VARCHAR)",
+        "execution_summary": {
+          "success": true,
+          "row_count": 6,
+          "columns": [
+            "Party_Theme",
+            "Name"
+          ],
+          "preview": [
+            {
+              "Party_Theme": "Spring",
+              "Name": "Austin Daye"
+            },
+            {
+              "Party_Theme": "Teqnology",
+              "Name": "Lloyd Daniels"
+            },
+            {
+              "Party_Theme": "QrimeTime",
+              "Name": "Kornel David"
+            }
+          ],
+          "files_touched": [
+            "dump_fnwc.csv",
+            "dump_ptce.sqlite",
+            "export_jcd2.csv",
+            "export_o2h1.parquet",
+            "export_vmta.csv",
+            "tmp_r04u.csv"
+          ]
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 24.2212,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "export_o2h1.parquet::export_o2h1",
+              "file_name": "export_o2h1.parquet",
+              "view_name": "export_o2h1_export_o2h1",
+              "column_name": "Party_Theme",
+              "role": "attribute",
+              "score": 24.192307692307693,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Party_Theme"
+              }
+            },
+            {
+              "source_id": "dump_ptce.sqlite::HOST",
+              "file_name": "dump_ptce.sqlite",
+              "view_name": "dump_ptce_host",
+              "column_name": "Name",
+              "role": "entity",
+              "score": 24.25,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Name"
+              }
+            }
+          ]
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "export_o2h1.parquet::export_o2h1"
+          }
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "global_rank": 2,
+      "family_rank": null,
+      "plan_kind": "direct_join",
+      "confidence": 107.04602694696608,
+      "plan_score": {
+        "family_name": "direct_join",
+        "base_retrieval_score": 58.9252,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -6.0,
+        "semantic_complete": true,
+        "semantic_gap_count": 0,
+        "semantic_complete_reasons": [],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 107.046
+      },
+      "ordering_consistency": 0.0,
+      "semantic_complete": true,
+      "semantic_gap_count": 0,
+      "semantic_complete_reasons": [],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 10,
+      "gold_rows": 6,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "order_source_id": null,
+      "order_column": null,
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "export_jcd2.csv::export_jcd2",
+        "tmp_r04u.csv::tmp_r04u"
+      ],
+      "output_columns": [
+        "Party_Theme",
+        "name"
+      ],
+      "anchor_score": 0.0,
+      "anchor_path_source_ids": [],
+      "anchor_semantics": null,
+      "order_join_path_source_ids": [],
+      "order_join_path_semantics": null,
+      "output_join_scores": [
+        1.2173913043478262
+      ],
+      "output_join_path_source_ids": [
+        [
+          "export_jcd2.csv::export_jcd2",
+          "export_o2h1.parquet::export_o2h1",
+          "tmp_r04u.csv::tmp_r04u"
+        ]
+      ],
+      "output_join_semantics": [
+        "fact_to_dimension_path"
+      ],
+      "satisfied_obligations": [],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "family": "direct_join",
+        "semantic_complete": "True",
+        "semantic_gap_count": 0.0,
+        "hard_invalid": "False",
+        "joint_rerank_total": -4.5,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -6.0
+      },
+      "notes": [
+        "direct_join",
+        "family=direct_join",
+        "semantic_complete=True",
+        "semantic_gap_count=0",
+        "hard_invalid=False",
+        "joint_rerank_total=-4.5000",
+        "output_consistency=1.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=0.0000",
+        "ordering_consistency=0.0000",
+        "obligation_consistency=0.0000",
+        "shape_sanity=-6.0000"
+      ],
+      "final_sql": "SELECT t0.\"Party_Theme\" AS \"Party_Theme\", t1.\"name\" AS \"Name\" FROM \"export_jcd2_export_jcd2\" AS t0 JOIN \"export_o2h1_export_o2h1\" AS t2 ON CAST(t0.\"Number_of_hosts\" AS VARCHAR) = CAST(t2.\"Number_of_hosts\" AS VARCHAR) JOIN \"tmp_r04u_tmp_r04u\" AS t1 ON CAST(t2.\"Party_ID\" AS VARCHAR) = coalesce(nullif(ltrim(regexp_replace(CAST(t1.\"name\" AS VARCHAR), '[^0-9]', '', 'g'), '0'), ''), '0')",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": true,
+        "executed": true,
+        "required_columns_ok": true,
+        "row_count": 10,
+        "reason": null,
+        "final_sql": "SELECT t0.\"Party_Theme\" AS \"Party_Theme\", t1.\"name\" AS \"Name\" FROM \"export_jcd2_export_jcd2\" AS t0 JOIN \"export_o2h1_export_o2h1\" AS t2 ON CAST(t0.\"Number_of_hosts\" AS VARCHAR) = CAST(t2.\"Number_of_hosts\" AS VARCHAR) JOIN \"tmp_r04u_tmp_r04u\" AS t1 ON CAST(t2.\"Party_ID\" AS VARCHAR) = coalesce(nullif(ltrim(regexp_replace(CAST(t1.\"name\" AS VARCHAR), '[^0-9]', '', 'g'), '0'), ''), '0')",
+        "execution_summary": {
+          "success": true,
+          "row_count": 10,
+          "columns": [
+            "Party_Theme",
+            "Name"
+          ],
+          "preview": [
+            {
+              "Party_Theme": "Spring",
+              "Name": "name_1"
+            },
+            {
+              "Party_Theme": "Club Q-BASE",
+              "Name": "name_2"
+            },
+            {
+              "Party_Theme": "QrimeTime",
+              "Name": "name_3"
+            }
+          ],
+          "files_touched": [
+            "dump_fnwc.csv",
+            "dump_ptce.sqlite",
+            "export_jcd2.csv",
+            "export_o2h1.parquet",
+            "export_vmta.csv",
+            "tmp_r04u.csv"
+          ]
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 25.8104,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "export_jcd2.csv::export_jcd2",
+              "file_name": "export_jcd2.csv",
+              "view_name": "export_jcd2_export_jcd2",
+              "column_name": "Party_Theme",
+              "role": "attribute",
+              "score": 24.192307692307693,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Party_Theme"
+              }
+            },
+            {
+              "source_id": "tmp_r04u.csv::tmp_r04u",
+              "file_name": "tmp_r04u.csv",
+              "view_name": "tmp_r04u_tmp_r04u",
+              "column_name": "name",
+              "role": "entity",
+              "score": 27.428571428571427,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "dimension_source_bonus",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Name"
+              }
+            }
+          ]
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "export_jcd2.csv::export_jcd2"
+          }
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "global_rank": 3,
+      "family_rank": null,
+      "plan_kind": "direct_join",
+      "confidence": 106.83258821178822,
+      "plan_score": {
+        "family_name": "direct_join",
+        "base_retrieval_score": 58.7118,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -6.0,
+        "semantic_complete": true,
+        "semantic_gap_count": 0,
+        "semantic_complete_reasons": [],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 106.8326
+      },
+      "ordering_consistency": 0.0,
+      "semantic_complete": true,
+      "semantic_gap_count": 0,
+      "semantic_complete_reasons": [],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 6,
+      "gold_rows": 6,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "order_source_id": null,
+      "order_column": null,
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "export_o2h1.parquet::export_o2h1",
+        "tmp_r04u.csv::tmp_r04u"
+      ],
+      "output_columns": [
+        "Party_Theme",
+        "name"
+      ],
+      "anchor_score": 0.0,
+      "anchor_path_source_ids": [],
+      "anchor_semantics": null,
+      "order_join_path_source_ids": [],
+      "order_join_path_semantics": null,
+      "output_join_scores": [
+        1.1818181818181819
+      ],
+      "output_join_path_source_ids": [
+        [
+          "export_o2h1.parquet::export_o2h1",
+          "export_vmta.csv::export_vmta",
+          "tmp_r04u.csv::tmp_r04u"
+        ]
+      ],
+      "output_join_semantics": [
+        "fact_to_dimension_path"
+      ],
+      "satisfied_obligations": [],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "family": "direct_join",
+        "semantic_complete": "True",
+        "semantic_gap_count": 0.0,
+        "hard_invalid": "False",
+        "joint_rerank_total": -4.5,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -6.0
+      },
+      "notes": [
+        "direct_join",
+        "family=direct_join",
+        "semantic_complete=True",
+        "semantic_gap_count=0",
+        "hard_invalid=False",
+        "joint_rerank_total=-4.5000",
+        "output_consistency=1.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=0.0000",
+        "ordering_consistency=0.0000",
+        "obligation_consistency=0.0000",
+        "shape_sanity=-6.0000"
+      ],
+      "final_sql": "SELECT t0.\"Party_Theme\" AS \"Party_Theme\", t1.\"name\" AS \"Name\" FROM \"export_o2h1_export_o2h1\" AS t0 JOIN \"export_vmta_export_vmta\" AS t2 ON CAST(t0.\"Party_ID\" AS VARCHAR) = CAST(t2.\"Party_ID\" AS VARCHAR) JOIN \"tmp_r04u_tmp_r04u\" AS t1 ON CAST(t2.\"Host_ID\" AS VARCHAR) = coalesce(nullif(ltrim(regexp_replace(CAST(t1.\"name\" AS VARCHAR), '[^0-9]', '', 'g'), '0'), ''), '0')",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": true,
+        "executed": true,
+        "required_columns_ok": true,
+        "row_count": 6,
+        "reason": null,
+        "final_sql": "SELECT t0.\"Party_Theme\" AS \"Party_Theme\", t1.\"name\" AS \"Name\" FROM \"export_o2h1_export_o2h1\" AS t0 JOIN \"export_vmta_export_vmta\" AS t2 ON CAST(t0.\"Party_ID\" AS VARCHAR) = CAST(t2.\"Party_ID\" AS VARCHAR) JOIN \"tmp_r04u_tmp_r04u\" AS t1 ON CAST(t2.\"Host_ID\" AS VARCHAR) = coalesce(nullif(ltrim(regexp_replace(CAST(t1.\"name\" AS VARCHAR), '[^0-9]', '', 'g'), '0'), ''), '0')",
+        "execution_summary": {
+          "success": true,
+          "row_count": 6,
+          "columns": [
+            "Party_Theme",
+            "Name"
+          ],
+          "preview": [
+            {
+              "Party_Theme": "Spring",
+              "Name": "name_1"
+            },
+            {
+              "Party_Theme": "Teqnology",
+              "Name": "name_2"
+            },
+            {
+              "Party_Theme": "QrimeTime",
+              "Name": "name_3"
+            }
+          ],
+          "files_touched": [
+            "dump_fnwc.csv",
+            "dump_ptce.sqlite",
+            "export_jcd2.csv",
+            "export_o2h1.parquet",
+            "export_vmta.csv",
+            "tmp_r04u.csv"
+          ]
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 25.8104,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "export_o2h1.parquet::export_o2h1",
+              "file_name": "export_o2h1.parquet",
+              "view_name": "export_o2h1_export_o2h1",
+              "column_name": "Party_Theme",
+              "role": "attribute",
+              "score": 24.192307692307693,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Party_Theme"
+              }
+            },
+            {
+              "source_id": "tmp_r04u.csv::tmp_r04u",
+              "file_name": "tmp_r04u.csv",
+              "view_name": "tmp_r04u_tmp_r04u",
+              "column_name": "name",
+              "role": "entity",
+              "score": 27.428571428571427,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "dimension_source_bonus",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Name"
+              }
+            }
+          ]
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "export_o2h1.parquet::export_o2h1"
+          }
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "global_rank": 4,
+      "family_rank": null,
+      "plan_kind": "direct_join",
+      "confidence": 106.46470769230768,
+      "plan_score": {
+        "family_name": "direct_join",
+        "base_retrieval_score": 58.5223,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -3.0,
+        "semantic_complete": true,
+        "semantic_gap_count": 0,
+        "semantic_complete_reasons": [],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 106.4647
+      },
+      "ordering_consistency": 0.0,
+      "semantic_complete": true,
+      "semantic_gap_count": 0,
+      "semantic_complete_reasons": [],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": false,
+      "score": 0.25,
+      "stage": "QUERY_FAIL",
+      "result_rows": 10,
+      "gold_rows": 6,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "order_source_id": null,
+      "order_column": null,
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "export_jcd2.csv::export_jcd2",
+        "dump_ptce.sqlite::HOST"
+      ],
+      "output_columns": [
+        "Party_Theme",
+        "Name"
+      ],
+      "anchor_score": 0.0,
+      "anchor_path_source_ids": [],
+      "anchor_semantics": null,
+      "order_join_path_source_ids": [],
+      "order_join_path_semantics": null,
+      "output_join_scores": [
+        1.6800000000000002
+      ],
+      "output_join_path_source_ids": [
+        [
+          "export_jcd2.csv::export_jcd2",
+          "export_o2h1.parquet::export_o2h1",
+          "dump_ptce.sqlite::HOST"
+        ]
+      ],
+      "output_join_semantics": [
+        "key_path"
+      ],
+      "satisfied_obligations": [],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "family": "direct_join",
+        "semantic_complete": "True",
+        "semantic_gap_count": 0.0,
+        "hard_invalid": "False",
+        "joint_rerank_total": -1.5,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -3.0
+      },
+      "notes": [
+        "direct_join",
+        "family=direct_join",
+        "semantic_complete=True",
+        "semantic_gap_count=0",
+        "hard_invalid=False",
+        "joint_rerank_total=-1.5000",
+        "output_consistency=1.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=0.0000",
+        "ordering_consistency=0.0000",
+        "obligation_consistency=0.0000",
+        "shape_sanity=-3.0000"
+      ],
+      "final_sql": "SELECT t0.\"Party_Theme\" AS \"Party_Theme\", t1.\"Name\" AS \"Name\" FROM \"export_jcd2_export_jcd2\" AS t0 JOIN \"export_o2h1_export_o2h1\" AS t2 ON CAST(t0.\"Number_of_hosts\" AS VARCHAR) = CAST(t2.\"Number_of_hosts\" AS VARCHAR) JOIN \"dump_ptce_host\" AS t1 ON CAST(t1.\"Host_ID\" AS VARCHAR) = CAST(t2.\"Party_ID\" AS VARCHAR)",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": true,
+        "executed": true,
+        "required_columns_ok": true,
+        "row_count": 10,
+        "reason": null,
+        "final_sql": "SELECT t0.\"Party_Theme\" AS \"Party_Theme\", t1.\"Name\" AS \"Name\" FROM \"export_jcd2_export_jcd2\" AS t0 JOIN \"export_o2h1_export_o2h1\" AS t2 ON CAST(t0.\"Number_of_hosts\" AS VARCHAR) = CAST(t2.\"Number_of_hosts\" AS VARCHAR) JOIN \"dump_ptce_host\" AS t1 ON CAST(t1.\"Host_ID\" AS VARCHAR) = CAST(t2.\"Party_ID\" AS VARCHAR)",
+        "execution_summary": {
+          "success": true,
+          "row_count": 10,
+          "columns": [
+            "Party_Theme",
+            "Name"
+          ],
+          "preview": [
+            {
+              "Party_Theme": "Hardcore Resurrection",
+              "Name": "Hubert Davis"
+            },
+            {
+              "Party_Theme": "Spring",
+              "Name": "Austin Daye"
+            },
+            {
+              "Party_Theme": "Qlubtempo",
+              "Name": "Ed Davis"
+            }
+          ],
+          "files_touched": [
+            "dump_fnwc.csv",
+            "dump_ptce.sqlite",
+            "export_jcd2.csv",
+            "export_o2h1.parquet",
+            "export_vmta.csv",
+            "tmp_r04u.csv"
+          ]
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 24.2212,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "export_jcd2.csv::export_jcd2",
+              "file_name": "export_jcd2.csv",
+              "view_name": "export_jcd2_export_jcd2",
+              "column_name": "Party_Theme",
+              "role": "attribute",
+              "score": 24.192307692307693,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Party_Theme"
+              }
+            },
+            {
+              "source_id": "dump_ptce.sqlite::HOST",
+              "file_name": "dump_ptce.sqlite",
+              "view_name": "dump_ptce_host",
+              "column_name": "Name",
+              "role": "entity",
+              "score": 24.25,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Name"
+              }
+            }
+          ]
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "export_jcd2.csv::export_jcd2"
+          }
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "global_rank": 5,
+      "family_rank": null,
+      "plan_kind": "direct_join",
+      "confidence": 106.46470769230768,
+      "plan_score": {
+        "family_name": "direct_join",
+        "base_retrieval_score": 58.5223,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -3.0,
+        "semantic_complete": true,
+        "semantic_gap_count": 0,
+        "semantic_complete_reasons": [],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 106.4647
+      },
+      "ordering_consistency": 0.0,
+      "semantic_complete": true,
+      "semantic_gap_count": 0,
+      "semantic_complete_reasons": [],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": false,
+      "score": 0.13333333333333333,
+      "stage": "QUERY_FAIL",
+      "result_rows": 9,
+      "gold_rows": 6,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "order_source_id": null,
+      "order_column": null,
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "export_o2h1.parquet::export_o2h1",
+        "dump_fnwc.csv::dump_fnwc"
+      ],
+      "output_columns": [
+        "Party_Theme",
+        "Name"
+      ],
+      "anchor_score": 0.0,
+      "anchor_path_source_ids": [],
+      "anchor_semantics": null,
+      "order_join_path_source_ids": [],
+      "order_join_path_semantics": null,
+      "output_join_scores": [
+        1.6800000000000002
+      ],
+      "output_join_path_source_ids": [
+        [
+          "export_o2h1.parquet::export_o2h1",
+          "dump_ptce.sqlite::HOST",
+          "dump_fnwc.csv::dump_fnwc"
+        ]
+      ],
+      "output_join_semantics": [
+        "key_path"
+      ],
+      "satisfied_obligations": [],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "family": "direct_join",
+        "semantic_complete": "True",
+        "semantic_gap_count": 0.0,
+        "hard_invalid": "False",
+        "joint_rerank_total": -1.5,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -3.0
+      },
+      "notes": [
+        "direct_join",
+        "family=direct_join",
+        "semantic_complete=True",
+        "semantic_gap_count=0",
+        "hard_invalid=False",
+        "joint_rerank_total=-1.5000",
+        "output_consistency=1.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=0.0000",
+        "ordering_consistency=0.0000",
+        "obligation_consistency=0.0000",
+        "shape_sanity=-3.0000"
+      ],
+      "final_sql": "SELECT t0.\"Party_Theme\" AS \"Party_Theme\", t1.\"Name\" AS \"Name\" FROM \"export_o2h1_export_o2h1\" AS t0 JOIN \"dump_ptce_host\" AS t2 ON CAST(t2.\"Host_ID\" AS VARCHAR) = CAST(t0.\"Party_ID\" AS VARCHAR) JOIN \"dump_fnwc_dump_fnwc\" AS t1 ON CAST(t1.\"Age\" AS VARCHAR) = CAST(t2.\"Age\" AS VARCHAR)",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": true,
+        "executed": true,
+        "required_columns_ok": true,
+        "row_count": 9,
+        "reason": null,
+        "final_sql": "SELECT t0.\"Party_Theme\" AS \"Party_Theme\", t1.\"Name\" AS \"Name\" FROM \"export_o2h1_export_o2h1\" AS t0 JOIN \"dump_ptce_host\" AS t2 ON CAST(t2.\"Host_ID\" AS VARCHAR) = CAST(t0.\"Party_ID\" AS VARCHAR) JOIN \"dump_fnwc_dump_fnwc\" AS t1 ON CAST(t1.\"Age\" AS VARCHAR) = CAST(t2.\"Age\" AS VARCHAR)",
+        "execution_summary": {
+          "success": true,
+          "row_count": 9,
+          "columns": [
+            "Party_Theme",
+            "Name"
+          ],
+          "preview": [
+            {
+              "Party_Theme": "QrimeTime",
+              "Name": "Hubert Davis"
+            },
+            {
+              "Party_Theme": "Hardcore Resurrection",
+              "Name": "DeMar DeRozan"
+            },
+            {
+              "Party_Theme": "Houseqlassics",
+              "Name": "Justin Dentmon"
+            }
+          ],
+          "files_touched": [
+            "dump_fnwc.csv",
+            "dump_ptce.sqlite",
+            "export_jcd2.csv",
+            "export_o2h1.parquet",
+            "export_vmta.csv",
+            "tmp_r04u.csv"
+          ]
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 24.2212,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "export_o2h1.parquet::export_o2h1",
+              "file_name": "export_o2h1.parquet",
+              "view_name": "export_o2h1_export_o2h1",
+              "column_name": "Party_Theme",
+              "role": "attribute",
+              "score": 24.192307692307693,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Party_Theme"
+              }
+            },
+            {
+              "source_id": "dump_fnwc.csv::dump_fnwc",
+              "file_name": "dump_fnwc.csv",
+              "view_name": "dump_fnwc_dump_fnwc",
+              "column_name": "Name",
+              "role": "entity",
+              "score": 24.25,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Name"
+              }
+            }
+          ]
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "export_o2h1.parquet::export_o2h1"
+          }
+        }
+      ]
+    }
+  ]
+}

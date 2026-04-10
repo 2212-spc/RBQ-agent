@@ -1,0 +1,16 @@
+{
+  "spider_json": "data\\spider_data\\spider_data\\train_spider.json",
+  "db_root": "data\\spider_data\\spider_data\\database",
+  "requested_max": 5,
+  "kept": 5,
+  "skipped": 6141,
+  "per_db_count": {
+    "activity_1": 2,
+    "aircraft": 2,
+    "apartment_rentals": 1
+  },
+  "registry_path": "outputs\\dev5_seed_registry.jsonl",
+  "q05_rows": 1.0,
+  "q95_rows": 22.0,
+  "candidates_before_quantile_filter": 904
+}

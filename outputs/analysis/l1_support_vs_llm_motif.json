@@ -1,0 +1,235 @@
+{
+  "baseline": {
+    "mode": "llm_code_agent",
+    "canonical_mode": "llm_code_agent",
+    "agent_variant": "default",
+    "asr_by_split": {
+      "l1": 0.029940119760479042
+    },
+    "pass_rate_by_split": {
+      "l1": 0.18762475049900199
+    },
+    "asr_by_view": {},
+    "pass_rate_by_view": {},
+    "attribution_by_setting": {
+      "l1.full": {
+        "INSTANCE_FAIL": 79,
+        "PASS": 94,
+        "DISCOVERY_FAIL": 289,
+        "QUERY_FAIL": 19,
+        "SCHEMA_FAIL": 20
+      }
+    },
+    "num_records": 501
+  },
+  "candidate": {
+    "mode": "support_plan_agent",
+    "canonical_mode": "support_plan_agent",
+    "agent_variant": "default",
+    "asr_by_split": {
+      "l1": 0.24550898203592814
+    },
+    "pass_rate_by_split": {
+      "l1": 0.40119760479041916
+    },
+    "asr_by_view": {},
+    "pass_rate_by_view": {},
+    "attribution_by_setting": {
+      "l1.full": {
+        "QUERY_FAIL": 93,
+        "PASS": 201,
+        "INSTANCE_FAIL": 102,
+        "SCHEMA_FAIL": 105
+      }
+    },
+    "num_records": 501
+  },
+  "shared_record_count": 501,
+  "baseline_only_record_count": 0,
+  "candidate_only_record_count": 0,
+  "record_head_to_head": {
+    "candidate_only_pass": 138,
+    "baseline_only_pass": 31,
+    "both_pass": 63,
+    "both_fail": 269
+  },
+  "seed_asr_head_to_head": {
+    "candidate_only_asr": 39,
+    "baseline_only_asr": 3,
+    "both_asr": 2,
+    "neither_asr": 123
+  },
+  "shared_setting_summary": {
+    "l1.full": {
+      "setting": "l1.full",
+      "record_count": 501,
+      "seed_count": 167,
+      "variants_considered": [
+        "A",
+        "B",
+        "C"
+      ],
+      "baseline_passed": 94,
+      "candidate_passed": 201,
+      "baseline_pass_rate": 0.18762475049900199,
+      "candidate_pass_rate": 0.40119760479041916,
+      "delta_pass_rate": 0.21357285429141717,
+      "baseline_asr_success_seeds": 5,
+      "candidate_asr_success_seeds": 41,
+      "baseline_asr": 0.029940119760479042,
+      "candidate_asr": 0.24550898203592814,
+      "delta_asr": 0.2155688622754491,
+      "record_head_to_head": {
+        "candidate_only_pass": 138,
+        "baseline_only_pass": 31,
+        "both_pass": 63,
+        "both_fail": 269
+      },
+      "seed_asr_head_to_head": {
+        "candidate_only_asr": 39,
+        "baseline_only_asr": 3,
+        "both_asr": 2,
+        "neither_asr": 123
+      }
+    }
+  },
+  "baseline_failures": [
+    {
+      "seed_id": "spider__aircraft__04821",
+      "variant": "A",
+      "split": "l1",
+      "view": "full",
+      "attribution": "INSTANCE_FAIL",
+      "error": null
+    },
+    {
+      "seed_id": "spider__aircraft__04821",
+      "variant": "C",
+      "split": "l1",
+      "view": "full",
+      "attribution": "INSTANCE_FAIL",
+      "error": null
+    },
+    {
+      "seed_id": "spider__apartment_rentals__01238",
+      "variant": "A",
+      "split": "l1",
+      "view": "full",
+      "attribution": "DISCOVERY_FAIL",
+      "error": null
+    },
+    {
+      "seed_id": "spider__apartment_rentals__01238",
+      "variant": "B",
+      "split": "l1",
+      "view": "full",
+      "attribution": "INSTANCE_FAIL",
+      "error": null
+    },
+    {
+      "seed_id": "spider__apartment_rentals__01238",
+      "variant": "C",
+      "split": "l1",
+      "view": "full",
+      "attribution": "DISCOVERY_FAIL",
+      "error": null
+    }
+  ],
+  "candidate_failures": [
+    {
+      "seed_id": "spider__aircraft__04821",
+      "variant": "A",
+      "split": "l1",
+      "view": "full",
+      "attribution": "QUERY_FAIL",
+      "error": null
+    },
+    {
+      "seed_id": "spider__aircraft__04821",
+      "variant": "B",
+      "split": "l1",
+      "view": "full",
+      "attribution": "QUERY_FAIL",
+      "error": null
+    },
+    {
+      "seed_id": "spider__apartment_rentals__01238",
+      "variant": "A",
+      "split": "l1",
+      "view": "full",
+      "attribution": "QUERY_FAIL",
+      "error": null
+    },
+    {
+      "seed_id": "spider__apartment_rentals__01238",
+      "variant": "B",
+      "split": "l1",
+      "view": "full",
+      "attribution": "INSTANCE_FAIL",
+      "error": null
+    },
+    {
+      "seed_id": "spider__apartment_rentals__01239",
+      "variant": "A",
+      "split": "l1",
+      "view": "full",
+      "attribution": "QUERY_FAIL",
+      "error": null
+    }
+  ],
+  "motif_taxonomy_summary": {
+    "base_counts": {
+      "AggregationJoin": 29,
+      "FilterJoin": 29,
+      "SimpleJoin": 109
+    },
+    "modifier_counts": {
+      "has_distinct": 21,
+      "has_order": 54
+    }
+  },
+  "motif_breakdown": {
+    "AggregationJoin": {
+      "motif": "AggregationJoin",
+      "seed_count": 29,
+      "record_count": 87,
+      "seed_setting_count": 29,
+      "has_order_seed_count": 15,
+      "has_distinct_seed_count": 1,
+      "baseline_pass_rate": 0.0,
+      "candidate_pass_rate": 0.20689655172413793,
+      "delta_pass_rate": 0.20689655172413793,
+      "baseline_asr": 0.0,
+      "candidate_asr": 0.10344827586206896,
+      "delta_asr": 0.10344827586206896
+    },
+    "FilterJoin": {
+      "motif": "FilterJoin",
+      "seed_count": 29,
+      "record_count": 87,
+      "seed_setting_count": 29,
+      "has_order_seed_count": 2,
+      "has_distinct_seed_count": 7,
+      "baseline_pass_rate": 0.12643678160919541,
+      "candidate_pass_rate": 0.19540229885057472,
+      "delta_pass_rate": 0.06896551724137931,
+      "baseline_asr": 0.0,
+      "candidate_asr": 0.06896551724137931,
+      "delta_asr": 0.06896551724137931
+    },
+    "SimpleJoin": {
+      "motif": "SimpleJoin",
+      "seed_count": 109,
+      "record_count": 327,
+      "seed_setting_count": 109,
+      "has_order_seed_count": 37,
+      "has_distinct_seed_count": 13,
+      "baseline_pass_rate": 0.25382262996941896,
+      "candidate_pass_rate": 0.5076452599388379,
+      "delta_pass_rate": 0.25382262996941896,
+      "baseline_asr": 0.045871559633027525,
+      "candidate_asr": 0.3302752293577982,
+      "delta_asr": 0.28440366972477066
+    }
+  }
+}

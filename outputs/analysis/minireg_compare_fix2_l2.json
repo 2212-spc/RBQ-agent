@@ -1,0 +1,228 @@
+{
+  "split": "l2",
+  "seed_ids": [
+    "spider__aircraft__04821",
+    "spider__bike_1__00139",
+    "spider__apartment_rentals__01238",
+    "spider__college_3__04695",
+    "spider__assets_maintenance__03144",
+    "spider__chinook_1__00826"
+  ],
+  "old": {
+    "case_count": 6,
+    "pass_rate": 0.0,
+    "empty_fail_ratio": 0.3333333333333333,
+    "nonempty_fail_ratio": 0.6666666666666666,
+    "by_motif": {
+      "AggregationJoin": {
+        "case_count": 2,
+        "pass_rate": 0.0,
+        "empty_fail_ratio": 0.0,
+        "nonempty_fail_ratio": 1.0
+      },
+      "FilterJoin": {
+        "case_count": 2,
+        "pass_rate": 0.0,
+        "empty_fail_ratio": 1.0,
+        "nonempty_fail_ratio": 0.0
+      },
+      "SimpleJoin": {
+        "case_count": 2,
+        "pass_rate": 0.0,
+        "empty_fail_ratio": 0.0,
+        "nonempty_fail_ratio": 1.0
+      }
+    }
+  },
+  "new": {
+    "case_count": 6,
+    "pass_rate": 0.0,
+    "empty_fail_ratio": 0.3333333333333333,
+    "nonempty_fail_ratio": 0.6666666666666666,
+    "by_motif": {
+      "AggregationJoin": {
+        "case_count": 2,
+        "pass_rate": 0.0,
+        "empty_fail_ratio": 0.0,
+        "nonempty_fail_ratio": 1.0
+      },
+      "FilterJoin": {
+        "case_count": 2,
+        "pass_rate": 0.0,
+        "empty_fail_ratio": 1.0,
+        "nonempty_fail_ratio": 0.0
+      },
+      "SimpleJoin": {
+        "case_count": 2,
+        "pass_rate": 0.0,
+        "empty_fail_ratio": 0.0,
+        "nonempty_fail_ratio": 1.0
+      }
+    }
+  },
+  "head_to_head": {
+    "overall": {
+      "new_only_pass": 0,
+      "old_only_pass": 0,
+      "both_pass": 0,
+      "both_fail": 6
+    },
+    "by_motif": {
+      "SimpleJoin": {
+        "new_only_pass": 0,
+        "old_only_pass": 0,
+        "both_pass": 0,
+        "both_fail": 2
+      },
+      "FilterJoin": {
+        "new_only_pass": 0,
+        "old_only_pass": 0,
+        "both_pass": 0,
+        "both_fail": 2
+      },
+      "AggregationJoin": {
+        "new_only_pass": 0,
+        "old_only_pass": 0,
+        "both_pass": 0,
+        "both_fail": 2
+      }
+    },
+    "top_score_changes": []
+  },
+  "old_rows": [
+    {
+      "seed_id": "spider__aircraft__04821",
+      "variant": "A",
+      "split": "l2",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 7,
+      "gold_rows": 7,
+      "exists": true
+    },
+    {
+      "seed_id": "spider__bike_1__00139",
+      "variant": "A",
+      "split": "l2",
+      "pass": false,
+      "score": 0.028169014084507043,
+      "stage": "INSTANCE_FAIL",
+      "result_rows": 70,
+      "gold_rows": 1,
+      "exists": true
+    },
+    {
+      "seed_id": "spider__apartment_rentals__01238",
+      "variant": "A",
+      "split": "l2",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 0,
+      "gold_rows": 3,
+      "exists": true
+    },
+    {
+      "seed_id": "spider__college_3__04695",
+      "variant": "A",
+      "split": "l2",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 0,
+      "gold_rows": 1,
+      "exists": true
+    },
+    {
+      "seed_id": "spider__assets_maintenance__03144",
+      "variant": "A",
+      "split": "l2",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 1,
+      "gold_rows": 1,
+      "exists": true
+    },
+    {
+      "seed_id": "spider__chinook_1__00826",
+      "variant": "A",
+      "split": "l2",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 1,
+      "gold_rows": 1,
+      "exists": true
+    }
+  ],
+  "new_rows": [
+    {
+      "seed_id": "spider__aircraft__04821",
+      "variant": "A",
+      "split": "l2",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 7,
+      "gold_rows": 7,
+      "exists": true
+    },
+    {
+      "seed_id": "spider__bike_1__00139",
+      "variant": "A",
+      "split": "l2",
+      "pass": false,
+      "score": 0.028169014084507043,
+      "stage": "INSTANCE_FAIL",
+      "result_rows": 70,
+      "gold_rows": 1,
+      "exists": true
+    },
+    {
+      "seed_id": "spider__apartment_rentals__01238",
+      "variant": "A",
+      "split": "l2",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 0,
+      "gold_rows": 3,
+      "exists": true
+    },
+    {
+      "seed_id": "spider__college_3__04695",
+      "variant": "A",
+      "split": "l2",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 0,
+      "gold_rows": 1,
+      "exists": true
+    },
+    {
+      "seed_id": "spider__assets_maintenance__03144",
+      "variant": "A",
+      "split": "l2",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 1,
+      "gold_rows": 1,
+      "exists": true
+    },
+    {
+      "seed_id": "spider__chinook_1__00826",
+      "variant": "A",
+      "split": "l2",
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 1,
+      "gold_rows": 1,
+      "exists": true
+    }
+  ]
+}

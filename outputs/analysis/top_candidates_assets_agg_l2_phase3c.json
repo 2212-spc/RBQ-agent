@@ -1,0 +1,1120 @@
+{
+  "seed_id": "spider__assets_maintenance__03144",
+  "variant": "A",
+  "split": "l2",
+  "view": "full",
+  "sketch_mode": "fallback",
+  "instruction": "Which kind of part has the least number of faults? List the part name.",
+  "gold_targets": {
+    "output_bindings_by_label": {
+      "part_name": [
+        {
+          "table_name": "Parts",
+          "canonical_column": "part_name",
+          "source_id": "dump_dkca.csv::dump_dkca",
+          "dirty_column": "k1",
+          "file_name": "dump_dkca.csv",
+          "kind": "output"
+        }
+      ]
+    },
+    "filter_bindings": [],
+    "measure_bindings": [],
+    "evidence_bindings": [
+      {
+        "table_name": "Part_Faults",
+        "canonical_column": null,
+        "source_id": "tmp_6jnq.sqlite::Part_Faults",
+        "dirty_column": null,
+        "file_name": "tmp_6jnq.sqlite",
+        "kind": "evidence"
+      }
+    ],
+    "join_pairs": [
+      {
+        "left_table": "Parts",
+        "left_col": "part_id",
+        "right_table": "Part_Faults",
+        "right_col": "part_id"
+      }
+    ],
+    "output_tables": [
+      "Parts"
+    ],
+    "evidence_tables": [
+      "Part_Faults"
+    ],
+    "filter_kind_tags": [
+      "ordering/superlative"
+    ],
+    "primary_filter_kind": "ordering/superlative",
+    "ambiguous_count_star": true,
+    "has_aggregation": true,
+    "has_order": true,
+    "has_limit": true
+  },
+  "observable_sketch": {
+    "output_slots": [
+      {
+        "label": "part_name",
+        "role": "entity",
+        "metadata": {}
+      }
+    ],
+    "filter_hints": [],
+    "time_hints": {
+      "years": [],
+      "months": []
+    },
+    "measure_hints": [
+      "count"
+    ],
+    "grouping_hints": [],
+    "operator_hints": [
+      "count",
+      "top_asc"
+    ],
+    "order_hint": {
+      "direction": "asc",
+      "limit": 1
+    },
+    "raw_response": {
+      "fallback": true
+    }
+  },
+  "obligation_sketch": {
+    "obligations": [
+      {
+        "name": "support_relation",
+        "probability": 0.8,
+        "reason": "aggregation over output-like entity usually needs latent support relation"
+      },
+      {
+        "name": "aggregation_support",
+        "probability": 0.9,
+        "reason": "query requests aggregated evidence"
+      },
+      {
+        "name": "filter_transfer",
+        "probability": 0.05,
+        "reason": "filters/time hints may live on support side rather than output side"
+      },
+      {
+        "name": "multihop",
+        "probability": 0.15,
+        "reason": "likely needs traversal beyond a single output source"
+      },
+      {
+        "name": "value_alignment",
+        "probability": 0.35,
+        "reason": "join may require non-identity normalization"
+      }
+    ],
+    "role_priors": [
+      {
+        "role": "output_role",
+        "target": "dimension",
+        "probability": 0.75,
+        "reason": "text-like output columns usually live on dimension side"
+      },
+      {
+        "role": "support_role",
+        "target": "fact",
+        "probability": 0.8,
+        "reason": "aggregated evidence usually comes from event/fact-like relation"
+      },
+      {
+        "role": "evidence_role",
+        "target": "fact_or_event",
+        "probability": 0.7,
+        "reason": "filters and measures often attach to evidence-bearing rows"
+      }
+    ],
+    "family_labels": [
+      {
+        "label": "AggregationJoin",
+        "probability": 0.85,
+        "reason": "aggregation + latent support relation"
+      }
+    ],
+    "raw_response": {
+      "fallback": true
+    }
+  },
+  "candidates_considered": 28,
+  "top_candidates": [
+    {
+      "rank": 1,
+      "global_rank": 1,
+      "family_rank": 1,
+      "plan_kind": "count_star_support",
+      "confidence": 88.22410679205852,
+      "plan_score": {
+        "family_name": "count_star_support",
+        "base_retrieval_score": 16.7955,
+        "output_consistency": 7.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 4.0,
+        "obligation_consistency": 8.5,
+        "shape_sanity": 3.25,
+        "semantic_complete": false,
+        "semantic_gap_count": 1,
+        "semantic_complete_reasons": [
+          "support_not_fact_like"
+        ],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 88.2241
+      },
+      "semantic_complete": false,
+      "semantic_gap_count": 1,
+      "semantic_complete_reasons": [
+        "support_not_fact_like"
+      ],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 1,
+      "gold_rows": 1,
+      "support_source_id": "tmp_uud8.parquet::tmp_uud8",
+      "support_column": "id",
+      "measure_source_id": null,
+      "measure_column": null,
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "tmp_jbgy.parquet::tmp_jbgy"
+      ],
+      "output_columns": [
+        "name"
+      ],
+      "anchor_score": 0.46818181818181814,
+      "anchor_path_source_ids": [
+        "tmp_uud8.parquet::tmp_uud8",
+        "tmp_jbgy.parquet::tmp_jbgy"
+      ],
+      "anchor_semantics": "key_path",
+      "output_join_scores": [],
+      "output_join_path_source_ids": [],
+      "output_join_semantics": [],
+      "satisfied_obligations": [
+        "support_relation",
+        "aggregation_support"
+      ],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "family": "count_star_support",
+        "evidence_source_ids": "['tmp_uud8.parquet::tmp_uud8']",
+        "aggregation_mode": "count_star_support",
+        "aggregation_unit_kind": "evidence_rows",
+        "aggregation_anchor_source_id": "tmp_jbgy.parquet::tmp_jbgy",
+        "ranking_target_kind": "aggregation_value",
+        "semantic_complete": "False",
+        "semantic_gap_count": 1.0,
+        "semantic_missing": "support_not_fact_like",
+        "hard_invalid": "False",
+        "joint_rerank_total": 23.25,
+        "output_consistency": 7.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 4.0,
+        "obligation_consistency": 8.5,
+        "shape_sanity": 3.25
+      },
+      "notes": [
+        "count_star_support",
+        "family=count_star_support",
+        "evidence_source_ids=['tmp_uud8.parquet::tmp_uud8']",
+        "aggregation_mode=count_star_support",
+        "aggregation_unit_kind=evidence_rows",
+        "aggregation_anchor_source_id=tmp_jbgy.parquet::tmp_jbgy",
+        "ranking_target_kind=aggregation_value",
+        "semantic_complete=False",
+        "semantic_gap_count=1",
+        "semantic_missing=support_not_fact_like",
+        "hard_invalid=False",
+        "joint_rerank_total=23.2500",
+        "output_consistency=7.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=4.0000",
+        "obligation_consistency=8.5000",
+        "shape_sanity=3.2500"
+      ],
+      "final_sql": "WITH support_cte AS (SELECT CAST(t0.\"name\" AS VARCHAR) AS output_anchor_key, COUNT(*) AS support_value FROM \"tmp_jbgy_tmp_jbgy\" AS t0 JOIN \"tmp_uud8_tmp_uud8\" AS t1 ON CAST(t0.\"name\" AS VARCHAR) = CAST(t1.\"name\" AS VARCHAR) GROUP BY CAST(t0.\"name\" AS VARCHAR)) SELECT o0.\"name\" AS \"part_name\" FROM \"tmp_jbgy_tmp_jbgy\" AS o0  JOIN support_cte AS s ON CAST(o0.\"name\" AS VARCHAR) = s.output_anchor_key ORDER BY s.support_value ASC LIMIT 1",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": true,
+        "executed": true,
+        "required_columns_ok": true,
+        "row_count": 1,
+        "reason": null,
+        "final_sql": "WITH support_cte AS (SELECT CAST(t0.\"name\" AS VARCHAR) AS output_anchor_key, COUNT(*) AS support_value FROM \"tmp_jbgy_tmp_jbgy\" AS t0 JOIN \"tmp_uud8_tmp_uud8\" AS t1 ON CAST(t0.\"name\" AS VARCHAR) = CAST(t1.\"name\" AS VARCHAR) GROUP BY CAST(t0.\"name\" AS VARCHAR)) SELECT o0.\"name\" AS \"part_name\" FROM \"tmp_jbgy_tmp_jbgy\" AS o0  JOIN support_cte AS s ON CAST(o0.\"name\" AS VARCHAR) = s.output_anchor_key ORDER BY s.support_value ASC LIMIT 1",
+        "execution_summary": {
+          "success": true,
+          "row_count": 1,
+          "columns": [
+            "part_name"
+          ],
+          "preview": [
+            {
+              "part_name": "name_0"
+            }
+          ],
+          "files_touched": [
+            "dump_b030.csv",
+            "dump_dkca.csv",
+            "export_h6er.csv",
+            "tmp_6jnq.sqlite",
+            "tmp_jbgy.parquet",
+            "tmp_uud8.parquet"
+          ]
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 13.9786,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "tmp_jbgy.parquet::tmp_jbgy",
+              "file_name": "tmp_jbgy.parquet",
+              "view_name": "tmp_jbgy_tmp_jbgy",
+              "column_name": "name",
+              "role": "entity",
+              "score": 13.978623675175399,
+              "reasons": [
+                "text_compatible",
+                "dimension_source_bonus",
+                "distinctive_text_values",
+                "fact_neighbor_bonus"
+              ],
+              "metadata": {
+                "slot_label": "part_name"
+              }
+            }
+          ]
+        },
+        {
+          "check": "support_relation",
+          "score": 1.6425,
+          "passed": true,
+          "evidence": {
+            "support_binding": {
+              "source_id": "tmp_uud8.parquet::tmp_uud8",
+              "file_name": "tmp_uud8.parquet",
+              "view_name": "tmp_uud8_tmp_uud8",
+              "column_name": "id",
+              "role": "support",
+              "score": 2.8168831168831163,
+              "reasons": [
+                "anchor_path_found"
+              ],
+              "metadata": {}
+            },
+            "anchor_binding": {
+              "path_source_ids": [
+                "tmp_uud8.parquet::tmp_uud8",
+                "tmp_jbgy.parquet::tmp_jbgy"
+              ],
+              "edges": [
+                {
+                  "edge_id": "tmp_jbgy_parquet_tmp_jbgy__tmp_uud8_parquet_tmp_uud8__name__name",
+                  "left_source_id": "tmp_jbgy.parquet::tmp_jbgy",
+                  "right_source_id": "tmp_uud8.parquet::tmp_uud8",
+                  "left_column": "name",
+                  "right_column": "name",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 0.46818181818181814
+                }
+              ],
+              "score": 0.46818181818181814,
+              "notes": []
+            }
+          }
+        },
+        {
+          "check": "aggregation_support",
+          "score": 8.0,
+          "passed": true,
+          "evidence": {
+            "aggregation": "count",
+            "measure_binding": null
+          }
+        },
+        {
+          "check": "value_alignment",
+          "score": 0.4682,
+          "passed": true,
+          "evidence": {
+            "path_source_ids": [
+              "tmp_uud8.parquet::tmp_uud8",
+              "tmp_jbgy.parquet::tmp_jbgy"
+            ],
+            "edges": [
+              {
+                "edge_id": "tmp_jbgy_parquet_tmp_jbgy__tmp_uud8_parquet_tmp_uud8__name__name",
+                "left_source_id": "tmp_jbgy.parquet::tmp_jbgy",
+                "right_source_id": "tmp_uud8.parquet::tmp_uud8",
+                "left_column": "name",
+                "right_column": "name",
+                "left_transform": "identity",
+                "right_transform": "identity",
+                "overlap": 0.46818181818181814
+              }
+            ],
+            "score": 0.46818181818181814,
+            "notes": []
+          }
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.4,
+          "passed": false,
+          "evidence": {
+            "support_source": "tmp_uud8.parquet::tmp_uud8",
+            "output_source": "tmp_jbgy.parquet::tmp_jbgy"
+          }
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "global_rank": 2,
+      "family_rank": 2,
+      "plan_kind": "direct_aggregation",
+      "confidence": 75.75,
+      "plan_score": {
+        "family_name": "direct_aggregation",
+        "base_retrieval_score": 24.0,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": -5.0,
+        "obligation_consistency": -6.75,
+        "shape_sanity": -3.0,
+        "semantic_complete": false,
+        "semantic_gap_count": 1,
+        "semantic_complete_reasons": [
+          "direct_aggregation_without_measure_output"
+        ],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 75.75
+      },
+      "semantic_complete": false,
+      "semantic_gap_count": 1,
+      "semantic_complete_reasons": [
+        "direct_aggregation_without_measure_output"
+      ],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": false,
+      "score": 0.0,
+      "stage": "DELIVERY_FAIL",
+      "result_rows": 0,
+      "gold_rows": 0,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "export_h6er.csv::export_h6er"
+      ],
+      "output_columns": [
+        "part_name"
+      ],
+      "anchor_score": 0.0,
+      "anchor_path_source_ids": [],
+      "anchor_semantics": null,
+      "output_join_scores": [],
+      "output_join_path_source_ids": [],
+      "output_join_semantics": [],
+      "satisfied_obligations": [
+        "aggregation_support"
+      ],
+      "unmet_obligations": [
+        "support_relation"
+      ],
+      "note_breakdown": {
+        "family": "direct_aggregation",
+        "aggregation_mode": "count_star_direct",
+        "aggregation_unit_kind": "evidence_rows",
+        "aggregation_anchor_source_id": "export_h6er.csv::export_h6er",
+        "ranking_target_kind": "aggregation_value",
+        "semantic_complete": "False",
+        "semantic_gap_count": 1.0,
+        "semantic_missing": "direct_aggregation_without_measure_output",
+        "hard_invalid": "False",
+        "joint_rerank_total": -13.25,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": -5.0,
+        "obligation_consistency": -6.75,
+        "shape_sanity": -3.0
+      },
+      "notes": [
+        "direct_aggregation",
+        "family=direct_aggregation",
+        "aggregation_mode=count_star_direct",
+        "aggregation_unit_kind=evidence_rows",
+        "aggregation_anchor_source_id=export_h6er.csv::export_h6er",
+        "ranking_target_kind=aggregation_value",
+        "semantic_complete=False",
+        "semantic_gap_count=1",
+        "semantic_missing=direct_aggregation_without_measure_output",
+        "hard_invalid=False",
+        "joint_rerank_total=-13.2500",
+        "output_consistency=1.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=-5.0000",
+        "obligation_consistency=-6.7500",
+        "shape_sanity=-3.0000"
+      ],
+      "final_sql": null,
+      "compile_ready": false,
+      "compile_reason": "unmet_obligations:support_relation",
+      "compile_meta": {
+        "compiled": false,
+        "executed": false,
+        "required_columns_ok": false,
+        "row_count": 0,
+        "reason": "unmet_obligations:support_relation",
+        "final_sql": null
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 24.0,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "export_h6er.csv::export_h6er",
+              "file_name": "export_h6er.csv",
+              "view_name": "export_h6er_export_h6er",
+              "column_name": "part_name",
+              "role": "entity",
+              "score": 24.0,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "part_name"
+              }
+            }
+          ]
+        },
+        {
+          "check": "support_relation",
+          "score": 0.0,
+          "passed": false,
+          "evidence": {
+            "support_binding": null,
+            "anchor_binding": null
+          }
+        },
+        {
+          "check": "aggregation_support",
+          "score": 8.0,
+          "passed": true,
+          "evidence": {
+            "aggregation": "count",
+            "measure_binding": null
+          }
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "export_h6er.csv::export_h6er"
+          }
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "global_rank": 3,
+      "family_rank": null,
+      "plan_kind": "direct_aggregation",
+      "confidence": 54.6858236751754,
+      "plan_score": {
+        "family_name": "direct_aggregation",
+        "base_retrieval_score": 13.9786,
+        "output_consistency": 7.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": -5.0,
+        "obligation_consistency": -6.75,
+        "shape_sanity": 0.0,
+        "semantic_complete": false,
+        "semantic_gap_count": 1,
+        "semantic_complete_reasons": [
+          "direct_aggregation_without_measure_output"
+        ],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 54.6858
+      },
+      "semantic_complete": false,
+      "semantic_gap_count": 1,
+      "semantic_complete_reasons": [
+        "direct_aggregation_without_measure_output"
+      ],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": false,
+      "score": 0.0,
+      "stage": "DELIVERY_FAIL",
+      "result_rows": 0,
+      "gold_rows": 0,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "tmp_jbgy.parquet::tmp_jbgy"
+      ],
+      "output_columns": [
+        "name"
+      ],
+      "anchor_score": 0.0,
+      "anchor_path_source_ids": [],
+      "anchor_semantics": null,
+      "output_join_scores": [],
+      "output_join_path_source_ids": [],
+      "output_join_semantics": [],
+      "satisfied_obligations": [
+        "aggregation_support"
+      ],
+      "unmet_obligations": [
+        "support_relation"
+      ],
+      "note_breakdown": {
+        "family": "direct_aggregation",
+        "aggregation_mode": "count_star_direct",
+        "aggregation_unit_kind": "evidence_rows",
+        "aggregation_anchor_source_id": "tmp_jbgy.parquet::tmp_jbgy",
+        "ranking_target_kind": "aggregation_value",
+        "semantic_complete": "False",
+        "semantic_gap_count": 1.0,
+        "semantic_missing": "direct_aggregation_without_measure_output",
+        "hard_invalid": "False",
+        "joint_rerank_total": -4.25,
+        "output_consistency": 7.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": -5.0,
+        "obligation_consistency": -6.75,
+        "shape_sanity": 0.0
+      },
+      "notes": [
+        "direct_aggregation",
+        "family=direct_aggregation",
+        "aggregation_mode=count_star_direct",
+        "aggregation_unit_kind=evidence_rows",
+        "aggregation_anchor_source_id=tmp_jbgy.parquet::tmp_jbgy",
+        "ranking_target_kind=aggregation_value",
+        "semantic_complete=False",
+        "semantic_gap_count=1",
+        "semantic_missing=direct_aggregation_without_measure_output",
+        "hard_invalid=False",
+        "joint_rerank_total=-4.2500",
+        "output_consistency=7.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=-5.0000",
+        "obligation_consistency=-6.7500",
+        "shape_sanity=0.0000"
+      ],
+      "final_sql": null,
+      "compile_ready": false,
+      "compile_reason": "unmet_obligations:support_relation",
+      "compile_meta": {
+        "compiled": false,
+        "executed": false,
+        "required_columns_ok": false,
+        "row_count": 0,
+        "reason": "unmet_obligations:support_relation",
+        "final_sql": null
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 13.9786,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "tmp_jbgy.parquet::tmp_jbgy",
+              "file_name": "tmp_jbgy.parquet",
+              "view_name": "tmp_jbgy_tmp_jbgy",
+              "column_name": "name",
+              "role": "entity",
+              "score": 13.978623675175399,
+              "reasons": [
+                "text_compatible",
+                "dimension_source_bonus",
+                "distinctive_text_values",
+                "fact_neighbor_bonus"
+              ],
+              "metadata": {
+                "slot_label": "part_name"
+              }
+            }
+          ]
+        },
+        {
+          "check": "support_relation",
+          "score": 0.0,
+          "passed": false,
+          "evidence": {
+            "support_binding": null,
+            "anchor_binding": null
+          }
+        },
+        {
+          "check": "aggregation_support",
+          "score": 8.0,
+          "passed": true,
+          "evidence": {
+            "aggregation": "count",
+            "measure_binding": null
+          }
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "tmp_jbgy.parquet::tmp_jbgy"
+          }
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "global_rank": 4,
+      "family_rank": null,
+      "plan_kind": "direct_aggregation",
+      "confidence": 54.60540375180375,
+      "plan_score": {
+        "family_name": "direct_aggregation",
+        "base_retrieval_score": 13.9518,
+        "output_consistency": 7.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": -5.0,
+        "obligation_consistency": -6.75,
+        "shape_sanity": 0.0,
+        "semantic_complete": false,
+        "semantic_gap_count": 1,
+        "semantic_complete_reasons": [
+          "direct_aggregation_without_measure_output"
+        ],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 54.6054
+      },
+      "semantic_complete": false,
+      "semantic_gap_count": 1,
+      "semantic_complete_reasons": [
+        "direct_aggregation_without_measure_output"
+      ],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": false,
+      "score": 0.0,
+      "stage": "DELIVERY_FAIL",
+      "result_rows": 0,
+      "gold_rows": 0,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "tmp_uud8.parquet::tmp_uud8"
+      ],
+      "output_columns": [
+        "name"
+      ],
+      "anchor_score": 0.0,
+      "anchor_path_source_ids": [],
+      "anchor_semantics": null,
+      "output_join_scores": [],
+      "output_join_path_source_ids": [],
+      "output_join_semantics": [],
+      "satisfied_obligations": [
+        "aggregation_support"
+      ],
+      "unmet_obligations": [
+        "support_relation"
+      ],
+      "note_breakdown": {
+        "family": "direct_aggregation",
+        "aggregation_mode": "count_star_direct",
+        "aggregation_unit_kind": "evidence_rows",
+        "aggregation_anchor_source_id": "tmp_uud8.parquet::tmp_uud8",
+        "ranking_target_kind": "aggregation_value",
+        "semantic_complete": "False",
+        "semantic_gap_count": 1.0,
+        "semantic_missing": "direct_aggregation_without_measure_output",
+        "hard_invalid": "False",
+        "joint_rerank_total": -4.25,
+        "output_consistency": 7.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": -5.0,
+        "obligation_consistency": -6.75,
+        "shape_sanity": 0.0
+      },
+      "notes": [
+        "direct_aggregation",
+        "family=direct_aggregation",
+        "aggregation_mode=count_star_direct",
+        "aggregation_unit_kind=evidence_rows",
+        "aggregation_anchor_source_id=tmp_uud8.parquet::tmp_uud8",
+        "ranking_target_kind=aggregation_value",
+        "semantic_complete=False",
+        "semantic_gap_count=1",
+        "semantic_missing=direct_aggregation_without_measure_output",
+        "hard_invalid=False",
+        "joint_rerank_total=-4.2500",
+        "output_consistency=7.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=-5.0000",
+        "obligation_consistency=-6.7500",
+        "shape_sanity=0.0000"
+      ],
+      "final_sql": null,
+      "compile_ready": false,
+      "compile_reason": "unmet_obligations:support_relation",
+      "compile_meta": {
+        "compiled": false,
+        "executed": false,
+        "required_columns_ok": false,
+        "row_count": 0,
+        "reason": "unmet_obligations:support_relation",
+        "final_sql": null
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 13.9518,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "tmp_uud8.parquet::tmp_uud8",
+              "file_name": "tmp_uud8.parquet",
+              "view_name": "tmp_uud8_tmp_uud8",
+              "column_name": "name",
+              "role": "entity",
+              "score": 13.951803751803752,
+              "reasons": [
+                "text_compatible",
+                "dimension_source_bonus",
+                "distinctive_text_values",
+                "fact_neighbor_bonus"
+              ],
+              "metadata": {
+                "slot_label": "part_name"
+              }
+            }
+          ]
+        },
+        {
+          "check": "support_relation",
+          "score": 0.0,
+          "passed": false,
+          "evidence": {
+            "support_binding": null,
+            "anchor_binding": null
+          }
+        },
+        {
+          "check": "aggregation_support",
+          "score": 8.0,
+          "passed": true,
+          "evidence": {
+            "aggregation": "count",
+            "measure_binding": null
+          }
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "tmp_uud8.parquet::tmp_uud8"
+          }
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "global_rank": 5,
+      "family_rank": null,
+      "plan_kind": "count_star_support",
+      "confidence": 44.26690679205851,
+      "plan_score": {
+        "family_name": "count_star_support",
+        "base_retrieval_score": 8.7955,
+        "output_consistency": -0.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 4.0,
+        "obligation_consistency": 8.5,
+        "shape_sanity": 3.25,
+        "semantic_complete": false,
+        "semantic_gap_count": 1,
+        "semantic_complete_reasons": [
+          "support_not_fact_like"
+        ],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 44.2669
+      },
+      "semantic_complete": false,
+      "semantic_gap_count": 1,
+      "semantic_complete_reasons": [
+        "support_not_fact_like"
+      ],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 1,
+      "gold_rows": 1,
+      "support_source_id": "tmp_uud8.parquet::tmp_uud8",
+      "support_column": "id",
+      "measure_source_id": null,
+      "measure_column": null,
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "tmp_jbgy.parquet::tmp_jbgy"
+      ],
+      "output_columns": [
+        "date"
+      ],
+      "anchor_score": 0.46818181818181814,
+      "anchor_path_source_ids": [
+        "tmp_uud8.parquet::tmp_uud8",
+        "tmp_jbgy.parquet::tmp_jbgy"
+      ],
+      "anchor_semantics": "key_path",
+      "output_join_scores": [],
+      "output_join_path_source_ids": [],
+      "output_join_semantics": [],
+      "satisfied_obligations": [
+        "support_relation",
+        "aggregation_support"
+      ],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "family": "count_star_support",
+        "evidence_source_ids": "['tmp_uud8.parquet::tmp_uud8']",
+        "aggregation_mode": "count_star_support",
+        "aggregation_unit_kind": "evidence_rows",
+        "aggregation_anchor_source_id": "tmp_jbgy.parquet::tmp_jbgy",
+        "ranking_target_kind": "aggregation_value",
+        "semantic_complete": "False",
+        "semantic_gap_count": 1.0,
+        "semantic_missing": "support_not_fact_like",
+        "hard_invalid": "False",
+        "joint_rerank_total": 15.25,
+        "output_consistency": -0.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 4.0,
+        "obligation_consistency": 8.5,
+        "shape_sanity": 3.25
+      },
+      "notes": [
+        "count_star_support",
+        "family=count_star_support",
+        "evidence_source_ids=['tmp_uud8.parquet::tmp_uud8']",
+        "aggregation_mode=count_star_support",
+        "aggregation_unit_kind=evidence_rows",
+        "aggregation_anchor_source_id=tmp_jbgy.parquet::tmp_jbgy",
+        "ranking_target_kind=aggregation_value",
+        "semantic_complete=False",
+        "semantic_gap_count=1",
+        "semantic_missing=support_not_fact_like",
+        "hard_invalid=False",
+        "joint_rerank_total=15.2500",
+        "output_consistency=-0.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=4.0000",
+        "obligation_consistency=8.5000",
+        "shape_sanity=3.2500"
+      ],
+      "final_sql": "WITH support_cte AS (SELECT CAST(t0.\"name\" AS VARCHAR) AS output_anchor_key, COUNT(*) AS support_value FROM \"tmp_jbgy_tmp_jbgy\" AS t0 JOIN \"tmp_uud8_tmp_uud8\" AS t1 ON CAST(t0.\"name\" AS VARCHAR) = CAST(t1.\"name\" AS VARCHAR) GROUP BY CAST(t0.\"name\" AS VARCHAR)) SELECT o0.\"date\" AS \"part_name\" FROM \"tmp_jbgy_tmp_jbgy\" AS o0  JOIN support_cte AS s ON CAST(o0.\"name\" AS VARCHAR) = s.output_anchor_key ORDER BY s.support_value ASC LIMIT 1",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": true,
+        "executed": true,
+        "required_columns_ok": true,
+        "row_count": 1,
+        "reason": null,
+        "final_sql": "WITH support_cte AS (SELECT CAST(t0.\"name\" AS VARCHAR) AS output_anchor_key, COUNT(*) AS support_value FROM \"tmp_jbgy_tmp_jbgy\" AS t0 JOIN \"tmp_uud8_tmp_uud8\" AS t1 ON CAST(t0.\"name\" AS VARCHAR) = CAST(t1.\"name\" AS VARCHAR) GROUP BY CAST(t0.\"name\" AS VARCHAR)) SELECT o0.\"date\" AS \"part_name\" FROM \"tmp_jbgy_tmp_jbgy\" AS o0  JOIN support_cte AS s ON CAST(o0.\"name\" AS VARCHAR) = s.output_anchor_key ORDER BY s.support_value ASC LIMIT 1",
+        "execution_summary": {
+          "success": true,
+          "row_count": 1,
+          "columns": [
+            "part_name"
+          ],
+          "preview": [
+            {
+              "part_name": "2024-01-01"
+            }
+          ],
+          "files_touched": [
+            "dump_b030.csv",
+            "dump_dkca.csv",
+            "export_h6er.csv",
+            "tmp_6jnq.sqlite",
+            "tmp_jbgy.parquet",
+            "tmp_uud8.parquet"
+          ]
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 5.9786,
+          "passed": false,
+          "evidence": [
+            {
+              "source_id": "tmp_jbgy.parquet::tmp_jbgy",
+              "file_name": "tmp_jbgy.parquet",
+              "view_name": "tmp_jbgy_tmp_jbgy",
+              "column_name": "date",
+              "role": "entity",
+              "score": 5.978623675175399,
+              "reasons": [
+                "dimension_source_bonus",
+                "distinctive_text_values",
+                "fact_neighbor_bonus"
+              ],
+              "metadata": {
+                "slot_label": "part_name"
+              }
+            }
+          ]
+        },
+        {
+          "check": "support_relation",
+          "score": 1.6425,
+          "passed": true,
+          "evidence": {
+            "support_binding": {
+              "source_id": "tmp_uud8.parquet::tmp_uud8",
+              "file_name": "tmp_uud8.parquet",
+              "view_name": "tmp_uud8_tmp_uud8",
+              "column_name": "id",
+              "role": "support",
+              "score": 2.8168831168831163,
+              "reasons": [
+                "anchor_path_found"
+              ],
+              "metadata": {}
+            },
+            "anchor_binding": {
+              "path_source_ids": [
+                "tmp_uud8.parquet::tmp_uud8",
+                "tmp_jbgy.parquet::tmp_jbgy"
+              ],
+              "edges": [
+                {
+                  "edge_id": "tmp_jbgy_parquet_tmp_jbgy__tmp_uud8_parquet_tmp_uud8__name__name",
+                  "left_source_id": "tmp_jbgy.parquet::tmp_jbgy",
+                  "right_source_id": "tmp_uud8.parquet::tmp_uud8",
+                  "left_column": "name",
+                  "right_column": "name",
+                  "left_transform": "identity",
+                  "right_transform": "identity",
+                  "overlap": 0.46818181818181814
+                }
+              ],
+              "score": 0.46818181818181814,
+              "notes": []
+            }
+          }
+        },
+        {
+          "check": "aggregation_support",
+          "score": 8.0,
+          "passed": true,
+          "evidence": {
+            "aggregation": "count",
+            "measure_binding": null
+          }
+        },
+        {
+          "check": "value_alignment",
+          "score": 0.4682,
+          "passed": true,
+          "evidence": {
+            "path_source_ids": [
+              "tmp_uud8.parquet::tmp_uud8",
+              "tmp_jbgy.parquet::tmp_jbgy"
+            ],
+            "edges": [
+              {
+                "edge_id": "tmp_jbgy_parquet_tmp_jbgy__tmp_uud8_parquet_tmp_uud8__name__name",
+                "left_source_id": "tmp_jbgy.parquet::tmp_jbgy",
+                "right_source_id": "tmp_uud8.parquet::tmp_uud8",
+                "left_column": "name",
+                "right_column": "name",
+                "left_transform": "identity",
+                "right_transform": "identity",
+                "overlap": 0.46818181818181814
+              }
+            ],
+            "score": 0.46818181818181814,
+            "notes": []
+          }
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.4,
+          "passed": false,
+          "evidence": {
+            "support_source": "tmp_uud8.parquet::tmp_uud8",
+            "output_source": "tmp_jbgy.parquet::tmp_jbgy"
+          }
+        }
+      ]
+    }
+  ]
+}

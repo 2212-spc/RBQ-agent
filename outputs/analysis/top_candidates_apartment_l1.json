@@ -1,0 +1,688 @@
+{
+  "seed_id": "spider__apartment_rentals__01238",
+  "variant": "A",
+  "split": "l1",
+  "view": "full",
+  "sketch_mode": "fallback",
+  "instruction": "Show the facility codes of apartments with more than 4 bedrooms.",
+  "gold_targets": {
+    "output_bindings_by_label": {
+      "facility_code": [
+        {
+          "table_name": "Apartment_Facilities",
+          "canonical_column": "facility_code",
+          "source_id": "tmp_b5n7.csv::tmp_b5n7",
+          "dirty_column": "facility_code",
+          "file_name": "tmp_b5n7.csv",
+          "kind": "output"
+        }
+      ]
+    },
+    "filter_bindings": [
+      {
+        "table_name": "Apartments",
+        "canonical_column": "bedroom_count",
+        "source_id": "data_l65h.sqlite::Apartments",
+        "dirty_column": "bedroom_count",
+        "file_name": "data_l65h.sqlite",
+        "kind": "filter"
+      }
+    ],
+    "measure_bindings": [],
+    "evidence_bindings": [
+      {
+        "table_name": "Apartments",
+        "canonical_column": null,
+        "source_id": "data_l65h.sqlite::Apartments",
+        "dirty_column": null,
+        "file_name": "data_l65h.sqlite",
+        "kind": "evidence"
+      }
+    ],
+    "join_pairs": [
+      {
+        "left_table": "Apartment_Facilities",
+        "left_col": "apt_id",
+        "right_table": "Apartments",
+        "right_col": "apt_id"
+      }
+    ],
+    "output_tables": [
+      "Apartment_Facilities"
+    ],
+    "evidence_tables": [
+      "Apartments"
+    ],
+    "filter_kind_tags": [
+      "numeric"
+    ],
+    "primary_filter_kind": "numeric",
+    "ambiguous_count_star": false,
+    "has_aggregation": false,
+    "has_order": false,
+    "has_limit": false
+  },
+  "observable_sketch": {
+    "output_slots": [
+      {
+        "label": "facility_code",
+        "role": "code",
+        "metadata": {}
+      }
+    ],
+    "filter_hints": [
+      {
+        "operator": ">",
+        "value": 4.0,
+        "attribute": "bedrooms"
+      }
+    ],
+    "time_hints": {
+      "years": [],
+      "months": []
+    },
+    "measure_hints": [],
+    "grouping_hints": [],
+    "operator_hints": [],
+    "order_hint": {},
+    "raw_response": {
+      "fallback": true
+    }
+  },
+  "obligation_sketch": {
+    "obligations": [
+      {
+        "name": "support_relation",
+        "probability": 0.2,
+        "reason": "aggregation over output-like entity usually needs latent support relation"
+      },
+      {
+        "name": "aggregation_support",
+        "probability": 0.1,
+        "reason": "query requests aggregated evidence"
+      },
+      {
+        "name": "filter_transfer",
+        "probability": 0.2,
+        "reason": "filters/time hints may live on support side rather than output side"
+      },
+      {
+        "name": "multihop",
+        "probability": 0.15,
+        "reason": "likely needs traversal beyond a single output source"
+      },
+      {
+        "name": "value_alignment",
+        "probability": 0.35,
+        "reason": "join may require non-identity normalization"
+      }
+    ],
+    "role_priors": [
+      {
+        "role": "output_role",
+        "target": "mixed",
+        "probability": 0.45,
+        "reason": "text-like output columns usually live on dimension side"
+      },
+      {
+        "role": "support_role",
+        "target": "mixed",
+        "probability": 0.45,
+        "reason": "aggregated evidence usually comes from event/fact-like relation"
+      },
+      {
+        "role": "evidence_role",
+        "target": "fact_or_event",
+        "probability": 0.4,
+        "reason": "filters and measures often attach to evidence-bearing rows"
+      }
+    ],
+    "family_labels": [
+      {
+        "label": "DirectJoin",
+        "probability": 0.6,
+        "reason": "no strong latent support evidence"
+      }
+    ],
+    "raw_response": {
+      "fallback": true
+    }
+  },
+  "candidates_considered": 4,
+  "top_candidates": [
+    {
+      "rank": 1,
+      "confidence": 114.49794285714286,
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 0,
+      "gold_rows": 3,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "filter_sources": [
+        "data_l65h.sqlite::Apartments"
+      ],
+      "filter_columns": [
+        "bedroom_count"
+      ],
+      "output_sources": [
+        "data_s97x.csv::data_s97x"
+      ],
+      "output_columns": [
+        "facility_code"
+      ],
+      "anchor_score": 0.0,
+      "output_join_scores": [],
+      "satisfied_obligations": [],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "joint_rerank_total": 8.0,
+        "output_consistency": 5.5,
+        "filter_consistency": 2.5,
+        "aggregation_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": 0.0
+      },
+      "notes": [
+        "direct_plan",
+        "joint_rerank_total=8.0000",
+        "output_consistency=5.5000",
+        "filter_consistency=2.5000",
+        "aggregation_consistency=0.0000",
+        "obligation_consistency=0.0000",
+        "shape_sanity=0.0000"
+      ],
+      "final_sql": "SELECT t0.\"facility_code\" AS \"facility_code\" FROM \"data_s97x_data_s97x\" AS t0 WHERE CAST(t1.\"bedroom_count\" AS DOUBLE) > 4.0",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": false,
+        "executed": false,
+        "required_columns_ok": false,
+        "row_count": 0,
+        "reason": "Binder Error: Referenced table \"t1\" not found!\nCandidate tables: \"t0\"\n\nLINE 1: ... \"facility_code\" FROM \"data_s97x_data_s97x\" AS t0 WHERE CAST(t1.\"bedroom_count\" AS DOUBLE) > 4.0\n                                                                        ^",
+        "final_sql": "SELECT t0.\"facility_code\" AS \"facility_code\" FROM \"data_s97x_data_s97x\" AS t0 WHERE CAST(t1.\"bedroom_count\" AS DOUBLE) > 4.0",
+        "execution_summary": {
+          "success": false,
+          "row_count": 0,
+          "columns": [],
+          "preview": [],
+          "files_touched": [
+            "data_l65h.sqlite",
+            "data_s97x.csv",
+            "dump_6d4r.csv",
+            "export_3peb.csv",
+            "export_joay.parquet",
+            "tmp_b5n7.csv",
+            "tmp_q16x.csv"
+          ],
+          "error": "Binder Error: Referenced table \"t1\" not found!\nCandidate tables: \"t0\"\n\nLINE 1: ... \"facility_code\" FROM \"data_s97x_data_s97x\" AS t0 WHERE CAST(t1.\"bedroom_count\" AS DOUBLE) > 4.0\n                                                                        ^"
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 27.8571,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "data_s97x.csv::data_s97x",
+              "file_name": "data_s97x.csv",
+              "view_name": "data_s97x_data_s97x",
+              "column_name": "facility_code",
+              "role": "code",
+              "score": 27.857142857142858,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "key_compatible"
+              ],
+              "metadata": {
+                "slot_label": "facility_code"
+              }
+            }
+          ]
+        },
+        {
+          "check": "filter_transfer",
+          "score": 9.5333,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "data_l65h.sqlite::Apartments",
+              "file_name": "data_l65h.sqlite",
+              "view_name": "data_l65h_apartments",
+              "column_name": "bedroom_count",
+              "role": "filter",
+              "score": 9.533333333333333,
+              "reasons": [
+                "numeric_filter_compatible",
+                "fact_filter_bonus"
+              ],
+              "metadata": {
+                "operator": ">",
+                "value": 4.0,
+                "attribute": "bedrooms"
+              }
+            }
+          ]
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "data_s97x.csv::data_s97x"
+          }
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "confidence": 114.49794285714286,
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 0,
+      "gold_rows": 3,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "filter_sources": [
+        "data_l65h.sqlite::Apartments"
+      ],
+      "filter_columns": [
+        "bedroom_count"
+      ],
+      "output_sources": [
+        "dump_6d4r.csv::dump_6d4r"
+      ],
+      "output_columns": [
+        "facility_code"
+      ],
+      "anchor_score": 0.0,
+      "output_join_scores": [],
+      "satisfied_obligations": [],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "joint_rerank_total": 8.0,
+        "output_consistency": 5.5,
+        "filter_consistency": 2.5,
+        "aggregation_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": 0.0
+      },
+      "notes": [
+        "direct_plan",
+        "joint_rerank_total=8.0000",
+        "output_consistency=5.5000",
+        "filter_consistency=2.5000",
+        "aggregation_consistency=0.0000",
+        "obligation_consistency=0.0000",
+        "shape_sanity=0.0000"
+      ],
+      "final_sql": "SELECT t0.\"facility_code\" AS \"facility_code\" FROM \"dump_6d4r_dump_6d4r\" AS t0 WHERE CAST(t1.\"bedroom_count\" AS DOUBLE) > 4.0",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": false,
+        "executed": false,
+        "required_columns_ok": false,
+        "row_count": 0,
+        "reason": "Binder Error: Referenced table \"t1\" not found!\nCandidate tables: \"t0\"\n\nLINE 1: ... \"facility_code\" FROM \"dump_6d4r_dump_6d4r\" AS t0 WHERE CAST(t1.\"bedroom_count\" AS DOUBLE) > 4.0\n                                                                        ^",
+        "final_sql": "SELECT t0.\"facility_code\" AS \"facility_code\" FROM \"dump_6d4r_dump_6d4r\" AS t0 WHERE CAST(t1.\"bedroom_count\" AS DOUBLE) > 4.0",
+        "execution_summary": {
+          "success": false,
+          "row_count": 0,
+          "columns": [],
+          "preview": [],
+          "files_touched": [
+            "data_l65h.sqlite",
+            "data_s97x.csv",
+            "dump_6d4r.csv",
+            "export_3peb.csv",
+            "export_joay.parquet",
+            "tmp_b5n7.csv",
+            "tmp_q16x.csv"
+          ],
+          "error": "Binder Error: Referenced table \"t1\" not found!\nCandidate tables: \"t0\"\n\nLINE 1: ... \"facility_code\" FROM \"dump_6d4r_dump_6d4r\" AS t0 WHERE CAST(t1.\"bedroom_count\" AS DOUBLE) > 4.0\n                                                                        ^"
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 27.8571,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "dump_6d4r.csv::dump_6d4r",
+              "file_name": "dump_6d4r.csv",
+              "view_name": "dump_6d4r_dump_6d4r",
+              "column_name": "facility_code",
+              "role": "code",
+              "score": 27.857142857142858,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "key_compatible"
+              ],
+              "metadata": {
+                "slot_label": "facility_code"
+              }
+            }
+          ]
+        },
+        {
+          "check": "filter_transfer",
+          "score": 9.5333,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "data_l65h.sqlite::Apartments",
+              "file_name": "data_l65h.sqlite",
+              "view_name": "data_l65h_apartments",
+              "column_name": "bedroom_count",
+              "role": "filter",
+              "score": 9.533333333333333,
+              "reasons": [
+                "numeric_filter_compatible",
+                "fact_filter_bonus"
+              ],
+              "metadata": {
+                "operator": ">",
+                "value": 4.0,
+                "attribute": "bedrooms"
+              }
+            }
+          ]
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "dump_6d4r.csv::dump_6d4r"
+          }
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "confidence": 114.49794285714286,
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 0,
+      "gold_rows": 3,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "filter_sources": [
+        "data_l65h.sqlite::Apartments"
+      ],
+      "filter_columns": [
+        "bedroom_count"
+      ],
+      "output_sources": [
+        "tmp_b5n7.csv::tmp_b5n7"
+      ],
+      "output_columns": [
+        "facility_code"
+      ],
+      "anchor_score": 0.0,
+      "output_join_scores": [],
+      "satisfied_obligations": [],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "joint_rerank_total": 8.0,
+        "output_consistency": 5.5,
+        "filter_consistency": 2.5,
+        "aggregation_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": 0.0
+      },
+      "notes": [
+        "direct_plan",
+        "joint_rerank_total=8.0000",
+        "output_consistency=5.5000",
+        "filter_consistency=2.5000",
+        "aggregation_consistency=0.0000",
+        "obligation_consistency=0.0000",
+        "shape_sanity=0.0000"
+      ],
+      "final_sql": "SELECT t0.\"facility_code\" AS \"facility_code\" FROM \"tmp_b5n7_tmp_b5n7\" AS t0 WHERE CAST(t1.\"bedroom_count\" AS DOUBLE) > 4.0",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": false,
+        "executed": false,
+        "required_columns_ok": false,
+        "row_count": 0,
+        "reason": "Binder Error: Referenced table \"t1\" not found!\nCandidate tables: \"t0\"\n\nLINE 1: ...\" AS \"facility_code\" FROM \"tmp_b5n7_tmp_b5n7\" AS t0 WHERE CAST(t1.\"bedroom_count\" AS DOUBLE) > 4.0\n                                                                          ^",
+        "final_sql": "SELECT t0.\"facility_code\" AS \"facility_code\" FROM \"tmp_b5n7_tmp_b5n7\" AS t0 WHERE CAST(t1.\"bedroom_count\" AS DOUBLE) > 4.0",
+        "execution_summary": {
+          "success": false,
+          "row_count": 0,
+          "columns": [],
+          "preview": [],
+          "files_touched": [
+            "data_l65h.sqlite",
+            "data_s97x.csv",
+            "dump_6d4r.csv",
+            "export_3peb.csv",
+            "export_joay.parquet",
+            "tmp_b5n7.csv",
+            "tmp_q16x.csv"
+          ],
+          "error": "Binder Error: Referenced table \"t1\" not found!\nCandidate tables: \"t0\"\n\nLINE 1: ...\" AS \"facility_code\" FROM \"tmp_b5n7_tmp_b5n7\" AS t0 WHERE CAST(t1.\"bedroom_count\" AS DOUBLE) > 4.0\n                                                                          ^"
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 27.8571,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "tmp_b5n7.csv::tmp_b5n7",
+              "file_name": "tmp_b5n7.csv",
+              "view_name": "tmp_b5n7_tmp_b5n7",
+              "column_name": "facility_code",
+              "role": "code",
+              "score": 27.857142857142858,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "key_compatible"
+              ],
+              "metadata": {
+                "slot_label": "facility_code"
+              }
+            }
+          ]
+        },
+        {
+          "check": "filter_transfer",
+          "score": 9.5333,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "data_l65h.sqlite::Apartments",
+              "file_name": "data_l65h.sqlite",
+              "view_name": "data_l65h_apartments",
+              "column_name": "bedroom_count",
+              "role": "filter",
+              "score": 9.533333333333333,
+              "reasons": [
+                "numeric_filter_compatible",
+                "fact_filter_bonus"
+              ],
+              "metadata": {
+                "operator": ">",
+                "value": 4.0,
+                "attribute": "bedrooms"
+              }
+            }
+          ]
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "tmp_b5n7.csv::tmp_b5n7"
+          }
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "confidence": 62.2766,
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 7,
+      "gold_rows": 3,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "filter_sources": [
+        "data_l65h.sqlite::Apartments"
+      ],
+      "filter_columns": [
+        "bedroom_count"
+      ],
+      "output_sources": [
+        "data_l65h.sqlite::Apartments"
+      ],
+      "output_columns": [
+        "apt_type_code"
+      ],
+      "anchor_score": 0.0,
+      "output_join_scores": [],
+      "satisfied_obligations": [],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "joint_rerank_total": 8.0,
+        "output_consistency": 5.5,
+        "filter_consistency": 2.5,
+        "aggregation_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": 0.0
+      },
+      "notes": [
+        "direct_plan",
+        "joint_rerank_total=8.0000",
+        "output_consistency=5.5000",
+        "filter_consistency=2.5000",
+        "aggregation_consistency=0.0000",
+        "obligation_consistency=0.0000",
+        "shape_sanity=0.0000"
+      ],
+      "final_sql": "SELECT t0.\"apt_type_code\" AS \"facility_code\" FROM \"data_l65h_apartments\" AS t0 WHERE CAST(t0.\"bedroom_count\" AS DOUBLE) > 4.0",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": true,
+        "executed": true,
+        "required_columns_ok": true,
+        "row_count": 7,
+        "reason": null,
+        "final_sql": "SELECT t0.\"apt_type_code\" AS \"facility_code\" FROM \"data_l65h_apartments\" AS t0 WHERE CAST(t0.\"bedroom_count\" AS DOUBLE) > 4.0",
+        "execution_summary": {
+          "success": true,
+          "row_count": 7,
+          "columns": [
+            "facility_code"
+          ],
+          "preview": [
+            {
+              "facility_code": "Studio"
+            },
+            {
+              "facility_code": "Duplex"
+            },
+            {
+              "facility_code": "Studio"
+            }
+          ],
+          "files_touched": [
+            "data_l65h.sqlite",
+            "data_s97x.csv",
+            "dump_6d4r.csv",
+            "export_3peb.csv",
+            "export_joay.parquet",
+            "tmp_b5n7.csv",
+            "tmp_q16x.csv"
+          ]
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 9.3,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "data_l65h.sqlite::Apartments",
+              "file_name": "data_l65h.sqlite",
+              "view_name": "data_l65h_apartments",
+              "column_name": "apt_type_code",
+              "role": "code",
+              "score": 9.3,
+              "reasons": [
+                "key_compatible"
+              ],
+              "metadata": {
+                "slot_label": "facility_code"
+              }
+            }
+          ]
+        },
+        {
+          "check": "filter_transfer",
+          "score": 11.0333,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "data_l65h.sqlite::Apartments",
+              "file_name": "data_l65h.sqlite",
+              "view_name": "data_l65h_apartments",
+              "column_name": "bedroom_count",
+              "role": "filter",
+              "score": 11.033333333333333,
+              "reasons": [
+                "numeric_filter_compatible",
+                "fact_filter_bonus",
+                "preferred_source_bonus"
+              ],
+              "metadata": {
+                "operator": ">",
+                "value": 4.0,
+                "attribute": "bedrooms"
+              }
+            }
+          ]
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "data_l65h.sqlite::Apartments"
+          }
+        }
+      ]
+    }
+  ]
+}

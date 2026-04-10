@@ -1,0 +1,236 @@
+{
+  "report": "outputs\\full150_support_v3_l0_ABC\\report_support_plan_agent.json",
+  "mode": "support_plan_agent",
+  "canonical_mode": "support_plan_agent",
+  "counts": {
+    "pass": 246,
+    "execution_fail": 182,
+    "compilation": 7,
+    "role_consistency_fail": 43,
+    "obligation_fail": 19,
+    "filter_binding": 3,
+    "SQL syntax": 1
+  },
+  "examples": {
+    "execution_fail": [
+      {
+        "seed_id": "spider__assets_maintenance__03134",
+        "variant": "A",
+        "split": "l0",
+        "view": "full",
+        "error": null,
+        "unmet_obligations": []
+      },
+      {
+        "seed_id": "spider__assets_maintenance__03134",
+        "variant": "B",
+        "split": "l0",
+        "view": "full",
+        "error": null,
+        "unmet_obligations": []
+      },
+      {
+        "seed_id": "spider__assets_maintenance__03134",
+        "variant": "C",
+        "split": "l0",
+        "view": "full",
+        "error": null,
+        "unmet_obligations": []
+      },
+      {
+        "seed_id": "spider__baseball_1__03665",
+        "variant": "A",
+        "split": "l0",
+        "view": "full",
+        "error": null,
+        "unmet_obligations": []
+      },
+      {
+        "seed_id": "spider__baseball_1__03665",
+        "variant": "B",
+        "split": "l0",
+        "view": "full",
+        "error": null,
+        "unmet_obligations": []
+      }
+    ],
+    "compilation": [
+      {
+        "seed_id": "spider__baseball_1__03677",
+        "variant": "A",
+        "split": "l0",
+        "view": "full",
+        "error": "Binder Error: Could not choose a best candidate function for the function call \"strftime(VARCHAR, STRING_LITERAL)\". In order to select one, please add explicit type casts.\n\tCandidate functions:\n\tstrftime(VARCHAR, TIMESTAMP) -> VARCHAR\n\tstrftime(VARCHAR, TIMESTAMP_NS) -> VARCHAR\n\tstrftime(VARCHAR, DATE) -> VARCHAR\n\n\nLINE 1: ... Red Stockings%' AND CAST(t0.\"year\" AS DOUBLE) = 2010 AND CAST(strftime(coalesce(strftime(try_strptime(CAST(t0.\"year\" AS...\n                                                                          ^",
+        "unmet_obligations": []
+      },
+      {
+        "seed_id": "spider__baseball_1__03677",
+        "variant": "B",
+        "split": "l0",
+        "view": "full",
+        "error": "Binder Error: Could not choose a best candidate function for the function call \"strftime(VARCHAR, STRING_LITERAL)\". In order to select one, please add explicit type casts.\n\tCandidate functions:\n\tstrftime(VARCHAR, TIMESTAMP) -> VARCHAR\n\tstrftime(VARCHAR, TIMESTAMP_NS) -> VARCHAR\n\tstrftime(VARCHAR, DATE) -> VARCHAR\n\n\nLINE 1: ... Red Stockings%' AND CAST(t0.\"year\" AS DOUBLE) = 2010 AND CAST(strftime(coalesce(strftime(try_strptime(CAST(t0.\"year\" AS...\n                                                                          ^",
+        "unmet_obligations": []
+      },
+      {
+        "seed_id": "spider__baseball_1__03677",
+        "variant": "C",
+        "split": "l0",
+        "view": "full",
+        "error": "Binder Error: Could not choose a best candidate function for the function call \"strftime(VARCHAR, STRING_LITERAL)\". In order to select one, please add explicit type casts.\n\tCandidate functions:\n\tstrftime(VARCHAR, TIMESTAMP) -> VARCHAR\n\tstrftime(VARCHAR, TIMESTAMP_NS) -> VARCHAR\n\tstrftime(VARCHAR, DATE) -> VARCHAR\n\n\nLINE 1: ... Red Stockings%' AND CAST(t0.\"year\" AS DOUBLE) = 2010 AND CAST(strftime(coalesce(strftime(try_strptime(CAST(t0.\"year\" AS...\n                                                                          ^",
+        "unmet_obligations": []
+      },
+      {
+        "seed_id": "spider__game_injury__01280",
+        "variant": "A",
+        "split": "l0",
+        "view": "full",
+        "error": "Parser Error: syntax error at or near \"True\"\n\nLINE 1: ... '%Walter Samuel%' AND CAST(t1.\"Injury\" AS DOUBLE) is not null True\n                                                                          ^",
+        "unmet_obligations": []
+      },
+      {
+        "seed_id": "spider__game_injury__01280",
+        "variant": "B",
+        "split": "l0",
+        "view": "full",
+        "error": "Parser Error: syntax error at or near \"True\"\n\nLINE 1: ... '%Walter Samuel%' AND CAST(t1.\"Injury\" AS DOUBLE) is not null True\n                                                                          ^",
+        "unmet_obligations": []
+      }
+    ],
+    "role_consistency_fail": [
+      {
+        "seed_id": "spider__culture_company__06996",
+        "variant": "B",
+        "split": "l0",
+        "view": "full",
+        "error": null,
+        "unmet_obligations": []
+      },
+      {
+        "seed_id": "spider__culture_company__06996",
+        "variant": "C",
+        "split": "l0",
+        "view": "full",
+        "error": null,
+        "unmet_obligations": []
+      },
+      {
+        "seed_id": "spider__customer_complaints__05794",
+        "variant": "A",
+        "split": "l0",
+        "view": "full",
+        "error": null,
+        "unmet_obligations": []
+      },
+      {
+        "seed_id": "spider__customer_deliveries__02848",
+        "variant": "C",
+        "split": "l0",
+        "view": "full",
+        "error": null,
+        "unmet_obligations": []
+      },
+      {
+        "seed_id": "spider__debate__01501",
+        "variant": "C",
+        "split": "l0",
+        "view": "full",
+        "error": null,
+        "unmet_obligations": []
+      }
+    ],
+    "obligation_fail": [
+      {
+        "seed_id": "spider__customer_complaints__05794",
+        "variant": "C",
+        "split": "l0",
+        "view": "full",
+        "error": "unmet_obligations:support_relation,multihop,value_alignment",
+        "unmet_obligations": [
+          "support_relation",
+          "multihop",
+          "value_alignment"
+        ]
+      },
+      {
+        "seed_id": "spider__hospital_1__03910",
+        "variant": "A",
+        "split": "l0",
+        "view": "full",
+        "error": "unmet_obligations:support_relation",
+        "unmet_obligations": [
+          "support_relation"
+        ]
+      },
+      {
+        "seed_id": "spider__hospital_1__03910",
+        "variant": "B",
+        "split": "l0",
+        "view": "full",
+        "error": "unmet_obligations:support_relation",
+        "unmet_obligations": [
+          "support_relation"
+        ]
+      },
+      {
+        "seed_id": "spider__inn_1__02644",
+        "variant": "A",
+        "split": "l0",
+        "view": "full",
+        "error": "unmet_obligations:support_relation,multihop,value_alignment",
+        "unmet_obligations": [
+          "support_relation",
+          "multihop",
+          "value_alignment"
+        ]
+      },
+      {
+        "seed_id": "spider__inn_1__02644",
+        "variant": "B",
+        "split": "l0",
+        "view": "full",
+        "error": "unmet_obligations:support_relation,multihop,value_alignment",
+        "unmet_obligations": [
+          "support_relation",
+          "multihop",
+          "value_alignment"
+        ]
+      }
+    ],
+    "filter_binding": [
+      {
+        "seed_id": "spider__movie_1__02452",
+        "variant": "A",
+        "split": "l0",
+        "view": "full",
+        "error": "Conversion Error: Could not convert string '2011-01-22' to DOUBLE when casting from source column ratingDate\n\nLINE 1: ... CAST(t0.\"mID\" AS VARCHAR) = CAST(t1.\"mID\" AS VARCHAR) WHERE CAST(t1.\"ratingDate\" AS DOUBLE) >= 4 AND CAST(t1.\"ratingDate...\n                                                                        ^",
+        "unmet_obligations": []
+      },
+      {
+        "seed_id": "spider__movie_1__02452",
+        "variant": "B",
+        "split": "l0",
+        "view": "full",
+        "error": "Conversion Error: Could not convert string '2011-01-22' to DOUBLE when casting from source column ratingDate\n\nLINE 1: ... CAST(t0.\"mID\" AS VARCHAR) = CAST(t1.\"mID\" AS VARCHAR) WHERE CAST(t1.\"ratingDate\" AS DOUBLE) >= 4 AND CAST(t1.\"ratingDate...\n                                                                        ^",
+        "unmet_obligations": []
+      },
+      {
+        "seed_id": "spider__movie_1__02452",
+        "variant": "C",
+        "split": "l0",
+        "view": "full",
+        "error": "Conversion Error: Could not convert string '2011-01-12' to DOUBLE when casting from source column ratingDate\n\nLINE 1: ... CAST(t0.\"mID\" AS VARCHAR) = CAST(t1.\"mID\" AS VARCHAR) WHERE CAST(t1.\"ratingDate\" AS DOUBLE) >= 4 AND CAST(t1.\"ratingDate...\n                                                                        ^",
+        "unmet_obligations": []
+      }
+    ],
+    "SQL syntax": [
+      {
+        "seed_id": "spider__pilot_record__02093",
+        "variant": "B",
+        "split": "l0",
+        "view": "full",
+        "error": "Parser Error: syntax error at or near \"ASCENDING\"\n\nLINE 1: ... VARCHAR) = CAST(t2.\"Pilot_ID\" AS VARCHAR) ORDER BY t0.\"Rank\" ASCENDING\n                                                                         ^",
+        "unmet_obligations": []
+      }
+    ]
+  }
+}

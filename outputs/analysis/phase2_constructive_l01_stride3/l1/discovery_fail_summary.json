@@ -1,0 +1,72 @@
+{
+  "counts": {
+    "B_world_not_found": 6,
+    "A_path_gap": 1,
+    "C_calibration_overreach": 1
+  },
+  "examples": {
+    "B_world_not_found": [
+      {
+        "seed_id": "spider__bike_1__00139",
+        "variant": "A",
+        "split": "l1",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": []
+      },
+      {
+        "seed_id": "spider__customer_complaints__05794",
+        "variant": "A",
+        "split": "l1",
+        "hard_invalid_reasons": [
+          "filter_binding_type_conflict"
+        ],
+        "semantic_complete_reasons": [
+          "filter_binding_type_conflict"
+        ]
+      },
+      {
+        "seed_id": "spider__customers_card_transactions__00687",
+        "variant": "A",
+        "split": "l1",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": []
+      },
+      {
+        "seed_id": "spider__election_representative__01181",
+        "variant": "A",
+        "split": "l1",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": []
+      },
+      {
+        "seed_id": "spider__party_host__02679",
+        "variant": "A",
+        "split": "l1",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": []
+      }
+    ],
+    "A_path_gap": [
+      {
+        "seed_id": "spider__epinions_1__01700",
+        "variant": "A",
+        "split": "l1",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": [
+          "support_not_evidence_grain"
+        ]
+      }
+    ],
+    "C_calibration_overreach": [
+      {
+        "seed_id": "spider__tracking_software_problems__05361",
+        "variant": "A",
+        "split": "l1",
+        "hard_invalid_reasons": [],
+        "semantic_complete_reasons": [
+          "output_binding_not_supported_by_calibrated_prior"
+        ]
+      }
+    ]
+  }
+}

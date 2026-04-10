@@ -1,0 +1,183 @@
+{
+  "bench_root": "outputs\\hdrbench_full150_v1",
+  "candidate_count": 8,
+  "design_ids": [
+    "spider__assets_maintenance__03144",
+    "spider__chinook_1__00826",
+    "spider__inn_1__02601"
+  ],
+  "design_present_in_bench": [
+    "spider__assets_maintenance__03144",
+    "spider__chinook_1__00826",
+    "spider__inn_1__02601"
+  ],
+  "design_overlap_with_auto_candidates": [
+    "spider__inn_1__02601"
+  ],
+  "holdout_count": 7,
+  "holdout_ids": [
+    "spider__customers_and_addresses__06086",
+    "spider__driving_school__06657",
+    "spider__e_government__06324",
+    "spider__game_injury__01287",
+    "spider__inn_1__02600",
+    "spider__network_2__04398",
+    "spider__network_2__04399"
+  ],
+  "candidates": [
+    {
+      "seed_id": "spider__customers_and_addresses__06086",
+      "db_id": "customers_and_addresses",
+      "used_tables": [
+        "customers",
+        "customer_addresses",
+        "addresses"
+      ],
+      "used_table_count": 3,
+      "mentioned_tables": [
+        "customers",
+        "customer_addresses"
+      ],
+      "mentioned_table_count": 2,
+      "aggregate_signature": {
+        "has_group_by": true,
+        "functions": [
+          "count("
+        ],
+        "has_aggregate": true
+      }
+    },
+    {
+      "seed_id": "spider__driving_school__06657",
+      "db_id": "driving_school",
+      "used_tables": [
+        "Addresses",
+        "Staff"
+      ],
+      "used_table_count": 2,
+      "mentioned_tables": [],
+      "mentioned_table_count": 0,
+      "aggregate_signature": {
+        "has_group_by": true,
+        "functions": [
+          "count("
+        ],
+        "has_aggregate": true
+      }
+    },
+    {
+      "seed_id": "spider__e_government__06324",
+      "db_id": "e_government",
+      "used_tables": [
+        "organizations",
+        "organization_contact_individuals",
+        "individuals"
+      ],
+      "used_table_count": 3,
+      "mentioned_tables": [
+        "organizations",
+        "organization_contact_individuals"
+      ],
+      "mentioned_table_count": 2,
+      "aggregate_signature": {
+        "has_group_by": false,
+        "functions": [
+          "max("
+        ],
+        "has_aggregate": true
+      }
+    },
+    {
+      "seed_id": "spider__game_injury__01287",
+      "db_id": "game_injury",
+      "used_tables": [
+        "injury_accident",
+        "game"
+      ],
+      "used_table_count": 2,
+      "mentioned_tables": [],
+      "mentioned_table_count": 0,
+      "aggregate_signature": {
+        "has_group_by": false,
+        "functions": [
+          "count("
+        ],
+        "has_aggregate": true
+      }
+    },
+    {
+      "seed_id": "spider__inn_1__02600",
+      "db_id": "inn_1",
+      "used_tables": [
+        "Reservations",
+        "Rooms"
+      ],
+      "used_table_count": 2,
+      "mentioned_tables": [
+        "Reservations"
+      ],
+      "mentioned_table_count": 1,
+      "aggregate_signature": {
+        "has_group_by": true,
+        "functions": [
+          "count("
+        ],
+        "has_aggregate": true
+      }
+    },
+    {
+      "seed_id": "spider__inn_1__02601",
+      "db_id": "inn_1",
+      "used_tables": [
+        "Reservations",
+        "Rooms"
+      ],
+      "used_table_count": 2,
+      "mentioned_tables": [],
+      "mentioned_table_count": 0,
+      "aggregate_signature": {
+        "has_group_by": true,
+        "functions": [
+          "count("
+        ],
+        "has_aggregate": true
+      }
+    },
+    {
+      "seed_id": "spider__network_2__04398",
+      "db_id": "network_2",
+      "used_tables": [
+        "Person",
+        "PersonFriend"
+      ],
+      "used_table_count": 2,
+      "mentioned_tables": [],
+      "mentioned_table_count": 0,
+      "aggregate_signature": {
+        "has_group_by": false,
+        "functions": [
+          "count("
+        ],
+        "has_aggregate": true
+      }
+    },
+    {
+      "seed_id": "spider__network_2__04399",
+      "db_id": "network_2",
+      "used_tables": [
+        "Person",
+        "PersonFriend"
+      ],
+      "used_table_count": 2,
+      "mentioned_tables": [],
+      "mentioned_table_count": 0,
+      "aggregate_signature": {
+        "has_group_by": false,
+        "functions": [
+          "count("
+        ],
+        "has_aggregate": true
+      }
+    }
+  ]
+}

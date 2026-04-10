@@ -1,0 +1,1283 @@
+{
+  "seed_id": "spider__aircraft__04821",
+  "variant": "A",
+  "split": "l1",
+  "view": "full",
+  "sketch_mode": "fallback",
+  "instruction": "Please list the location and the winning aircraft name.",
+  "gold_targets": {
+    "output_bindings_by_label": {
+      "Location": [
+        {
+          "table_name": "MATCH",
+          "canonical_column": "Location",
+          "source_id": "export_qbgr.sqlite::MATCH",
+          "dirty_column": "Location",
+          "file_name": "export_qbgr.sqlite",
+          "kind": "output"
+        }
+      ],
+      "Aircraft": [
+        {
+          "table_name": "aircraft",
+          "canonical_column": "Aircraft",
+          "source_id": "export_pvl0.csv::export_pvl0",
+          "dirty_column": "Aircraft",
+          "file_name": "export_pvl0.csv",
+          "kind": "output"
+        }
+      ]
+    },
+    "filter_bindings": [],
+    "measure_bindings": [],
+    "evidence_bindings": [],
+    "join_pairs": [
+      {
+        "left_table": "aircraft",
+        "left_col": "Aircraft_ID",
+        "right_table": "MATCH",
+        "right_col": "Winning_Aircraft"
+      }
+    ],
+    "output_tables": [
+      "MATCH",
+      "aircraft"
+    ],
+    "evidence_tables": [],
+    "filter_kind_tags": [
+      "none"
+    ],
+    "primary_filter_kind": "none",
+    "ambiguous_count_star": false,
+    "has_aggregation": false,
+    "has_order": false,
+    "has_limit": false
+  },
+  "observable_sketch": {
+    "output_slots": [
+      {
+        "label": "Location",
+        "role": "location",
+        "metadata": {}
+      },
+      {
+        "label": "Aircraft",
+        "role": "entity",
+        "metadata": {}
+      }
+    ],
+    "filter_hints": [],
+    "time_hints": {
+      "years": [],
+      "months": []
+    },
+    "measure_hints": [],
+    "grouping_hints": [],
+    "operator_hints": [],
+    "order_hint": {},
+    "raw_response": {
+      "fallback": true
+    }
+  },
+  "obligation_sketch": {
+    "obligations": [
+      {
+        "name": "support_relation",
+        "probability": 0.2,
+        "reason": "aggregation over output-like entity usually needs latent support relation"
+      },
+      {
+        "name": "aggregation_support",
+        "probability": 0.1,
+        "reason": "query requests aggregated evidence"
+      },
+      {
+        "name": "filter_transfer",
+        "probability": 0.05,
+        "reason": "filters/time hints may live on support side rather than output side"
+      },
+      {
+        "name": "multihop",
+        "probability": 0.15,
+        "reason": "likely needs traversal beyond a single output source"
+      },
+      {
+        "name": "value_alignment",
+        "probability": 0.1,
+        "reason": "join may require non-identity normalization"
+      }
+    ],
+    "role_priors": [
+      {
+        "role": "output_role",
+        "target": "mixed",
+        "probability": 0.45,
+        "reason": "text-like output columns usually live on dimension side"
+      },
+      {
+        "role": "support_role",
+        "target": "mixed",
+        "probability": 0.45,
+        "reason": "aggregated evidence usually comes from event/fact-like relation"
+      },
+      {
+        "role": "evidence_role",
+        "target": "fact_or_event",
+        "probability": 0.4,
+        "reason": "filters and measures often attach to evidence-bearing rows"
+      }
+    ],
+    "family_labels": [
+      {
+        "label": "DirectJoin",
+        "probability": 0.6,
+        "reason": "no strong latent support evidence"
+      }
+    ],
+    "raw_response": {
+      "fallback": true
+    }
+  },
+  "llm_grounding": {
+    "output_bindings": [
+      {
+        "slot_label": "Location",
+        "source_id": "export_qbgr.sqlite::MATCH",
+        "column_name": "Location",
+        "confidence": 0.95,
+        "reason": "",
+        "is_uncertain": false,
+        "is_dummy_likely": false,
+        "why_not": "The 'Location' column in 'export_qbgr.sqlite::MATCH' contains values that match the expected format for locations.",
+        "top_alternatives": [],
+        "confidence_reason": "",
+        "no_reliable_binding": false
+      },
+      {
+        "slot_label": "Aircraft",
+        "source_id": "data_rzqp.parquet::data_rzqp",
+        "column_name": "Aircraft",
+        "confidence": 0.95,
+        "reason": "",
+        "is_uncertain": false,
+        "is_dummy_likely": false,
+        "why_not": "The 'Aircraft' column in 'data_rzqp.parquet::data_rzqp' contains specific aircraft names, which matches the requirement for the winning aircraft name.",
+        "top_alternatives": [
+          {
+            "source_id": "export_pvl0.csv::export_pvl0",
+            "column_name": "Aircraft",
+            "confidence": 0.9,
+            "reason": ""
+          }
+        ],
+        "confidence_reason": "",
+        "no_reliable_binding": false
+      }
+    ],
+    "filter_bindings": [],
+    "output_hypotheses": [
+      {
+        "slot_label": "Location",
+        "binding": {
+          "source_id": "export_qbgr.sqlite::MATCH",
+          "column_name": "Location",
+          "confidence": 0.95,
+          "reason": ""
+        },
+        "confidence": 0.95,
+        "is_uncertain": false,
+        "is_dummy_likely": false,
+        "no_reliable_binding": false,
+        "why_not": "The 'Location' column in 'export_qbgr.sqlite::MATCH' contains values that match the expected format for locations.",
+        "confidence_reason": "",
+        "top_alternatives": []
+      },
+      {
+        "slot_label": "Aircraft",
+        "binding": {
+          "source_id": "data_rzqp.parquet::data_rzqp",
+          "column_name": "Aircraft",
+          "confidence": 0.95,
+          "reason": ""
+        },
+        "confidence": 0.95,
+        "is_uncertain": false,
+        "is_dummy_likely": false,
+        "no_reliable_binding": false,
+        "why_not": "The 'Aircraft' column in 'data_rzqp.parquet::data_rzqp' contains specific aircraft names, which matches the requirement for the winning aircraft name.",
+        "confidence_reason": "",
+        "top_alternatives": [
+          {
+            "source_id": "export_pvl0.csv::export_pvl0",
+            "column_name": "Aircraft",
+            "confidence": 0.9,
+            "reason": ""
+          }
+        ]
+      }
+    ],
+    "filter_hypotheses": [],
+    "suggested_joins": [
+      {
+        "from_source_id": "export_qbgr.sqlite::MATCH",
+        "from_column_name": "Winning_Aircraft",
+        "to_source_id": "data_rzqp.parquet::data_rzqp",
+        "to_column_name": "Aircraft_ID",
+        "confidence": 0.8,
+        "reasoning": "The 'Winning_Aircraft' column in 'export_qbgr.sqlite::MATCH' likely corresponds to an ID that can be joined with 'Aircraft_ID' in 'data_rzqp.parquet::data_rzqp' to retrieve the aircraft name."
+      }
+    ],
+    "query_family": "direct_join",
+    "query_family_confidence": 0.9,
+    "reasoning": "The task requires retrieving the location and the winning aircraft name. The 'Location' is directly available in 'export_qbgr.sqlite::MATCH'. The 'Aircraft' name can be retrieved by joining 'Winning_Aircraft' in 'export_qbgr.sqlite::MATCH' with 'Aircraft_ID' in 'data_rzqp.parquet::data_rzqp'."
+  },
+  "llm_query_family": "direct_join",
+  "llm_query_family_confidence": 0.9,
+  "llm_uncertain_output_slots": [],
+  "llm_uncertain_filter_attributes": [],
+  "overlay_edge_count": 0,
+  "overlay_edges": [],
+  "candidates_considered": 8,
+  "top_candidates": [
+    {
+      "rank": 1,
+      "global_rank": 1,
+      "family_rank": 1,
+      "plan_kind": "direct_join",
+      "confidence": 112.83565714285714,
+      "plan_score": {
+        "family_name": "direct_join",
+        "base_retrieval_score": 54.6429,
+        "output_consistency": 7.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -3.0,
+        "semantic_complete": true,
+        "semantic_gap_count": 0,
+        "semantic_complete_reasons": [],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 112.8357
+      },
+      "ordering_consistency": 0.0,
+      "semantic_complete": true,
+      "semantic_gap_count": 0,
+      "semantic_complete_reasons": [],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 5,
+      "gold_rows": 7,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "order_source_id": null,
+      "order_column": null,
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "dump_vqfx.parquet::dump_vqfx",
+        "data_rzqp.parquet::data_rzqp"
+      ],
+      "output_columns": [
+        "name",
+        "Aircraft"
+      ],
+      "anchor_score": 0.0,
+      "anchor_path_source_ids": [],
+      "anchor_semantics": null,
+      "order_join_path_source_ids": [],
+      "order_join_path_semantics": null,
+      "output_join_edge_ids": [
+        "dump_vqfx_parquet_dump_vqfx__export_pvl0_csv_export_pvl0__name__aircraft_id",
+        "data_rzqp_parquet_data_rzqp__export_pvl0_csv_export_pvl0__aircraft__aircraft"
+      ],
+      "output_join_uses_overlay": false,
+      "output_join_scores": [
+        1.25
+      ],
+      "output_join_path_source_ids": [
+        [
+          "dump_vqfx.parquet::dump_vqfx",
+          "export_pvl0.csv::export_pvl0",
+          "data_rzqp.parquet::data_rzqp"
+        ]
+      ],
+      "output_join_semantics": [
+        "key_path"
+      ],
+      "filter_join_edge_ids": [],
+      "filter_join_uses_overlay": false,
+      "anchor_edge_ids": [],
+      "anchor_uses_overlay": false,
+      "order_join_edge_ids": [],
+      "order_join_uses_overlay": false,
+      "satisfied_obligations": [],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "family": "direct_join",
+        "llm_family_bonus": 5.55,
+        "semantic_complete": "True",
+        "semantic_gap_count": 0.0,
+        "hard_invalid": "False",
+        "joint_rerank_total": 4.5,
+        "output_consistency": 7.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -3.0
+      },
+      "notes": [
+        "direct_join",
+        "family=direct_join",
+        "llm_family_bonus=5.5500",
+        "semantic_complete=True",
+        "semantic_gap_count=0",
+        "hard_invalid=False",
+        "joint_rerank_total=4.5000",
+        "output_consistency=7.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=0.0000",
+        "ordering_consistency=0.0000",
+        "obligation_consistency=0.0000",
+        "shape_sanity=-3.0000"
+      ],
+      "final_sql": "SELECT t0.\"name\" AS \"Location\", t1.\"Aircraft\" AS \"Aircraft\" FROM \"dump_vqfx_dump_vqfx\" AS t0 JOIN \"export_pvl0_export_pvl0\" AS t2 ON coalesce(nullif(ltrim(regexp_replace(CAST(t0.\"name\" AS VARCHAR), '[^0-9]', '', 'g'), '0'), ''), '0') = CAST(t2.\"Aircraft_ID\" AS VARCHAR) JOIN \"data_rzqp_data_rzqp\" AS t1 ON CAST(t1.\"Aircraft\" AS VARCHAR) = CAST(t2.\"Aircraft\" AS VARCHAR)",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": true,
+        "executed": true,
+        "required_columns_ok": true,
+        "row_count": 5,
+        "reason": null,
+        "final_sql": "SELECT t0.\"name\" AS \"Location\", t1.\"Aircraft\" AS \"Aircraft\" FROM \"dump_vqfx_dump_vqfx\" AS t0 JOIN \"export_pvl0_export_pvl0\" AS t2 ON coalesce(nullif(ltrim(regexp_replace(CAST(t0.\"name\" AS VARCHAR), '[^0-9]', '', 'g'), '0'), ''), '0') = CAST(t2.\"Aircraft_ID\" AS VARCHAR) JOIN \"data_rzqp_data_rzqp\" AS t1 ON CAST(t1.\"Aircraft\" AS VARCHAR) = CAST(t2.\"Aircraft\" AS VARCHAR)",
+        "execution_summary": {
+          "success": true,
+          "row_count": 5,
+          "columns": [
+            "Location",
+            "Aircraft"
+          ],
+          "preview": [
+            {
+              "Location": "name_1",
+              "Aircraft": "Robinson R-22"
+            },
+            {
+              "Location": "name_2",
+              "Aircraft": "Bell 206B3 JetRanger"
+            },
+            {
+              "Location": "name_3",
+              "Aircraft": "CH-47D Chinook"
+            }
+          ],
+          "files_touched": [
+            "data_rzqp.parquet",
+            "dump_vqfx.parquet",
+            "export_pvl0.csv",
+            "export_qbgr.sqlite",
+            "tmp_w12j.parquet"
+          ]
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 23.5714,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "dump_vqfx.parquet::dump_vqfx",
+              "file_name": "dump_vqfx.parquet",
+              "view_name": "dump_vqfx_dump_vqfx",
+              "column_name": "name",
+              "role": "location",
+              "score": 6.428571428571429,
+              "reasons": [
+                "text_compatible",
+                "dimension_source_bonus",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Location"
+              }
+            },
+            {
+              "source_id": "data_rzqp.parquet::data_rzqp",
+              "file_name": "data_rzqp.parquet",
+              "view_name": "data_rzqp_data_rzqp",
+              "column_name": "Aircraft",
+              "role": "entity",
+              "score": 40.714285714285715,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "llm_grounding_match",
+                "text_compatible",
+                "dimension_source_bonus",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Aircraft"
+              }
+            }
+          ]
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "dump_vqfx.parquet::dump_vqfx"
+          }
+        }
+      ]
+    },
+    {
+      "rank": 2,
+      "global_rank": 2,
+      "family_rank": null,
+      "plan_kind": "direct_join",
+      "confidence": 95.93470769230768,
+      "plan_score": {
+        "family_name": "direct_join",
+        "base_retrieval_score": 48.4423,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -3.0,
+        "semantic_complete": true,
+        "semantic_gap_count": 0,
+        "semantic_complete_reasons": [],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 95.9347
+      },
+      "ordering_consistency": 0.0,
+      "semantic_complete": true,
+      "semantic_gap_count": 0,
+      "semantic_complete_reasons": [],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 7,
+      "gold_rows": 7,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "order_source_id": null,
+      "order_column": null,
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "tmp_w12j.parquet::tmp_w12j",
+        "export_qbgr.sqlite::MATCH"
+      ],
+      "output_columns": [
+        "Location",
+        "Location"
+      ],
+      "anchor_score": 0.0,
+      "anchor_path_source_ids": [],
+      "anchor_semantics": null,
+      "order_join_path_source_ids": [],
+      "order_join_path_semantics": null,
+      "output_join_edge_ids": [
+        "export_qbgr_sqlite_match__tmp_w12j_parquet_tmp_w12j__round__round"
+      ],
+      "output_join_uses_overlay": false,
+      "output_join_scores": [
+        1.0
+      ],
+      "output_join_path_source_ids": [
+        [
+          "tmp_w12j.parquet::tmp_w12j",
+          "export_qbgr.sqlite::MATCH"
+        ]
+      ],
+      "output_join_semantics": [
+        "key_path"
+      ],
+      "filter_join_edge_ids": [],
+      "filter_join_uses_overlay": false,
+      "anchor_edge_ids": [],
+      "anchor_uses_overlay": false,
+      "order_join_edge_ids": [],
+      "order_join_uses_overlay": false,
+      "satisfied_obligations": [],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "family": "direct_join",
+        "llm_family_bonus": 5.55,
+        "semantic_complete": "True",
+        "semantic_gap_count": 0.0,
+        "hard_invalid": "False",
+        "joint_rerank_total": -1.5,
+        "output_consistency": 1.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -3.0
+      },
+      "notes": [
+        "direct_join",
+        "family=direct_join",
+        "llm_family_bonus=5.5500",
+        "semantic_complete=True",
+        "semantic_gap_count=0",
+        "hard_invalid=False",
+        "joint_rerank_total=-1.5000",
+        "output_consistency=1.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=0.0000",
+        "ordering_consistency=0.0000",
+        "obligation_consistency=0.0000",
+        "shape_sanity=-3.0000"
+      ],
+      "final_sql": "SELECT t0.\"Location\" AS \"Location\", t1.\"Location\" AS \"Aircraft\" FROM \"tmp_w12j_tmp_w12j\" AS t0 JOIN \"export_qbgr_match\" AS t1 ON CAST(t1.\"Round\" AS VARCHAR) = CAST(t0.\"Round\" AS VARCHAR)",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": true,
+        "executed": true,
+        "required_columns_ok": true,
+        "row_count": 7,
+        "reason": null,
+        "final_sql": "SELECT t0.\"Location\" AS \"Location\", t1.\"Location\" AS \"Aircraft\" FROM \"tmp_w12j_tmp_w12j\" AS t0 JOIN \"export_qbgr_match\" AS t1 ON CAST(t1.\"Round\" AS VARCHAR) = CAST(t0.\"Round\" AS VARCHAR)",
+        "execution_summary": {
+          "success": true,
+          "row_count": 7,
+          "columns": [
+            "Location",
+            "Aircraft"
+          ],
+          "preview": [
+            {
+              "Location": "New York City",
+              "Aircraft": "New York City"
+            },
+            {
+              "Location": "Swan River , Perth",
+              "Aircraft": "Swan River , Perth"
+            },
+            {
+              "Location": "Mina' Zayid , Abu Dhabi",
+              "Aircraft": "Mina' Zayid , Abu Dhabi"
+            }
+          ],
+          "files_touched": [
+            "data_rzqp.parquet",
+            "dump_vqfx.parquet",
+            "export_pvl0.csv",
+            "export_qbgr.sqlite",
+            "tmp_w12j.parquet"
+          ]
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 21.2212,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "tmp_w12j.parquet::tmp_w12j",
+              "file_name": "tmp_w12j.parquet",
+              "view_name": "tmp_w12j_tmp_w12j",
+              "column_name": "Location",
+              "role": "location",
+              "score": 24.25,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Location"
+              }
+            },
+            {
+              "source_id": "export_qbgr.sqlite::MATCH",
+              "file_name": "export_qbgr.sqlite",
+              "view_name": "export_qbgr_match",
+              "column_name": "Location",
+              "role": "entity",
+              "score": 18.192307692307693,
+              "reasons": [
+                "llm_grounding_match",
+                "text_compatible",
+                "fact_source_penalty",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Aircraft"
+              }
+            }
+          ]
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "tmp_w12j.parquet::tmp_w12j"
+          }
+        }
+      ]
+    },
+    {
+      "rank": 3,
+      "global_rank": 3,
+      "family_rank": null,
+      "plan_kind": "direct_join",
+      "confidence": 73.83565714285714,
+      "plan_score": {
+        "family_name": "direct_join",
+        "base_retrieval_score": 35.1429,
+        "output_consistency": 7.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -3.0,
+        "semantic_complete": true,
+        "semantic_gap_count": 0,
+        "semantic_complete_reasons": [],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 73.8357
+      },
+      "ordering_consistency": 0.0,
+      "semantic_complete": true,
+      "semantic_gap_count": 0,
+      "semantic_complete_reasons": [],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 5,
+      "gold_rows": 7,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "order_source_id": null,
+      "order_column": null,
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "data_rzqp.parquet::data_rzqp",
+        "dump_vqfx.parquet::dump_vqfx"
+      ],
+      "output_columns": [
+        "Aircraft",
+        "name"
+      ],
+      "anchor_score": 0.0,
+      "anchor_path_source_ids": [],
+      "anchor_semantics": null,
+      "order_join_path_source_ids": [],
+      "order_join_path_semantics": null,
+      "output_join_edge_ids": [
+        "data_rzqp_parquet_data_rzqp__export_pvl0_csv_export_pvl0__aircraft__aircraft",
+        "dump_vqfx_parquet_dump_vqfx__export_pvl0_csv_export_pvl0__name__aircraft_id"
+      ],
+      "output_join_uses_overlay": false,
+      "output_join_scores": [
+        1.25
+      ],
+      "output_join_path_source_ids": [
+        [
+          "data_rzqp.parquet::data_rzqp",
+          "export_pvl0.csv::export_pvl0",
+          "dump_vqfx.parquet::dump_vqfx"
+        ]
+      ],
+      "output_join_semantics": [
+        "key_path"
+      ],
+      "filter_join_edge_ids": [],
+      "filter_join_uses_overlay": false,
+      "anchor_edge_ids": [],
+      "anchor_uses_overlay": false,
+      "order_join_edge_ids": [],
+      "order_join_uses_overlay": false,
+      "satisfied_obligations": [],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "family": "direct_join",
+        "llm_family_bonus": 5.55,
+        "semantic_complete": "True",
+        "semantic_gap_count": 0.0,
+        "hard_invalid": "False",
+        "joint_rerank_total": 4.5,
+        "output_consistency": 7.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -3.0
+      },
+      "notes": [
+        "direct_join",
+        "family=direct_join",
+        "llm_family_bonus=5.5500",
+        "semantic_complete=True",
+        "semantic_gap_count=0",
+        "hard_invalid=False",
+        "joint_rerank_total=4.5000",
+        "output_consistency=7.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=0.0000",
+        "ordering_consistency=0.0000",
+        "obligation_consistency=0.0000",
+        "shape_sanity=-3.0000"
+      ],
+      "final_sql": "SELECT t0.\"Aircraft\" AS \"Location\", t1.\"name\" AS \"Aircraft\" FROM \"data_rzqp_data_rzqp\" AS t0 JOIN \"export_pvl0_export_pvl0\" AS t2 ON CAST(t0.\"Aircraft\" AS VARCHAR) = CAST(t2.\"Aircraft\" AS VARCHAR) JOIN \"dump_vqfx_dump_vqfx\" AS t1 ON coalesce(nullif(ltrim(regexp_replace(CAST(t1.\"name\" AS VARCHAR), '[^0-9]', '', 'g'), '0'), ''), '0') = CAST(t2.\"Aircraft_ID\" AS VARCHAR)",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": true,
+        "executed": true,
+        "required_columns_ok": true,
+        "row_count": 5,
+        "reason": null,
+        "final_sql": "SELECT t0.\"Aircraft\" AS \"Location\", t1.\"name\" AS \"Aircraft\" FROM \"data_rzqp_data_rzqp\" AS t0 JOIN \"export_pvl0_export_pvl0\" AS t2 ON CAST(t0.\"Aircraft\" AS VARCHAR) = CAST(t2.\"Aircraft\" AS VARCHAR) JOIN \"dump_vqfx_dump_vqfx\" AS t1 ON coalesce(nullif(ltrim(regexp_replace(CAST(t1.\"name\" AS VARCHAR), '[^0-9]', '', 'g'), '0'), ''), '0') = CAST(t2.\"Aircraft_ID\" AS VARCHAR)",
+        "execution_summary": {
+          "success": true,
+          "row_count": 5,
+          "columns": [
+            "Location",
+            "Aircraft"
+          ],
+          "preview": [
+            {
+              "Location": "Robinson R-22",
+              "Aircraft": "name_1"
+            },
+            {
+              "Location": "Bell 206B3 JetRanger",
+              "Aircraft": "name_2"
+            },
+            {
+              "Location": "CH-47D Chinook",
+              "Aircraft": "name_3"
+            }
+          ],
+          "files_touched": [
+            "data_rzqp.parquet",
+            "dump_vqfx.parquet",
+            "export_pvl0.csv",
+            "export_qbgr.sqlite",
+            "tmp_w12j.parquet"
+          ]
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 13.8214,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "data_rzqp.parquet::data_rzqp",
+              "file_name": "data_rzqp.parquet",
+              "view_name": "data_rzqp_data_rzqp",
+              "column_name": "Aircraft",
+              "role": "location",
+              "score": 21.214285714285715,
+              "reasons": [
+                "llm_grounding_match",
+                "text_compatible",
+                "dimension_source_bonus",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Location"
+              }
+            },
+            {
+              "source_id": "dump_vqfx.parquet::dump_vqfx",
+              "file_name": "dump_vqfx.parquet",
+              "view_name": "dump_vqfx_dump_vqfx",
+              "column_name": "name",
+              "role": "entity",
+              "score": 6.428571428571429,
+              "reasons": [
+                "text_compatible",
+                "dimension_source_bonus",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Aircraft"
+              }
+            }
+          ]
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "data_rzqp.parquet::data_rzqp"
+          }
+        }
+      ]
+    },
+    {
+      "rank": 4,
+      "global_rank": 4,
+      "family_rank": null,
+      "plan_kind": "direct_join",
+      "confidence": 123.34717142857143,
+      "plan_score": {
+        "family_name": "direct_join",
+        "base_retrieval_score": 57.6486,
+        "output_consistency": 7.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": 0.0,
+        "semantic_complete": false,
+        "semantic_gap_count": 1,
+        "semantic_complete_reasons": [
+          "low_confidence_output_binding"
+        ],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 123.3472
+      },
+      "ordering_consistency": 0.0,
+      "semantic_complete": false,
+      "semantic_gap_count": 1,
+      "semantic_complete_reasons": [
+        "low_confidence_output_binding"
+      ],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 5,
+      "gold_rows": 7,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "order_source_id": null,
+      "order_column": null,
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "data_rzqp.parquet::data_rzqp",
+        "export_pvl0.csv::export_pvl0"
+      ],
+      "output_columns": [
+        "Aircraft",
+        "Aircraft"
+      ],
+      "anchor_score": 0.0,
+      "anchor_path_source_ids": [],
+      "anchor_semantics": null,
+      "order_join_path_source_ids": [],
+      "order_join_path_semantics": null,
+      "output_join_edge_ids": [
+        "data_rzqp_parquet_data_rzqp__export_pvl0_csv_export_pvl0__aircraft__aircraft"
+      ],
+      "output_join_uses_overlay": false,
+      "output_join_scores": [
+        1.0
+      ],
+      "output_join_path_source_ids": [
+        [
+          "data_rzqp.parquet::data_rzqp",
+          "export_pvl0.csv::export_pvl0"
+        ]
+      ],
+      "output_join_semantics": [
+        "key_path"
+      ],
+      "filter_join_edge_ids": [],
+      "filter_join_uses_overlay": false,
+      "anchor_edge_ids": [],
+      "anchor_uses_overlay": false,
+      "order_join_edge_ids": [],
+      "order_join_uses_overlay": false,
+      "satisfied_obligations": [],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "family": "direct_join",
+        "llm_family_bonus": 5.55,
+        "semantic_complete": "False",
+        "semantic_gap_count": 1.0,
+        "semantic_missing": "low_confidence_output_binding",
+        "hard_invalid": "False",
+        "joint_rerank_total": 7.5,
+        "output_consistency": 7.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": 0.0
+      },
+      "notes": [
+        "direct_join",
+        "family=direct_join",
+        "llm_family_bonus=5.5500",
+        "semantic_complete=False",
+        "semantic_gap_count=1",
+        "semantic_missing=low_confidence_output_binding",
+        "hard_invalid=False",
+        "joint_rerank_total=7.5000",
+        "output_consistency=7.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=0.0000",
+        "ordering_consistency=0.0000",
+        "obligation_consistency=0.0000",
+        "shape_sanity=0.0000"
+      ],
+      "final_sql": "SELECT t0.\"Aircraft\" AS \"Location\", t1.\"Aircraft\" AS \"Aircraft\" FROM \"data_rzqp_data_rzqp\" AS t0 JOIN \"export_pvl0_export_pvl0\" AS t1 ON CAST(t0.\"Aircraft\" AS VARCHAR) = CAST(t1.\"Aircraft\" AS VARCHAR)",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": true,
+        "executed": true,
+        "required_columns_ok": true,
+        "row_count": 5,
+        "reason": null,
+        "final_sql": "SELECT t0.\"Aircraft\" AS \"Location\", t1.\"Aircraft\" AS \"Aircraft\" FROM \"data_rzqp_data_rzqp\" AS t0 JOIN \"export_pvl0_export_pvl0\" AS t1 ON CAST(t0.\"Aircraft\" AS VARCHAR) = CAST(t1.\"Aircraft\" AS VARCHAR)",
+        "execution_summary": {
+          "success": true,
+          "row_count": 5,
+          "columns": [
+            "Location",
+            "Aircraft"
+          ],
+          "preview": [
+            {
+              "Location": "Robinson R-22",
+              "Aircraft": "Robinson R-22"
+            },
+            {
+              "Location": "Bell 206B3 JetRanger",
+              "Aircraft": "Bell 206B3 JetRanger"
+            },
+            {
+              "Location": "CH-47D Chinook",
+              "Aircraft": "CH-47D Chinook"
+            }
+          ],
+          "files_touched": [
+            "data_rzqp.parquet",
+            "dump_vqfx.parquet",
+            "export_pvl0.csv",
+            "export_qbgr.sqlite",
+            "tmp_w12j.parquet"
+          ]
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 25.8243,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "data_rzqp.parquet::data_rzqp",
+              "file_name": "data_rzqp.parquet",
+              "view_name": "data_rzqp_data_rzqp",
+              "column_name": "Aircraft",
+              "role": "location",
+              "score": 21.214285714285715,
+              "reasons": [
+                "llm_grounding_match",
+                "text_compatible",
+                "dimension_source_bonus",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Location"
+              }
+            },
+            {
+              "source_id": "export_pvl0.csv::export_pvl0",
+              "file_name": "export_pvl0.csv",
+              "view_name": "export_pvl0_export_pvl0",
+              "column_name": "Aircraft",
+              "role": "entity",
+              "score": 30.434285714285714,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "llm_grounding_uncertain",
+                "text_compatible",
+                "dimension_source_bonus",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Aircraft"
+              }
+            }
+          ]
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "data_rzqp.parquet::data_rzqp"
+          }
+        }
+      ]
+    },
+    {
+      "rank": 5,
+      "global_rank": 5,
+      "family_rank": null,
+      "plan_kind": "direct_join",
+      "confidence": 86.27565714285714,
+      "plan_score": {
+        "family_name": "direct_join",
+        "base_retrieval_score": 38.3629,
+        "output_consistency": 7.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -3.0,
+        "semantic_complete": false,
+        "semantic_gap_count": 1,
+        "semantic_complete_reasons": [
+          "low_confidence_output_binding"
+        ],
+        "hard_invalid": false,
+        "hard_invalid_reasons": [],
+        "total": 86.2757
+      },
+      "ordering_consistency": 0.0,
+      "semantic_complete": false,
+      "semantic_gap_count": 1,
+      "semantic_complete_reasons": [
+        "low_confidence_output_binding"
+      ],
+      "hard_invalid": false,
+      "hard_invalid_reasons": [],
+      "pass": false,
+      "score": 0.0,
+      "stage": "QUERY_FAIL",
+      "result_rows": 5,
+      "gold_rows": 7,
+      "support_source_id": null,
+      "support_column": null,
+      "measure_source_id": null,
+      "measure_column": null,
+      "order_source_id": null,
+      "order_column": null,
+      "filter_sources": [],
+      "filter_columns": [],
+      "filter_join_path_count": 0,
+      "filter_join_path_scores": [],
+      "filter_join_path_source_ids": [],
+      "filter_join_path_semantics": [],
+      "output_sources": [
+        "dump_vqfx.parquet::dump_vqfx",
+        "export_pvl0.csv::export_pvl0"
+      ],
+      "output_columns": [
+        "name",
+        "Aircraft"
+      ],
+      "anchor_score": 0.0,
+      "anchor_path_source_ids": [],
+      "anchor_semantics": null,
+      "order_join_path_source_ids": [],
+      "order_join_path_semantics": null,
+      "output_join_edge_ids": [
+        "dump_vqfx_parquet_dump_vqfx__export_pvl0_csv_export_pvl0__name__aircraft_id"
+      ],
+      "output_join_uses_overlay": false,
+      "output_join_scores": [
+        0.25
+      ],
+      "output_join_path_source_ids": [
+        [
+          "dump_vqfx.parquet::dump_vqfx",
+          "export_pvl0.csv::export_pvl0"
+        ]
+      ],
+      "output_join_semantics": [
+        "key_path"
+      ],
+      "filter_join_edge_ids": [],
+      "filter_join_uses_overlay": false,
+      "anchor_edge_ids": [],
+      "anchor_uses_overlay": false,
+      "order_join_edge_ids": [],
+      "order_join_uses_overlay": false,
+      "satisfied_obligations": [],
+      "unmet_obligations": [],
+      "note_breakdown": {
+        "family": "direct_join",
+        "llm_family_bonus": 5.55,
+        "semantic_complete": "False",
+        "semantic_gap_count": 1.0,
+        "semantic_missing": "low_confidence_output_binding",
+        "hard_invalid": "False",
+        "joint_rerank_total": 4.5,
+        "output_consistency": 7.5,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": -3.0
+      },
+      "notes": [
+        "direct_join",
+        "family=direct_join",
+        "llm_family_bonus=5.5500",
+        "semantic_complete=False",
+        "semantic_gap_count=1",
+        "semantic_missing=low_confidence_output_binding",
+        "hard_invalid=False",
+        "joint_rerank_total=4.5000",
+        "output_consistency=7.5000",
+        "filter_consistency=0.0000",
+        "aggregation_consistency=0.0000",
+        "ordering_consistency=0.0000",
+        "obligation_consistency=0.0000",
+        "shape_sanity=-3.0000"
+      ],
+      "final_sql": "SELECT t0.\"name\" AS \"Location\", t1.\"Aircraft\" AS \"Aircraft\" FROM \"dump_vqfx_dump_vqfx\" AS t0 JOIN \"export_pvl0_export_pvl0\" AS t1 ON coalesce(nullif(ltrim(regexp_replace(CAST(t0.\"name\" AS VARCHAR), '[^0-9]', '', 'g'), '0'), ''), '0') = CAST(t1.\"Aircraft_ID\" AS VARCHAR)",
+      "compile_ready": true,
+      "compile_reason": null,
+      "compile_meta": {
+        "compiled": true,
+        "executed": true,
+        "required_columns_ok": true,
+        "row_count": 5,
+        "reason": null,
+        "final_sql": "SELECT t0.\"name\" AS \"Location\", t1.\"Aircraft\" AS \"Aircraft\" FROM \"dump_vqfx_dump_vqfx\" AS t0 JOIN \"export_pvl0_export_pvl0\" AS t1 ON coalesce(nullif(ltrim(regexp_replace(CAST(t0.\"name\" AS VARCHAR), '[^0-9]', '', 'g'), '0'), ''), '0') = CAST(t1.\"Aircraft_ID\" AS VARCHAR)",
+        "execution_summary": {
+          "success": true,
+          "row_count": 5,
+          "columns": [
+            "Location",
+            "Aircraft"
+          ],
+          "preview": [
+            {
+              "Location": "name_1",
+              "Aircraft": "Robinson R-22"
+            },
+            {
+              "Location": "name_2",
+              "Aircraft": "Bell 206B3 JetRanger"
+            },
+            {
+              "Location": "name_3",
+              "Aircraft": "CH-47D Chinook"
+            }
+          ],
+          "files_touched": [
+            "data_rzqp.parquet",
+            "dump_vqfx.parquet",
+            "export_pvl0.csv",
+            "export_qbgr.sqlite",
+            "tmp_w12j.parquet"
+          ]
+        }
+      },
+      "verifier_trace": [
+        {
+          "check": "output_binding",
+          "score": 18.4314,
+          "passed": true,
+          "evidence": [
+            {
+              "source_id": "dump_vqfx.parquet::dump_vqfx",
+              "file_name": "dump_vqfx.parquet",
+              "view_name": "dump_vqfx_dump_vqfx",
+              "column_name": "name",
+              "role": "location",
+              "score": 6.428571428571429,
+              "reasons": [
+                "text_compatible",
+                "dimension_source_bonus",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Location"
+              }
+            },
+            {
+              "source_id": "export_pvl0.csv::export_pvl0",
+              "file_name": "export_pvl0.csv",
+              "view_name": "export_pvl0_export_pvl0",
+              "column_name": "Aircraft",
+              "role": "entity",
+              "score": 30.434285714285714,
+              "reasons": [
+                "exact_column_match",
+                "label_substring_match",
+                "llm_grounding_uncertain",
+                "text_compatible",
+                "dimension_source_bonus",
+                "distinctive_text_values"
+              ],
+              "metadata": {
+                "slot_label": "Aircraft"
+              }
+            }
+          ]
+        },
+        {
+          "check": "role_consistency",
+          "score": 0.5,
+          "passed": true,
+          "evidence": {
+            "support_source": null,
+            "output_source": "dump_vqfx.parquet::dump_vqfx"
+          }
+        }
+      ]
+    }
+  ]
+}

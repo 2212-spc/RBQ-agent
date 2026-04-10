@@ -1,0 +1,56 @@
+[
+  {
+    "split": "l1",
+    "sample_n": 56,
+    "baseline": {
+      "n": 56,
+      "pass": 21,
+      "rate": 0.375,
+      "stages": {
+        "QUERY_FAIL": 33,
+        "OK": 21,
+        "INSTANCE_FAIL": 2
+      }
+    },
+    "current": {
+      "n": 56,
+      "pass": 25,
+      "rate": 0.4464,
+      "stages": {
+        "QUERY_FAIL": 29,
+        "OK": 25,
+        "INSTANCE_FAIL": 2
+      }
+    },
+    "delta_pass": 4,
+    "fixed_fail_to_pass": 11,
+    "regressed_pass_to_fail": 7
+  },
+  {
+    "split": "l2",
+    "sample_n": 56,
+    "baseline": {
+      "n": 56,
+      "pass": 3,
+      "rate": 0.0536,
+      "stages": {
+        "QUERY_FAIL": 50,
+        "INSTANCE_FAIL": 3,
+        "OK": 3
+      }
+    },
+    "current": {
+      "n": 56,
+      "pass": 7,
+      "rate": 0.125,
+      "stages": {
+        "QUERY_FAIL": 46,
+        "INSTANCE_FAIL": 3,
+        "OK": 7
+      }
+    },
+    "delta_pass": 4,
+    "fixed_fail_to_pass": 5,
+    "regressed_pass_to_fail": 1
+  }
+]
