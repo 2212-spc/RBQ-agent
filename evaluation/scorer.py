@@ -8,6 +8,10 @@ from typing import Any, Dict, Tuple
 import pandas as pd
 
 
+def _normalize_path(path_value: str | Path) -> Path:
+    return Path(str(path_value).replace("\\", "/"))
+
+
 def _normalize_df(df: pd.DataFrame, required_cols: list[str], tolerance: float) -> pd.DataFrame:
     out = df[required_cols].copy()
     for c in out.columns:
@@ -23,8 +27,8 @@ def _row_signature(df: pd.DataFrame) -> pd.Series:
 
 
 def score_single(result_path: str | Path, gold_path: str | Path, spec: Dict[str, Any]) -> Dict[str, Any]:
-    result_path = Path(result_path)
-    gold_path = Path(gold_path)
+    result_path = _normalize_path(result_path)
+    gold_path = _normalize_path(gold_path)
 
     if not result_path.exists():
         return {"pass": False, "score": 0.0, "stage": "DELIVERY_FAIL", "detail": "result file missing"}

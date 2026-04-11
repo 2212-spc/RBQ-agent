@@ -24,6 +24,15 @@ outputs/analysis/minireg_support_fix2_*/
 outputs/support_plan_l012_reval/
 outputs/support_plan_l012_reval_full_20260329/
 outputs/support_plan_agent_l0A_n56_20260329/
+outputs/batch4_*/
+outputs/case_smoke_*/
+outputs/full_hybrid_router_*/
+outputs/smoke_ds_specialist_*/
+outputs/smoke_hybrid_*/
+outputs/smoke_support_plan_*/
+outputs/router_partial_readout*.json
+
+spider__*/
 
 .vscode/
 .claude/

@@ -5,6 +5,7 @@ import datetime as dt
 import json
 import sqlite3
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 from typing import Any, Dict, List, Tuple
 
@@ -27,8 +28,11 @@ SUPPORTED_MODES = {
     "duckdb_agent",
     "hdrbench_agent",
     "llm_code_agent",
+    "ds_specialist_agent",
     "support_plan_agent",
     "support_plan_no_obligation",
+    "hybrid_router_rule",
+    "hybrid_router_llm",
     "contrastive_agent",
     "retrieval_llm_agent",
 }
@@ -54,6 +58,27 @@ def _agent_variant(mode: str) -> str:
 
 def _load_json(path: Path) -> Dict[str, Any]:
     return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _manifest_path(path_value: str | Path, *search_roots: Path) -> Path:
+    raw = str(path_value).replace("\\", "/")
+    path = Path(raw)
+    if path.is_absolute():
+        return path
+
+    ordered_roots: List[Path] = []
+    for root in search_roots:
+        if root and root not in ordered_roots:
+            ordered_roots.append(root)
+    for root in (ROOT, Path.cwd()):
+        if root not in ordered_roots:
+            ordered_roots.append(root)
+
+    for base in ordered_roots:
+        candidate = base / raw
+        if candidate.exists():
+            return candidate
+    return ordered_roots[0] / raw
 
 
 def _json_safe(value: Any) -> Any:
@@ -114,10 +139,11 @@ def _register_workspace(conn: duckdb.DuckDBPyConnection, workspace: Path) -> Lis
 
 def _resolve_workspace(manifest_public: Dict[str, Any], split: str, view: str) -> Path:
     split_views = manifest_public.get("splits", {})
+    manifest_root = Path(manifest_public.get("_manifest_root", ROOT))
     if split in split_views and view in split_views[split]:
-        return Path(split_views[split][view])
+        return _manifest_path(split_views[split][view], manifest_root)
     if split == "l3" and view in manifest_public.get("views", {}):
-        return Path(manifest_public["views"][view])
+        return _manifest_path(manifest_public["views"][view], manifest_root)
     raise KeyError(f"Workspace not found for split={split}, view={view}")
 
 
@@ -235,6 +261,45 @@ def _run_agent_once(
             meta["deprecated_alias"] = True
         return meta
 
+    if canonical_mode == "ds_specialist_agent":
+        from evaluation.hybrid_router_agent import run_ds_specialist_agent
+
+        meta = run_ds_specialist_agent(
+            instruction=manifest_public.get("instruction", ""),
+            workspace=workspace,
+            deliverable_spec=manifest_public.get("deliverable_spec", {}),
+            output_csv=out_csv,
+        )
+        meta["split"] = split
+        meta["view"] = view
+        meta["requested_mode"] = mode
+        meta["agent_impl"] = meta.get("agent_impl", canonical_mode)
+        if not meta.get("success"):
+            req = manifest_public["deliverable_spec"].get("required_columns", [])
+            out_csv.parent.mkdir(parents=True, exist_ok=True)
+            pd.DataFrame(columns=req).to_csv(out_csv, index=False)
+        return meta
+
+    if mode in {"hybrid_router_rule", "hybrid_router_llm"}:
+        from evaluation.hybrid_router_agent import run_hybrid_router_agent
+
+        meta = run_hybrid_router_agent(
+            instruction=manifest_public.get("instruction", ""),
+            workspace=workspace,
+            deliverable_spec=manifest_public.get("deliverable_spec", {}),
+            output_csv=out_csv,
+            router_type="rule" if mode == "hybrid_router_rule" else "llm",
+        )
+        meta["split"] = split
+        meta["view"] = view
+        meta["requested_mode"] = mode
+        meta["agent_impl"] = meta.get("agent_impl", mode)
+        if not meta.get("success"):
+            req = manifest_public["deliverable_spec"].get("required_columns", [])
+            out_csv.parent.mkdir(parents=True, exist_ok=True)
+            pd.DataFrame(columns=req).to_csv(out_csv, index=False)
+        return meta
+
     if canonical_mode == "naive_sql" and gold_sql is None:
         req = manifest_public["deliverable_spec"].get("required_columns", [])
         out_csv.parent.mkdir(parents=True, exist_ok=True)
@@ -293,12 +358,14 @@ def run_eval(
     access_mode: str,
     variant_filter: List[str],
     seed_filter: List[str],
+    workers: int = 1,
+    resume: bool = False,
 ) -> Dict[str, Any]:
     seed_dirs = _list_seed_dirs(bench_root, seed_filter=set(seed_filter) if seed_filter else None)
     out_dir.mkdir(parents=True, exist_ok=True)
+    manifest_root = bench_root.parent.parent
 
-    records: List[Dict[str, Any]] = []
-
+    jobs: List[Dict[str, Any]] = []
     for seed_dir in seed_dirs:
         seed_id = seed_dir.name
         for variant in VARIANTS:
@@ -312,32 +379,79 @@ def run_eval(
 
             pub = _load_json(pub_path)
             pri = _load_json(pri_path)
+            pub["_manifest_root"] = str(manifest_root)
+            pri["_manifest_root"] = str(manifest_root)
             spec = pub["deliverable_spec"]
-            gold = pub["gold_path"]
+            gold = _manifest_path(pub["gold_path"], manifest_root)
 
             for split, view in _iter_selected_settings(pub, split_filter, view_filter):
-                run_csv = out_dir / seed_id / variant / split / f"{view}.csv"
-                meta = _run_agent_once(mode, pub, pri, split, view, run_csv, access_mode=access_mode)
-                score = score_single(result_path=run_csv, gold_path=gold, spec=spec)
-                attribution_private = pri if split != "l0" else None
-                attribution = attribute_failure(
-                    score=score,
-                    result_csv=run_csv,
-                    manifest_private=attribution_private,
-                    agent_meta=meta,
+                jobs.append(
+                    {
+                        "seed_id": seed_id,
+                        "variant": variant,
+                        "split": split,
+                        "view": view,
+                        "pub": pub,
+                        "pri": pri,
+                        "spec": spec,
+                        "gold": gold,
+                        "run_csv": out_dir / seed_id / variant / split / f"{view}.csv",
+                    }
                 )
-                rec = {
-                    "seed_id": seed_id,
-                    "variant": variant,
-                    "split": split,
-                    "view": view,
-                    "pass": bool(score.get("pass")),
-                    "score": float(score.get("score", 0.0)),
-                    "stage": score.get("stage"),
-                    "attribution": attribution,
-                    "meta": meta,
-                }
-                records.append(rec)
+
+    def _execute_job(job: Dict[str, Any]) -> Dict[str, Any]:
+        seed_id = job["seed_id"]
+        variant = job["variant"]
+        split = job["split"]
+        view = job["view"]
+        pub = job["pub"]
+        pri = job["pri"]
+        spec = job["spec"]
+        gold = job["gold"]
+        run_csv = job["run_csv"]
+
+        if resume and run_csv.exists():
+            meta = {
+                "success": True,
+                "resumed": True,
+                "files_touched": [],
+                "error": None,
+                "split": split,
+                "view": view,
+                "requested_mode": mode,
+                "agent_impl": f"{mode}_resume",
+            }
+        else:
+            meta = _run_agent_once(mode, pub, pri, split, view, run_csv, access_mode=access_mode)
+        score = score_single(result_path=run_csv, gold_path=gold, spec=spec)
+        attribution_private = pri if split != "l0" else None
+        attribution = attribute_failure(
+            score=score,
+            result_csv=run_csv,
+            manifest_private=attribution_private,
+            agent_meta=meta,
+        )
+        return {
+            "seed_id": seed_id,
+            "variant": variant,
+            "split": split,
+            "view": view,
+            "pass": bool(score.get("pass")),
+            "score": float(score.get("score", 0.0)),
+            "stage": score.get("stage"),
+            "attribution": attribution,
+            "meta": meta,
+        }
+
+    records: List[Dict[str, Any]] = []
+    if workers <= 1:
+        for job in jobs:
+            records.append(_execute_job(job))
+    else:
+        with ThreadPoolExecutor(max_workers=workers) as executor:
+            futures = [executor.submit(_execute_job, job) for job in jobs]
+            for future in as_completed(futures):
+                records.append(future.result())
 
     asr_by_setting: Dict[str, float] = {}
     pass_rate_by_setting: Dict[str, float] = {}
@@ -434,6 +548,8 @@ def main() -> None:
     parser.add_argument("--access_mode", default="public", choices=["public", "dev"])
     parser.add_argument("--variants", default="all", help="Comma-separated subset of variants, e.g. A or A,B")
     parser.add_argument("--seed_ids", default="all", help="Comma-separated subset of seed ids")
+    parser.add_argument("--workers", type=int, default=1)
+    parser.add_argument("--resume", action="store_true")
     parser.add_argument("--out", required=True)
     args = parser.parse_args()
 
@@ -449,6 +565,8 @@ def main() -> None:
         access_mode=args.access_mode,
         variant_filter=variant_filter,
         seed_filter=seed_filter,
+        workers=max(1, args.workers),
+        resume=bool(args.resume),
     )
     print(
         json.dumps(
