@@ -2,12 +2,21 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
 import pandas as pd
 
-from evaluation.repo_agent_utils import csv_has_content, ensure_parent, normalize_output_csv_schema
-from evaluation.support_plan_agent import run_support_plan_agent
+HDRBENCH_MVP_ROOT = Path(__file__).resolve().parents[3] / "hdrbench_mvp"
+HDRBENCH_EVAL_ROOT = HDRBENCH_MVP_ROOT / "evaluation"
+CURRENT_EVAL_ROOT = Path(__file__).resolve().parent
+if str(HDRBENCH_EVAL_ROOT) not in sys.path:
+    sys.path.insert(0, str(HDRBENCH_EVAL_ROOT))
+if str(CURRENT_EVAL_ROOT) not in sys.path:
+    sys.path.insert(0, str(CURRENT_EVAL_ROOT))
+
+from repo_agent_utils import csv_has_content, ensure_parent, normalize_output_csv_schema
+from support_plan_agent import run_support_plan_agent
 
 
 def _compact_planner_output(planner_output: dict | None) -> dict:
@@ -62,6 +71,15 @@ def _compact_support_meta(meta: dict) -> dict:
     for key in ("wall_clock_time", "llm_calls_used", "llm_calls_budget", "obligation_mode"):
         if key in meta:
             compact[key] = meta.get(key)
+    token_usage = meta.get("token_usage") or {}
+    if token_usage:
+        compact["token_usage"] = {
+            "prompt_tokens": int(token_usage.get("prompt_tokens", 0) or 0),
+            "completion_tokens": int(token_usage.get("completion_tokens", 0) or 0),
+            "total_tokens": int(token_usage.get("total_tokens", 0) or 0),
+        }
+    if "tool_calls" in meta:
+        compact["tool_calls"] = int(meta.get("tool_calls", 0) or 0)
     search_summary = meta.get("search_summary") or {}
     if search_summary:
         compact["search_summary"] = {

@@ -40,6 +40,7 @@ def _load_llm_config_from_file(path: Path) -> LLMConfig | None:
     timeout_seconds = int(payload.get("timeout_seconds", os.environ.get("HDRBENCH_LLM_TIMEOUT_SECONDS", "45")))
     retry_attempts = int(payload.get("retry_attempts", os.environ.get("HDRBENCH_LLM_RETRIES", "2")))
     max_calls = int(payload.get("max_calls", os.environ.get("HDRBENCH_MAX_LLM_CALLS", "4")))
+    cache_dir = Path(str(payload.get("cache_dir", os.environ.get("HDRBENCH_LLM_CACHE_DIR", str(ROOT / "outputs" / "llm_cache")))))
     return LLMConfig(
         api_key=api_key,
         api_base=api_base.rstrip("/"),
@@ -47,6 +48,7 @@ def _load_llm_config_from_file(path: Path) -> LLMConfig | None:
         timeout_seconds=timeout_seconds,
         retry_attempts=retry_attempts,
         max_calls=max_calls,
+        cache_dir=cache_dir,
     )
 
 
@@ -57,6 +59,7 @@ def _load_llm_config_from_env() -> LLMConfig | None:
     timeout_seconds = int(os.environ.get("HDRBENCH_LLM_TIMEOUT_SECONDS", "45"))
     retry_attempts = int(os.environ.get("HDRBENCH_LLM_RETRIES", "2"))
     max_calls = int(os.environ.get("HDRBENCH_MAX_LLM_CALLS", "4"))
+    cache_dir = Path(os.environ.get("HDRBENCH_LLM_CACHE_DIR", str(ROOT / "outputs" / "llm_cache")))
     if not api_key or not api_base:
         explicit_path = os.environ.get("HDRBENCH_LLM_CONFIG", "").strip()
         candidate_paths = []
@@ -76,6 +79,7 @@ def _load_llm_config_from_env() -> LLMConfig | None:
         timeout_seconds=timeout_seconds,
         retry_attempts=retry_attempts,
         max_calls=max_calls,
+        cache_dir=cache_dir,
     )
 
 
@@ -133,6 +137,11 @@ class LLMBackendSession:
         self.config = config
         self.namespace = namespace
         self.calls_used = 0
+        self.token_usage = {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+        }
 
     @property
     def max_calls(self) -> int:
@@ -146,6 +155,15 @@ class LLMBackendSession:
         if self.calls_used >= self.config.max_calls:
             raise RuntimeError(f"llm_call_budget_exhausted: {self.config.max_calls}")
         self.calls_used += 1
+
+    def _merge_usage(self, response: Dict[str, Any]) -> None:
+        usage = response.get("usage") or {}
+        prompt_tokens = int(usage.get("prompt_tokens", usage.get("input_tokens", 0)) or 0)
+        completion_tokens = int(usage.get("completion_tokens", usage.get("output_tokens", 0)) or 0)
+        total_tokens = int(usage.get("total_tokens", prompt_tokens + completion_tokens) or 0)
+        self.token_usage["prompt_tokens"] += prompt_tokens
+        self.token_usage["completion_tokens"] += completion_tokens
+        self.token_usage["total_tokens"] += total_tokens
 
     def _cache_path(self, payload: Dict[str, Any], response_kind: str) -> Path:
         self.config.cache_dir.mkdir(parents=True, exist_ok=True)
@@ -197,6 +215,7 @@ class LLMBackendSession:
                     payload=payload,
                     timeout_seconds=self.config.timeout_seconds,
                 )
+                self._merge_usage(response)
                 content = str(response["choices"][0]["message"]["content"])
                 cache_path.write_text(json.dumps({"content": content}, ensure_ascii=False, indent=2), encoding="utf-8")
                 return content
@@ -241,6 +260,7 @@ class LLMBackendSession:
                     payload=payload,
                     timeout_seconds=self.config.timeout_seconds,
                 )
+                self._merge_usage(response)
                 break
             except Exception as exc:
                 last_error = exc
@@ -256,6 +276,7 @@ class LLMBackendSession:
                             payload=payload,
                             timeout_seconds=self.config.timeout_seconds,
                         )
+                        self._merge_usage(response)
                         break
                     except Exception as exc:
                         last_error = exc

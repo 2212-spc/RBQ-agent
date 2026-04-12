@@ -362,6 +362,40 @@ def _stage_workspace_for_specialist(src: Path, dst: Path) -> List[str]:
     return copied
 
 
+def _extract_last_json_dict(text: str) -> Dict[str, Any] | None:
+    text = (text or "").strip()
+    if not text:
+        return None
+    lines = [line.strip() for line in text.splitlines() if line.strip()]
+    for line in reversed(lines):
+        anchors = []
+        if line.startswith("{"):
+            anchors.append(0)
+        pos = line.find('{"success"')
+        if pos >= 0:
+            anchors.append(pos)
+        for anchor in anchors:
+            candidate = line[anchor:].strip()
+            try:
+                parsed = json.loads(candidate)
+            except Exception:
+                continue
+            if isinstance(parsed, dict):
+                return parsed
+    start = text.find('{"success"')
+    while start >= 0:
+        candidate = text[start:].strip()
+        try:
+            parsed = json.loads(candidate)
+        except Exception:
+            start = text.find('{"success"', start + 1)
+            continue
+        if isinstance(parsed, dict):
+            return parsed
+        start = text.find('{"success"', start + 1)
+    return None
+
+
 def _run_ds_specialist(
     instruction: str,
     workspace: Path,
@@ -423,12 +457,9 @@ def _run_ds_specialist(
         "path_impl": "ds_agent_specialist",
     }
     if proc and proc.stdout.strip():
-        try:
-            parsed = json.loads(proc.stdout.strip().splitlines()[-1])
-            if isinstance(parsed, dict):
-                meta.update(parsed)
-        except Exception:
-            pass
+        parsed = _extract_last_json_dict(proc.stdout)
+        if isinstance(parsed, dict):
+            meta.update(parsed)
     _normalize_output_csv_schema(output_csv, required_columns)
     if not _csv_has_content(output_csv):
         pd.DataFrame(columns=required_columns).to_csv(output_csv, index=False)
@@ -450,6 +481,7 @@ def _run_support_path(
     env["PYTHONPATH"] = os.pathsep.join(
         [
             str(ROOT),
+            str(HDRBENCH_MVP_ROOT),
             env.get("PYTHONPATH", ""),
         ]
     ).strip(os.pathsep)
@@ -497,12 +529,9 @@ def _run_support_path(
         "path_impl": "support_plan_subprocess",
     }
     if proc and proc.stdout.strip():
-        try:
-            parsed = json.loads(proc.stdout.strip().splitlines()[-1])
-            if isinstance(parsed, dict):
-                meta.update(parsed)
-        except Exception:
-            pass
+        parsed = _extract_last_json_dict(proc.stdout)
+        if isinstance(parsed, dict):
+            meta.update(parsed)
     _normalize_output_csv_schema(output_csv, required_columns)
     if not _csv_has_content(output_csv):
         pd.DataFrame(columns=required_columns).to_csv(output_csv, index=False)

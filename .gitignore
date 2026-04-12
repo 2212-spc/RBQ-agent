@@ -33,6 +33,9 @@ outputs/smoke_ds_specialist_*/
 outputs/smoke_hybrid_*/
 outputs/smoke_support_plan_*/
 outputs/router_partial_readout*.json
+outputs/pilot_hybrid_router_*/
+outputs/pilot_hybrid_router_*_cache/
+outputs/tmp_ds_debug_*/
 
 spider__*/
 

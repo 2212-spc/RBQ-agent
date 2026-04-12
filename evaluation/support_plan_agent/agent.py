@@ -250,4 +250,10 @@ def run_support_plan_agent(
         "wall_clock_time": round(time.time() - started, 4),
         "llm_calls_used": session.calls_used if session is not None else 0,
         "llm_calls_budget": session.max_calls if session is not None else 0,
+        "token_usage": dict(session.token_usage) if session is not None else {
+            "prompt_tokens": 0,
+            "completion_tokens": 0,
+            "total_tokens": 0,
+        },
+        "tool_calls": len(candidates),
     }
