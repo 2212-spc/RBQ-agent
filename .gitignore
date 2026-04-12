@@ -27,6 +27,7 @@ outputs/support_plan_agent_l0A_n56_20260329/
 outputs/batch4_*/
 outputs/case_smoke_*/
 outputs/full_hybrid_router_*/
+outputs/smoke_subproc_*/
 outputs/smoke_ds_specialist_*/
 outputs/smoke_hybrid_*/
 outputs/smoke_support_plan_*/

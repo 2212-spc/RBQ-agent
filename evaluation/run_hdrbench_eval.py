@@ -102,6 +102,95 @@ def _json_safe(value: Any) -> Any:
     return value
 
 
+def _compact_planner_output(planner_output: Dict[str, Any] | None) -> Dict[str, Any]:
+    planner_output = planner_output or {}
+    relevant_files = [item for item in planner_output.get("relevant_files", []) if item]
+    output_mappings = []
+    for item in planner_output.get("output_mappings", []) or []:
+        if not isinstance(item, dict):
+            continue
+        slim = {}
+        if item.get("source_file"):
+            slim["source_file"] = item["source_file"]
+        if item.get("target_column"):
+            slim["target_column"] = item["target_column"]
+        if slim:
+            output_mappings.append(slim)
+    compact: Dict[str, Any] = {}
+    if relevant_files:
+        compact["relevant_files"] = relevant_files
+    if output_mappings:
+        compact["output_mappings"] = output_mappings
+    return compact
+
+
+def _compact_execution_summary(execution_summary: Dict[str, Any] | None) -> Dict[str, Any]:
+    execution_summary = execution_summary or {}
+    keep_keys = {
+        "success",
+        "executed",
+        "row_count",
+        "empty_result",
+        "non_empty_output",
+        "reason",
+        "selected_candidate_rank",
+    }
+    return {k: execution_summary[k] for k in keep_keys if k in execution_summary}
+
+
+def _compact_meta(meta: Dict[str, Any] | None) -> Dict[str, Any]:
+    meta = meta or {}
+    compact: Dict[str, Any] = {
+        "success": bool(meta.get("success")),
+        "agent_impl": meta.get("agent_impl"),
+        "error": meta.get("error"),
+    }
+
+    for key in (
+        "resumed",
+        "split",
+        "view",
+        "requested_mode",
+        "selected_path",
+        "router_type",
+        "obligation_mode",
+        "wall_clock_time",
+        "llm_calls_used",
+        "llm_calls_budget",
+    ):
+        if key in meta:
+            compact[key] = meta.get(key)
+
+    files_touched = list(meta.get("files_touched", []) or [])
+    compact["files_touched"] = files_touched
+
+    planner_output = _compact_planner_output(meta.get("planner_output"))
+    if planner_output:
+        compact["planner_output"] = planner_output
+
+    if "router_features" in meta:
+        compact["router_features"] = meta.get("router_features")
+    if "router_decision" in meta:
+        compact["router_decision"] = meta.get("router_decision")
+
+    if "execution_summary" in meta:
+        compact["execution_summary"] = _compact_execution_summary(meta.get("execution_summary"))
+
+    search_summary = meta.get("search_summary") or {}
+    if search_summary:
+        compact["search_summary"] = {
+            key: search_summary.get(key)
+            for key in ("candidates_considered", "execution_candidates_tried")
+            if key in search_summary
+        }
+
+    primary_path_meta = meta.get("primary_path_meta")
+    if isinstance(primary_path_meta, dict):
+        compact["primary_path_meta"] = _compact_meta(primary_path_meta)
+
+    return _json_safe(compact)
+
+
 def _list_seed_dirs(bench_root: Path, seed_filter: set[str] | None = None) -> List[Path]:
     seed_dirs = sorted([p for p in bench_root.iterdir() if p.is_dir() and (p / "seed_report.json").exists()])
     if seed_filter:
@@ -411,7 +500,7 @@ def run_eval(
         run_csv = job["run_csv"]
 
         if resume and run_csv.exists():
-            meta = {
+            full_meta = {
                 "success": True,
                 "resumed": True,
                 "files_touched": [],
@@ -422,15 +511,16 @@ def run_eval(
                 "agent_impl": f"{mode}_resume",
             }
         else:
-            meta = _run_agent_once(mode, pub, pri, split, view, run_csv, access_mode=access_mode)
+            full_meta = _run_agent_once(mode, pub, pri, split, view, run_csv, access_mode=access_mode)
         score = score_single(result_path=run_csv, gold_path=gold, spec=spec)
         attribution_private = pri if split != "l0" else None
         attribution = attribute_failure(
             score=score,
             result_csv=run_csv,
             manifest_private=attribution_private,
-            agent_meta=meta,
+            agent_meta=full_meta,
         )
+        meta = _compact_meta(full_meta)
         return {
             "seed_id": seed_id,
             "variant": variant,

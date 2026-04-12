@@ -15,7 +15,6 @@ from typing import Any, Dict, List
 import pandas as pd
 
 from evaluation.llm_backend import create_llm_session
-from evaluation.support_plan_agent import run_support_plan_agent
 from evaluation.support_plan_agent.observable import build_observable_sketch
 from evaluation.workspace_catalog import build_workspace_catalog, summarize_workspace, tokenize
 
@@ -24,6 +23,7 @@ ROOT = Path(__file__).resolve().parents[1]
 HDR_PROJECT_ROOT = ROOT.parents[1]
 HDRBENCH_MVP_ROOT = HDR_PROJECT_ROOT / "hdrbench_mvp"
 DS_AGENT_ADAPTER = ROOT / "path_a_ds_agent" / "hdrbench_adapter.py"
+SUPPORT_PATH_ADAPTER = ROOT / "evaluation" / "path_b_support_adapter.py"
 PUBLIC_SOURCE_EXTS = {".csv", ".parquet", ".sqlite"}
 
 
@@ -438,6 +438,80 @@ def _run_ds_specialist(
     return meta
 
 
+def _run_support_path(
+    instruction: str,
+    workspace: Path,
+    deliverable_spec: Dict[str, Any],
+    output_csv: Path,
+    obligation_mode: str = "full",
+) -> Dict[str, Any]:
+    required_columns = list(deliverable_spec.get("required_columns", []))
+    env = os.environ.copy()
+    env["PYTHONPATH"] = os.pathsep.join(
+        [
+            str(ROOT),
+            env.get("PYTHONPATH", ""),
+        ]
+    ).strip(os.pathsep)
+
+    proc: subprocess.CompletedProcess[str] | None = None
+    error_text: str | None = None
+    try:
+        proc = subprocess.run(
+            [
+                sys.executable,
+                str(SUPPORT_PATH_ADAPTER),
+                "--instruction",
+                instruction,
+                "--workspace",
+                str(workspace),
+                "--deliverable-spec-json",
+                json.dumps(deliverable_spec, ensure_ascii=False),
+                "--output-csv",
+                str(output_csv),
+                "--obligation-mode",
+                obligation_mode,
+            ],
+            text=True,
+            capture_output=True,
+            env=env,
+            timeout=1200,
+        )
+    except subprocess.TimeoutExpired as exc:
+        error_text = f"support path timeout after {exc.timeout}s"
+        proc = subprocess.CompletedProcess(
+            args=exc.cmd,
+            returncode=124,
+            stdout=(exc.stdout or ""),
+            stderr=(exc.stderr or ""),
+        )
+    except Exception as exc:  # noqa: BLE001
+        error_text = str(exc)
+
+    meta: Dict[str, Any] = {
+        "success": bool(proc and proc.returncode == 0 and _csv_has_content(output_csv)),
+        "files_touched": [],
+        "error": None if proc and proc.returncode == 0 else (error_text or ((proc.stderr or proc.stdout)[-4000:] if proc else "support path launch failed")),
+        "adapter_stdout": (proc.stdout[-4000:] if proc else ""),
+        "adapter_stderr": (proc.stderr[-4000:] if proc else ""),
+        "path_impl": "support_plan_subprocess",
+    }
+    if proc and proc.stdout.strip():
+        try:
+            parsed = json.loads(proc.stdout.strip().splitlines()[-1])
+            if isinstance(parsed, dict):
+                meta.update(parsed)
+        except Exception:
+            pass
+    _normalize_output_csv_schema(output_csv, required_columns)
+    if not _csv_has_content(output_csv):
+        pd.DataFrame(columns=required_columns).to_csv(output_csv, index=False)
+        meta["success"] = False
+        if not meta.get("error"):
+            meta["error"] = "support path did not create a non-empty output csv"
+    return meta
+
+
 def run_ds_specialist_agent(
     instruction: str,
     workspace: Path,
@@ -484,7 +558,7 @@ def run_hybrid_router_agent(
     if selected_path == "path_a":
         primary_meta = _run_ds_specialist(instruction, workspace, deliverable_spec, output_csv)
     else:
-        primary_meta = run_support_plan_agent(
+        primary_meta = _run_support_path(
             instruction=instruction,
             workspace=workspace,
             deliverable_spec=deliverable_spec,
