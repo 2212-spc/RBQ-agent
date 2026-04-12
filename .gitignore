@@ -28,6 +28,7 @@ outputs/batch4_*/
 outputs/case_smoke_*/
 outputs/full_hybrid_router_*/
 outputs/smoke_subproc_*/
+outputs/smoke_resume_llm_missing_*/
 outputs/smoke_ds_specialist_*/
 outputs/smoke_hybrid_*/
 outputs/smoke_support_plan_*/

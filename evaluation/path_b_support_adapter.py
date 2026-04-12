@@ -10,6 +10,68 @@ from evaluation.repo_agent_utils import csv_has_content, ensure_parent, normaliz
 from evaluation.support_plan_agent import run_support_plan_agent
 
 
+def _compact_planner_output(planner_output: dict | None) -> dict:
+    planner_output = planner_output or {}
+    relevant_files = [item for item in planner_output.get("relevant_files", []) if item]
+    output_mappings = []
+    for item in planner_output.get("output_mappings", []) or []:
+        if not isinstance(item, dict):
+            continue
+        slim = {}
+        if item.get("source_file"):
+            slim["source_file"] = item["source_file"]
+        if item.get("target_column"):
+            slim["target_column"] = item["target_column"]
+        if slim:
+            output_mappings.append(slim)
+    compact = {}
+    if relevant_files:
+        compact["relevant_files"] = relevant_files
+    if output_mappings:
+        compact["output_mappings"] = output_mappings
+    return compact
+
+
+def _compact_execution_summary(execution_summary: dict | None) -> dict:
+    execution_summary = execution_summary or {}
+    keep = (
+        "success",
+        "executed",
+        "row_count",
+        "empty_result",
+        "non_empty_output",
+        "reason",
+        "selected_candidate_rank",
+    )
+    return {k: execution_summary[k] for k in keep if k in execution_summary}
+
+
+def _compact_support_meta(meta: dict) -> dict:
+    compact = {
+        "success": bool(meta.get("success")),
+        "agent_impl": meta.get("agent_impl", "support_plan_agent"),
+        "error": meta.get("error"),
+        "files_touched": list(meta.get("files_touched", []) or []),
+    }
+    planner_output = _compact_planner_output(meta.get("planner_output"))
+    if planner_output:
+        compact["planner_output"] = planner_output
+    execution_summary = _compact_execution_summary(meta.get("execution_summary"))
+    if execution_summary:
+        compact["execution_summary"] = execution_summary
+    for key in ("wall_clock_time", "llm_calls_used", "llm_calls_budget", "obligation_mode"):
+        if key in meta:
+            compact[key] = meta.get(key)
+    search_summary = meta.get("search_summary") or {}
+    if search_summary:
+        compact["search_summary"] = {
+            key: search_summary.get(key)
+            for key in ("candidates_considered", "execution_candidates_tried")
+            if key in search_summary
+        }
+    return compact
+
+
 def main() -> None:
     parser = argparse.ArgumentParser()
     parser.add_argument("--instruction", required=True)
@@ -40,7 +102,7 @@ def main() -> None:
         if not meta.get("error"):
             meta["error"] = "support path did not create a non-empty output csv"
 
-    print(json.dumps(meta, ensure_ascii=False))
+    print(json.dumps(_compact_support_meta(meta), ensure_ascii=False))
 
 
 if __name__ == "__main__":

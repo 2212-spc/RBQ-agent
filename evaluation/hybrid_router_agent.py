@@ -512,6 +512,26 @@ def _run_support_path(
     return meta
 
 
+def _compact_primary_meta(meta: Dict[str, Any]) -> Dict[str, Any]:
+    compact: Dict[str, Any] = {
+        "success": bool(meta.get("success")),
+        "agent_impl": meta.get("agent_impl"),
+        "path_impl": meta.get("path_impl"),
+        "error": meta.get("error"),
+        "files_touched": list(meta.get("files_touched", []) or []),
+    }
+    if meta.get("planner_output"):
+        compact["planner_output"] = meta.get("planner_output")
+    if meta.get("execution_summary"):
+        compact["execution_summary"] = meta.get("execution_summary")
+    if meta.get("search_summary"):
+        compact["search_summary"] = meta.get("search_summary")
+    for key in ("wall_clock_time", "llm_calls_used", "llm_calls_budget"):
+        if key in meta:
+            compact[key] = meta.get(key)
+    return compact
+
+
 def run_ds_specialist_agent(
     instruction: str,
     workspace: Path,
@@ -576,8 +596,8 @@ def run_hybrid_router_agent(
         "router_type": router_type,
         "router_decision": route,
         "router_features": features.to_dict(),
-        "workspace_summary": workspace_summary,
-        "observable_sketch": observable_sketch.to_dict(),
-        "primary_path_meta": primary_meta,
+        "planner_output": primary_meta.get("planner_output", {}),
+        "execution_summary": primary_meta.get("execution_summary", {}),
+        "primary_path_meta": _compact_primary_meta(primary_meta),
         "agent_impl": f"hybrid_router_{router_type}",
     }
