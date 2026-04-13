@@ -31,6 +31,10 @@ SUPPORTED_MODES = {
     "ds_specialist_agent",
     "support_plan_agent",
     "support_plan_no_obligation",
+    "support_plan_subprocess_agent",
+    "support_plan_subprocess_no_obligation",
+    "support_plan_subprocess_no_screening",
+    "support_plan_subprocess_top1_struct_only",
     "hybrid_router_rule",
     "hybrid_router_llm",
     "contrastive_agent",
@@ -45,14 +49,27 @@ SPLIT_VIEW_OPTIONS = {
 
 
 def _canonical_mode(mode: str) -> str:
-    if mode in {"contrastive_agent", "retrieval_llm_agent", "support_plan_no_obligation"}:
+    if mode in {
+        "contrastive_agent",
+        "retrieval_llm_agent",
+        "support_plan_no_obligation",
+        "support_plan_subprocess_no_obligation",
+        "support_plan_subprocess_no_screening",
+        "support_plan_subprocess_top1_struct_only",
+    }:
         return "support_plan_agent"
+    if mode == "support_plan_subprocess_agent":
+        return "support_plan_subprocess_agent"
     return mode
 
 
 def _agent_variant(mode: str) -> str:
-    if mode == "support_plan_no_obligation":
+    if mode in {"support_plan_no_obligation", "support_plan_subprocess_no_obligation"}:
         return "no_obligation"
+    if mode == "support_plan_subprocess_no_screening":
+        return "no_screening"
+    if mode == "support_plan_subprocess_top1_struct_only":
+        return "top1_struct_only"
     return "default"
 
 
@@ -154,6 +171,8 @@ def _compact_meta(meta: Dict[str, Any] | None) -> Dict[str, Any]:
         "selected_path",
         "router_type",
         "obligation_mode",
+        "screening_mode",
+        "selection_mode",
         "wall_clock_time",
         "llm_calls_used",
         "llm_calls_budget",
@@ -348,6 +367,28 @@ def _run_agent_once(
         meta["agent_impl"] = meta.get("agent_impl", canonical_mode)
         if mode in {"contrastive_agent", "retrieval_llm_agent"}:
             meta["deprecated_alias"] = True
+        return meta
+
+    if canonical_mode == "support_plan_subprocess_agent":
+        from evaluation.hybrid_router_agent import run_support_subprocess_agent
+
+        meta = run_support_subprocess_agent(
+            instruction=manifest_public.get("instruction", ""),
+            workspace=workspace,
+            deliverable_spec=manifest_public.get("deliverable_spec", {}),
+            output_csv=out_csv,
+            obligation_mode="off" if mode == "support_plan_subprocess_no_obligation" else "full",
+            screening_mode="off" if mode == "support_plan_subprocess_no_screening" else "full",
+            selection_mode="top1_struct" if mode == "support_plan_subprocess_top1_struct_only" else "execution",
+        )
+        meta["split"] = split
+        meta["view"] = view
+        if not meta.get("success"):
+            req = manifest_public["deliverable_spec"].get("required_columns", [])
+            out_csv.parent.mkdir(parents=True, exist_ok=True)
+            pd.DataFrame(columns=req).to_csv(out_csv, index=False)
+        meta["requested_mode"] = mode
+        meta["agent_impl"] = meta.get("agent_impl", canonical_mode)
         return meta
 
     if canonical_mode == "ds_specialist_agent":

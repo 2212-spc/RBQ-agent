@@ -29,13 +29,19 @@ outputs/case_smoke_*/
 outputs/full_hybrid_router_*/
 outputs/smoke_subproc_*/
 outputs/smoke_resume_llm_missing_*/
+outputs/smoke_no_screening_*/
+outputs/smoke_top1_struct_*/
 outputs/smoke_ds_specialist_*/
 outputs/smoke_hybrid_*/
 outputs/smoke_support_plan_*/
 outputs/router_partial_readout*.json
 outputs/pilot_hybrid_router_*/
 outputs/pilot_hybrid_router_*_cache/
+outputs/router_probe_*/
 outputs/tmp_ds_debug_*/
+outputs/full_support_path_*/
+outputs/full_support_path_no_screening_*/
+outputs/full_support_path_top1_struct_*/
 
 spider__*/
 

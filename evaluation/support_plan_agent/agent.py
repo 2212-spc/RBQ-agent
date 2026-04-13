@@ -139,9 +139,15 @@ def run_support_plan_agent(
     deliverable_spec: Dict[str, Any],
     output_csv: Path,
     obligation_mode: str = "full",
+    screening_mode: str = "full",
+    selection_mode: str = "execution",
 ) -> Dict[str, Any]:
     if obligation_mode not in {"full", "off"}:
         raise ValueError(f"Unsupported obligation_mode: {obligation_mode}")
+    if screening_mode not in {"full", "off"}:
+        raise ValueError(f"Unsupported screening_mode: {screening_mode}")
+    if selection_mode not in {"execution", "top1_struct"}:
+        raise ValueError(f"Unsupported selection_mode: {selection_mode}")
     started = time.time()
     output_csv.parent.mkdir(parents=True, exist_ok=True)
 
@@ -170,6 +176,7 @@ def run_support_plan_agent(
         obligation_sketch=obligation_sketch,
         catalog=catalog,
         llm_grounding=llm_grounding,
+        screening_mode=screening_mode,
     )
 
     # --- Step 5: Execution-based verification on top-3 candidates ---
@@ -179,9 +186,16 @@ def run_support_plan_agent(
     # Take up to 3 candidates for execution verification
     candidates = candidates[:3]
 
-    plan, plan_ir, compile_meta = _select_best_by_execution(
-        candidates, observable_sketch, obligation_sketch, catalog, deliverable_spec, output_csv,
-    )
+    if selection_mode == "top1_struct":
+        plan = candidates[0]
+        plan_ir = build_support_plan_ir(plan, observable_sketch, obligation_sketch, catalog)
+        compile_meta = compile_support_plan(plan, plan_ir, catalog, deliverable_spec, output_csv)
+        compile_meta.setdefault("execution_summary", {})
+        compile_meta["execution_summary"]["selected_candidate_rank"] = 1
+    else:
+        plan, plan_ir, compile_meta = _select_best_by_execution(
+            candidates, observable_sketch, obligation_sketch, catalog, deliverable_spec, output_csv,
+        )
 
     # Update plan with verification info
     verifier_trace = verify_support_plan(plan, observable_sketch, obligation_sketch, catalog)
@@ -229,6 +243,8 @@ def run_support_plan_agent(
         "observable_sketch": observable_sketch.to_dict(),
         "obligation_sketch": obligation_sketch.to_dict(),
         "obligation_mode": obligation_mode,
+        "screening_mode": screening_mode,
+        "selection_mode": selection_mode,
         "llm_grounding": llm_grounding,
         "llm_overlay_edge_count": len(overlay_edges),
         "llm_overlay_edges": overlay_edges_to_dict(overlay_edges),

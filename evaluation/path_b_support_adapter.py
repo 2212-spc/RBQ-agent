@@ -68,7 +68,7 @@ def _compact_support_meta(meta: dict) -> dict:
     execution_summary = _compact_execution_summary(meta.get("execution_summary"))
     if execution_summary:
         compact["execution_summary"] = execution_summary
-    for key in ("wall_clock_time", "llm_calls_used", "llm_calls_budget", "obligation_mode"):
+    for key in ("wall_clock_time", "llm_calls_used", "llm_calls_budget", "obligation_mode", "screening_mode", "selection_mode"):
         if key in meta:
             compact[key] = meta.get(key)
     token_usage = meta.get("token_usage") or {}
@@ -97,6 +97,8 @@ def main() -> None:
     parser.add_argument("--deliverable-spec-json", required=True)
     parser.add_argument("--output-csv", required=True)
     parser.add_argument("--obligation-mode", default="full")
+    parser.add_argument("--screening-mode", default="full")
+    parser.add_argument("--selection-mode", default="execution")
     args = parser.parse_args()
 
     workspace = Path(args.workspace).resolve()
@@ -111,6 +113,8 @@ def main() -> None:
         deliverable_spec=deliverable_spec,
         output_csv=output_csv,
         obligation_mode=args.obligation_mode,
+        screening_mode=args.screening_mode,
+        selection_mode=args.selection_mode,
     )
 
     normalize_output_csv_schema(output_csv, required_columns)

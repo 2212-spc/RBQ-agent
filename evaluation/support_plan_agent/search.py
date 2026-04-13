@@ -2308,7 +2308,10 @@ def _finalize_plan_candidate(
     search_log_entry: Dict[str, Any],
     grounding_hints: Dict[str, Any] | None = None,
     family_prior_bonus: float = 0.0,
+    screening_mode: str = "full",
 ) -> Tuple[SupportPlan, Dict[str, Any]]:
+    if screening_mode not in {"full", "off"}:
+        raise ValueError(f"Unsupported screening_mode: {screening_mode}")
     trace = verify_support_plan(plan, observable_sketch, obligation_sketch, catalog)
     satisfied, unmet = obligations_from_trace(trace, obligation_sketch)
     plan.satisfied_obligations = satisfied
@@ -2323,32 +2326,46 @@ def _finalize_plan_candidate(
     plan.confidence += family_prior_bonus
     trace_bonus = sum(item["score"] for item in trace if item["passed"]) * 2.0
     plan.confidence += trace_bonus
-    joint_bonus, rerank_breakdown = _joint_rerank_adjustment(
-        plan,
-        observable_sketch,
-        obligation_sketch,
-        catalog,
-        grounding_hints=grounding_hints,
-    )
-    hard_invalid_reasons = _hard_invalid_reasons(
-        plan,
-        observable_sketch,
-        obligation_sketch,
-        catalog,
-        grounding_hints=grounding_hints,
-    )
-    hard_invalid = bool(hard_invalid_reasons)
-    semantic_complete_reasons = _semantic_complete_reasons(
-        plan,
-        observable_sketch,
-        obligation_sketch,
-        catalog,
-        grounding_hints=grounding_hints,
-    )
-    semantic_complete = (not hard_invalid) and (not semantic_complete_reasons)
-    if hard_invalid:
-        plan.confidence -= 1000.0
-    plan.confidence += joint_bonus
+    rerank_breakdown = {
+        "output_consistency": 0.0,
+        "filter_consistency": 0.0,
+        "aggregation_consistency": 0.0,
+        "ordering_consistency": 0.0,
+        "obligation_consistency": 0.0,
+        "shape_sanity": 0.0,
+    }
+    joint_bonus = 0.0
+    hard_invalid_reasons: List[str] = []
+    hard_invalid = False
+    semantic_complete_reasons: List[str] = []
+    semantic_complete = True
+    if screening_mode == "full":
+        joint_bonus, rerank_breakdown = _joint_rerank_adjustment(
+            plan,
+            observable_sketch,
+            obligation_sketch,
+            catalog,
+            grounding_hints=grounding_hints,
+        )
+        hard_invalid_reasons = _hard_invalid_reasons(
+            plan,
+            observable_sketch,
+            obligation_sketch,
+            catalog,
+            grounding_hints=grounding_hints,
+        )
+        hard_invalid = bool(hard_invalid_reasons)
+        semantic_complete_reasons = _semantic_complete_reasons(
+            plan,
+            observable_sketch,
+            obligation_sketch,
+            catalog,
+            grounding_hints=grounding_hints,
+        )
+        semantic_complete = (not hard_invalid) and (not semantic_complete_reasons)
+        if hard_invalid:
+            plan.confidence -= 1000.0
+        plan.confidence += joint_bonus
     base_retrieval_score = round(plan.confidence - joint_bonus - trace_bonus - family_prior_bonus + (1000.0 if hard_invalid else 0.0), 4)
     plan.plan_score = PlanScore(
         family_name=family_name,
@@ -2392,6 +2409,7 @@ def _finalize_plan_candidate(
     search_log_entry["semantic_complete_reasons"] = semantic_complete_reasons
     search_log_entry["hard_invalid"] = hard_invalid
     search_log_entry["hard_invalid_reasons"] = hard_invalid_reasons
+    search_log_entry["screening_mode"] = screening_mode
     return plan, search_log_entry
 
 
@@ -2412,6 +2430,7 @@ def search_support_plans(
     obligation_sketch: ObligationSketch,
     catalog: WorkspaceCatalog,
     llm_grounding: Dict[str, Any] | None = None,
+    screening_mode: str = "full",
 ) -> Dict[str, Any]:
     question_tok = tokenize(instruction)
     # Extract LLM grounding sets for scoring
@@ -2563,6 +2582,7 @@ def search_support_plans(
                         "llm_family": llm_family,
                         "llm_family_confidence": round(llm_family_confidence, 4),
                     },
+                    screening_mode=screening_mode,
                 )
                 plan_candidates.append(plan)
                 search_log.append(log_entry)
@@ -2684,6 +2704,7 @@ def search_support_plans(
                             "llm_family": llm_family,
                             "llm_family_confidence": round(llm_family_confidence, 4),
                         },
+                        screening_mode=screening_mode,
                     )
                     plan_candidates.append(plan)
                     search_log.append(log_entry)

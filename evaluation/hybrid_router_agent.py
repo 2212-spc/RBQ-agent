@@ -475,6 +475,8 @@ def _run_support_path(
     deliverable_spec: Dict[str, Any],
     output_csv: Path,
     obligation_mode: str = "full",
+    screening_mode: str = "full",
+    selection_mode: str = "execution",
 ) -> Dict[str, Any]:
     required_columns = list(deliverable_spec.get("required_columns", []))
     env = os.environ.copy()
@@ -503,6 +505,10 @@ def _run_support_path(
                 str(output_csv),
                 "--obligation-mode",
                 obligation_mode,
+                "--screening-mode",
+                screening_mode,
+                "--selection-mode",
+                selection_mode,
             ],
             text=True,
             capture_output=True,
@@ -578,6 +584,32 @@ def run_ds_specialist_agent(
     _normalize_output_csv_schema(output_csv, required_columns)
     _ensure_empty_output(output_csv, required_columns)
     meta.setdefault("agent_impl", "ds_specialist_agent")
+    return meta
+
+
+def run_support_subprocess_agent(
+    instruction: str,
+    workspace: Path,
+    deliverable_spec: Dict[str, Any],
+    output_csv: Path,
+    obligation_mode: str = "full",
+    screening_mode: str = "full",
+    selection_mode: str = "execution",
+) -> Dict[str, Any]:
+    output_csv.parent.mkdir(parents=True, exist_ok=True)
+    meta = _run_support_path(
+        instruction=instruction,
+        workspace=workspace,
+        deliverable_spec=deliverable_spec,
+        output_csv=output_csv,
+        obligation_mode=obligation_mode,
+        screening_mode=screening_mode,
+        selection_mode=selection_mode,
+    )
+    required_columns = list(deliverable_spec.get("required_columns", []))
+    _normalize_output_csv_schema(output_csv, required_columns)
+    _ensure_empty_output(output_csv, required_columns)
+    meta.setdefault("agent_impl", "support_plan_subprocess_agent")
     return meta
 
 
