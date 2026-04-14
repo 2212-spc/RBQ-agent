@@ -31,8 +31,10 @@ SUPPORTED_MODES = {
     "ds_specialist_agent",
     "support_plan_agent",
     "support_plan_no_obligation",
+    "support_plan_no_calibration",
     "support_plan_subprocess_agent",
     "support_plan_subprocess_no_obligation",
+    "support_plan_subprocess_no_calibration",
     "support_plan_subprocess_no_screening",
     "support_plan_subprocess_top1_struct_only",
     "hybrid_router_rule",
@@ -53,7 +55,9 @@ def _canonical_mode(mode: str) -> str:
         "contrastive_agent",
         "retrieval_llm_agent",
         "support_plan_no_obligation",
+        "support_plan_no_calibration",
         "support_plan_subprocess_no_obligation",
+        "support_plan_subprocess_no_calibration",
         "support_plan_subprocess_no_screening",
         "support_plan_subprocess_top1_struct_only",
     }:
@@ -66,6 +70,8 @@ def _canonical_mode(mode: str) -> str:
 def _agent_variant(mode: str) -> str:
     if mode in {"support_plan_no_obligation", "support_plan_subprocess_no_obligation"}:
         return "no_obligation"
+    if mode in {"support_plan_no_calibration", "support_plan_subprocess_no_calibration"}:
+        return "no_calibration"
     if mode == "support_plan_subprocess_no_screening":
         return "no_screening"
     if mode == "support_plan_subprocess_top1_struct_only":
@@ -168,6 +174,7 @@ def _compact_meta(meta: Dict[str, Any] | None) -> Dict[str, Any]:
         "split",
         "view",
         "requested_mode",
+        "grounding_mode",
         "selected_path",
         "router_type",
         "obligation_mode",
@@ -356,6 +363,7 @@ def _run_agent_once(
             deliverable_spec=manifest_public.get("deliverable_spec", {}),
             output_csv=out_csv,
             obligation_mode="off" if mode == "support_plan_no_obligation" else "full",
+            grounding_mode="no_calibration" if mode == "support_plan_no_calibration" else "full",
         )
         meta["split"] = split
         meta["view"] = view
@@ -378,6 +386,7 @@ def _run_agent_once(
             deliverable_spec=manifest_public.get("deliverable_spec", {}),
             output_csv=out_csv,
             obligation_mode="off" if mode == "support_plan_subprocess_no_obligation" else "full",
+            grounding_mode="no_calibration" if mode == "support_plan_subprocess_no_calibration" else "full",
             screening_mode="off" if mode == "support_plan_subprocess_no_screening" else "full",
             selection_mode="top1_struct" if mode == "support_plan_subprocess_top1_struct_only" else "execution",
         )

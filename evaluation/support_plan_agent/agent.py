@@ -139,11 +139,14 @@ def run_support_plan_agent(
     deliverable_spec: Dict[str, Any],
     output_csv: Path,
     obligation_mode: str = "full",
+    grounding_mode: str = "full",
     screening_mode: str = "full",
     selection_mode: str = "execution",
 ) -> Dict[str, Any]:
     if obligation_mode not in {"full", "off"}:
         raise ValueError(f"Unsupported obligation_mode: {obligation_mode}")
+    if grounding_mode not in {"full", "no_calibration", "off"}:
+        raise ValueError(f"Unsupported grounding_mode: {grounding_mode}")
     if screening_mode not in {"full", "off"}:
         raise ValueError(f"Unsupported screening_mode: {screening_mode}")
     if selection_mode not in {"execution", "top1_struct"}:
@@ -164,10 +167,13 @@ def run_support_plan_agent(
         obligation_sketch = disable_obligation_reasoning(obligation_sketch)
 
     # --- Step 3: LLM pre-grounding (1 LLM call) ---
-    llm_grounding = build_llm_grounding(instruction=instruction, observable_sketch=observable_sketch, catalog=catalog, session=session)
-    overlay_edges = build_validated_overlay_edges(llm_grounding, catalog)
-    if overlay_edges:
-        catalog.join_edges.extend(overlay_edges)
+    llm_grounding: Dict[str, Any] | None = None
+    overlay_edges = []
+    if grounding_mode != "off":
+        llm_grounding = build_llm_grounding(instruction=instruction, observable_sketch=observable_sketch, catalog=catalog, session=session)
+        overlay_edges = build_validated_overlay_edges(llm_grounding, catalog)
+        if overlay_edges:
+            catalog.join_edges.extend(overlay_edges)
 
     # --- Step 4: Search support plans (0 LLM calls, uses grounding) ---
     search_summary = search_support_plans(
@@ -176,6 +182,7 @@ def run_support_plan_agent(
         obligation_sketch=obligation_sketch,
         catalog=catalog,
         llm_grounding=llm_grounding,
+        grounding_mode=grounding_mode,
         screening_mode=screening_mode,
     )
 
@@ -243,6 +250,7 @@ def run_support_plan_agent(
         "observable_sketch": observable_sketch.to_dict(),
         "obligation_sketch": obligation_sketch.to_dict(),
         "obligation_mode": obligation_mode,
+        "grounding_mode": grounding_mode,
         "screening_mode": screening_mode,
         "selection_mode": selection_mode,
         "llm_grounding": llm_grounding,

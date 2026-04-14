@@ -433,6 +433,8 @@ def _run_ds_specialist(
                     str(output_csv),
                 ],
                 text=True,
+                encoding="utf-8",
+                errors="replace",
                 capture_output=True,
                 env=env,
                 timeout=900,
@@ -451,9 +453,9 @@ def _run_ds_specialist(
     meta: Dict[str, Any] = {
         "success": bool(proc and proc.returncode == 0 and _csv_has_content(output_csv)),
         "files_touched": visible_files,
-        "error": None if proc and proc.returncode == 0 else (error_text or ((proc.stderr or proc.stdout)[-4000:] if proc else "specialist launch failed")),
-        "adapter_stdout": (proc.stdout[-4000:] if proc else ""),
-        "adapter_stderr": (proc.stderr[-4000:] if proc else ""),
+        "error": None if proc and proc.returncode == 0 else (error_text or (((proc.stderr or "") or (proc.stdout or ""))[-4000:] if proc else "specialist launch failed")),
+        "adapter_stdout": (((proc.stdout or "")[-4000:]) if proc else ""),
+        "adapter_stderr": (((proc.stderr or "")[-4000:]) if proc else ""),
         "path_impl": "ds_agent_specialist",
     }
     if proc and proc.stdout.strip():
@@ -475,6 +477,7 @@ def _run_support_path(
     deliverable_spec: Dict[str, Any],
     output_csv: Path,
     obligation_mode: str = "full",
+    grounding_mode: str = "full",
     screening_mode: str = "full",
     selection_mode: str = "execution",
 ) -> Dict[str, Any]:
@@ -505,12 +508,16 @@ def _run_support_path(
                 str(output_csv),
                 "--obligation-mode",
                 obligation_mode,
+                "--grounding-mode",
+                grounding_mode,
                 "--screening-mode",
                 screening_mode,
                 "--selection-mode",
                 selection_mode,
             ],
             text=True,
+            encoding="utf-8",
+            errors="replace",
             capture_output=True,
             env=env,
             timeout=1200,
@@ -529,9 +536,9 @@ def _run_support_path(
     meta: Dict[str, Any] = {
         "success": bool(proc and proc.returncode == 0 and _csv_has_content(output_csv)),
         "files_touched": [],
-        "error": None if proc and proc.returncode == 0 else (error_text or ((proc.stderr or proc.stdout)[-4000:] if proc else "support path launch failed")),
-        "adapter_stdout": (proc.stdout[-4000:] if proc else ""),
-        "adapter_stderr": (proc.stderr[-4000:] if proc else ""),
+        "error": None if proc and proc.returncode == 0 else (error_text or (((proc.stderr or "") or (proc.stdout or ""))[-4000:] if proc else "support path launch failed")),
+        "adapter_stdout": (((proc.stdout or "")[-4000:]) if proc else ""),
+        "adapter_stderr": (((proc.stderr or "")[-4000:]) if proc else ""),
         "path_impl": "support_plan_subprocess",
     }
     if proc and proc.stdout.strip():
@@ -561,7 +568,7 @@ def _compact_primary_meta(meta: Dict[str, Any]) -> Dict[str, Any]:
         compact["execution_summary"] = meta.get("execution_summary")
     if meta.get("search_summary"):
         compact["search_summary"] = meta.get("search_summary")
-    for key in ("wall_clock_time", "llm_calls_used", "llm_calls_budget"):
+    for key in ("wall_clock_time", "llm_calls_used", "llm_calls_budget", "obligation_mode", "grounding_mode", "screening_mode", "selection_mode"):
         if key in meta:
             compact[key] = meta.get(key)
     return compact
@@ -593,6 +600,7 @@ def run_support_subprocess_agent(
     deliverable_spec: Dict[str, Any],
     output_csv: Path,
     obligation_mode: str = "full",
+    grounding_mode: str = "full",
     screening_mode: str = "full",
     selection_mode: str = "execution",
 ) -> Dict[str, Any]:
@@ -603,6 +611,7 @@ def run_support_subprocess_agent(
         deliverable_spec=deliverable_spec,
         output_csv=output_csv,
         obligation_mode=obligation_mode,
+        grounding_mode=grounding_mode,
         screening_mode=screening_mode,
         selection_mode=selection_mode,
     )

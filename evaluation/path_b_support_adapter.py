@@ -7,9 +7,11 @@ from pathlib import Path
 
 import pandas as pd
 
-HDRBENCH_MVP_ROOT = Path(__file__).resolve().parents[3] / "hdrbench_mvp"
+HDRBENCH_MVP_ROOT = Path(__file__).resolve().parents[1]
 HDRBENCH_EVAL_ROOT = HDRBENCH_MVP_ROOT / "evaluation"
 CURRENT_EVAL_ROOT = Path(__file__).resolve().parent
+if str(HDRBENCH_MVP_ROOT) not in sys.path:
+    sys.path.insert(0, str(HDRBENCH_MVP_ROOT))
 if str(HDRBENCH_EVAL_ROOT) not in sys.path:
     sys.path.insert(0, str(HDRBENCH_EVAL_ROOT))
 if str(CURRENT_EVAL_ROOT) not in sys.path:
@@ -68,7 +70,7 @@ def _compact_support_meta(meta: dict) -> dict:
     execution_summary = _compact_execution_summary(meta.get("execution_summary"))
     if execution_summary:
         compact["execution_summary"] = execution_summary
-    for key in ("wall_clock_time", "llm_calls_used", "llm_calls_budget", "obligation_mode", "screening_mode", "selection_mode"):
+    for key in ("wall_clock_time", "llm_calls_used", "llm_calls_budget", "obligation_mode", "grounding_mode", "screening_mode", "selection_mode"):
         if key in meta:
             compact[key] = meta.get(key)
     token_usage = meta.get("token_usage") or {}
@@ -97,6 +99,7 @@ def main() -> None:
     parser.add_argument("--deliverable-spec-json", required=True)
     parser.add_argument("--output-csv", required=True)
     parser.add_argument("--obligation-mode", default="full")
+    parser.add_argument("--grounding-mode", default="full")
     parser.add_argument("--screening-mode", default="full")
     parser.add_argument("--selection-mode", default="execution")
     args = parser.parse_args()
@@ -113,6 +116,7 @@ def main() -> None:
         deliverable_spec=deliverable_spec,
         output_csv=output_csv,
         obligation_mode=args.obligation_mode,
+        grounding_mode=args.grounding_mode,
         screening_mode=args.screening_mode,
         selection_mode=args.selection_mode,
     )

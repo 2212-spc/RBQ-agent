@@ -413,6 +413,71 @@ class SupportPlanSearchTests(unittest.TestCase):
             self.assertIn("selected_order_binding_unsupported_by_calibrated_prior", hard_reasons)
             self.assertIn("order_binding_not_supported_by_calibrated_prior", semantic_reasons)
 
+    def test_no_calibration_mode_skips_calibrated_order_guardrails(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            workspace = Path(tmp_dir)
+            pd.DataFrame({"Title": ["A", "B"], "Issues": [1, 2], "value": [10, 20]}).to_csv(workspace / "books.csv", index=False)
+            catalog = build_workspace_catalog(workspace)
+            source = next(iter(catalog.sources.values()))
+            observable = ObservableSketch(
+                output_slots=[ObservableSlot(label="Title", role="entity")],
+                order_hint={"direction": "desc", "target": "publication price"},
+            )
+            obligations = ObligationSketch(obligations=[])
+            plan = SupportPlan(
+                output_bindings=[
+                    Binding(
+                        source_id=source.source_id,
+                        file_name=source.file_name,
+                        view_name=source.raw_view_name,
+                        column_name="Title",
+                        role="entity",
+                        score=10.0,
+                        metadata={"slot_label": "Title"},
+                    )
+                ],
+                plan_kind="direct_join",
+                order_binding=Binding(
+                    source_id=source.source_id,
+                    file_name=source.file_name,
+                    view_name=source.raw_view_name,
+                    column_name="Issues",
+                    role="order",
+                    score=8.0,
+                    reasons=["order_numeric_mismatch"],
+                    metadata={"target": "publication price", "direction": "desc"},
+                ),
+                operator_plan={"direction": "desc", "target": "publication price"},
+            )
+            grounding_hints = {
+                "order_priors_by_target": {
+                    "publication price": {
+                        (source.source_id, "value"): {
+                            "source_id": source.source_id,
+                            "column_name": "value",
+                            "confidence": 0.4,
+                            "raw_confidence": 0.9,
+                            "is_uncertain": True,
+                            "is_dummy_likely": False,
+                            "rank": 0,
+                            "is_primary": True,
+                            "cross_source_join_risk": True,
+                            "calibration_rules": ["rule_cross_source_without_join_evidence"],
+                        }
+                    }
+                },
+                "output_priors_by_slot": {},
+                "filter_priors_by_attribute": {},
+                "strong_multi_source_output": False,
+                "calibration_mode": "no_calibration",
+            }
+
+            hard_reasons = _hard_invalid_reasons(plan, observable, obligations, catalog, grounding_hints=grounding_hints)
+            semantic_reasons = _semantic_complete_reasons(plan, observable, obligations, catalog, grounding_hints=grounding_hints)
+            self.assertNotIn("selected_order_binding_unsupported_by_calibrated_prior", hard_reasons)
+            self.assertNotIn("selected_order_binding_without_join_evidence", hard_reasons)
+            self.assertNotIn("low_confidence_order_binding", semantic_reasons)
+
     def test_missing_order_binding_with_strong_calibrated_prior_is_hard_invalid(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:
             workspace = Path(tmp_dir)
@@ -569,6 +634,60 @@ class SupportPlanSearchTests(unittest.TestCase):
             semantic_reasons = _semantic_complete_reasons(plan, observable, obligations, catalog, grounding_hints=grounding_hints)
             self.assertIn("selected_output_binding_unsupported_by_calibrated_prior", hard_reasons)
             self.assertIn("output_binding_not_supported_by_calibrated_prior", semantic_reasons)
+
+    def test_no_calibration_mode_skips_calibrated_output_guardrails(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            workspace = Path(tmp_dir)
+            pd.DataFrame({"Location": ["A"], "name": ["Jet"]}).to_csv(workspace / "facts.csv", index=False)
+            catalog = build_workspace_catalog(workspace)
+            source = next(iter(catalog.sources.values()))
+            observable = ObservableSketch(
+                output_slots=[ObservableSlot(label="Aircraft", role="entity")]
+            )
+            obligations = ObligationSketch(obligations=[])
+            plan = SupportPlan(
+                output_bindings=[
+                    Binding(
+                        source_id=source.source_id,
+                        file_name=source.file_name,
+                        view_name=source.raw_view_name,
+                        column_name="name",
+                        role="entity",
+                        score=10.0,
+                        metadata={"slot_label": "Aircraft"},
+                    )
+                ],
+                plan_kind="direct_join",
+            )
+            grounding_hints = {
+                "output_priors_by_slot": {
+                    "Aircraft": {
+                        (source.source_id, "Location"): {
+                            "source_id": source.source_id,
+                            "column_name": "Location",
+                            "confidence": 0.4,
+                            "raw_confidence": 0.9,
+                            "is_uncertain": True,
+                            "is_dummy_likely": False,
+                            "rank": 0,
+                            "is_primary": True,
+                            "cross_source_join_risk": True,
+                            "calibration_rules": ["rule_cross_source_without_join_evidence"],
+                        }
+                    }
+                },
+                "filter_priors_by_attribute": {},
+                "order_priors_by_target": {},
+                "strong_multi_source_output": False,
+                "calibration_mode": "no_calibration",
+            }
+
+            hard_reasons = _hard_invalid_reasons(plan, observable, obligations, catalog, grounding_hints=grounding_hints)
+            semantic_reasons = _semantic_complete_reasons(plan, observable, obligations, catalog, grounding_hints=grounding_hints)
+            self.assertNotIn("selected_output_binding_unsupported_by_calibrated_prior", hard_reasons)
+            self.assertNotIn("selected_output_binding_without_join_evidence", hard_reasons)
+            self.assertNotIn("output_binding_not_supported_by_calibrated_prior", semantic_reasons)
+            self.assertNotIn("low_confidence_output_binding", semantic_reasons)
 
     def test_safe_fallback_restores_all_dummy_order_target(self) -> None:
         with tempfile.TemporaryDirectory() as tmp_dir:

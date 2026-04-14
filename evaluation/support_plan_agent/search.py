@@ -1929,6 +1929,13 @@ def _output_source_has_relational_support(
     return False
 
 
+def _calibration_guardrail_state(grounding_hints: Dict[str, Any] | None) -> tuple[bool, bool]:
+    calibration_mode = str((grounding_hints or {}).get("calibration_mode", "strict")).strip().lower()
+    guardrails_enabled = calibration_mode not in {"off", "no_calibration"}
+    relaxed_mode = guardrails_enabled and calibration_mode == "relaxed"
+    return guardrails_enabled, relaxed_mode
+
+
 def _hard_invalid_reasons(
     plan: SupportPlan,
     observable_sketch: ObservableSketch,
@@ -1937,8 +1944,7 @@ def _hard_invalid_reasons(
     grounding_hints: Dict[str, Any] | None = None,
 ) -> List[str]:
     reasons: List[str] = []
-    calibration_mode = str((grounding_hints or {}).get("calibration_mode", "strict"))
-    relaxed_mode = calibration_mode == "relaxed"
+    calibration_enabled, relaxed_mode = _calibration_guardrail_state(grounding_hints)
     aggregation = plan.operator_plan.get("aggregation")
     output_source_id = plan.output_bindings[0].source_id if plan.output_bindings else None
     has_ordering = bool(plan.operator_plan.get("direction"))
@@ -1961,13 +1967,13 @@ def _hard_invalid_reasons(
                 catalog,
                 grounding_hints,
             )
-            if (not relaxed_mode) and slot_priors and prior is None and (_has_strong_supported_prior(slot_priors) or lexical_overlap < 0.15) and not has_world_support:
+            if calibration_enabled and (not relaxed_mode) and slot_priors and prior is None and (_has_strong_supported_prior(slot_priors) or lexical_overlap < 0.15) and not has_world_support:
                 reasons.append("selected_output_binding_unsupported_by_calibrated_prior")
                 break
             if prior and prior.get("is_dummy_likely"):
                 reasons.append("selected_dummy_output_binding")
                 break
-            if (not relaxed_mode) and prior and prior.get("cross_source_join_risk") and binding.source_id != output_source_id:
+            if calibration_enabled and (not relaxed_mode) and prior and prior.get("cross_source_join_risk") and binding.source_id != output_source_id:
                 reasons.append("selected_output_binding_without_join_evidence")
                 break
 
@@ -1983,19 +1989,19 @@ def _hard_invalid_reasons(
     if has_ordering and order_target and plan.order_binding is not None:
         order_priors = grounding_hints.get("order_priors_by_target", {}).get(_semantic_key(order_target), {}) if grounding_hints else {}
         order_prior = _selected_order_prior(plan.order_binding, order_target, grounding_hints)
-        if order_priors and order_prior is None and ((not relaxed_mode) or _has_strong_nonfallback_prior(order_priors)):
+        if calibration_enabled and order_priors and order_prior is None and ((not relaxed_mode) or _has_strong_nonfallback_prior(order_priors)):
             reasons.append("selected_order_binding_unsupported_by_calibrated_prior")
         if plan.order_binding.source_id != output_source_id and plan.order_join_path is None:
             reasons.append("order_source_not_connected")
-        if (not relaxed_mode) and order_prior and order_prior.get("cross_source_join_risk") and plan.order_binding.source_id != output_source_id:
+        if calibration_enabled and (not relaxed_mode) and order_prior and order_prior.get("cross_source_join_risk") and plan.order_binding.source_id != output_source_id:
             reasons.append("selected_order_binding_without_join_evidence")
         if order_prior and order_prior.get("is_dummy_likely") and _binding_has_order_type_conflict(plan.order_binding):
             reasons.append("selected_low_confidence_order_binding")
-        elif (not relaxed_mode) and order_prior and order_prior.get("is_uncertain") and _binding_has_order_type_conflict(plan.order_binding):
+        elif calibration_enabled and (not relaxed_mode) and order_prior and order_prior.get("is_uncertain") and _binding_has_order_type_conflict(plan.order_binding):
             reasons.append("selected_low_confidence_order_binding")
     elif has_ordering and order_target:
         order_priors = grounding_hints.get("order_priors_by_target", {}).get(_semantic_key(order_target), {}) if grounding_hints else {}
-        if _has_strong_nonfallback_prior(order_priors):
+        if calibration_enabled and _has_strong_nonfallback_prior(order_priors):
             reasons.append("missing_order_binding_despite_calibrated_prior")
 
     if plan.plan_kind == "filter_join":
@@ -2009,9 +2015,9 @@ def _hard_invalid_reasons(
                 reasons.append("filter_binding_scale_mismatch")
             if filter_prior and filter_prior.get("is_dummy_likely"):
                 reasons.append("selected_low_confidence_filter_binding")
-            elif (not relaxed_mode) and filter_prior and filter_prior.get("is_uncertain"):
+            elif calibration_enabled and (not relaxed_mode) and filter_prior and filter_prior.get("is_uncertain"):
                 reasons.append("selected_low_confidence_filter_binding")
-            if (not relaxed_mode) and filter_prior and filter_prior.get("cross_source_join_risk") and binding.source_id != output_source_id:
+            if calibration_enabled and (not relaxed_mode) and filter_prior and filter_prior.get("cross_source_join_risk") and binding.source_id != output_source_id:
                 reasons.append("selected_filter_binding_without_join_evidence")
             if binding.source_id != output_source_id:
                 connected_path = next((path for path in plan.filter_join_paths if binding.source_id in path.path_source_ids), None)
@@ -2066,6 +2072,7 @@ def _semantic_complete_reasons(
     grounding_hints: Dict[str, Any] | None = None,
 ) -> List[str]:
     missing: List[str] = []
+    calibration_enabled, _ = _calibration_guardrail_state(grounding_hints)
     aggregation = plan.operator_plan.get("aggregation")
     output_source_id = plan.output_bindings[0].source_id if plan.output_bindings else None
     has_ordering = bool(plan.operator_plan.get("direction"))
@@ -2091,10 +2098,10 @@ def _semantic_complete_reasons(
                 catalog,
                 grounding_hints,
             )
-            if slot_priors and prior is None and (_has_strong_supported_prior(slot_priors) or lexical_overlap < 0.15) and not has_world_support:
+            if calibration_enabled and slot_priors and prior is None and (_has_strong_supported_prior(slot_priors) or lexical_overlap < 0.15) and not has_world_support:
                 missing.append("output_binding_not_supported_by_calibrated_prior")
                 break
-            if _is_semantically_low_confidence_prior(prior):
+            if calibration_enabled and _is_semantically_low_confidence_prior(prior):
                 missing.append("low_confidence_output_binding")
                 break
         filter_priors_by_attribute = grounding_hints.get("filter_priors_by_attribute", {})
@@ -2103,7 +2110,7 @@ def _semantic_complete_reasons(
             prior = filter_priors_by_attribute.get(filter_key, {}).get((binding.source_id, binding.column_name))
             if prior is None:
                 prior = filter_priors_by_attribute.get("*", {}).get((binding.source_id, binding.column_name))
-            if _is_semantically_low_confidence_prior(prior):
+            if calibration_enabled and _is_semantically_low_confidence_prior(prior):
                 missing.append("low_confidence_filter_binding")
                 break
 
@@ -2113,9 +2120,9 @@ def _semantic_complete_reasons(
         else:
             order_priors = grounding_hints.get("order_priors_by_target", {}).get(_semantic_key(order_target), {}) if grounding_hints else {}
             order_prior = _selected_order_prior(plan.order_binding, order_target, grounding_hints)
-            if order_priors and order_prior is None:
+            if calibration_enabled and order_priors and order_prior is None:
                 missing.append("order_binding_not_supported_by_calibrated_prior")
-            if _is_semantically_low_confidence_prior(order_prior):
+            if calibration_enabled and _is_semantically_low_confidence_prior(order_prior):
                 missing.append("low_confidence_order_binding")
             if _binding_has_order_type_conflict(plan.order_binding):
                 missing.append("order_binding_type_conflict")
@@ -2430,6 +2437,7 @@ def search_support_plans(
     obligation_sketch: ObligationSketch,
     catalog: WorkspaceCatalog,
     llm_grounding: Dict[str, Any] | None = None,
+    grounding_mode: str = "full",
     screening_mode: str = "full",
 ) -> Dict[str, Any]:
     question_tok = tokenize(instruction)
@@ -2448,13 +2456,23 @@ def search_support_plans(
         )
         llm_output_set, llm_filter_set, llm_family = grounding_to_binding_set(llm_grounding)
         grounding_hints = grounding_to_search_hints(llm_grounding)
-        grounding_hints = calibrate_grounding_hints(
-            grounding_hints,
-            catalog,
-            observable_sketch,
-            instruction,
-            extract_suggested_join_specs(llm_grounding),
-        )
+        if grounding_mode == "full":
+            grounding_hints = calibrate_grounding_hints(
+                grounding_hints,
+                catalog,
+                observable_sketch,
+                instruction,
+                extract_suggested_join_specs(llm_grounding),
+            )
+        else:
+            grounding_hints = dict(grounding_hints)
+            grounding_hints.setdefault("query_family", llm_grounding.get("query_family"))
+            grounding_hints.setdefault("query_family_confidence", float(llm_grounding.get("query_family_confidence", 0.0) or 0.0))
+            grounding_hints.setdefault("cross_source_join_risk", False)
+            grounding_hints.setdefault("strong_multi_source_output", False)
+            grounding_hints.setdefault("calibration_rules_fired", [])
+            grounding_hints.setdefault("calibration_mode", grounding_mode)
+            grounding_hints.setdefault("fallback_injected", {"output_slots": [], "filter_attributes": [], "order_targets": []})
         llm_family = grounding_hints.get("query_family")
         llm_family_confidence = float(grounding_hints.get("query_family_confidence", 0.0) or 0.0)
     operator_plan = infer_operator_hints(instruction)

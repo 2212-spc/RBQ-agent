@@ -60,8 +60,10 @@ class RunHdrbenchEvalTests(unittest.TestCase):
                 deliverable_spec: dict,
                 output_csv: Path,
                 obligation_mode: str = "full",
+                grounding_mode: str = "full",
             ) -> dict:
                 self.assertEqual("off", obligation_mode)
+                self.assertEqual("full", grounding_mode)
                 output_csv.parent.mkdir(parents=True, exist_ok=True)
                 pd.DataFrame({"Answer": ["ok"]}).to_csv(output_csv, index=False)
                 return {
@@ -69,6 +71,7 @@ class RunHdrbenchEvalTests(unittest.TestCase):
                     "files_touched": [],
                     "error": None,
                     "obligation_mode": obligation_mode,
+                    "grounding_mode": grounding_mode,
                     "search_summary": {"search_log": [{"kind": "direct_candidate"}]},
                 }
 
@@ -88,7 +91,79 @@ class RunHdrbenchEvalTests(unittest.TestCase):
             self.assertEqual("support_plan_agent", report["canonical_mode"])
             self.assertEqual("no_obligation", report["agent_variant"])
             self.assertEqual("off", report["records"][0]["meta"]["obligation_mode"])
+            self.assertEqual("full", report["records"][0]["meta"]["grounding_mode"])
             self.assertTrue((tmp / "out" / "report_support_plan_no_obligation.json").exists())
+
+    def test_support_plan_no_calibration_report_fields(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp_dir:
+            tmp = Path(tmp_dir)
+            bench_root = tmp / "bench"
+            workspace = tmp / "workspace"
+            workspace.mkdir(parents=True, exist_ok=True)
+            gold_path = tmp / "gold.csv"
+            pd.DataFrame({"Answer": ["ok"]}).to_csv(gold_path, index=False)
+
+            seed_dir = bench_root / "seed_case"
+            _write_json(seed_dir / "seed_report.json", {"seed_id": "seed_case"})
+            _write_json(
+                seed_dir / "variants" / "A" / "manifest_public.json",
+                {
+                    "instruction": "Return the answer column.",
+                    "splits": {"l2": {"full": str(workspace)}},
+                    "deliverable_spec": {
+                        "format": "csv",
+                        "required_columns": ["Answer"],
+                        "optional_columns": [],
+                        "order_required": False,
+                        "float_tolerance": 1e-6,
+                    },
+                    "gold_path": str(gold_path),
+                },
+            )
+            _write_json(
+                seed_dir / "variants" / "A" / "manifest_private.json",
+                {"gold_sql": "SELECT 'ok' AS Answer"},
+            )
+
+            def _fake_support_plan_agent(
+                instruction: str,
+                workspace: Path,
+                deliverable_spec: dict,
+                output_csv: Path,
+                obligation_mode: str = "full",
+                grounding_mode: str = "full",
+            ) -> dict:
+                self.assertEqual("full", obligation_mode)
+                self.assertEqual("no_calibration", grounding_mode)
+                output_csv.parent.mkdir(parents=True, exist_ok=True)
+                pd.DataFrame({"Answer": ["ok"]}).to_csv(output_csv, index=False)
+                return {
+                    "success": True,
+                    "files_touched": [],
+                    "error": None,
+                    "obligation_mode": obligation_mode,
+                    "grounding_mode": grounding_mode,
+                    "search_summary": {"search_log": [{"kind": "direct_candidate"}]},
+                }
+
+            with patch("evaluation.support_plan_agent.run_support_plan_agent", side_effect=_fake_support_plan_agent):
+                report = run_eval(
+                    bench_root=bench_root,
+                    mode="support_plan_no_calibration",
+                    out_dir=tmp / "out",
+                    split_filter="l2",
+                    view_filter="full",
+                    access_mode="public",
+                    variant_filter=["A"],
+                    seed_filter=[],
+                )
+
+            self.assertEqual("support_plan_no_calibration", report["mode"])
+            self.assertEqual("support_plan_agent", report["canonical_mode"])
+            self.assertEqual("no_calibration", report["agent_variant"])
+            self.assertEqual("full", report["records"][0]["meta"]["obligation_mode"])
+            self.assertEqual("no_calibration", report["records"][0]["meta"]["grounding_mode"])
+            self.assertTrue((tmp / "out" / "report_support_plan_no_calibration.json").exists())
 
 
 if __name__ == "__main__":
