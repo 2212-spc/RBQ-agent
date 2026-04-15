@@ -2319,8 +2319,14 @@ def _finalize_plan_candidate(
 ) -> Tuple[SupportPlan, Dict[str, Any]]:
     if screening_mode not in {"full", "off"}:
         raise ValueError(f"Unsupported screening_mode: {screening_mode}")
-    trace = verify_support_plan(plan, observable_sketch, obligation_sketch, catalog)
-    satisfied, unmet = obligations_from_trace(trace, obligation_sketch)
+    if screening_mode == "full":
+        trace = verify_support_plan(plan, observable_sketch, obligation_sketch, catalog)
+        satisfied, unmet = obligations_from_trace(trace, obligation_sketch)
+    else:
+        # In the no-screening ablation, do not let verification-derived trace
+        # signals leak back into candidate ranking.
+        trace = []
+        satisfied, unmet = [], []
     plan.satisfied_obligations = satisfied
     plan.unmet_obligations = unmet
     plan.plan_kind = family_name

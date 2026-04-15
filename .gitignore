@@ -42,6 +42,10 @@ outputs/tmp_ds_debug_*/
 outputs/full_support_path_*/
 outputs/full_support_path_no_screening_*/
 outputs/full_support_path_top1_struct_*/
+outputs/partial_half_seed_ids.txt
+outputs/partial_support_path_*_halfseed_v1/
+outputs/table3_common200_passrate_gpt4omini.json
+outputs/table3_no_calibration_common300.json
 
 spider__*/
 

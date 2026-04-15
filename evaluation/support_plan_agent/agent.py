@@ -194,6 +194,7 @@ def run_support_plan_agent(
     candidates = candidates[:3]
 
     if selection_mode == "top1_struct":
+        candidates = [candidates[0]]
         plan = candidates[0]
         plan_ir = build_support_plan_ir(plan, observable_sketch, obligation_sketch, catalog)
         compile_meta = compile_support_plan(plan, plan_ir, catalog, deliverable_spec, output_csv)
